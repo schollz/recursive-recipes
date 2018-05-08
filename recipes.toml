@@ -35,6 +35,7 @@ Grind peppercorn in a grinder.
 
 [[recipe]]
 time = "52560h"
+scales = true
 directions = """
 Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
 Wait about 6 years for the tree to grow, and then harvest the apples by picking them off the tree.
@@ -42,150 +43,127 @@ Wait about 6 years for the tree to grow, and then harvest the apples by picking 
 
 	[[recipe.product]]
 		name="apples"
-		# 1 tree gives about 10 bushels which is 1500 cups
-		cups = 1500.0
+		# https://www.wyzant.com/resources/answers/54211/how_many_trees_should_be_planted_on_an_acre_in_order_to_get_the_highest_yield
+		# one tree ~ 30 bushels
+		cups = 4468.4
 
 	[[recipe.reactant]]
 		name="soil"
 		# 600 cups is approximately 5^3 cubic feet of dirt
-		cups = 15000.0
+		cups = 600.0
+
+
+[[recipe]]
+time = "2892h"
+scales = true
+directions = """
+Grow beans in full sun in well-drained soil rich in organic matter with a soil pH of 6.0 to 6.8. Prepare planting beds in advance by working in plenty of aged compost. Avoid planting beans where soil nitrogen is high or where green manure crops have just grown; these beans will produce green foliage but few beans. Beans grow best in temperatures between 50° and 85°F. 
+Start beans indoors as early as 3 or 4 weeks before the average last frost date in spring for transplanting into the garden a week or two after the last frost. 
+Dry beans will be ready for harvest 70 to 120 after sowing when plants have matured and leaves have turned brown or fallen. To test for harvest, bite a couple of seeds; if they will hardly dent they are dry and ready for harvest. Harvest pods when they are completely dry. If pods have withered but are still moist, pick them and then spread them on a flat screen or surface in a warm, protected place where they can thoroughly dry. Plant also can be taken up whole and hung upside down to dry. Pods that are fully dry will split open to reveal the dried beans. Dry beans can be shelled by threshing in a burlap sack or by hand.
+"""
+
+	[[recipe.product]]
+		name="dried beans"
+		# http://www.cornandsoybeandigest.com/blog/usda-projects-record-corn-and-soybean-crop-2016
+		# one acre = 43560 sq ft, gives  ~ 56 bushels
+		# 25  / 43560 *56 bushels to cups ~ 4.8 cups
+		cups = 4.8
+
+	[[recipe.reactant]]
+		name="soil"
+		# 600 cups is approximately 5^3 cubic feet of dirt (25 sq ft)
+		cups = 600.0
+
+
+
+[[recipe]]
+time = "13h30m"
+scales = true
+directions = """
+Cover dried beans with water. Soak overnight.
+Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
+Simmer the beans until they are tender, about 1 1/2 hours.
+"""
+
+	[[recipe.product]]
+		name="beans"
+		cups = 1.5
+
+	[[recipe.reactant]]
+		name="dried beans"
+		cups = 2.0
 
 	[[recipe.reactant]]
 		name="water"
-		# http://homeguides.sfgate.com/much-water-should-one-give-fruit-tree-48911.html
-		# about 16 gallons per day
-		cups = 560640.0
+		measure = "cup"
+		cups = 20.0
 
 
-# [[recipe]]
-# time = "2892h"
-# directions = """
-# Grow beans in full sun in well-drained soil rich in organic matter with a soil pH of 6.0 to 6.8. Prepare planting beds in advance by working in plenty of aged compost. Avoid planting beans where soil nitrogen is high or where green manure crops have just grown; these beans will produce green foliage but few beans. Beans grow best in temperatures between 50° and 85°F. 
-# Start beans indoors as early as 3 or 4 weeks before the average last frost date in spring for transplanting into the garden a week or two after the last frost. Start beans indoors in a biodegradable peat or paper pot that can be set whole into the garden so as not to disturb plant roots. Beans can continue in the garden until the first frost in fall. Dry beans are allowed to stay on the plant until leaves have fallen and pods have dried and withered.
-# Sow beans 1 to 1½ inch deep. Plant bush beans 3 to 4 inches apart; set rows 18 to 24 inches apart. Plant pole beans 4 to 6 inches apart; set rows 30 to 36 inches apart. Set poles, stakes, or supports in place at planting time. Pole beans also can be planted in inverted hills–5 or 6 seeds to a hill; space hills 40 inches apart. Thin strong seedlings from 4 to 6 inches apart. Remove weaker seedlings by cutting them off at soil level with a scissors being careful not to disturb the roots of other seedlings. Bean can be crowded; they will use each other for support.
-# Grow beans in soil that is evenly moist. Bean seeds may crack and germinate poorly if the soil moisture is too high at sowing. Do not soak seeds in advance of planting and do not over-water after sowing. Keep the soil evenly moist during flowering and pod formation. Rain or overhead irrigation during flowering can cause flowers and small pods to fall off. Once the soil temperature averages greater than 60°F, mulch to conserve moisture.
-# Beans are best fertilized with aged garden compost; they do not require extra nitrogen. Beans set up a mutual exchange with soil microorganisms called nitrogen-fixing bacteria which produce the soil nitrogen beans require. Avoid using green manures or nitrogen-rich fertilizers.
-# Dry beans will be ready for harvest 70 to 120 after sowing when plants have matured and leaves have turned brown or fallen. To test for harvest, bite a couple of seeds; if they will hardly dent they are dry and ready for harvest. Harvest pods when they are completely dry. If pods have withered but are still moist, pick them and then spread them on a flat screen or surface in a warm, protected place where they can thoroughly dry. Plant also can be taken up whole and hung upside down to dry. Pods that are fully dry will split open to reveal the dried beans. Dry beans can be shelled by threshing in a burlap sack or by hand.
-# """
+[[recipe]]
+time = "45m"
+directions = """
+Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
+Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
+Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
+"""
 
-# 	[[recipe.product]]
-# 		name="dried beans"
-# 		measure = "cup"
-# 		cups = 200
+	[[recipe.product]]
+		name="refried beans"
+		measure = "cup"
+		cups = 1.5
 
-# 	[[recipe.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="beans"
+		measure = "cup"
+		cups = 2.5
 
-# 	[[recipe.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="butter"
+		cups = 0.125
 
-# 	[[recipe.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="onion"
+		cups = 1.0
 
-# [[recipe]]
-# time = "13h30m"
-# directions = """
-# Cover dried beans with water. Soak overnight.
-# Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
-# Simmer the beans until they are tender, about 1 1/2 hours.
-# """
+	[[recipe.reactant]]
+		name="water"
+		cups = 0.25
 
-# 	[[recipe.product]]
-# 		name="beans"
-# 		measure = "cup"
-# 		cups = 1.5
-
-# 	[[recipe.reactant]]
-# 		name="dried beans"
-# 		measure = "cup"
-# 		cups = 2
-
-# 	[[recipe.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		cups = 20
-
-
-# [[recipe]]
-# time = "45m"
-# directions = """
-# Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
-# Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
-# Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
-# """
-
-# 	[[recipe.product]]
-# 		name="refried beans"
-# 		measure = "cup"
-# 		cups = 1.5
-
-# 	[[recipe.reactant]]
-# 		name="beans"
-# 		measure = "cup"
-# 		cups = 2.5
-
-# 	[[recipe.reactant]]
-# 		name="butter"
-# 		measure = "tablespoon"
-# 		cups = 2
-
-# 	[[recipe.reactant]]
-# 		name="onion"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		cups = 0.25
-
-# 	[[recipe.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="salt"
+		measure = "teaspoon"
+		cups = 0.0208
 
 
 
-# [[recipe]]
-# time = "35040h" # 4 years
-# directions = """
-# Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
-# Peppercorn seeds can take up to thirty days to germinate at temperatures between seventy-five and eighty-five degrees. At lower temperatures, they germinate slowly or not at all.
-# Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
-# In other parts of the country, plant peppercorns in large pots. Grow them outdoors during the summer and move them indoors during the winter, or grow them year-round in a conservatory or greenhouse. Houseplants need bright light and consistent moisture. Spray the foliage regularly with a bottle of water to increase humidity. Don't allow room temperatures to fall below sixty degrees.
-# Pepper plants have long, vigorous vines and can reach twelve to fifteen feet high. The plants need a strong trellis or structure to scramble over. Indoors, you can install a trellis in a large pot or even grow them as a hanging plant instead.
-# Peppers need moderately fertile soil to perform well. Fertilize them in the spring before new vigorous growth emerges with a balanced organic fertilizer.
-# Growth will slow somewhat during the winter as temperatures cool. Continue to water the plants occasionally to keep the soil slightly moist.
-# Peppers need a long, long growing season to produce peppercorns. Fortunately, the flowers are attractive in their own right and the foliage is glossy and evergreen. The cream, white, or yellow flowers appear from spring through summer, followed by the slow fruit production.
-# Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
-# White peppercorn is made by removing the red hull. The remaining peppercorns are then dried and ground into a mild-tasting form of pepper. Finally, green pepper is made by harvesting the peppercorns while they are still green and drying them.
-# """
+[[recipe]]
+time = "35040h" # 4 years
+scales = true
+directions = """
+Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
+Peppercorn seeds can take up to thirty days to germinate at temperatures between seventy-five and eighty-five degrees. At lower temperatures, they germinate slowly or not at all.
+Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
+In other parts of the country, plant peppercorns in large pots. Grow them outdoors during the summer and move them indoors during the winter, or grow them year-round in a conservatory or greenhouse. Houseplants need bright light and consistent moisture. Spray the foliage regularly with a bottle of water to increase humidity. Don't allow room temperatures to fall below sixty degrees.
+Pepper plants have long, vigorous vines and can reach twelve to fifteen feet high. The plants need a strong trellis or structure to scramble over. Indoors, you can install a trellis in a large pot or even grow them as a hanging plant instead.
+Peppers need moderately fertile soil to perform well. Fertilize them in the spring before new vigorous growth emerges with a balanced organic fertilizer.
+Growth will slow somewhat during the winter as temperatures cool. Continue to water the plants occasionally to keep the soil slightly moist.
+Peppers need a long, long growing season to produce peppercorns. Fortunately, the flowers are attractive in their own right and the foliage is glossy and evergreen. The cream, white, or yellow flowers appear from spring through summer, followed by the slow fruit production.
+Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
+White peppercorn is made by removing the red hull. The remaining peppercorns are then dried and ground into a mild-tasting form of pepper. Finally, green pepper is made by harvesting the peppercorns while they are still green and drying them.
+"""
 
-# 	[[recipe.product]]
-# 		name="peppercorn"
-# 		measure = "whole"
-# 		cups = 5000
+	[[recipe.product]]
+		name="peppercorn"
+		# 275 kg per hectare http://www.agrifarming.in/black-pepper-farming/
+		# 1 hectare = 107639 sq ft
+		# black pepper density ~ 0.5 kg/l https://www.sciencedirect.com/science/article/pii/S0189724115300618
+		# 25 / 107639 * 275 kg / (0.5 kg/l)		
+		cups = 0.5
 
-# 	[[recipe.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="soil"
+		# 600 cups is approximately 5^3 cubic feet of dirt
+		cups = 600.0
 
 
 # [[recipe]]
