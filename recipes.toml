@@ -1,0 +1,1626 @@
+[[recipe]]
+time = "730h30m"
+scales = true
+directions = """
+Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged. Cover the jar or bottle and give it a good shake. Store the jar or bottle of vanilla beans in a cool, dark place for at least one month, shaking it from time to time. Taste the extract and let it infuse longer if you want a stronger flavor. 
+"""
+
+	[[recipe.product]]
+		name="vanilla"
+		cups = 0.875
+
+	[[recipe.reactant]]
+		name="alcohol"
+		cups = 1.0
+
+	[[recipe.reactant]]
+		name="vanilla beans"
+		cups = 1.0
+
+[[recipe]]
+time = "5m"
+directions = """
+Grind peppercorn in a grinder.
+"""
+
+	[[recipe.product]]
+		name="pepper"
+		measure = "tablespoon"
+		cups = 0.125
+
+	[[recipe.reactant]]
+		name="peppercorn"
+		measure = "whole"
+		cups = 0.125
+
+[[recipe]]
+time = "52560h"
+directions = """
+Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
+Wait about 6 years for the tree to grow, and then harvest the apples by picking them off the tree.
+"""
+
+	[[recipe.product]]
+		name="apples"
+		# 1 tree gives about 10 bushels which is 1500 cups
+		cups = 1500.0
+
+	[[recipe.reactant]]
+		name="soil"
+		# 600 cups is approximately 5^3 cubic feet of dirt
+		cups = 15000.0
+
+	[[recipe.reactant]]
+		name="water"
+		# http://homeguides.sfgate.com/much-water-should-one-give-fruit-tree-48911.html
+		# about 16 gallons per day
+		cups = 560640.0
+
+
+# [[recipe]]
+# time = "2892h"
+# directions = """
+# Grow beans in full sun in well-drained soil rich in organic matter with a soil pH of 6.0 to 6.8. Prepare planting beds in advance by working in plenty of aged compost. Avoid planting beans where soil nitrogen is high or where green manure crops have just grown; these beans will produce green foliage but few beans. Beans grow best in temperatures between 50° and 85°F. 
+# Start beans indoors as early as 3 or 4 weeks before the average last frost date in spring for transplanting into the garden a week or two after the last frost. Start beans indoors in a biodegradable peat or paper pot that can be set whole into the garden so as not to disturb plant roots. Beans can continue in the garden until the first frost in fall. Dry beans are allowed to stay on the plant until leaves have fallen and pods have dried and withered.
+# Sow beans 1 to 1½ inch deep. Plant bush beans 3 to 4 inches apart; set rows 18 to 24 inches apart. Plant pole beans 4 to 6 inches apart; set rows 30 to 36 inches apart. Set poles, stakes, or supports in place at planting time. Pole beans also can be planted in inverted hills–5 or 6 seeds to a hill; space hills 40 inches apart. Thin strong seedlings from 4 to 6 inches apart. Remove weaker seedlings by cutting them off at soil level with a scissors being careful not to disturb the roots of other seedlings. Bean can be crowded; they will use each other for support.
+# Grow beans in soil that is evenly moist. Bean seeds may crack and germinate poorly if the soil moisture is too high at sowing. Do not soak seeds in advance of planting and do not over-water after sowing. Keep the soil evenly moist during flowering and pod formation. Rain or overhead irrigation during flowering can cause flowers and small pods to fall off. Once the soil temperature averages greater than 60°F, mulch to conserve moisture.
+# Beans are best fertilized with aged garden compost; they do not require extra nitrogen. Beans set up a mutual exchange with soil microorganisms called nitrogen-fixing bacteria which produce the soil nitrogen beans require. Avoid using green manures or nitrogen-rich fertilizers.
+# Dry beans will be ready for harvest 70 to 120 after sowing when plants have matured and leaves have turned brown or fallen. To test for harvest, bite a couple of seeds; if they will hardly dent they are dry and ready for harvest. Harvest pods when they are completely dry. If pods have withered but are still moist, pick them and then spread them on a flat screen or surface in a warm, protected place where they can thoroughly dry. Plant also can be taken up whole and hung upside down to dry. Pods that are fully dry will split open to reveal the dried beans. Dry beans can be shelled by threshing in a burlap sack or by hand.
+# """
+
+# 	[[recipe.product]]
+# 		name="dried beans"
+# 		measure = "cup"
+# 		cups = 200
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "13h30m"
+# directions = """
+# Cover dried beans with water. Soak overnight.
+# Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
+# Simmer the beans until they are tender, about 1 1/2 hours.
+# """
+
+# 	[[recipe.product]]
+# 		name="beans"
+# 		measure = "cup"
+# 		cups = 1.5
+
+# 	[[recipe.reactant]]
+# 		name="dried beans"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 20
+
+
+# [[recipe]]
+# time = "45m"
+# directions = """
+# Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
+# Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
+# Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
+# """
+
+# 	[[recipe.product]]
+# 		name="refried beans"
+# 		measure = "cup"
+# 		cups = 1.5
+
+# 	[[recipe.reactant]]
+# 		name="beans"
+# 		measure = "cup"
+# 		cups = 2.5
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="onion"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+
+
+# [[recipe]]
+# time = "35040h" # 4 years
+# directions = """
+# Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
+# Peppercorn seeds can take up to thirty days to germinate at temperatures between seventy-five and eighty-five degrees. At lower temperatures, they germinate slowly or not at all.
+# Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
+# In other parts of the country, plant peppercorns in large pots. Grow them outdoors during the summer and move them indoors during the winter, or grow them year-round in a conservatory or greenhouse. Houseplants need bright light and consistent moisture. Spray the foliage regularly with a bottle of water to increase humidity. Don't allow room temperatures to fall below sixty degrees.
+# Pepper plants have long, vigorous vines and can reach twelve to fifteen feet high. The plants need a strong trellis or structure to scramble over. Indoors, you can install a trellis in a large pot or even grow them as a hanging plant instead.
+# Peppers need moderately fertile soil to perform well. Fertilize them in the spring before new vigorous growth emerges with a balanced organic fertilizer.
+# Growth will slow somewhat during the winter as temperatures cool. Continue to water the plants occasionally to keep the soil slightly moist.
+# Peppers need a long, long growing season to produce peppercorns. Fortunately, the flowers are attractive in their own right and the foliage is glossy and evergreen. The cream, white, or yellow flowers appear from spring through summer, followed by the slow fruit production.
+# Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
+# White peppercorn is made by removing the red hull. The remaining peppercorns are then dried and ground into a mild-tasting form of pepper. Finally, green pepper is made by harvesting the peppercorns while they are still green and drying them.
+# """
+
+# 	[[recipe.product]]
+# 		name="peppercorn"
+# 		measure = "whole"
+# 		cups = 5000
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "2400h" # 100 days
+# directions = """
+# Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
+# Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
+# Planting and spacing. Sow corn 1 to 1½ inches deep. Plant seeds 2 to 4 inches apart in short, side-by-side rows to form a block, rather than one long row. You can also grow several plants on mounds or inverted hills. Planting in a block or clump will help ensure pollination. Thin plants from 12 to 18 inches apart for short varieties and 18 to 24 inches apart for tall varieties once plants are 4 to 6 inches tall. Corn planted too closely will require more water and fertilizer and may offer a smaller yield. For a continuous harvest, succession plant corn every two weeks or plant early, midseason, and late varieties at the same time.
+# Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
+# """
+
+# 	[[recipe.product]]
+# 		name="corn"
+# 		measure = "whole"
+# 		cups = 50
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "3600h" # 100 days
+# directions = """
+# Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
+# Growing onions requires abundant sun and good drainage, and they grow best when the soil pH ranges between 6.0 and 6.8. Raised beds or raised rows made by mounding up soil are ideal, especially if your soil is heavy clay. Mix a 2-inch layer of compost into the soil before placing an organic or timed-release fertilizer into planting furrows, following label rates. Set plants 1 inch deep, so that their roots are well covered with soil but the top of the plant’s neck is not buried too deeply. You don’t want the part of the neck where the leaves grow away from the clear sheath to collect soil or water down between the young leaves, or they can rot. Space plants 6 inches apart in furrows 12 inches apart. Plants will appreciate a starter solution of liquid fertilizer after planting.
+# Onions roots are shallow and not very efficient at taking up moisture, so they need a steady supply of water to grow without interruption. Although they actually recover well from drought and start growing again when watered, it is best to keep the soil consistently moist until the bulbs enlarge.
+# For full-sized bulbs, let onions grow and mature. They are ready to harvest when the bulbs are big and the tops begin to turn yellow and fall over. Pull them up, shake off the soil, and lay them out to cure with the tops still attached. Any warm, airy location is a good place to do this; you can even sling them over a fence as long as they aren’t rained upon. Bulbs must stay dry and have good air circulation. As the onions cure, the roots will shrivel and the necks above the bulbs will slowly dry – a natural process that helps to seal the top of the bulb, making the onions less likely to rot. After 7 to 10 days, clip off the tops of the onions and the roots with pruning shears, remove as much dry dirt as possible without taking off the papery outer skins, and store your onions in a cool place. Very sweet, juicy onions may be stored, wrapped in newspaper or paper towels, in the fridge.
+# """
+
+
+# 	[[recipe.product]]
+# 		name="onion"
+# 		measure = "whole"
+# 		cups = 50
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "6570h" # 9 months
+# directions = """
+# Garlic can be planted in the spring as soon as the ground can be worked, but fall planting is recommended for most gardeners. Plant in the fall and youâll find that your bulbs are bigger and more flavorful when you harvest the next summer.
+# In areas that get a hard frost, plant garlic 6 to 8 weeks before that frost. In southern areas, February or March is a better time to plant.
+# Break apart cloves from bulb a few days before planting, but keep the papery husk on each individual clove.
+# Plant cloves about one month before the ground freezes. 
+# Do not plant cloves from the grocery store. They may be unsuited varieties for your area, and most are treated to make their shelf life longer, making them harder to grow. Instead, get cloves from a mail order seed company or a local nursery.
+# Ensure soil is well-drained with plenty of organic matter. Select a sunny spot.
+# Place cloves 4 inches apart and 2 inches deep, in their upright position (the wide root side facing down and pointed end facing up).
+# In the spring, as warmer temperatures come, shoots will emerge through the ground.
+# """
+
+# 	[[recipe.product]]
+# 		name="garlic"
+# 		measure = "whole"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "4382h"
+# directions = """
+# Wash the apples and cut them into small pieces, keeping skin, core and stems.
+# Make a mush of the apples and then strain it through a muslin bag.
+# Pour the juice into a clean, dark glass jug and cover the top with several layers of cheesecloth held in place with rubber bands.
+# Leave the juice in a cool, dark place for about six months. 
+# Take the liquid, strain, bottle, and cork.
+# """
+
+# 	[[recipe.reactant]]
+# 		name="apples"
+# 		measure = "whole"
+# 		cups = 12
+
+# 	[[recipe.product]]
+# 		name="vinegar"
+# 		measure = "cup"
+# 		cups = 3
+
+# [[recipe]]
+# time = "12h10m"
+# directions = """
+# Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
+# Stir in 1/2 c. water and let rest at room temperature overnight.
+# Move mixture to blender and add veingar, sugar, salt, and garlic. Liquefy. Add more vinegar if nessecary.
+# Store in fridge.
+# """
+
+# 	[[recipe.product]]
+# 		name="mustard"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="dry mustard"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="vinegar"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="sugar"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="garlic"
+# 		measure = "whole"
+# 		cups = 2
+
+
+# [[recipe]]
+# time = "10m"
+# directions = """
+# Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
+# While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
+# """
+
+# 	[[recipe.product]]
+# 		name="mayonnaise"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="egg yolk"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="mustard"
+# 		measure = "teaspoon"
+# 		cups = 1.5
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="lemon juice"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="olive oil"
+# 		measure = "cup"
+# 		cups = 1.25
+
+# [[recipe]]
+# time = "1m"
+# directions = """
+# Break egg open a cup. Keep the yolk inside the egg shells. Move the yolk between the two egg shells, letting the egg white fall off.
+# """
+
+# 	[[recipe.product]]
+# 		name="egg yolk"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.product]]
+# 		name="egg white"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "24m"
+# directions = """
+# In a large bowl whisk together the dry ingredients. 
+# Beat the wet ingredients together and then add to the dry ingredients.
+# Use a large skillet to cook pancakes one by one.
+# """
+
+# 	[[recipe.product]]
+# 		name="pancakes"
+# 		measure = "whole"
+# 		cups = 8
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 1.25
+
+# 	[[recipe.reactant]]
+# 		name="baking soda"
+# 		measure = "teaspoon"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="baking powder"
+# 		measure = "teaspoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="sugar"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="buttermilk"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# [[recipe]]
+# time = "15h10m"
+# directions = """
+# In a large sauce pan, warm milk until uits on the verge of boil. Stir it constantly.
+# Remove the milk from heat, pour into a bowl and let it cool until its lukewarm.
+# Stir in some yogurt (from the store or from a friend) and cover with a clean damp towel overnight.
+# Put a piece of cheesecloth in a sieve over a bowl and scoop the yogurt into it and let it drain for a few hours until the yogurt is as thick as you would like it. Store the drained yogurt in a jar to use as whey.
+# """
+
+# 	[[recipe.product]]
+# 		name="yogurt"
+# 		measure = "cup"
+# 		cups = 4
+
+# 	[[recipe.product]]
+# 		name="whey"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="milk"
+# 		measure = "gallon"
+# 		cups = 0.5
+
+
+# [[recipe]]
+# time = "15m"
+# directions = """
+# Arrange a muffin in halves on a plate
+# Fry bacon until it becomes dark and add bacon to each muffin
+# Add poached egg to muffin
+# Pour hollaindaise sauce over each egg
+# """
+
+# 	[[recipe.product]]
+# 		name="eggs benedict"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="hollandaise sauce"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="english muffin"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="slices of bacon"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="poached egg"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "15m"
+# directions = """
+# Whisk egg yolks and lemon until very thick in a metal bowl.
+# Put the bowl over simmering water and whisk constantly. Drizzle in melted butter. Whisk until white and billowy.
+# Add salt and pepper to taste.
+# """
+
+# 	[[recipe.product]]
+# 		name="hollandaise sauce"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="egg yolk"
+# 		measure = "whole"
+# 		cups = 3
+
+# 	[[recipe.reactant]]
+# 		name="lemon juice"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="pepper"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# [[recipe]]
+# time = "24m"
+# directions = """
+# Boil water in a large pan on the stove.
+# Add 2 tablespoons of vinegar and stir the water carefully so it looks like a whirlpool.
+# Crack the egg into a cup and then carefully pour the egg into the boiling water.
+# If the egg whites separate, carefully use a spoon to gently push it back towards the yolk.
+# Turn off the heat and let the egg cook for about 4 minutes.
+# """
+
+# 	[[recipe.product]]
+# 		name="poached egg"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="vinegar"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 20
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "3h30m"
+# directions = """
+# Combine 1/4 c. warm water, 1 tbl yeast yeast, 2 tbl. sugar, 2 c. flour and 2 tsp. salt in a bowl. Add the egg, milk, butter and continue beating until creamy. Add the remaining flour if nessecary. Keep dough moist.
+# Remove dough and oil the bowl. Return the dough to bowl and cover with dish towel until doubled, about 2 hours.
+# Coat a work surface with a little bit of cornmeal. Roll the dough out about 1/2 inch thick and cut out muffins.
+# Heat a cast-iron skillet until very hot.
+# Put muffins in pan and immedietly turn down heat to medium. Cook muffins 10 to 15 minutes per side.
+# Remove muffins to a cooling rack.
+# """
+
+# 	[[recipe.product]]
+# 		name="english muffin"
+# 		measure = "whole"
+# 		cups = 8
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="sugar"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 4
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="milk"
+# 		measure = "cup"
+# 		cups = 1.25
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="cornmeal"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+
+# [[recipe]]
+# time = "48h"
+# directions = """
+# Go out to your wheatfield and wait for stalks to turn from green to yellow or brown. The heads, heavy with grain, should tip toward the earth. This means it's time to test the grain. Choose a head, pick out a few grains, and pop them into your mouth. If they are soft and doughy, the grain is not yet ready. Keep testing. One day the grains will be firm and crunchy, and it will be time to harvest.
+
+# When you are ready to harvest, if you have a small enough plot, you can just snip the heads of wheat off the stems. It goes quickly if your wheat field is no larger than about 6 feet wide by 25 feet long. If you like the old-time way of doing things and are going to harvest a larger amount of grain, you might use a scythe and cradle. 
+
+# The next step is to bind the grain into sheaves, each about 12 to 14 inches in circumference a bunch you can hold comfortably in your hands. Bind the same day you cut the wheat. It's nice to have two people taking turns cutting and binding. You can bind with cord or baler's twine or even with some of the wheat stems, twisting them in a way that holds the bundle firm.
+
+# Stack the wheat sheaves upright in a well-ventilated, dry location safe from grain-eating animals. Our ancestors stacked sheaves to make shocks in the field, but with small quantities, it's easy to bring the sheaves in out of the weather. The grain has been cured when it is hard, shatters easily, and cannot be dented with your thumbnail.
+# """
+
+# 	[[recipe.product]]
+# 		name="cured wheat"
+# 		measure = "whole"
+# 		cups = 24
+
+# 	[[recipe.reactant]]
+# 		name="field of wheat"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "2h"
+# directions = """
+# Take your cured wheat and thresh the grain to separate the straw and chaff from it. You can go about this in any number of ways. One method is flailing. A flail consists of one piece of wood about 3 feet long the handle attached with a leather thong to a shorter piece about 2 feet long. The shorter piece is flung at the heads of grain repeatedly, shattering a few heads each time. If you are using this method, you can expect to produce about 3 pounds of wheat in 20 to 25 minutes. That's slow work. Also, there's a trick to learning to swing the tail without rapping yourself on the head.
+# Now you can winnow. The usual method for winnowing is pouring the grain from one container to another, letting either the wind or the breeze from an electric fan push the lighter chaff out of the grain. Repeat the process a few times to get the grain as chaff-free as possible until you have as many wheat berries as you need.
+# """
+
+# 	[[recipe.product]]
+# 		name="wheat berries"
+# 		measure = "cup"
+# 		cups = 40
+
+# 	[[recipe.reactant]]
+# 		name="cured wheat"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "30m"
+# directions = """
+# Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
+# Store the whole wheat flour and wheat bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the wheat in the refrigerator or freezer for up to 2 months.
+# """
+
+# 	[[recipe.product]]
+# 		name="whole wheat flour"
+# 		measure = "cup"
+# 		cups = 4
+
+# 	[[recipe.product]]
+# 		name="wheat bran"
+# 		measure = "cup"
+# 		cups = 4
+
+# 	[[recipe.reactant]]
+# 		name="wheat berries"
+# 		measure = "cup"
+# 		cups = 10
+
+
+# [[recipe]]
+# time = "3h"
+# directions = """
+# Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
+# Set the sieve over a large bowl and sift the flour. After a couple minutes, you will see the germ and bran remaining in the sieve and the endosperm in the bowl. Place the germ/bran into a separate small bowl.
+# Repeat with the remaining freshly ground flour until it has all been sifted.
+# Repeat the sifting process again, but this time use the flour that has already been sifted. You will again see the germ/bran separate in the sieve. Place the germ/bran into a separate small bowl and repeat the sifting process until all the freshly ground flour has been sifted twice.
+# Store the flour and germ/bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the germ/bran in the refrigerator or freezer for up to 2 months. Keep the wheat middlings that are not sifted for making semolina flour.
+# """
+
+# 	[[recipe.product]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 8
+
+# 	[[recipe.product]]
+# 		name="wheat middlings"
+# 		measure = "cup"
+# 		cups = 8
+
+# 	[[recipe.reactant]]
+# 		name="wheat berries"
+# 		measure = "cup"
+# 		cups = 10
+
+# [[recipe]]
+# time = "30m"
+# directions = """
+# Grind the wheat middlings to a coarse consistency.
+# """
+
+# 	[[recipe.product]]
+# 		name="semolina flour"
+# 		measure = "cup"
+# 		cups = 9
+
+# 	[[recipe.reactant]]
+# 		name="wheat middlings"
+# 		measure = "cup"
+# 		cups = 10
+
+
+# [[recipe]]
+# time = "2920h"
+# directions = """
+# Plant winter wheat in fall to allow for six to eight weeks of growth before the soil freezes. This allows time for good root development. If the wheat is planted too early, it may smother itself the following spring and it could be vulnerable to some late-summer insects that won't be an issue in the cooler fall weather. If winter wheat is planted too late, it will not overwinter well.
+# Spring wheat should be planted as early as the ground can be worked in spring. Do the initial plowing in the fall, then till and sow in the spring. To ensure an evenly distributed crop, figure out the amount of seed you'll need, divide it into two piles, and broadcast one part in one direction, such as from east to west. Then broadcast the remainder from north to south. A cyclone crank seeder will do an even job, but broadcasting by hand is fine for a small plot. You also can plant it in rows like other crops.
+# Cover the seed by rototilling or raking it in to a depth of 2 to 2 1/2 inches for winter wheat and 1 to 1 1/2 inches for spring wheat. For best results, roll or otherwise firm the bed to ensure good seed-soil contact.
+# """
+
+# 	[[recipe.product]]
+# 		name="field of wheat"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "50m"
+# directions = """
+# Mix together 1 tsp baking soda, 2 cup flour and 1/2 tsp salt.
+# Mix in 1/4 c. olive oil and 1 tbl. lard and slowly add the water. Knead the resulting dough.
+# Let the dough sit for 30 minutes.
+# Cut the dough into 8 small sections. Heat up a cast-iron pan.
+# Flatten each dough section and cook on a hot pan for 1 minute on each side.
+# """
+
+# 	[[recipe.product]]
+# 		name="tortilla"
+# 		measure = "whole"
+# 		cups = 8
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="baking soda"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="olive oil"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="lard"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 0.75
+
+
+
+# [[recipe]]
+# time = "50m"
+# directions = """
+# In a large bowl stir together 1-3/4 cups of the flour and the salt. Make a well in the center of the flour mixture.
+# In a small bowl combine egg yolks and whole egg, the water, and oil. Add the egg mixture to the flour mixture, stirring to combine.
+# Sprinkle a clean kneading surface with the remaining flour. Turn dough out onto floured surface. Knead the dough until it is smooth and elastic (8 to 10 minutes total).
+# Cover the dough and let rest for 10 minutes.
+# Divide the dough into four equal portions. Let the dough stand, uncovered, about 20 minutes.
+# Cut the noodles into strips. Spread the noodles on a wire cooling rack.
+# """
+
+# 	[[recipe.product]]
+# 		name="noodles"
+# 		measure = "whole"
+# 		cups = 24
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="semolina flour"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 0.333
+
+# 	[[recipe.reactant]]
+# 		name="olive oil"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 2
+
+# [[recipe]]
+# time = "30m"
+# directions = """
+# Cream together butter and brown sugar. 
+# When blended together added vanilla and beaten eggs. 
+# Mix in dry ingredients.
+# Add chocolate chips and oatmeal and put in fridge.
+# Spoon balls of cookie dough onto a cookie sheet.
+# Bake at 375F for 10 to 14 minutes, until firm and brown.
+# """
+
+# 	[[recipe.product]]
+# 		name="cookies"
+# 		measure = "cup"
+# 		cups = 10
+
+# 	[[recipe.reactant]]
+# 		name="whole wheat flour"
+# 		measure = "cup"
+# 		cups = 1.5
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="baking powder"
+# 		measure = "teaspoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="baking soda"
+# 		measure = "teaspoon"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="brown sugar"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 5
+
+# 	[[recipe.reactant]]
+# 		name="oatmeal"
+# 		measure = "cup"
+# 		cups = 5
+
+# 	[[recipe.reactant]]
+# 		name="chocolate chips"
+# 		measure = "cup"
+# 		cups = 3
+
+
+# [[recipe]]
+# time = "20m"
+# directions = """
+# Heat 1 tablespoon salted butter in a cast-iron or nonstick skillet over medium-low heat. 
+# Press the sandwich slightly and place it in the skillet. 
+# Cook until golden on the bottom, 3 to 5 minutes. 
+# Flip, adding more butter to the pan if needed, and 
+# Cook until the other side is golden and the cheese melts, 3 to 5 more minutes.
+# """
+
+# 	[[recipe.product]]
+# 		name="grilled cheese sandwich"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="cheese sandwich"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "48h"
+# directions = """
+# Make sure chickens always have access to chicken feed (seed, egg shells) and water.
+# Give them a fence and possibly a net to protect from predators.
+# Provide an area for them to dig/scratch and run around.
+# Chickens will lay an egg every few days, collect the eggs in the morning.
+# """
+
+# 	[[recipe.product]]
+# 		name="eggs"
+# 		measure = "whole"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="egg laying chicken"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="chicken feed"
+# 		measure = "cup"
+# 		cups = 10
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 10
+
+
+# [[recipe]]
+# time = "48h"
+# directions = """
+# In a double boiler, or a widemouth glass jar in a pot of water, start the cocoa butter melting on medium heat.  Add sugar, cocoa powder, and vanilla once a little oil has liquified.  Stir the mixture frequently with a spatula.  Once the cocoa butter is nearly melted, turn off the heat, and continue stirring until completely melted.
+# Add the milk, stirring, gradually in teaspoons (3tsp in a tablespoon).  The sugar will dissolve and the chocolate will congeal into a form that is soft, but no longer liquid and no longer gritty.  It’s almost like it forms tiny, soft grains that compress into a smooth mass when it cools if you’re so inclined to pipe it or roll it out (seized chocolate).  You can’t melt it, so don’t turn up the heat. 
+# Spread the chocolate mixture evenly on a large plate using the spatula and put it in the fridge to set, about 30 minutes. The chocolate will be set but soft and easy to dislodge from the plate onto a cutting board. You can chop it fine or crumble it easily with your fingers.  
+# """
+
+# 	[[recipe.product]]
+# 		name="chocolate chips"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="cocoa butter"
+# 		measure = "oz"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="cocoa powder"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="brown sugar"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="vanilla"
+# 		measure = "teaspoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="milk"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "1080h"
+# directions = """
+# Seeds should be grown outdoors, sow the seeds of wild oats at a depth of 6mm at the beginning to middle of spring.
+# Seedlings of wild oats can be purchased; annual varieties should be planted in the early spring, whereas perennial varieties can be planted either in the early spring or in autumn.
+# Depending on the variety wild oats seedlings should be planted 25 to 30cm apart (small) or 45 to 60cm apart (larger varieties of oat).
+# They should be planted in an area that receives full sunlight in a dry soil with a pH of 6 to 7.5.
+# Keep the ground moist to allow the seeds to germinate. Continue to do so as the plants begin to grow. The compost or manure should help the oats retain moisture, but it will be necessary to water them periodically whenever the soil begins to dry out. If the area you live in gets plenty of rain, however, you may not need to water your oats at all.
+# Harvest by swathing, cutting the plants at about 10 cm (4 inches) above ground, and putting the swathed plants into windrows with the grain all oriented the same way. They leave the windrows to dry in the sun for several days before combining them using a pickup header. Finally, bale the straw.
+# Oats can also be left standing until completely ripe and then combined with a grain head. This will lead to greater field losses as the grain falls from the heads and to harvesting losses as the grain is threshed out by the reel. Without a draper head, there will also be somewhat more age to the straw since it will not be properly oriented as it enters the throat of the combine. Overall yield loss is 10-15% compared to proper swathing.
+# Historical harvest methods involved cutting with a scythe or sickle, and threshing under the feet of cattle. Late 19th and early 20th century harvesting was performed using a binder. Oats were gathered into shocks and then collected and run through a stationary threshing machine.
+# """
+
+# 	[[recipe.product]]
+# 		name="oatmeal"
+# 		measure = "cup"
+# 		cups = 5000
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "76h10m"
+# directions = """
+# Strip the sugar cane of all of its leaves with a carving knife. Wash the sugar cane for several minutes with running water.
+# Crush the sugar cane to extract a thick, melon-colored juice. Do this in a standard sized mortar and pestle.
+# Boil and cook the resulting liquid and allow the water to evaporate. Get rid of the dirty foam that accumulates on the top of the syrup.
+# Discard the fibrous product left over and pour the resulting syrup into a large pan to cook further. Continue boiling until crystals occur. The result is raw sugar that is brown in color.
+# Dry the sugar in a dryer that uses hot air. After it is dry, blow cool air over it for several days.
+# Cleanliness is vital to the whole process. Once the juice has been heated, impurities will speed the 'inversion' of sugar and lead to reduced yields. All boiling pans and tools need to be thoroughly cleaned between uses.
+# """
+
+# 	[[recipe.product]]
+# 		name="brown sugar"
+# 		measure = "cup"
+# 		cups = 4
+
+# 	[[recipe.reactant]]
+# 		name="stalks of sugar cane"
+# 		measure = "whole"
+# 		cups = 4
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 40
+
+
+# [[recipe]]
+# time = "4380h"
+# directions = """
+# Create a coop for the chickens. Make sure it has plenty of shelter and possibly a place to roost.
+# Make sure chickens always have access to chicken feed (seed, egg shells) and water.
+# Give them a fence and possibly a net to protect from predators.
+# Provide an area for them to dig/scratch and run around.
+# After 6 months the chickens will be big enough to lay eggs or eat.
+# """
+
+# 	[[recipe.product]]
+# 		name="egg laying chicken"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="baby chicken"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="chicken feed"
+# 		measure = "cup"
+# 		cups = 1000
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 10000
+
+
+
+# [[recipe]]
+# time = "3m"
+# directions = """
+# Take two slices of bread.
+# Put the slices of cheese between the bread.
+# """
+
+# 	[[recipe.product]]
+# 		name="cheese sandwich"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="slices of bread"
+# 		measure = "whole"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="slices of cheese"
+# 		measure = "whole"
+# 		cups = 2
+
+
+# [[recipe]]
+# url = "http://archive.is/WRZmB"
+# description = "Cheese is a ubiquitous food that adds flavor to almost every meal."
+# time = "1485h30m"
+# directions = """
+# In a large pot, heat the milk to 85°F, stirring frequently. As the milk is heating, add the calcium chloride. When the milk gets to 85°F, add culture, stir in with an up-and-down motion, cover, and ferment for 1 hour.
+# Stir to homogenize the milk, and slowly fold in the diluted rennet. Using an up-and-down motion with your spoon will ensure that the rennet works its way through all the milk, so you can get the highest possible yield.
+# Allow the cheese to set for 1 hour, or until the whey begins to separate from the curd. You should see a layer of mostly clear whey floating on top of the curd, and the curd should be pulling away from the sides of the pot.
+# Using the knife, carefully cut the curds into ¼-inch cubes and allow to set for 5 minutes. Do not stir.
+# Over the next 30 minutes, slowly heat the curds to 100°F, stirring frequently. As you stir, the curds will shrink.
+# Once the curds are at 100°F, maintain the temperature and continue stirring for the next 30 minutes. If the curds get too hot, remove from heat.
+# After 30 minutes, stop stirring and allow the curds to settle to the bottom of the pot. This will take about 20 minutes.
+# Pour the curds into a colander. Place the colander and curds back into the cheese pot and allow to drain for 15 minutes.
+# Remove the colander from the pot and turn the curds out onto a cutting board. You should have a semi-solid mass that looks like jelly. Pour the whey out of the pot, cut the mass into five slices, and place back into the pot. Cover.
+# Fill a sink or basin with 102°F water and place the pot and curds into it. Keeping the temperature of the curds right around 100°F, turn the slices every 15 minutes for the next 2 hours. This is the cheddaring process and will give your cheese its unique flavor and deliciousness.
+# After 2 hours, the curds will be shiny and very firm. Remove them from the pot and cut into 1/2-inch cubes. Place back in the pot, cover, and place in the sink filled with 102°F water.
+# In 10 minutes, stir gently with your fingers or a wooden spoon. Repeat twice more.
+# Remove the pot from the sink and add salt. Stir gently once more.
+# Line the cheese press with a piece of cheesecloth and carefully place the curds into the press. Wrap the cloth around the cheese andpress at 10 pounds of pressure for 15 minutes.
+# Remove the cheese from the press, unwrap, and flip the cheese. Re-wrap using a fresh piece of cheesecloth, and press at 40 pounds of pressure for 12 hours.
+# Remove the cheese from the press and air-dry for 2 to 3 days, until smooth and dry to the touch.
+# Wax the cheese and age at 55° to 60°F for at least 60 days. 
+# """
+
+# 	[[recipe.product]]
+# 		name="block of cheese"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="cow milk"
+# 		measure = "gallon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="calcium chloride"
+# 		measure = "tsp"
+# 		cups = 0.125
+
+# 	[[recipe.reactant]]
+# 		name="mesophilic culture"
+# 		measure = "tsp"
+# 		cups = 0.125
+
+# 	[[recipe.reactant]]
+# 		name="rennet"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+
+
+# [[recipe]]
+# description = "Cow milk is the precursor to many dairy products and its simple to get yourself."
+# time = "2h"
+# url = "http://archive.is/RJhCI"
+# directions = """
+# Tie a cow in a secure area so she can not escape while you are milking her. Visually inspect your cow's udder for signs of injury, swelling or discomfort that might indicate your cow is experiencing a health problem such as mastitis, which occurs when teats become blocked. Call your veterinarian if you discover a health problem when you are inspecting your cow's condition.
+# Wrap your thumb and forefinger into a circle around the base of one of the cow's teats. Gently and quickly squeeze the teat to release a small squirt of milk. This is called stripping the teat; you do so to remove any dirt or debris from the teat as well as to quickly check the appearance of your cow's milk for potential problems. Milk should appear white and smooth, as opposed to clumpy, when you express it from the teat. Do this for every teat.
+# Apply pre-milking disinfectant to every teat, following the instructions that come with the product. Wipe disinfectant away with a clean towel once you've completely cleaned the teats with it.
+# Wrap your thumb and forefinger around each teat and squeeze the teat so milk squirts out of it and into your clean bucket. Continue expressing milk from the teats until the entire udder is empty. Make sure you milk every teat on your cow's udder. Apply post-milking disinfectant to the teats after you have finished milking the cow. Apply bag balm to the teats afterward so they don't dry out.
+# """
+
+# 	[[recipe.product]]
+# 		name="cow milk"
+# 		measure = "cup"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="cow"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="bag balm"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="cow disinfectant"
+# 		measure = "tablespoon"
+# 		cups = 2
+
+
+# [[recipe]]
+# time = "2h"
+# directions = """
+# The most important aspect of milking is the cleanliness of your operation. Raw milk can be safe and wholesome without the need for pasteurization, but you will need to be exacting about hygiene in the barn to achieve this result.
+# The first thing to do is to inspect is your milking equipment. All containers should be stainless steel and should be disinfected with diluted bleach. A dairy acid cleaner should be used as well to remove mineral deposits. The acid can be purchased at most farm supply stores. 
+# Heat your milk in a stainless steel double boiler to 140 degrees Fahrenheit and hold the milk at this temperature for 35 minutes. 
+# After 35 minutes, dump the milk into a container and put it in an ice bath. Stir constantly until the milk cools to 40 degree Fahrenheit. 
+# Once you have cooled and possibly pasteurized your milk, you can skim the cream off for butter or other dairy creations. To do this, you can let your milk stand in the refrigerator for several hours and skim the cream layer off with a ladle, or you can purchase a cream separator. 
+# """
+
+# 	[[recipe.product]]
+# 		name="milk"
+# 		measure = "cup"
+# 		cups = 12
+
+# 	[[recipe.product]]
+# 		name="cream"
+# 		measure = "cup"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="cow milk"
+# 		measure = "cup"
+# 		cups = 25
+
+
+# [[recipe]]
+# description = """
+# Bread is a food staple made from flour, water, yeast and salt. The process begins with leavening
+# and ends with baking at a high temperature.
+# """
+# time = "6h50m"
+# directions = """
+# Let the bread dough rest for 20 minutes. Then knead a little bit.
+# Let the bread rise for 4 to 6 hours. Then flour a small bowl and put loaf into bowl.
+# Let the bread rise again for 30 minutes, preheat a oven to 450F.
+# Bake the bread in a pre-heated dutch oven for 20 minutes. Take off the lid and bake for another 5-10 minutes.
+# Take out the bread and let it rest for 20 minutes.
+# """
+
+# 	[[recipe.product]]
+# 		name="loaf of bread"
+# 		measure = "whole"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="bread dough"
+# 		measure = "cup"
+# 		cups = 12
+
+
+# [[recipe]]
+# time = "28h"
+# directions = """
+# Start by pouring one gallon of milk (fresh from the cow) into a clean container. Chill the milk quickly, and keep it in the refrigerator for at least 12 hours. 
+# Skim the cream off the top of the fluid with a spoon. When you begin to see watery skim milk in the spoon, stop skimming. Pour the cream into a jar, cap the container tightly and let it sit on the kitchen drainboard for approximately 12 hours.
+# Pour the cream into a larger container. Shake the larger container to agitate and congeal the butter. This takes about 30 minutes.
+# When the cream gets heavy, shake with less vigor. The heavy mass will turn yellow, become firm and separate from the milk. 
+# Put the butter in a bowl and work it and let the buttermilk drain off. Add some salt to the butter and work it in. The butter is done when your satisfied with the taste.
+# """
+# url = "http://archive.is/GVk7Q"
+
+# 	[[recipe.product]]
+# 		name="butter"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.product]]
+# 		name="buttermilk"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="cow milk"
+# 		measure = "gallon"
+# 		cups = 1
+
+# [[recipe]]
+# time = "35m"
+# directions = """
+# Mix warm water and flour together. Let it rest for 20 minutes.
+# For foccia bread, add yeast to warm water seperately.
+# For regular bread, add yeast to the top of the dough after 20 minutes.
+# Add the salt to the top of the dough and mix together.
+# Wet hands and knead in a big bowl. Cut with fingers several times and then let rest.
+# """
+
+# 	[[recipe.product]]
+# 		name="bread dough"
+# 		measure = "cup"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="yeast"
+# 		measure = "tablespoon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 3.2
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 7.35
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "tsp"
+# 		cups = 3.5
+
+
+# [[recipe]]
+# description = """
+# Sliced bread is a great to serve bread, nothing is better!
+# """
+# time = "2m"
+# directions = """
+# Take the bread and cut it along its side with a sharp, serated, knife.
+# """
+
+# 	[[recipe.product]]
+# 		name="slices of bread"
+# 		measure = "whole"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="loaf of bread"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# description = """
+# Sliced cheese is useful for eating
+# """
+# time = "5m"
+# directions = """
+# Take the cheese and cut it along its side with a sharp knife.
+# """
+
+# 	[[recipe.product]]
+# 		name="slices of cheese"
+# 		measure = "whole"
+# 		cups = 12
+
+# 	[[recipe.reactant]]
+# 		name="block of cheese"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "346h"
+# directions = """
+# Let your seawater sit for a while to allow any sediment and particles to settle.
+# Get your stockpot out and ready for the boil. 
+# Then siphon or scoop water from the top of the container, careful not to disturb the sediment at the bottom, through a filter into your stockpot.
+# Use a dishcloth in a sieve for a filter, which provides a good fine mesh to get out any sand or other particles.
+# Start off with a full boil at high heat, until about half of the water had evaporated. 
+# Then turn the burner down to the medium-high heat.
+# As the water evaporates, turn the heat lower and lower until down to medium-low. 
+# This gradual decrease in heat helps prevent scorching without requiring you to stir constantly. 
+# It will take longer than boiling the whole time, but it does take less interaction on your part.
+# You want to get your salt to a consistency of wet sand. Don't worry if there is still water in the pot; the only thing you're concerned about is the consistency of the salt itself.
+# Scoop the result into a pan to dry. Place the pan by the sun or window to dry.
+# Wait about two weeks for it to dry. 
+# Makes about 1/2 cup of salt.
+# """
+
+
+# 	[[recipe.product]]
+# 		name="salt"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="seawater"
+# 		measure = "gallon"
+# 		cups = 1
+
+# [[recipe]]
+# time = "9h10m"
+# directions = """
+# Preheat oven to 250F. Cut the pork belly into chunks. Place the chunks into a deep skillet or dutch oven with a cup of water. 
+# Place the pot in the oven and let the fat melt for 6 hours.
+# Take the pot out and ladle the liquid into a cheesecloth-lined sieve over a large bowl. Extract liquid and then return the smaller pieces of fat back to the oven for a few more hours.
+# Remove the pot again and pour the rest of the contents into the sieve.
+# Store the liquid lard
+# """
+
+# 	[[recipe.product]]
+# 		name="lard"
+# 		measure = "cup"
+# 		cups = 10
+
+# 	[[recipe.reactant]]
+# 		name="pork belly"
+# 		measure = "whole"
+# 		cups = 1
+
+
+# [[recipe]]
+# time = "48h"
+# directions = """
+# Kill the pig humanely. Whether you're harvesting a farm-raised hog or hunting one in the wild, you need to make sure you start the process as clean as possible by using a quick kill, immediately draining the blood afterward to improve the flavor of the meat.
+# After killing or stunning the hog, you need to hang it, preferably using a meat gambrel, which is like a big clothes hanger made for hanging meat. Hook a chain onto the gambrel and attach it to a winch, or the back of a truck if you want.
+# Scrape the hair off using a sharp knife.
+# Cut around the anus and pull it upward. To start removing the entrails, work a smaller knife around the anus (and the vaginal opening) of the hog, about an inch or two deep. Make the circle about two inches wider than the anus itself so you don't pierce the colon. Grab ahold and pull up gently, then use a rubber band or a zip-tie to pinch it off. This closes everything up, so you'll be able to pull it out the other side, when you open up the chest. 
+# Cut from the sternum to the groin. Pinch the skin near the base of the sternum, where the ribs end and the abdomen begins, and pull toward you as far as possible. Insert your knife and gently work your way down the center line of the pig's belly, in between the two rows of nipples. Be extremely careful not to puncture the stomach lining and the intestines. Keep working your knife until you get all the way up between the animal's legs.
+# Reach into the cavity near the groin and pull downward. Everything in the digestive tract should fall out relatively easily with a bit of coaxing, including the lower intestine that you tied off earlier. Use you knife to trim away any stubborn connective tissue The kidneys and the pancreas are perfectly edible and popular items to reserve.
+# After the entrails are removed, you need to open up the chest to remove the rest of the organs. You can use your knife to separate the front of the rib cage, working your way in between the layer of cartilage that connects the breastbone. You shouldn't have to use the saw to do this. After separating the ribs, remove the rest of the organs. The heart and liver and commonly reserved and eaten.
+# Behind the ears, work your knife in a circular direction around the throat to separate the head, using the jawline as a guide. As you separate the meat and expose the neck bone, you might need to get in there with a cleaver to break through the vertebrae with firm chop.
+# Chill the carcass for at least 24 hours before breaking it down. To dry out the meat some, the hog will need to be aged for about a day in cold temperature, between 30 and 40 degrees F. A walk-in fridge is the easiest way to do this, or processing your hot during a very cold season, in which you'll be able to do it in a shed or garage.
+# Remove the hams. Lay one half cut-side up, and find where the spine ends, near the fleshy part of the thigh (that's the ham) on that side. Start with a sharp boning knife to expose the ham.
+# Remove the shoulder. To remove the shoulder, flip the side of pork over so the skin side is facing up. Pull the limb up, exposing the underarm of the shoulder, and work your knife into the connective tissue underneath. You'll only have to use your knife to continue working toward the joint, which should pull away easily by pulling it back on itself.
+# Remove the chops and tenderloin. Flip the side over again, cut-side up. From the smallest rib at the narrow end of the side, count up to the third or fourth rib and use the cleaver to cut through the backbone at that point, between the ribs. Remove everything below that line and reserve the meat for the grinder, or discard it. If you've got an electric butcher's saw, this is much easier.
+# Separate the bacon. The lower, thinner section of the side contains everyone's favorite pork: the ribs and the bacon. It's best to separate the bacon, first. It's just below where the ribs end, and should appear to be quite fatty.
+# Bone out the neck and grind up some sausage. The only remaining meat is usually best reserved for grinding up into sausage. If you have access to a meat grinder, you can grind pork to make sausage or basic ground pork. It's usually best to re-chill the meat before feeding it into the grinder, since cooler meat tends to grind up more uniformly.
+# Store the meat properly. As soon as you portioned out the pork, it's important that you wrap it neatly in clean butcher paper, label it with the cut and date using a marker. You can refrigerate the meat you plan on using right away and find freezer space for the rest of it. There's going to be a lot of meat to deal with, so it's usually more common to freeze most of it immediately.
+# """
+
+# 	[[recipe.product]]
+# 		name="pork belly"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.product]]
+# 		name="pork ribs"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.product]]
+# 		name="pork chop"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.product]]
+# 		name="pork shoulder"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="pig"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "217h30m"
+# directions = """
+# Mix 1/4 c. salt, 1/2 c. brown sugar and 1/3 c. pepper in a bowl. Rub the mixture over the 2 pound slab of pork belly. Cover and set it in the refrigerator for 7 days, turning it every other day to ensure the pork is covered in the cure.
+# Remove the pork from the refrigerator and rinse it well. Pat it dry and place it on a cooling rack over a baking sheet in the refrigerator and air-dry for 2 days.
+# Smoke the bacon until the thickest part of the meat reaches 140F. You can use a smoker, a kettle grill, or a large pot on the stove top.
+# After smoking, cool for a few minutes and then ease off the skin with a large knife.
+# Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
+# """
+
+# 	[[recipe.product]]
+# 		name="slices of bacon"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="pork belly"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="salt"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="pepper"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="brown sugar"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# [[recipe]]
+# time = "5h"
+# directions = """
+# Wash olives with water to remove dirt, and get rid of leaves and twigs attached to the fruits.
+# Obtain a paste of olives using a millstone (generally used for large-scale manufacturing) or any mechanical means of pressing. There is no need to remove the pits from the fruits before pressing.
+# Now spread the paste obtained from the previous step over circular mats and subject it to pressing. At this point, juice will flow out of the paste, leaving behind what is known as 'pomace'.
+# Transfer the juice to a plastic drum and let it stand undisturbed for 1-2 hours. The oil will now separate out of water due to density difference.
+# Use a siphon tube to transfer oil (which forms the top layer) into another container, and leave it undisturbed so that unwanted particles can settle at the bottom.
+# Place a funnel over a green bottle and slowly decant the liquid in the container to obtain 'ready-to-use' olive oil. Clean the bottle using a towel, cork it, and store in a cool and dry place.
+# """
+
+# 	[[recipe.product]]
+# 		name="olive oil"
+# 		measure = "gallon"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="fresh olives"
+# 		measure = "pounds"
+# 		cups = 40
+
+
+# [[recipe]]
+# time = "87600h"
+# directions = """
+# Spread the compost over an area roughly 9 feet (2.7 m) by 9 feet (2.7 m) to avoid over-concentration in one spot.
+# Bring up your soil's pH to an acceptable level with the addition of lime. If your soil's pH is below 6.5, consider adding lime to the soil to boost its alkalinity. Talk to your Department of Agriculture representative or contact a local fertilizer company if you want specific pH readings and/or pointers on how to get a uniform pH of 6.5.
+# Deep-rip your soil at least 2 feet (0.6 m) deep and 10 feet (3.0 m) wide across each planting row. Deep ripping increases soil drainage and eases compaction, giving your olive trees an excellent start and the possibility of speedy growth.
+# Plant the olive tree in full sun, outdoors, at the same level that it was in the pot. Ideally, plant in April or May when frost is not likely to harm the tree.
+# Water and irrigate your olive tree modestly or as necessary. 
+# Pruning should occur between the end of winter and flowering. Although not all trees need to be pruned every year, proper pruning will result in a tree with balanced vigor and better fruit. Removing unwanted branches and suckers can keep the tree at a manageable height for easier harvesting and prevent uneven bearing of fruit. Check diligently for pests and other diseases. Like most plants, the olive tree is sometimes susceptible to attack, particularly from black scale, or Saissetia oleae. 
+# While some cultivars begin bearing fruit as soon as two or three years if properly maintained, many trees won't start bearing until 10 years old. Dry-farmed trees may not bear until they are 20 or 30 years old.
+# Olives start out green and eventually all turn black as they ripen. Olives that are harvested when they are still green have a peppery, grassy, or more herbaceous flavor, while olives that are harvested when they turn taker have a milder, buttery flavor. Many oils are a mix between green and ripe olives, harvested right when they are turning color.
+# Harvest ripe or unripe fruits by hitting the branches with a long stick. Spread a net on the ground before hitting so that olives fall directly on it.
+# """
+
+# 	[[recipe.product]]
+# 		name="fresh olives"
+# 		measure = "pounds"
+# 		cups = 100
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="water source"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="sun"
+# 		measure = "whole"
+# 		cups = 1
+
+# [[recipe]]
+# time = "3h30m"
+# directions = """
+# Clean the cocoa beans with fresh, cold water to remove unwanted residue and air dry.
+# Roast the cocoa beans at a temperature between 100 and 135 degrees Fahrenheit for about 90 minutes. Be sure that the heat is applied evenly among all of the cocoa beans.
+# Cool the beans quickly to room temperature with a fan to prevent scorching.
+# Use a hammer to lightly tap the cocoa bean to remove the inner nib--the part of the cocoa bean that is inside the shell--from the outer shell. The outer shells of the beans will already be loosened from roasting.
+# Place the crushed cocoa beans in a sieve with a bowl underneath. Gently press and shake the cocoa beans so that the nibs fall through the sieve into the bowl below. The shell will be too large to pass through and will remain on top.
+# Grind the cocoa nib into cocoa liquor with a grinder. The heat from the grinder will melt the fat in the nibs, turning the powdery nibs into a liquid.
+# Extract the cocoa butter from the cocoa liquor by passing it through an extrusion, expeller or screw press for a more commercial grade cocoa butter. Alternatively, strain the liquor through a cotton cloth to filter out the cocoa butter. Leave some of the powder for cocoa powder.
+# """
+
+# 	[[recipe.product]]
+# 		name="cocoa butter"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.product]]
+# 		name="cocoa powder"
+# 		measure = "cup"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="plot of soil"
+# 		measure = "whole"
+# 		cups = 1
+
+# 	[[recipe.reactant]]
+# 		name="cocoa beans"
+# 		measure = "whole"
+# 		cups = 50
+
+# 	[[recipe.reactant]]
+# 		name="water"
+# 		measure = "cup"
+# 		cups = 10
+
+# [[recipe]]
+# time = "20m"
+# directions = """
+# Heat about 2 cups of milk to medium hot and then add a 1/4 cup of butter.
+# Add in 1 clove of chopped garlic and let it simmer for 10 minutes.
+# Slowly add in flour and whisk, and never stop whisking. Wait about 5 minutes and then continue adding flour until it is a consistency you like.
+# Add mint and enjoy!
+# """
+
+# 	[[recipe.product]]
+# 		name="white sauce"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="milk"
+# 		measure = "cup"
+# 		cups = 2
+
+# 	[[recipe.reactant]]
+# 		name="butter"
+# 		measure = "cup"
+# 		cups = 0.25
+
+# 	[[recipe.reactant]]
+# 		name="flour"
+# 		measure = "cup"
+# 		cups = 0.5
+
+# 	[[recipe.reactant]]
+# 		name="mint leaf"
+# 		measure = "whole"
+# 		cups = 1
