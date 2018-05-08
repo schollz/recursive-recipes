@@ -1,6 +1,8 @@
 package recipe
 
 import (
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"testing"
 
@@ -13,6 +15,6 @@ func TestOpen(t *testing.T) {
 	var r Recipes
 	_, err := toml.Decode(string(b), &r)
 	assert.Nil(t, err)
-	// bJson, _ := json.MarshalIndent(r, "", " ")
-	// fmt.Println(string(bJson))
+	bJson, _ := json.MarshalIndent(r, "", " ")
+	fmt.Println(string(bJson))
 }

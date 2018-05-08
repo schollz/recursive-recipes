@@ -1,7 +1,17 @@
 package recipe
 
 type Recipes struct {
+	Prices  []Price  `toml:"price"`
 	Recipes []Recipe `toml:"recipe"`
+}
+
+type Price struct {
+	Name         string  `tomlL"name"`
+	BeforeMarket bool    `toml:"beforemarket"`
+	Price        float64 `toml:"price"`
+	Measure      string  `toml:"measure"`
+	Year         int64   `toml:"year"`
+	Notes        string  `toml:"notes"`
 }
 
 type Recipe struct {
@@ -16,10 +26,18 @@ type Recipe struct {
 }
 
 type Element struct {
-	Name  string  `toml:"name"`
-	Cups  float64 `toml:"cups"`
+	Name string `toml:"name"`
+
+	// Cups if it can be converted to volume
+	Cups float64 `toml:"cups"`
+	// Whole is to be used otherwise
+	Whole float64 `toml:"whole"`
+
+	// Acres if it is a farm product
 	Acres float64 `toml:"acres"`
-	Notes string  `toml:"notes"`
+
+	// Notes are for references
+	Notes string `toml:"notes"`
 }
 
 type SingleRecipe struct {

@@ -1,3 +1,40 @@
+[[price]]
+name = "apple"
+price = 0.50
+measure = "whole"
+year = 2018
+
+[[price]]
+name = "corn"
+price = 0.25
+measure = "whole"
+year = 2018
+
+
+[[price]]
+name = "onion"
+price = 0.5
+measure = "whole"
+year = 2018
+
+[[price]]
+name = "vanilla"
+price = 27.68
+year = 2018
+measure = "cup"
+notes = """
+[2 fl oz is $6.92](https://www.walmart.com/ip/Great-Value-Pure-Vanilla-Extract-2-fl-oz/10314950)
+"""
+
+[[price]]
+name = "black pepper"
+price = 9.28
+measure = "cup"
+year = 2018
+notes = """
+[3 oz is $3.48](https://www.walmart.com/ip/McCormick-Ground-Black-Pepper-3-oz/44981960)
+"""
+
 [[recipe]]
 hours = 730.5
 scales = true
@@ -15,7 +52,7 @@ Split vanilla beans in half lengthwise and place them in a clean jar or bottle. 
 
 	[[recipe.reactant]]
 		name="vanilla beans"
-		cups = 1.0
+		whole = 6.0
 
 [[recipe]]
 hours = 0.0833
@@ -24,7 +61,7 @@ Grind peppercorn in a grinder.
 """
 
 	[[recipe.product]]
-		name="pepper"
+		name="black pepper"
 		measure = "tablespoon"
 		cups = 0.125
 
@@ -43,16 +80,18 @@ Wait about 6 years for the tree to grow, and then harvest the apples by picking 
 
 	[[recipe.product]]
 		name="apples"
-		cups = 4468.4
+		whole = 143.0
 		notes = """
-[One tree yields about 30 bushels](https://www.wyzant.com/resources/answers/54211/how_many_trees_should_be_planted_on_an_acre_in_order_to_get_the_highest_yield)
+[1 acre ~ 350 trees and provides ~400 bushels](http://fruit.cfans.umn.edu/apples/beforeyoustart)
+
+0.00285714285 acres / tree  * 400 bushels / acre * 126 apples / bushel = 143 apples / tree
 """
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.000573921
+		acres = 0.00285714285
 		notes = """
-The plot of land is assumed to be 25 sq feet per tree.
+[1 acre ~ 350 trees and provides ~400 bushels](http://fruit.cfans.umn.edu/apples/beforeyoustart) so 1 tree requires ~ 0.003 acres.
 """
 
 
@@ -158,20 +197,21 @@ White peppercorn is made by removing the red hull. The remaining peppercorns are
 
 	[[recipe.product]]
 		name="peppercorn"
-		cups = 0.2
+		cups = 0.94
 		notes = """
+[1000 plants per acre](https://www.thehindubusinessline.com/economy/vietnam-model-of-pepper-cultivation-worth-emulating-says-planters-body/article20092402.ece1)
 [275 kg per hectare](http://www.agrifarming.in/black-pepper-farming).
 [Black pepper density ~ 0.5 kg/l](https://www.sciencedirect.com/science/article/pii/S0189724115300618)
 1 hectare = 107639 square feet 
 
 # Calculation 
 
-9 sq ft * 275 kg / 107639 sq ft / (0.5 kg / l) = 0.046 l = 0.1944 cups
+0.001 plants / acre * 275 kg / hectare * 0.404686 hectare / acre  / (0.5 kg / l) = 0.94 cups
 """
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.0002066
+		acres = 0.001
 		notes = """
 One bean plant needs about 9 square feet.
 """
@@ -188,136 +228,116 @@ Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast
 
 	[[recipe.product]]
 		name="corn"
-		cups = 5.4
+		whole = 3
 		notes = """
-[Average farm yields about 176.6 bushels of corn](https://www.nass.usda.gov/Newsroom/2018/01_12_2018.php)
+[1 acre can hold about 30,000 plants](http://www.cornandsoybeandigest.com/seed/how-many-corn-plants-do-you-need)
 """
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.0002066
-		notes = """
-One corn plant needs about 9 square feet.
+		acres = 0.00003333333
+		notes = "Acerage for one plant"
+
+
+[[recipe]]
+time = "3600h" # 100 days
+directions = """
+Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
+Growing onions requires abundant sun and good drainage, and they grow best when the soil pH ranges between 6.0 and 6.8. Raised beds or raised rows made by mounding up soil are ideal, especially if your soil is heavy clay. Mix a 2-inch layer of compost into the soil before placing an organic or timed-release fertilizer into planting furrows, following label rates. Set plants 1 inch deep, so that their roots are well covered with soil but the top of the plant’s neck is not buried too deeply. You don’t want the part of the neck where the leaves grow away from the clear sheath to collect soil or water down between the young leaves, or they can rot. Space plants 6 inches apart in furrows 12 inches apart. Plants will appreciate a starter solution of liquid fertilizer after planting.
+Onions roots are shallow and not very efficient at taking up moisture, so they need a steady supply of water to grow without interruption. Although they actually recover well from drought and start growing again when watered, it is best to keep the soil consistently moist until the bulbs enlarge.
+For full-sized bulbs, let onions grow and mature. They are ready to harvest when the bulbs are big and the tops begin to turn yellow and fall over. Pull them up, shake off the soil, and lay them out to cure with the tops still attached. Any warm, airy location is a good place to do this; you can even sling them over a fence as long as they aren’t rained upon. Bulbs must stay dry and have good air circulation. As the onions cure, the roots will shrivel and the necks above the bulbs will slowly dry – a natural process that helps to seal the top of the bulb, making the onions less likely to rot. After 7 to 10 days, clip off the tops of the onions and the roots with pruning shears, remove as much dry dirt as possible without taking off the papery outer skins, and store your onions in a cool place. Very sweet, juicy onions may be stored, wrapped in newspaper or paper towels, in the fridge.
 """
 
-# [[recipe]]
-# time = "3600h" # 100 days
-# directions = """
-# Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
-# Growing onions requires abundant sun and good drainage, and they grow best when the soil pH ranges between 6.0 and 6.8. Raised beds or raised rows made by mounding up soil are ideal, especially if your soil is heavy clay. Mix a 2-inch layer of compost into the soil before placing an organic or timed-release fertilizer into planting furrows, following label rates. Set plants 1 inch deep, so that their roots are well covered with soil but the top of the plant’s neck is not buried too deeply. You don’t want the part of the neck where the leaves grow away from the clear sheath to collect soil or water down between the young leaves, or they can rot. Space plants 6 inches apart in furrows 12 inches apart. Plants will appreciate a starter solution of liquid fertilizer after planting.
-# Onions roots are shallow and not very efficient at taking up moisture, so they need a steady supply of water to grow without interruption. Although they actually recover well from drought and start growing again when watered, it is best to keep the soil consistently moist until the bulbs enlarge.
-# For full-sized bulbs, let onions grow and mature. They are ready to harvest when the bulbs are big and the tops begin to turn yellow and fall over. Pull them up, shake off the soil, and lay them out to cure with the tops still attached. Any warm, airy location is a good place to do this; you can even sling them over a fence as long as they aren’t rained upon. Bulbs must stay dry and have good air circulation. As the onions cure, the roots will shrivel and the necks above the bulbs will slowly dry – a natural process that helps to seal the top of the bulb, making the onions less likely to rot. After 7 to 10 days, clip off the tops of the onions and the roots with pruning shears, remove as much dry dirt as possible without taking off the papery outer skins, and store your onions in a cool place. Very sweet, juicy onions may be stored, wrapped in newspaper or paper towels, in the fridge.
-# """
+
+	[[recipe.product]]
+		name="onion"
+		whole = 1.0
+		notes = """
+[~100,000 onions / acre](https://extension.psu.edu/onion-production)
+"""
+
+	[[recipe.reactant]]
+		name="soil"
+		acre = 0.00001
+		notes = "acerage for one plant"
 
 
-# 	[[recipe.product]]
-# 		name="onion"
-# 		measure = "whole"
-# 		cups = 50
-
-# 	[[recipe.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		cups = 1
+[[recipe]]
+hours = 6570.0 # 9 months
+directions = """
+Garlic can be planted in the spring as soon as the ground can be worked, but fall planting is recommended for most gardeners. Plant in the fall and youâll find that your bulbs are bigger and more flavorful when you harvest the next summer.
+In areas that get a hard frost, plant garlic 6 to 8 weeks before that frost. In southern areas, February or March is a better time to plant.
+Break apart cloves from bulb a few days before planting, but keep the papery husk on each individual clove.
+Plant cloves about one month before the ground freezes. 
+Do not plant cloves from the grocery store. They may be unsuited varieties for your area, and most are treated to make their shelf life longer, making them harder to grow. Instead, get cloves from a mail order seed company or a local nursery.
+Ensure soil is well-drained with plenty of organic matter. Select a sunny spot.
+Place cloves 4 inches apart and 2 inches deep, in their upright position (the wide root side facing down and pointed end facing up).
+In the spring, as warmer temperatures come, shoots will emerge through the ground.
+"""
 
 
-# [[recipe]]
-# time = "6570h" # 9 months
-# directions = """
-# Garlic can be planted in the spring as soon as the ground can be worked, but fall planting is recommended for most gardeners. Plant in the fall and youâll find that your bulbs are bigger and more flavorful when you harvest the next summer.
-# In areas that get a hard frost, plant garlic 6 to 8 weeks before that frost. In southern areas, February or March is a better time to plant.
-# Break apart cloves from bulb a few days before planting, but keep the papery husk on each individual clove.
-# Plant cloves about one month before the ground freezes. 
-# Do not plant cloves from the grocery store. They may be unsuited varieties for your area, and most are treated to make their shelf life longer, making them harder to grow. Instead, get cloves from a mail order seed company or a local nursery.
-# Ensure soil is well-drained with plenty of organic matter. Select a sunny spot.
-# Place cloves 4 inches apart and 2 inches deep, in their upright position (the wide root side facing down and pointed end facing up).
-# In the spring, as warmer temperatures come, shoots will emerge through the ground.
-# """
+	[[recipe.product]]
+		name="garlic"
+		whole = 1.0
+		notes = """
+[About 40,000 plants per acre](https://www.garlicfarm.ca/faq.htm)
 
-# 	[[recipe.product]]
-# 		name="garlic"
-# 		measure = "whole"
-# 		cups = 12
+This refers to one garlic bulb.
+"""
 
-# 	[[recipe.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="soil"
+		acre = 0.000025
+		notes = "acerage for one plant"
 
 
-# [[recipe]]
-# time = "4382h"
-# directions = """
-# Wash the apples and cut them into small pieces, keeping skin, core and stems.
-# Make a mush of the apples and then strain it through a muslin bag.
-# Pour the juice into a clean, dark glass jug and cover the top with several layers of cheesecloth held in place with rubber bands.
-# Leave the juice in a cool, dark place for about six months. 
-# Take the liquid, strain, bottle, and cork.
-# """
 
-# 	[[recipe.reactant]]
-# 		name="apples"
-# 		measure = "whole"
-# 		cups = 12
+[[recipe]]
+hours = 4382.0
+directions = """
+Wash the apples and cut them into small pieces, keeping skin, core and stems.
+Make a mush of the apples and then strain it through a muslin bag.
+Pour the juice into a clean, dark glass jug and cover the top with several layers of cheesecloth held in place with rubber bands.
+Leave the juice in a cool, dark place for about six months. 
+Take the liquid, strain, bottle, and cork.
+"""
 
-# 	[[recipe.product]]
-# 		name="vinegar"
-# 		measure = "cup"
-# 		cups = 3
+	[[recipe.reactant]]
+		name="apples"
+		whole = 12
 
-# [[recipe]]
-# time = "12h10m"
-# directions = """
-# Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
-# Stir in 1/2 c. water and let rest at room temperature overnight.
-# Move mixture to blender and add veingar, sugar, salt, and garlic. Liquefy. Add more vinegar if nessecary.
-# Store in fridge.
-# """
+	[[recipe.product]]
+		name="vinegar"
+		cups = 3
 
-# 	[[recipe.product]]
-# 		name="mustard"
-# 		measure = "cup"
-# 		cups = 1
+[[recipe]]
+hours = 12.16667
+directions = """
+Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
+Stir in 1/2 c. water and let rest at room temperature overnight.
+Move mixture to blender and add vinegar, sugar, salt, and garlic. Liquefy. Add more vinegar if nessecary.
+Store in fridge.
+"""
 
-# 	[[recipe.reactant]]
-# 		name="dry mustard"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.product]]
+		name="mustard"
+		cups = 1
 
-# 	[[recipe.reactant]]
-# 		name="vinegar"
-# 		measure = "cup"
-# 		cups = 0.25
+	[[recipe.reactant]]
+		name="dry mustard"
+		cups = 0.125
 
-# 	[[recipe.reactant]]
-# 		name="sugar"
-# 		measure = "tablespoon"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="vinegar"
+		cups = 0.25
 
-# 	[[recipe.reactant]]
-# 		name="garlic"
-# 		measure = "whole"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="sugar"
+		cups = 0.0625
+
+	[[recipe.reactant]]
+		name="garlic"
+		whole = 2
 
 
 # [[recipe]]
