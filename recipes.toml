@@ -1,5 +1,5 @@
 [[recipe]]
-time = "730h30m"
+hours = 730.5
 scales = true
 directions = """
 Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged. Cover the jar or bottle and give it a good shake. Store the jar or bottle of vanilla beans in a cool, dark place for at least one month, shaking it from time to time. Taste the extract and let it infuse longer if you want a stronger flavor. 
@@ -18,7 +18,7 @@ Split vanilla beans in half lengthwise and place them in a clean jar or bottle. 
 		cups = 1.0
 
 [[recipe]]
-time = "5m"
+hours = 0.0833
 directions = """
 Grind peppercorn in a grinder.
 """
@@ -34,7 +34,7 @@ Grind peppercorn in a grinder.
 		cups = 0.125
 
 [[recipe]]
-time = "52560h"
+hours = 52560.0
 scales = true
 directions = """
 Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
@@ -43,18 +43,21 @@ Wait about 6 years for the tree to grow, and then harvest the apples by picking 
 
 	[[recipe.product]]
 		name="apples"
-		# https://www.wyzant.com/resources/answers/54211/how_many_trees_should_be_planted_on_an_acre_in_order_to_get_the_highest_yield
-		# one tree ~ 30 bushels
 		cups = 4468.4
+		notes = """
+[One tree yields about 30 bushels](https://www.wyzant.com/resources/answers/54211/how_many_trees_should_be_planted_on_an_acre_in_order_to_get_the_highest_yield)
+"""
 
 	[[recipe.reactant]]
 		name="soil"
-		# 600 cups is approximately 5^3 cubic feet of dirt
-		cups = 600.0
+		acres = 0.000573921
+		notes = """
+The plot of land is assumed to be 25 sq feet per tree.
+"""
 
 
 [[recipe]]
-time = "2892h"
+hours = 2892.0
 scales = true
 directions = """
 Grow beans in full sun in well-drained soil rich in organic matter with a soil pH of 6.0 to 6.8. Prepare planting beds in advance by working in plenty of aged compost. Avoid planting beans where soil nitrogen is high or where green manure crops have just grown; these beans will produce green foliage but few beans. Beans grow best in temperatures between 50° and 85°F. 
@@ -64,20 +67,21 @@ Dry beans will be ready for harvest 70 to 120 after sowing when plants have matu
 
 	[[recipe.product]]
 		name="dried beans"
-		# http://www.cornandsoybeandigest.com/blog/usda-projects-record-corn-and-soybean-crop-2016
-		# one acre = 43560 sq ft, gives  ~ 56 bushels
-		# 25  / 43560 *56 bushels to cups ~ 4.8 cups
-		cups = 4.8
-
+		cups = 1.72
+		notes = """
+[One acre gives about 56 bushels](http://www.cornandsoybeandigest.com/blog/usda-projects-record-corn-and-soybean-crop-2016)
+"""
 	[[recipe.reactant]]
 		name="soil"
-		# 600 cups is approximately 5^3 cubic feet of dirt (25 sq ft)
-		cups = 600.0
+		acres = 0.0002066
+		notes = """
+One bean plant needs about 9 square feet.
+"""
 
 
 
 [[recipe]]
-time = "13h30m"
+hours = 13.5
 scales = true
 directions = """
 Cover dried beans with water. Soak overnight.
@@ -100,7 +104,7 @@ Simmer the beans until they are tender, about 1 1/2 hours.
 
 
 [[recipe]]
-time = "45m"
+hours = 0.75
 directions = """
 Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
 Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
@@ -137,7 +141,7 @@ Add more water if necessary to keep the fried beans from getting too dried out. 
 
 
 [[recipe]]
-time = "35040h" # 4 years
+hours = 35040.0 # 4 years
 scales = true
 directions = """
 Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
@@ -154,46 +158,47 @@ White peppercorn is made by removing the red hull. The remaining peppercorns are
 
 	[[recipe.product]]
 		name="peppercorn"
-		# 275 kg per hectare http://www.agrifarming.in/black-pepper-farming/
-		# 1 hectare = 107639 sq ft
-		# black pepper density ~ 0.5 kg/l https://www.sciencedirect.com/science/article/pii/S0189724115300618
-		# 25 / 107639 * 275 kg / (0.5 kg/l)		
-		cups = 0.5
+		cups = 0.2
+		notes = """
+[275 kg per hectare](http://www.agrifarming.in/black-pepper-farming).
+[Black pepper density ~ 0.5 kg/l](https://www.sciencedirect.com/science/article/pii/S0189724115300618)
+1 hectare = 107639 square feet 
+
+# Calculation 
+
+9 sq ft * 275 kg / 107639 sq ft / (0.5 kg / l) = 0.046 l = 0.1944 cups
+"""
 
 	[[recipe.reactant]]
 		name="soil"
-		# 600 cups is approximately 5^3 cubic feet of dirt
-		cups = 600.0
+		acres = 0.0002066
+		notes = """
+One bean plant needs about 9 square feet.
+"""
 
 
-# [[recipe]]
-# time = "2400h" # 100 days
-# directions = """
-# Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
-# Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
-# Planting and spacing. Sow corn 1 to 1½ inches deep. Plant seeds 2 to 4 inches apart in short, side-by-side rows to form a block, rather than one long row. You can also grow several plants on mounds or inverted hills. Planting in a block or clump will help ensure pollination. Thin plants from 12 to 18 inches apart for short varieties and 18 to 24 inches apart for tall varieties once plants are 4 to 6 inches tall. Corn planted too closely will require more water and fertilizer and may offer a smaller yield. For a continuous harvest, succession plant corn every two weeks or plant early, midseason, and late varieties at the same time.
-# Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
-# """
+[[recipe]]
+hours = 2400.0 # 100 days
+directions = """
+Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
+Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
+Planting and spacing. Sow corn 1 to 1½ inches deep. Plant seeds 2 to 4 inches apart in short, side-by-side rows to form a block, rather than one long row. You can also grow several plants on mounds or inverted hills. Planting in a block or clump will help ensure pollination. Thin plants from 12 to 18 inches apart for short varieties and 18 to 24 inches apart for tall varieties once plants are 4 to 6 inches tall. Corn planted too closely will require more water and fertilizer and may offer a smaller yield. For a continuous harvest, succession plant corn every two weeks or plant early, midseason, and late varieties at the same time.
+Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
+"""
 
-# 	[[recipe.product]]
-# 		name="corn"
-# 		measure = "whole"
-# 		cups = 50
+	[[recipe.product]]
+		name="corn"
+		cups = 5.4
+		notes = """
+[Average farm yields about 176.6 bushels of corn](https://www.nass.usda.gov/Newsroom/2018/01_12_2018.php)
+"""
 
-# 	[[recipe.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="soil"
+		acres = 0.0002066
+		notes = """
+One corn plant needs about 9 square feet.
+"""
 
 # [[recipe]]
 # time = "3600h" # 100 days
