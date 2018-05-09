@@ -1256,54 +1256,53 @@ After 6 months the chickens will be big enough to lay eggs or eat.
 # 		amount = 2
 
 
-# [[reaction]]
-# url = "http://archive.is/WRZmB"
-# description = "Cheese is a ubiquitous food that adds flavor to almost every meal."
-# time = "1485h30m"
-# directions = """
-# In a large pot, heat the milk to 85°F, stirring frequently. As the milk is heating, add the calcium chloride. When the milk gets to 85°F, add culture, stir in with an up-and-down motion, cover, and ferment for 1 hour.
-# Stir to homogenize the milk, and slowly fold in the diluted rennet. Using an up-and-down motion with your spoon will ensure that the rennet works its way through all the milk, so you can get the highest possible yield.
-# Allow the cheese to set for 1 hour, or until the whey begins to separate from the curd. You should see a layer of mostly clear whey floating on top of the curd, and the curd should be pulling away from the sides of the pot.
-# Using the knife, carefully cut the curds into ¼-inch cubes and allow to set for 5 minutes. Do not stir.
-# Over the next 30 minutes, slowly heat the curds to 100°F, stirring frequently. As you stir, the curds will shrink.
-# Once the curds are at 100°F, maintain the temperature and continue stirring for the next 30 minutes. If the curds get too hot, remove from heat.
-# After 30 minutes, stop stirring and allow the curds to settle to the bottom of the pot. This will take about 20 minutes.
-# Pour the curds into a colander. Place the colander and curds back into the cheese pot and allow to drain for 15 minutes.
-# Remove the colander from the pot and turn the curds out onto a cutting board. You should have a semi-solid mass that looks like jelly. Pour the whey out of the pot, cut the mass into five slices, and place back into the pot. Cover.
-# Fill a sink or basin with 102°F water and place the pot and curds into it. Keeping the temperature of the curds right around 100°F, turn the slices every 15 minutes for the next 2 hours. This is the cheddaring process and will give your cheese its unique flavor and deliciousness.
-# After 2 hours, the curds will be shiny and very firm. Remove them from the pot and cut into 1/2-inch cubes. Place back in the pot, cover, and place in the sink filled with 102°F water.
-# In 10 minutes, stir gently with your fingers or a wooden spoon. Repeat twice more.
-# Remove the pot from the sink and add salt. Stir gently once more.
-# Line the cheese press with a piece of cheesecloth and carefully place the curds into the press. Wrap the cloth around the cheese andpress at 10 pounds of pressure for 15 minutes.
-# Remove the cheese from the press, unwrap, and flip the cheese. Re-wrap using a fresh piece of cheesecloth, and press at 40 pounds of pressure for 12 hours.
-# Remove the cheese from the press and air-dry for 2 to 3 days, until smooth and dry to the touch.
-# Wax the cheese and age at 55° to 60°F for at least 60 days. 
-# """
+[[reaction]]
+p_hours = 1485
+s_hours = 12
+directions = """
+In a large pot, heat the milk to 85°F, stirring frequently. As the milk is heating, add the calcium chloride. When the milk gets to 85°F, add culture, stir in with an up-and-down motion, cover, and ferment for 1 hour.
+Stir to homogenize the milk, and slowly fold in the diluted rennet. Using an up-and-down motion with your spoon will ensure that the rennet works its way through all the milk, so you can get the highest possible yield.
+Allow the cheese to set for 1 hour, or until the whey begins to separate from the curd. You should see a layer of mostly clear whey floating on top of the curd, and the curd should be pulling away from the sides of the pot.
+Using the knife, carefully cut the curds into ¼-inch cubes and allow to set for 5 minutes. Do not stir.
+Over the next 30 minutes, slowly heat the curds to 100°F, stirring frequently. As you stir, the curds will shrink.
+Once the curds are at 100°F, maintain the temperature and continue stirring for the next 30 minutes. If the curds get too hot, remove from heat.
+After 30 minutes, stop stirring and allow the curds to settle to the bottom of the pot. This will take about 20 minutes.
+Pour the curds into a colander. Place the colander and curds back into the cheese pot and allow to drain for 15 minutes.
+Remove the colander from the pot and turn the curds out onto a cutting board. You should have a semi-solid mass that looks like jelly. Pour the whey out of the pot, cut the mass into five slices, and place back into the pot. Cover.
+Fill a sink or basin with 102°F water and place the pot and curds into it. Keeping the temperature of the curds right around 100°F, turn the slices every 15 minutes for the next 2 hours. This is the cheddaring process and will give your cheese its unique flavor and deliciousness.
+After 2 hours, the curds will be shiny and very firm. Remove them from the pot and cut into 1/2-inch cubes. Place back in the pot, cover, and place in the sink filled with 102°F water.
+In 10 minutes, stir gently with your fingers or a wooden spoon. Repeat twice more.
+Remove the pot from the sink and add salt. Stir gently once more.
+Line the cheese press with a piece of cheesecloth and carefully place the curds into the press. Wrap the cloth around the cheese andpress at 10 pounds of pressure for 15 minutes.
+Remove the cheese from the press, unwrap, and flip the cheese. Re-wrap using a fresh piece of cheesecloth, and press at 40 pounds of pressure for 12 hours.
+Remove the cheese from the press and air-dry for 2 to 3 days, until smooth and dry to the touch.
+Wax the cheese and age at 55° to 60°F for at least 60 days. 
+"""
 
-# 	[[reaction.product]]
-# 		name="block of cheese"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.product]]
+		name="cheese"
+		measure = "cup"
+		amount = 4.0
 
-# 	[[reaction.reactant]]
-# 		name="cow milk"
-# 		measure = "gallon"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="cow milk"
+		measure = "cup"
+		amount = 32.0
 
-# 	[[reaction.reactant]]
-# 		name="calcium chloride"
-# 		measure = "tsp"
-# 		amount = 0.125
+	[[reaction.reactant]]
+		name="calcium chloride"
+		measure = "cup"
+		amount = 0.0026041658
 
-# 	[[reaction.reactant]]
-# 		name="mesophilic culture"
-# 		measure = "tsp"
-# 		amount = 0.125
+	[[reaction.reactant]]
+		name="mesophilic culture"
+		measure = "cup"
+		amount = 0.0026041658
 
-# 	[[reaction.reactant]]
-# 		name="rennet"
-# 		measure = "tablespoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="rennet"
+		measure = "cup"
+		amount = 0.0625
 
 
 
