@@ -1319,62 +1319,70 @@ After 6 months the chickens will be big enough to lay eggs or eat.
 
 
 
-# [[reaction]]
-# description = "Cow milk is the precursor to many dairy products and its simple to get yourself."
-# time = "2h"
-# url = "http://archive.is/RJhCI"
-# directions = """
-# Tie a cow in a secure area so she can not escape while you are milking her. Visually inspect your cow's udder for signs of injury, swelling or discomfort that might indicate your cow is experiencing a health problem such as mastitis, which occurs when teats become blocked. Call your veterinarian if you discover a health problem when you are inspecting your cow's condition.
-# Wrap your thumb and forefinger into a circle around the base of one of the cow's teats. Gently and quickly squeeze the teat to release a small squirt of milk. This is called stripping the teat; you do so to remove any dirt or debris from the teat as well as to quickly check the appearance of your cow's milk for potential problems. Milk should appear white and smooth, as opposed to clumpy, when you express it from the teat. Do this for every teat.
-# Apply pre-milking disinfectant to every teat, following the instructions that come with the product. Wipe disinfectant away with a clean towel once you've completely cleaned the teats with it.
-# Wrap your thumb and forefinger around each teat and squeeze the teat so milk squirts out of it and into your clean bucket. Continue expressing milk from the teats until the entire udder is empty. Make sure you milk every teat on your cow's udder. Apply post-milking disinfectant to the teats after you have finished milking the cow. Apply bag balm to the teats afterward so they don't dry out.
-# """
+[[reaction]]
+s_hour = 2
+directions = """
+Tie a cow in a secure area so she can not escape while you are milking her. Visually inspect your cow's udder for signs of injury, swelling or discomfort that might indicate your cow is experiencing a health problem such as mastitis, which occurs when teats become blocked. Call your veterinarian if you discover a health problem when you are inspecting your cow's condition.
+Wrap your thumb and forefinger into a circle around the base of one of the cow's teats. Gently and quickly squeeze the teat to release a small squirt of milk. This is called stripping the teat; you do so to remove any dirt or debris from the teat as well as to quickly check the appearance of your cow's milk for potential problems. Milk should appear white and smooth, as opposed to clumpy, when you express it from the teat. Do this for every teat.
+Apply pre-milking disinfectant to every teat, following the instructions that come with the product. Wipe disinfectant away with a clean towel once you've completely cleaned the teats with it.
+Wrap your thumb and forefinger around each teat and squeeze the teat so milk squirts out of it and into your clean bucket. Continue expressing milk from the teats until the entire udder is empty. Make sure you milk every teat on your cow's udder. Apply post-milking disinfectant to the teats after you have finished milking the cow. Apply bag balm to the teats afterward so they don't dry out.
+"""
+notes = """
+directions from http://archive.is/RJhCI
+"""
 
-# 	[[reaction.product]]
-# 		name="cow milk"
-# 		measure = "cup"
-# 		amount = 12
+	[[reaction.product]]
+		name="cow milk"
+		measure = "cup"
+		amount = 12.0
 
-# 	[[reaction.reactant]]
-# 		name="cow"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="cow"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="bag balm"
-# 		measure = "tablespoon"
-# 		amount = 2
-
-# 	[[reaction.reactant]]
-# 		name="cow disinfectant"
-# 		measure = "tablespoon"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 1.8
+		notes = """
+[1 cow requires about 1.8 acres](https://webcache.googleusercontent.com/search?q=cache:_ecHcjj72UsJ:https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb1097070.pdf+&cd=11&hl=en&ct=clnk&gl=us&client=ubuntu)
+"""
 
 
-# [[reaction]]
-# time = "2h"
-# directions = """
-# The most important aspect of milking is the cleanliness of your operation. Raw milk can be safe and wholesome without the need for pasteurization, but you will need to be exacting about hygiene in the barn to achieve this result.
-# The first thing to do is to inspect is your milking equipment. All containers should be stainless steel and should be disinfected with diluted bleach. A dairy acid cleaner should be used as well to remove mineral deposits. The acid can be purchased at most farm supply stores. 
-# Heat your milk in a stainless steel double boiler to 140 degrees Fahrenheit and hold the milk at this temperature for 35 minutes. 
-# After 35 minutes, dump the milk into a container and put it in an ice bath. Stir constantly until the milk cools to 40 degree Fahrenheit. 
-# Once you have cooled and possibly pasteurized your milk, you can skim the cream off for butter or other dairy creations. To do this, you can let your milk stand in the refrigerator for several hours and skim the cream layer off with a ladle, or you can purchase a cream separator. 
-# """
 
-# 	[[reaction.product]]
-# 		name="milk"
-# 		measure = "cup"
-# 		amount = 12
+[[reaction]]
+s_hour = 2.0
+directions = """
+The most important aspect of milking is the cleanliness of your operation. Raw milk can be safe and wholesome without the need for pasteurization, but you will need to be exacting about hygiene in the barn to achieve this result.
+The first thing to do is to inspect is your milking equipment. All containers should be stainless steel and should be disinfected with diluted bleach. A dairy acid cleaner should be used as well to remove mineral deposits. The acid can be purchased at most farm supply stores. 
+Heat your milk in a stainless steel double boiler to 140 degrees Fahrenheit and hold the milk at this temperature for 35 minutes. 
+After 35 minutes, dump the milk into a container and put it in an ice bath. Stir constantly until the milk cools to 40 degree Fahrenheit. 
+Once you have cooled and possibly pasteurized your milk, you can skim the cream off for butter or other dairy creations. To do this, you can let your milk stand in the refrigerator for several hours and skim the cream layer off with a ladle, or you can purchase a cream separator. 
+"""
 
-# 	[[reaction.product]]
-# 		name="cream"
-# 		measure = "cup"
-# 		amount = 12
+	[[reaction.product]]
+		name="milk"
+		measure = "cup"
+		amount = 1.0
+		price = 0.15625
+		notes = """
+1 gallon of milk is $2.50
+"""
 
-# 	[[reaction.reactant]]
-# 		name="cow milk"
-# 		measure = "cup"
-# 		amount = 25
+	[[reaction.product]]
+		name="cream"
+		measure = "cup"
+		amount = 1.0
+		price = 1.17
+		notes = """
+[16 oz heavy cream $2.34](https://www.walmart.com/ip/Great-Value-Heavy-Whipping-Cream-16-oz/10450339)
+"""
+
+	[[reaction.reactant]]
+		name="cow milk"
+		measure = "cup"
+		amount = 2.0
 
 
 # [[reaction]]
