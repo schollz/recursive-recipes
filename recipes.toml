@@ -549,43 +549,43 @@ directions = """
 		measure = "whole"
 		amount = 1.0
 
-# [[reaction]]
-# time = "15m"
-# directions = """
-# Whisk egg yolks and lemon until very thick in a metal bowl.
-# Put the bowl over simmering water and whisk constantly. Drizzle in melted butter. Whisk until white and billowy.
-# Add salt and pepper to taste.
-# """
+[[reaction]]
+s_hours = 0.25
+directions = """
+Whisk egg yolks and lemon until very thick in a metal bowl.
+Put the bowl over simmering water and whisk constantly. Drizzle in melted butter. Whisk until white and billowy.
+Add salt and pepper to taste.
+"""
 
-# 	[[reaction.product]]
-# 		name="hollandaise sauce"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.product]]
+		name="hollandaise sauce"
+		measure = "cup"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="egg yolk"
-# 		measure = "whole"
-# 		amount = 3
+	[[reaction.reactant]]
+		name="egg"
+		measure = "whole"
+		amount = 3.0
 
-# 	[[reaction.reactant]]
-# 		name="lemon juice"
-# 		measure = "tablespoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="lemon juice"
+		measure = "cup"
+		amount = 0.0625
 
-# 	[[reaction.reactant]]
-# 		name="butter"
-# 		measure = "cup"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="butter"
+		measure = "cup"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.0208333
 
-# 	[[reaction.reactant]]
-# 		name="pepper"
-# 		measure = "teaspoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="black pepper"
+		measure = "teaspoon"
+		amount = 0.0208333
 
 # [[reaction]]
 # time = "24m"
@@ -926,46 +926,55 @@ Flatten each dough section and cook on a hot pan for 1 minute on each side.
 
 
 
-# [[reaction]]
-# time = "50m"
-# directions = """
-# In a large bowl stir together 1-3/4 cups of the flour and the salt. Make a well in the center of the flour mixture.
-# In a small bowl combine egg yolks and whole egg, the water, and oil. Add the egg mixture to the flour mixture, stirring to combine.
-# Sprinkle a clean kneading surface with the remaining flour. Turn dough out onto floured surface. Knead the dough until it is smooth and elastic (8 to 10 minutes total).
-# Cover the dough and let rest for 10 minutes.
-# Divide the dough into four equal portions. Let the dough stand, uncovered, about 20 minutes.
-# Cut the noodles into strips. Spread the noodles on a wire cooling rack.
-# """
+[[reaction]]
+time = "50m"
+directions = """
+In a large bowl stir together 1-3/4 cups of the flour and the salt. Make a well in the center of the flour mixture.
+In a small bowl combine egg yolks and whole egg, the water, and oil. Add the egg mixture to the flour mixture, stirring to combine.
+Sprinkle a clean kneading surface with the remaining flour. Turn dough out onto floured surface. Knead the dough until it is smooth and elastic (8 to 10 minutes total).
+Cover the dough and let rest for 10 minutes.
+Divide the dough into four equal portions. Let the dough stand, uncovered, about 20 minutes.
+Cut the noodles into strips. Spread the noodles on a wire cooling rack.
+"""
 
-# 	[[reaction.product]]
-# 		name="noodles"
-# 		measure = "whole"
-# 		amount = 24
+	[[reaction.product]]
+		name="noodles"
+		measure = "cup"
+		amount = 2.0
+		price = 0.98
+		notes = """
+[About 386 in a box](http://bedtimemath.org/fun-math-pasta-in-a-box/)
 
-# 	[[reaction.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		amount = 1.0
+[About 3lb of noodles is 3.92](https://www.walmart.com/ip/Great-Value-Spaghetti-Family-Size-3-lb/10534177)
 
-# 	[[reaction.reactant]]
-# 		name="semolina flour"
-# 		measure = "cup"
-# 		amount = 1.0
+This recipe makes about 3/4 pound of noodles.
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 0.333
+"""
 
-# 	[[reaction.reactant]]
-# 		name="olive oil"
-# 		measure = "teaspoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="flour"
+		measure = "cup"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="egg"
-# 		measure = "whole"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="semolina flour"
+		measure = "cup"
+		amount = 1.0
+
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 0.333
+
+	[[reaction.reactant]]
+		name="olive oil"
+		measure = "cup"
+		amount = 0.020833
+
+	[[reaction.reactant]]
+		name="egg"
+		measure = "whole"
+		amount = 2.0
 
 # [[reaction]]
 # time = "30m"
@@ -1616,40 +1625,40 @@ Makes about 1/2 cup of salt.
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[reaction]]
-# time = "217h30m"
-# directions = """
-# Mix 1/4 c. salt, 1/2 c. brown sugar and 1/3 c. pepper in a bowl. Rub the mixture over the 2 pound slab of pork belly. Cover and set it in the refrigerator for 7 days, turning it every other day to ensure the pork is covered in the cure.
-# Remove the pork from the refrigerator and rinse it well. Pat it dry and place it on a cooling rack over a baking sheet in the refrigerator and air-dry for 2 days.
-# Smoke the bacon until the thickest part of the meat reaches 140F. You can use a smoker, a kettle grill, or a large pot on the stove top.
-# After smoking, cool for a few minutes and then ease off the skin with a large knife.
-# Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
-# """
+[[reaction]]
+time = "217h30m"
+directions = """
+Mix 1/4 c. salt, 1/2 c. brown sugar and 1/3 c. pepper in a bowl. Rub the mixture over the 2 pound slab of pork belly. Cover and set it in the refrigerator for 7 days, turning it every other day to ensure the pork is covered in the cure.
+Remove the pork from the refrigerator and rinse it well. Pat it dry and place it on a cooling rack over a baking sheet in the refrigerator and air-dry for 2 days.
+Smoke the bacon until the thickest part of the meat reaches 140F. You can use a smoker, a kettle grill, or a large pot on the stove top.
+After smoking, cool for a few minutes and then ease off the skin with a large knife.
+Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
+"""
 
-# 	[[reaction.product]]
-# 		name="slices of bacon"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.product]]
+		name="slices of bacon"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="pork belly"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="pork belly"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "cup"
-# 		amount = 0.25
+	[[reaction.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.25
 
-# 	[[reaction.reactant]]
-# 		name="pepper"
-# 		measure = "cup"
-# 		amount = 0.25
+	[[reaction.reactant]]
+		name="black pepper"
+		measure = "cup"
+		amount = 0.25
 
-# 	[[reaction.reactant]]
-# 		name="brown sugar"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="brown sugar"
+		measure = "cup"
+		amount = 0.5
 
 # [[reaction]]
 # time = "5h"

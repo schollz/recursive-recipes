@@ -46,4 +46,14 @@ func TestOpen(t *testing.T) {
 			log.Printf("missing recipe for %s\n", name)
 		}
 	}
+
+	// generate graphviz
+	s := "digraph G {\n"
+	for node := range rd.Children {
+		for _, child := range rd.Children[node] {
+			s += fmt.Sprintf(`"%s" -> "%s"`+"\n", node, child)
+		}
+	}
+	s += "}\n"
+	fmt.Println(s)
 }
