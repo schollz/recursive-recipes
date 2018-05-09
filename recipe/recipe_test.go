@@ -11,6 +11,57 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestOpen2(t *testing.T) {
+	b, _ := ioutil.ReadFile("../recipes.toml")
+	var r Reactions
+	_, err := toml.Decode(string(b), &r)
+	assert.Nil(t, err)
+
+	reactions := make(map[string]Reaction)
+	for _, reaction := range r.Reactions {
+		for _, product := range reaction.Product {
+			if _, ok := reactions[product.Name]; ok {
+				log.Printf("uh oh, already have %s", product.Name)
+			} else {
+				reactions[product.Name] = reaction
+				reactions[product.Name].Product[0] = product
+			}
+		}
+	}
+
+	recipe := "chocolate chip cookies"
+	log.Println(reactions[recipe])
+	d := new(Dag)
+	recursivelyAddRecipe(reactions[recipe].Product[0], d, reactions)
+	log.Printf("%+v", d)
+	for _, child := range d.Children {
+		log.Println(child.Name, child.Measure, child.Amount)
+	}
+}
+
+func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction) {
+	log.Printf("%s", recipe.Name)
+	d.Reaction.Product = nil
+	d.Reaction.Reactant = nil
+	d.Children = []*Dag{}
+	d.Element = recipe
+	if _, ok := reactions[recipe.Name]; ok {
+		d.Reaction = reactions[recipe.Name]
+		for _, child := range reactions[recipe.Name].Reactant {
+			d2 := new(Dag)
+			recursivelyAddRecipe(child, d2, reactions)
+			d.Children = append(d.Children, d2)
+		}
+	}
+	return
+}
+
+type Dag struct {
+	Element
+	Reaction
+	Children []*Dag
+}
+
 func TestOpen(t *testing.T) {
 	b, _ := ioutil.ReadFile("../recipes.toml")
 	var r Reactions
