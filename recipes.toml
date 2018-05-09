@@ -1061,7 +1061,7 @@ Flatten each dough section and cook on a hot pan for 1 minute on each side.
 
 
 [[reaction]]
-p_hour = 48
+p_hours = 48.0
 directions = """
 Make sure chickens always have access to chicken feed (seed, egg shells) and water.
 Give them a fence and possibly a net to protect from predators.
@@ -1320,7 +1320,7 @@ After 6 months the chickens will be big enough to lay eggs or eat.
 
 
 [[reaction]]
-s_hour = 2
+s_hours = 2.0
 directions = """
 Tie a cow in a secure area so she can not escape while you are milking her. Visually inspect your cow's udder for signs of injury, swelling or discomfort that might indicate your cow is experiencing a health problem such as mastitis, which occurs when teats become blocked. Call your veterinarian if you discover a health problem when you are inspecting your cow's condition.
 Wrap your thumb and forefinger into a circle around the base of one of the cow's teats. Gently and quickly squeeze the teat to release a small squirt of milk. This is called stripping the teat; you do so to remove any dirt or debris from the teat as well as to quickly check the appearance of your cow's milk for potential problems. Milk should appear white and smooth, as opposed to clumpy, when you express it from the teat. Do this for every teat.
@@ -1352,7 +1352,7 @@ directions from http://archive.is/RJhCI
 
 
 [[reaction]]
-s_hour = 2.0
+s_hours = 2.0
 directions = """
 The most important aspect of milking is the cleanliness of your operation. Raw milk can be safe and wholesome without the need for pasteurization, but you will need to be exacting about hygiene in the barn to achieve this result.
 The first thing to do is to inspect is your milking equipment. All containers should be stainless steel and should be disinfected with diluted bleach. A dairy acid cleaner should be used as well to remove mineral deposits. The acid can be purchased at most farm supply stores. 
