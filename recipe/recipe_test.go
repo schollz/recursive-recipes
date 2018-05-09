@@ -47,7 +47,7 @@ func TestOpen(t *testing.T) {
 		}
 	}
 
-	subset, elements, timelimit := rd.getSubset(8, "english muffin", make(map[string][]string), make(map[string]Element), 10000000)
+	subset, elements, timelimit := rd.getSubset(32, "chocolate chip cookies", make(map[string][]string), make(map[string]Element), 50)
 	fmt.Println(subset, timelimit)
 	bJson, _ = json.MarshalIndent(elements, "", " ")
 	fmt.Println(string(bJson))
@@ -70,6 +70,23 @@ func TestOpen(t *testing.T) {
 		}
 		fmt.Println(node)
 	}
+
+	// list in order from most time to least time
+	fmt.Println("\n\n\nordered")
+	for node := range subset {
+		for _, next := range subset[node] {
+			if _, ok := subset[next]; !ok {
+				continue
+			}
+			if len(subset[next]) == 0 {
+				continue
+			}
+			if _, ok := rd.Node[next]; !ok {
+				continue
+			}
+			fmt.Println(next, rd.Node[next].SerialHours)
+		}
+	}
 	// fmt.Println(rd.subsetCost(subset))
 }
 
@@ -86,29 +103,29 @@ func TestOpen(t *testing.T) {
 // }
 
 func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]string, elements map[string]Element, timelimit float64) (map[string][]string, map[string]Element, float64) {
-	var scaling float64
+	var scaling, timetaken float64
 	subset[node] = []string{}
+	if _, ok := rd.Node[node]; ok {
+		scaling = amount / rd.Node[node].Product[0].Amount
+		log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
+		timetaken := scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
+		elements[node] = Element{
+			Name:    rd.Node[node].Product[0].Name,
+			Amount:  scaling * rd.Node[node].Product[0].Amount,
+			Measure: rd.Node[node].Product[0].Measure,
+			Price:   scaling * rd.Node[node].Product[0].Price,
+		}
+	}
 	if len(rd.Children[node]) == 0 {
 		// define the scaled ingredient
 		return subset, elements, timelimit
 	}
 	if _, ok := rd.Node[node]; ok {
-		scaling = amount / rd.Node[node].Product[0].Amount
-		log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
-
-		timetaken := scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
 		if timelimit-timetaken < 0 {
-			elements[node] = Element{
-				Name:    rd.Node[node].Product[0].Name,
-				Amount:  scaling * rd.Node[node].Product[0].Amount,
-				Measure: rd.Node[node].Product[0].Measure,
-				Price:   scaling * rd.Node[node].Product[0].Price,
-			}
 			return subset, elements, timelimit
 		}
 		timelimit -= timetaken
 	}
-
 	// get the possible children of the current node
 	subset[node] = rd.Children[node]
 
@@ -121,35 +138,32 @@ func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]s
 			}
 		}
 		log.Printf("for %s scaled %2.3f, needs %s amount needed: %2.3f", node, scaling, child, scaling*amountneeded)
-		previousTimeLimit := timelimit
 		subset, elements, timelimit = rd.getSubset(scaling*amountneeded, child, subset, elements, timelimit)
-		if timelimit == previousTimeLimit {
-			// did not add, this is a leaf
-			for _, reactant := range rd.Node[node].Reactant {
-				if reactant.Name != child {
-					continue
-				}
-				var price float64
-				if _, ok := rd.Node[reactant.Name]; ok {
-					price = rd.Node[reactant.Name].Product[0].Price / rd.Node[reactant.Name].Product[0].Amount * reactant.Amount
-				}
-				if _, ok := elements[reactant.Name]; !ok {
-					elements[reactant.Name] = Element{
-						Name:    reactant.Name,
-						Amount:  scaling * reactant.Amount,
-						Measure: reactant.Measure,
-						Price:   scaling * price,
-					}
-				} else {
-					elements[reactant.Name] = Element{
-						Name:    reactant.Name,
-						Amount:  scaling*reactant.Amount + elements[reactant.Name].Amount,
-						Measure: reactant.Measure,
-						Price:   scaling*price + elements[reactant.Name].Price,
-					}
-				}
-				break
+
+		for _, reactant := range rd.Node[node].Reactant {
+			if reactant.Name != child {
+				continue
 			}
+			var price float64
+			if _, ok := rd.Node[reactant.Name]; ok {
+				price = rd.Node[reactant.Name].Product[0].Price / rd.Node[reactant.Name].Product[0].Amount * reactant.Amount
+			}
+			if _, ok := elements[reactant.Name]; !ok {
+				elements[reactant.Name] = Element{
+					Name:    reactant.Name,
+					Amount:  scaling * reactant.Amount,
+					Measure: reactant.Measure,
+					Price:   scaling * price,
+				}
+			} else {
+				elements[reactant.Name] = Element{
+					Name:    reactant.Name,
+					Amount:  scaling*reactant.Amount + elements[reactant.Name].Amount,
+					Measure: reactant.Measure,
+					Price:   scaling*price + elements[reactant.Name].Price,
+				}
+			}
+			break
 
 		}
 	}
