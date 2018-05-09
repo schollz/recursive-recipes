@@ -319,7 +319,7 @@ directions = """
 """
 
 	[[reaction.reactant]]
-		name="apples"
+		name="apple"
 		measure = "whole"
 		amount = 12.0
 
@@ -676,6 +676,71 @@ Remove muffins to a cooling rack.
 		measure = "tablespoon"
 		amount = 0.125
 
+[[reaction]]
+p_hours = 2920.0
+s_hours = 1.0
+directions = """
+
+"""
+
+	[[reaction.product]]
+		name="flour"
+		measure = "cup"
+		amount = 0.16
+		price = 0.0138
+		notes = """
+[1 acre produces 50 bushels and 1 bushel produces 42 pounds of flour](https://www.quora.com/How-many-people-does-an-acre-of-wheat-feed)
+
+[1 pound of flour is about 3.333 cups](http://www.myrecipes.com/how-to/cooking-questions/cups-in-pound-of-flour)
+
+0.00002295684 acres / plant * 50 bushels / acre * 42 pounds / bushel * 3.33 cups / pound = 0.16 cups / plant
+
+[25 lb flour is $7.18](https://www.walmart.com/ip/Great-Value-All-Purpose-Flour-25-lb/12444466)
+
+7.18 / 25 lb * 1 lb / 3.33 cup = 0.0862 / cup
+"""
+
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.00002295684
+		notes = """
+1 square foot of wheat
+"""
+
+[[reaction]]
+p_hours = 2920.0
+s_hours = 1.0
+directions = """
+
+"""
+
+	[[reaction.product]]
+		name="whole wheat flour"
+		measure = "cup"
+		amount = 0.2293
+		price = 0.0562
+		notes = """
+[1 acre produces 50 bushels and 1 bushel produces 60 pounds of flour](https://www.quora.com/How-many-people-does-an-acre-of-wheat-feed)
+
+[1 pound of whole wheat flour is about 3.333 cups](http://www.myrecipes.com/how-to/cooking-questions/cups-in-pound-of-flour)
+
+0.00002295684 acres / plant * 50 bushels / acre * 60 pounds / bushel * 3.33 cups / pound = 0.2293 cups / plant
+
+[5 lb flour is $4.08](https://www.walmart.com/ip/King-Arthur-Flour-Premium-100-Whole-Wheat-Flour-5-0-LB/10535109)
+
+4.08 / 5 lb * 1 lb / 3.33 cup = 0.245 / cup
+
+"""
+
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.00002295684
+		notes = """
+1 square foot of wheat
+"""
+
 
 # [[reaction]]
 # time = "48h"
@@ -810,50 +875,54 @@ Remove muffins to a cooling rack.
 # 		amount = 1.0
 
 
-# [[reaction]]
-# time = "50m"
-# directions = """
-# Mix together 1 tsp baking soda, 2 cup flour and 1/2 tsp salt.
-# Mix in 1/4 c. olive oil and 1 tbl. lard and slowly add the water. Knead the resulting dough.
-# Let the dough sit for 30 minutes.
-# Cut the dough into 8 small sections. Heat up a cast-iron pan.
-# Flatten each dough section and cook on a hot pan for 1 minute on each side.
-# """
+[[reaction]]
+s_hours = 0.8
+directions = """
+Mix together 1 tsp baking soda, 2 cup flour and 1/2 tsp salt.
+Mix in 1/4 c. olive oil and 1 tbl. lard and slowly add the water. Knead the resulting dough.
+Let the dough sit for 30 minutes.
+Cut the dough into 8 small sections. Heat up a cast-iron pan.
+Flatten each dough section and cook on a hot pan for 1 minute on each side.
+"""
 
-# 	[[reaction.product]]
-# 		name="tortilla"
-# 		measure = "whole"
-# 		amount = 8
+	[[reaction.product]]
+		name="tortilla"
+		measure = "whole"
+		amount = 8.0
+		price = 1.824
+		notes = """
+[10 medium flour tortillas are $2.28](https://www.walmart.com/ip/Mission-Flour-8-Medium-Taco-Size-Tortillas-10-ct/10309357)
+"""
 
-# 	[[reaction.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="flour"
+		measure = "cup"
+		amount = 2.0
 
-# 	[[reaction.reactant]]
-# 		name="baking soda"
-# 		measure = "teaspoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="baking soda"
+		measure = "cup"
+		amount = 0.02083
 
-# 	[[reaction.reactant]]
-# 		name="olive oil"
-# 		measure = "cup"
-# 		amount = 0.25
+	[[reaction.reactant]]
+		name="olive oil"
+		measure = "cup"
+		amount = 0.25
 
-# 	[[reaction.reactant]]
-# 		name="lard"
-# 		measure = "tablespoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="lard"
+		measure = "cup"
+		amount = 0.0625
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.0104167
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 0.75
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 0.75
 
 
 
@@ -991,73 +1060,92 @@ Remove muffins to a cooling rack.
 # 		amount = 1.0
 
 
-# [[reaction]]
-# time = "48h"
-# directions = """
-# Make sure chickens always have access to chicken feed (seed, egg shells) and water.
-# Give them a fence and possibly a net to protect from predators.
-# Provide an area for them to dig/scratch and run around.
-# Chickens will lay an egg every few days, collect the eggs in the morning.
-# """
+[[reaction]]
+p_hour = 48
+directions = """
+Make sure chickens always have access to chicken feed (seed, egg shells) and water.
+Give them a fence and possibly a net to protect from predators.
+Provide an area for them to dig/scratch and run around.
+Chickens will lay an egg every few days, collect the eggs in the morning.
+"""
 
-# 	[[reaction.product]]
-# 		name="egg"
-# 		measure = "whole"
-# 		amount = 2
-
-# 	[[reaction.reactant]]
-# 		name="egg laying chicken"
-# 		measure = "whole"
-# 		amount = 1.0
-
-# 	[[reaction.reactant]]
-# 		name="chicken feed"
-# 		measure = "cup"
-# 		amount = 10
-
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 10
+	[[reaction.product]]
+		name="egg"
+		measure = "whole"
+		amount = 2.0
+		price = 0.417
+		notes = """
+A dozen eggs is about $2.50
+"""
 
 
-# [[reaction]]
-# time = "48h"
-# directions = """
-# In a double boiler, or a widemouth glass jar in a pot of water, start the cocoa butter melting on medium heat.  Add sugar, cocoa powder, and vanilla once a little oil has liquified.  Stir the mixture frequently with a spatula.  Once the cocoa butter is nearly melted, turn off the heat, and continue stirring until completely melted.
-# Add the milk, stirring, gradually in teaspoons (3tsp in a tablespoon).  The sugar will dissolve and the chocolate will congeal into a form that is soft, but no longer liquid and no longer gritty.  It’s almost like it forms tiny, soft grains that compress into a smooth mass when it cools if you’re so inclined to pipe it or roll it out (seized chocolate).  You can’t melt it, so don’t turn up the heat. 
-# Spread the chocolate mixture evenly on a large plate using the spatula and put it in the fridge to set, about 30 minutes. The chocolate will be set but soft and easy to dislodge from the plate onto a cutting board. You can chop it fine or crumble it easily with your fingers.  
-# """
+	[[reaction.reactant]]
+		name="egg laying chicken"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.product]]
-# 		name="chocolate chips"
-# 		measure = "cup"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="chicken feed"
+		measure = "cup"
+		amount = 4.0
 
-# 	[[reaction.reactant]]
-# 		name="cocoa butter"
-# 		measure = "oz"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 10.0
 
-# 	[[reaction.reactant]]
-# 		name="cocoa powder"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.01
+		notes = """
+[You can have 50 - 400 hens per acre](http://www.plamondon.com/wp/how-many-chickens-per-acre/), so one chicken might need about 0.01 acres.
+"""
 
-# 	[[reaction.reactant]]
-# 		name="brown sugar"
-# 		measure = "cup"
-# 		amount = 0.5
 
-# 	[[reaction.reactant]]
-# 		name="vanilla"
-# 		measure = "teaspoon"
-# 		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="milk"
-# 		measure = "tablespoon"
-# 		amount = 1.0
+[[reaction]]
+p_hours = 0.5
+s_hours = 2.0
+directions = """
+In a double boiler, or a widemouth glass jar in a pot of water, start the cocoa butter melting on medium heat.  Add sugar, cocoa powder, and vanilla once a little oil has liquified.  Stir the mixture frequently with a spatula.  Once the cocoa butter is nearly melted, turn off the heat, and continue stirring until completely melted.
+Add the milk, stirring, gradually in teaspoons (3tsp in a tablespoon).  The sugar will dissolve and the chocolate will congeal into a form that is soft, but no longer liquid and no longer gritty.  It’s almost like it forms tiny, soft grains that compress into a smooth mass when it cools if you’re so inclined to pipe it or roll it out (seized chocolate).  You can’t melt it, so don’t turn up the heat. 
+Spread the chocolate mixture evenly on a large plate using the spatula and put it in the fridge to set, about 30 minutes. The chocolate will be set but soft and easy to dislodge from the plate onto a cutting board. You can chop it fine or crumble it easily with your fingers.  
+"""
+
+	[[reaction.product]]
+		name="chocolate chips"
+		measure = "cup"
+		amount = 1.0
+		price = 1.82
+		notes = """
+[12 oz bag of chocolate chips is $2.74](https://www.walmart.com/ip/NESTLE-TOLL-HOUSE-Real-Semi-Sweet-Chocolate-Morsels-12-oz-Bag/10291379)
+"""
+
+	[[reaction.reactant]]
+		name="cocoa butter"
+		measure = "cup"
+		amount = 0.125
+
+	[[reaction.reactant]]
+		name="cocoa powder"
+		measure = "cup"
+		amount = 0.5
+
+	[[reaction.reactant]]
+		name="brown sugar"
+		measure = "cup"
+		amount = 0.5
+
+	[[reaction.reactant]]
+		name="vanilla"
+		measure = "cup"
+		amount = 0.0208333
+
+	[[reaction.reactant]]
+		name="milk"
+		measure = "tablespoon"
+		amount = 0.0625
 
 
 # [[reaction]]
@@ -1115,37 +1203,47 @@ Remove muffins to a cooling rack.
 # 		amount = 40
 
 
-# [[reaction]]
-# time = "4380h"
-# directions = """
-# Create a coop for the chickens. Make sure it has plenty of shelter and possibly a place to roost.
-# Make sure chickens always have access to chicken feed (seed, egg shells) and water.
-# Give them a fence and possibly a net to protect from predators.
-# Provide an area for them to dig/scratch and run around.
-# After 6 months the chickens will be big enough to lay eggs or eat.
-# """
+[[reaction]]
+p_hours = 4380.0 # 182.6 days
+directions = """
+Create a coop for the chickens. Make sure it has plenty of shelter and possibly a place to roost.
+Make sure chickens always have access to chicken feed (seed, egg shells) and water.
+Give them a fence and possibly a net to protect from predators.
+Provide an area for them to dig/scratch and run around.
+After 6 months the chickens will be big enough to lay eggs or eat.
+"""
 
-# 	[[reaction.product]]
-# 		name="egg laying chicken"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.product]]
+		name="egg laying chicken"
+		measure = "whole"
+		amount = 1.0
+		price = 1.0
+		notes = """
+[One egg laying chicken is $15](http://archive.is/E3IZh).
+"""
 
-# 	[[reaction.reactant]]
-# 		name="baby chicken"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="baby chicken"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="chicken feed"
-# 		measure = "cup"
-# 		amount = 1000
+	[[reaction.reactant]]
+		name="chicken feed"
+		measure = "cup"
+		amount = 365.0
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 10000
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 730.0
 
-
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.01
+		notes = """
+[You can have 50 - 400 hens per acre](http://www.plamondon.com/wp/how-many-chickens-per-acre/), so one chicken might need about 0.01 acres.
+"""
 
 # [[reaction]]
 # time = "3m"
@@ -1411,34 +1509,38 @@ Remove muffins to a cooling rack.
 # 		amount = 1.0
 
 
-# [[reaction]]
-# time = "346h"
-# directions = """
-# Let your seawater sit for a while to allow any sediment and particles to settle.
-# Get your stockpot out and ready for the boil. 
-# Then siphon or scoop water from the top of the container, careful not to disturb the sediment at the bottom, through a filter into your stockpot.
-# Use a dishcloth in a sieve for a filter, which provides a good fine mesh to get out any sand or other particles.
-# Start off with a full boil at high heat, until about half of the water had evaporated. 
-# Then turn the burner down to the medium-high heat.
-# As the water evaporates, turn the heat lower and lower until down to medium-low. 
-# This gradual decrease in heat helps prevent scorching without requiring you to stir constantly. 
-# It will take longer than boiling the whole time, but it does take less interaction on your part.
-# You want to get your salt to a consistency of wet sand. Don't worry if there is still water in the pot; the only thing you're concerned about is the consistency of the salt itself.
-# Scoop the result into a pan to dry. Place the pan by the sun or window to dry.
-# Wait about two weeks for it to dry. 
-# Makes about 1/2 cup of salt.
-# """
+[[reaction]]
+p_hours = 346.0
+directions = """
+Let your seawater sit for a while to allow any sediment and particles to settle.
+Get your stockpot out and ready for the boil. 
+Then siphon or scoop water from the top of the container, careful not to disturb the sediment at the bottom, through a filter into your stockpot.
+Use a dishcloth in a sieve for a filter, which provides a good fine mesh to get out any sand or other particles.
+Start off with a full boil at high heat, until about half of the water had evaporated. 
+Then turn the burner down to the medium-high heat.
+As the water evaporates, turn the heat lower and lower until down to medium-low. 
+This gradual decrease in heat helps prevent scorching without requiring you to stir constantly. 
+It will take longer than boiling the whole time, but it does take less interaction on your part.
+You want to get your salt to a consistency of wet sand. Don't worry if there is still water in the pot; the only thing you're concerned about is the consistency of the salt itself.
+Scoop the result into a pan to dry. Place the pan by the sun or window to dry.
+Wait about two weeks for it to dry. 
+Makes about 1/2 cup of salt.
+"""
 
 
-# 	[[reaction.product]]
-# 		name="salt"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.product]]
+		name="salt"
+		measure = "cup"
+		amount = 0.5
+		price = 0.22769
+		notes = """
+[26 oz salt is $1.48](https://www.walmart.com/ip/Morton-Iodized-Salt-26-0-OZ/10448936?athcpid=10448936&athpgid=athenaItemPage&athcgid=null&athznid=PWVUB&athieid=v0&athstid=CS002&athguid=466001f5-fc4b9056-6440cd93c2878244&athena=true)
+"""
 
-# 	[[reaction.reactant]]
-# 		name="seawater"
-# 		measure = "gallon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 16.0
 
 # [[reaction]]
 # time = "9h10m"

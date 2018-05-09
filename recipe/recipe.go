@@ -56,6 +56,9 @@ type RecipeDag struct {
 
 	// Children maps the name of the ingredient to its children
 	Children map[string][]string
+
+	// All elements
+	All map[string]struct{}
 }
 
 func Open(tomlfile string) (r Reaction, err error) {
