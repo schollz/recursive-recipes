@@ -1257,8 +1257,8 @@ After 6 months the chickens will be big enough to lay eggs or eat.
 
 
 [[reaction]]
-p_hours = 1485
-s_hours = 12
+p_hours = 1485.0
+s_hours = 12.0
 directions = """
 In a large pot, heat the milk to 85°F, stirring frequently. As the milk is heating, add the calcium chloride. When the milk gets to 85°F, add culture, stir in with an up-and-down motion, cover, and ferment for 1 hour.
 Stir to homogenize the milk, and slowly fold in the diluted rennet. Using an up-and-down motion with your spoon will ensure that the rennet works its way through all the milk, so you can get the highest possible yield.
@@ -1397,112 +1397,86 @@ Once you have cooled and possibly pasteurized your milk, you can skim the cream 
 # 		amount = 12
 
 
-# [[reaction]]
-# time = "28h"
-# directions = """
-# Start by pouring one gallon of milk (fresh from the cow) into a clean container. Chill the milk quickly, and keep it in the refrigerator for at least 12 hours. 
-# Skim the cream off the top of the fluid with a spoon. When you begin to see watery skim milk in the spoon, stop skimming. Pour the cream into a jar, cap the container tightly and let it sit on the kitchen drainboard for approximately 12 hours.
-# Pour the cream into a larger container. Shake the larger container to agitate and congeal the butter. This takes about 30 minutes.
-# When the cream gets heavy, shake with less vigor. The heavy mass will turn yellow, become firm and separate from the milk. 
-# Put the butter in a bowl and work it and let the buttermilk drain off. Add some salt to the butter and work it in. The butter is done when your satisfied with the taste.
-# """
-# url = "http://archive.is/GVk7Q"
+[[reaction]]
+p_hours = 24.0
+s_hours = 4.0
+directions = """
+Start by pouring one gallon of milk (fresh from the cow) into a clean container. Chill the milk quickly, and keep it in the refrigerator for at least 12 hours. 
+Skim the cream off the top of the fluid with a spoon. When you begin to see watery skim milk in the spoon, stop skimming. Pour the cream into a jar, cap the container tightly and let it sit on the kitchen drainboard for approximately 12 hours.
+Pour the cream into a larger container. Shake the larger container to agitate and congeal the butter. This takes about 30 minutes.
+When the cream gets heavy, shake with less vigor. The heavy mass will turn yellow, become firm and separate from the milk. 
+Put the butter in a bowl and work it and let the buttermilk drain off. Add some salt to the butter and work it in. The butter is done when your satisfied with the taste.
+"""
 
-# 	[[reaction.product]]
-# 		name="butter"
-# 		measure = "cup"
-# 		amount = 2
+	[[reaction.product]]
+		name="butter"
+		measure = "cup"
+		amount = 2.0
+		price = 13.12
+		notes = """
+[7 oz of butter is 5.74](https://www.walmart.com/ip/President-Imported-SALTED-Butter-7oz-199g/140960274)
+"""
 
-# 	[[reaction.product]]
-# 		name="buttermilk"
-# 		measure = "cup"
-# 		amount = 2
+	[[reaction.product]]
+		name="buttermilk"
+		measure = "cup"
+		amount = 2.0
+		prcie = 1.00
+		notes = """
+1 qt of buttermilk is ~$2.0
+"""
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.5
 
-# 	[[reaction.reactant]]
-# 		name="cow milk"
-# 		measure = "gallon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="cow milk"
+		measure = "cup"
+		amount = 16.0
 
-# [[reaction]]
-# time = "35m"
-# directions = """
-# Mix warm water and flour together. Let it rest for 20 minutes.
-# For foccia bread, add yeast to warm water seperately.
-# For regular bread, add yeast to the top of the dough after 20 minutes.
-# Add the salt to the top of the dough and mix together.
-# Wet hands and knead in a big bowl. Cut with fingers several times and then let rest.
-# """
+[[reaction]]
+p_hours = 7.3
+s_hours = 0.5
+directions = """
+Mix warm water and flour together. Let it rest for 20 minutes.
+For foccia bread, add yeast to warm water seperately.
+For regular bread, add yeast to the top of the dough after 20 minutes.
+Add the salt to the top of the dough and mix together.
+Wet hands and knead in a big bowl. Cut with fingers several times and then let rest.
+Let the bread dough rest for 20 minutes. Then knead a little bit.
+Let the bread rise for 4 to 6 hours. Then flour a small bowl and put loaf into bowl.
+Let the bread rise again for 30 minutes, preheat a oven to 450F.
+Bake the bread in a pre-heated dutch oven for 20 minutes. Take off the lid and bake for another 5-10 minutes.
+Take out the bread and let it rest for 20 minutes.
+"""
 
-# 	[[reaction.product]]
-# 		name="bread dough"
-# 		measure = "cup"
-# 		amount = 12
+	[[reaction.product]]
+		name="bread"
+		measure = "whole"
+		amount = 1.0
+		price = 2.00
 
-# 	[[reaction.reactant]]
-# 		name="yeast"
-# 		measure = "tablespoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="yeast"
+		measure = "tablespoon"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 3.2
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 3.2
 
-# 	[[reaction.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		amount = 7.35
+	[[reaction.reactant]]
+		name="flour"
+		measure = "cup"
+		amount = 7.35
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "tsp"
-# 		amount = 3.5
-
-
-# [[reaction]]
-# description = """
-# Sliced bread is a great to serve bread, nothing is better!
-# """
-# time = "2m"
-# directions = """
-# Take the bread and cut it along its side with a sharp, serated, knife.
-# """
-
-# 	[[reaction.product]]
-# 		name="slices of bread"
-# 		measure = "whole"
-# 		amount = 12
-
-# 	[[reaction.reactant]]
-# 		name="loaf of bread"
-# 		measure = "whole"
-# 		amount = 1.0
-
-
-# [[reaction]]
-# description = """
-# Sliced cheese is useful for eating
-# """
-# time = "5m"
-# directions = """
-# Take the cheese and cut it along its side with a sharp knife.
-# """
-
-# 	[[reaction.product]]
-# 		name="slices of cheese"
-# 		measure = "whole"
-# 		amount = 12
-
-# 	[[reaction.reactant]]
-# 		name="block of cheese"
-# 		measure = "whole"
-# 		amount = 1.0
-
+	[[reaction.reactant]]
+		name="salt"
+		measure = "tsp"
+		amount = 3.5
 
 [[reaction]]
 p_hours = 346.0
