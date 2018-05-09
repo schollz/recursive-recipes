@@ -47,7 +47,7 @@ func TestOpen(t *testing.T) {
 		}
 	}
 
-	subset, timelimit := rd.getSubset("chocolate chip cookies", make(map[string][]string), rd.Children, 3)
+	subset, timelimit := rd.getSubset(40, "chocolate chip cookies", make(map[string][]string), rd.Children, 40)
 	fmt.Println(subset, timelimit)
 
 	// generate graphviz
@@ -60,7 +60,7 @@ func TestOpen(t *testing.T) {
 	s += "}\n"
 	fmt.Println(s)
 
-	fmt.Println(subsetCost(subset))
+	fmt.Println(rd.subsetCost(subset))
 }
 
 func (rd RecipeDag) subsetCost(subset map[string][]string) float64 {
@@ -75,12 +75,14 @@ func (rd RecipeDag) subsetCost(subset map[string][]string) float64 {
 	return 0
 }
 
-func (rd RecipeDag) getSubset(node string, subset map[string][]string, all map[string][]string, timelimit float64) (map[string][]string, float64) {
+func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]string, all map[string][]string, timelimit float64) (map[string][]string, float64) {
 	if len(all[node]) == 0 {
 		return subset, timelimit
 	}
+	scaling := amount / rd.Node[node].Product[0].Amount
+	log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
 	if _, ok := rd.Node[node]; ok {
-		timetaken := rd.Node[node].SerialHours + rd.Node[node].ParallelHours
+		timetaken := scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
 		if timelimit-timetaken < 0 {
 			return subset, timelimit
 		}
@@ -88,7 +90,15 @@ func (rd RecipeDag) getSubset(node string, subset map[string][]string, all map[s
 	}
 	subset[node] = all[node]
 	for _, child := range all[node] {
-		subset, timelimit = rd.getSubset(child, subset, all, timelimit)
+		amountneeded := 0.0
+		for _, reactant := range rd.Node[node].Reactant {
+			if reactant.Name == child {
+				amountneeded = reactant.Amount
+				break
+			}
+		}
+		log.Printf("for %s scaled %2.3f, needs %s amount needed: %2.3f", node, scaling, child, scaling*amountneeded)
+		subset, timelimit = rd.getSubset(scaling*amountneeded, child, subset, all, timelimit)
 	}
 	return subset, timelimit
 }
