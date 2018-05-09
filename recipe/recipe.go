@@ -2,18 +2,24 @@ package recipe
 
 import "time"
 
-type Recipes struct {
-	Recipes []Recipe `toml:"recipe"`
+type Reactions struct {
+	Reactions []Reaction `toml:"reaction"`
 }
 
-// Recipe is the reaction that takes place, with reactants
+// Reaction is the reaction that takes place, with reactants
 // and products in either their theoretical OR practical
 // lowest irreducible
-type Recipe struct {
-	// Hours it takes to create the products from reactants
-	Hours float64 `toml:"hours" json:"hours,omitempty"`
-	// If it scales, then do not add time when changing volume
-	Scales     bool      `toml:"scales" json:"scales,omitempty"`
+type Reaction struct {
+	// ParallelHours it takes to create the products from reactants, in parallel.
+	// For example, trees grow at the same rate no matter how many there are,
+	// so there time cost would be almost entirely "parallel". Parallel time
+	// does not scale when scaling the recipe
+	ParallelHours float64 `toml:"p_hours" json:"p_hours,omitempty"`
+
+	// SerialHours is the serial amount of time needed, time that scales
+	// proportional to the quantities.
+	SerialHours float64 `toml:"s_hours" json:"s_hours,omitempty"`
+
 	Directions string    `toml:"directions" json:"directions,omitempty"`
 	Notes      string    `toml:"notes" json:"notes,omitempty"`
 	Product    []Element `toml:"product" json:"product,omitempty"`
@@ -36,23 +42,23 @@ type Element struct {
 	// or "whole"
 	Measure string `toml:"measure" json:"measure,omitempty"`
 
-	// Price is the cost per amount+measure
+	// Price is the cost per amount+measure, specified on products.
 	Price float64 `toml:"price" json:"price,omitempty"`
 
 	// Notes are for references
 	Notes string `toml:"notes" json:"notes,omitempty"`
 }
 
-type SingleRecipe struct {
-	Product     string
-	Cups        float64
-	Hours       float64
-	Scales      bool
-	Directions  string
-	Ingredients []string
+type RecipeDag struct {
+	// Node maps the name of a recipe to the reaction, but the reaction
+	// only contains a single product
+	Node map[string]Reaction
+
+	// Children maps the name of the ingredient to its children
+	Children map[string][]string
 }
 
-func Open(tomlfile string) (r Recipe, err error) {
+func Open(tomlfile string) (r Reaction, err error) {
 
 	return
 }

@@ -1,12 +1,12 @@
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 730.5
+p_hours = 730.5
 directions = """
 1. Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged.
 2. Store the jar or bottle of vanilla beans in a cool, dark place for at least one month, shaking it from time to time. Taste the extract and let it infuse longer if you want a stronger flavor. 
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="vanilla"
 		amount = 0.875
 		measure = "cup"
@@ -15,24 +15,24 @@ directions = """
 [2 fl oz is $6.92](https://www.walmart.com/ip/Great-Value-Pure-Vanilla-Extract-2-fl-oz/10314950)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="alcohol"
 		amount = 1.0
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="vanilla beans"
 		measure = "whole"
 		amount = 6.0
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 0.0833
+s_hours = 0.0833
 directions = """
 1. Grind peppercorn in a grinder.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="black pepper"
 		measure = "cup"
 		amount = 0.125
@@ -41,21 +41,21 @@ directions = """
 [3 oz is $3.48](https://www.walmart.com/ip/McCormick-Ground-Black-Pepper-3-oz/44981960)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="peppercorn"
 		measure = "cup"
 		amount = 0.125
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 52560.0
-scales = true
+p_hours = 52560.0
+s_hours = 0.5
 directions = """
 1. Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
 2. Wait about 6 years for the tree to grow, and then harvest the apples by picking them off the tree.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="apple"
 		measure = "whole"
 		amount = 143.0
@@ -68,7 +68,7 @@ directions = """
 One apple is aobut $0.50
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		measure = "acre"
 		amount = 0.00285714285
@@ -77,9 +77,10 @@ One apple is aobut $0.50
 """
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 2892.0
+p_hours = 2892.0
+s_hours = 0.5
 scales = true
 directions = """
 Grow beans in full sun in well-drained soil rich in organic matter with a soil pH of 6.0 to 6.8. Prepare planting beds in advance by working in plenty of aged compost. Avoid planting beans where soil nitrogen is high or where green manure crops have just grown; these beans will produce green foliage but few beans. Beans grow best in temperatures between 50° and 85°F. 
@@ -87,7 +88,7 @@ Start beans indoors as early as 3 or 4 weeks before the average last frost date 
 Dry beans will be ready for harvest 70 to 120 after sowing when plants have matured and leaves have turned brown or fallen. To test for harvest, bite a couple of seeds; if they will hardly dent they are dry and ready for harvest. Harvest pods when they are completely dry. If pods have withered but are still moist, pick them and then spread them on a flat screen or surface in a warm, protected place where they can thoroughly dry. Plant also can be taken up whole and hung upside down to dry. Pods that are fully dry will split open to reveal the dried beans. Dry beans can be shelled by threshing in a burlap sack or by hand.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="dried beans"
 		amount = 1.72
 		measure = "cup"
@@ -98,7 +99,7 @@ Dry beans will be ready for harvest 70 to 120 after sowing when plants have matu
 [One bag of 64 oz dried beans is $2.98](https://www.walmart.com/ip/Great-Value-Pinto-Beans-64-oz/10314948)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		measure = "acre"
 		amount = 0.0002066
@@ -107,78 +108,79 @@ One bean plant needs about 9 square feet.
 """
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 13.5
+p_hours = 12.0
+s_hours = 1.5
 directions = """
 1. Cover dried beans with water. Soak overnight.
 2. Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
 Simmer the beans until they are tender, about 1 1/2 hours.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="beans"
 		measure = "cup"
 		amount = 1.5
 		price = 1.5
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="dried beans"
 		measure = "cup"
 		amount = 2.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="water"
 		measure = "cup"
 		amount = 20.0
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 0.75
+s_hours = 0.75
 directions = """
 1. Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
 2. Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
 3. Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="refried beans"
 		measure = "cup"
 		amount = 1.5
 		price = 1.5
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="beans"
 		measure = "cup"
 		amount = 2.5
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="butter"
 		measure = "cup"
 		amount = 0.125
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="onion"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="water"
 		measure = "cup"
 		amount = 0.25
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="salt"
 		measure = "cup"
 		amount = 0.0208
 
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 35040.0 # 4 years
-scales = true
+p_hours = 35040.0 # 4 years
+s_hours = 0.5
 directions = """
 1. Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
 2. Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
@@ -186,7 +188,7 @@ directions = """
 4. Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="peppercorn"
 		amount = 0.94
 		measure = "cup"
@@ -204,7 +206,7 @@ directions = """
 0.001 plants / acre * 275 kg / hectare * 0.404686 hectare / acre  / (0.5 kg / l) = 0.94 cups
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		amount = 0.001
 		measure = "acre"
@@ -213,9 +215,10 @@ One bean plant needs about 9 square feet.
 """
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 2400.0 # 100 days
+p_hours = 2400.0 # 100 days
+s_hours = 0.02
 directions = """
 1. Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
 2. Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
@@ -223,7 +226,7 @@ directions = """
 4. Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="corn"
 		amount = 3.0
 		measure = "whole"
@@ -233,25 +236,26 @@ directions = """
 		price = 0.75
 
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		amount = 0.00003333333
 		measure = "acre"
 		notes = "Acerage for one plant"
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-time = "3600h" # 100 days
+p_hours = 3600.0
+s_hours = 0.25
 directions = """
-Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
-Growing onions requires abundant sun and good drainage, and they grow best when the soil pH ranges between 6.0 and 6.8. Raised beds or raised rows made by mounding up soil are ideal, especially if your soil is heavy clay. Mix a 2-inch layer of compost into the soil before placing an organic or timed-release fertilizer into planting furrows, following label rates. Set plants 1 inch deep, so that their roots are well covered with soil but the top of the plant’s neck is not buried too deeply. You don’t want the part of the neck where the leaves grow away from the clear sheath to collect soil or water down between the young leaves, or they can rot. Space plants 6 inches apart in furrows 12 inches apart. Plants will appreciate a starter solution of liquid fertilizer after planting.
-Onions roots are shallow and not very efficient at taking up moisture, so they need a steady supply of water to grow without interruption. Although they actually recover well from drought and start growing again when watered, it is best to keep the soil consistently moist until the bulbs enlarge.
-For full-sized bulbs, let onions grow and mature. They are ready to harvest when the bulbs are big and the tops begin to turn yellow and fall over. Pull them up, shake off the soil, and lay them out to cure with the tops still attached. Any warm, airy location is a good place to do this; you can even sling them over a fence as long as they aren’t rained upon. Bulbs must stay dry and have good air circulation. As the onions cure, the roots will shrivel and the necks above the bulbs will slowly dry – a natural process that helps to seal the top of the bulb, making the onions less likely to rot. After 7 to 10 days, clip off the tops of the onions and the roots with pruning shears, remove as much dry dirt as possible without taking off the papery outer skins, and store your onions in a cool place. Very sweet, juicy onions may be stored, wrapped in newspaper or paper towels, in the fridge.
+1. Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
+2. Growing onions requires abundant sun and good drainage, and they grow best when the soil pH ranges between 6.0 and 6.8. Raised beds or raised rows made by mounding up soil are ideal, especially if your soil is heavy clay. Mix a 2-inch layer of compost into the soil before placing an organic or timed-release fertilizer into planting furrows, following label rates. Set plants 1 inch deep, so that their roots are well covered with soil but the top of the plant’s neck is not buried too deeply. You don’t want the part of the neck where the leaves grow away from the clear sheath to collect soil or water down between the young leaves, or they can rot. Space plants 6 inches apart in furrows 12 inches apart. Plants will appreciate a starter solution of liquid fertilizer after planting.
+3. Onions roots are shallow and not very efficient at taking up moisture, so they need a steady supply of water to grow without interruption. Although they actually recover well from drought and start growing again when watered, it is best to keep the soil consistently moist until the bulbs enlarge.
+4. For full-sized bulbs, let onions grow and mature. They are ready to harvest when the bulbs are big and the tops begin to turn yellow and fall over. Pull them up, shake off the soil, and lay them out to cure with the tops still attached. Any warm, airy location is a good place to do this; you can even sling them over a fence as long as they aren’t rained upon. Bulbs must stay dry and have good air circulation. As the onions cure, the roots will shrivel and the necks above the bulbs will slowly dry – a natural process that helps to seal the top of the bulb, making the onions less likely to rot. After 7 to 10 days, clip off the tops of the onions and the roots with pruning shears, remove as much dry dirt as possible without taking off the papery outer skins, and store your onions in a cool place. Very sweet, juicy onions may be stored, wrapped in newspaper or paper towels, in the fridge.
 """
 
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="onion"
 		measure = "whole"
 		amount = 1.0
@@ -260,16 +264,17 @@ For full-sized bulbs, let onions grow and mature. They are ready to harvest when
 [~100,000 onions / acre](https://extension.psu.edu/onion-production)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		amount = 0.00001
 		measure = "acre"
 		notes = "acerage for one plant"
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 6570.0 # 9 months
+p_hours = 6570.0 # 9 months
+s_hours = 0.25
 directions = """
 Garlic can be planted in the spring as soon as the ground can be worked, but fall planting is recommended for most gardeners. Plant in the fall and youâll find that your bulbs are bigger and more flavorful when you harvest the next summer.
 In areas that get a hard frost, plant garlic 6 to 8 weeks before that frost. In southern areas, February or March is a better time to plant.
@@ -282,7 +287,7 @@ In the spring, as warmer temperatures come, shoots will emerge through the groun
 """
 
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="garlic"
 		amount = 1.0
 		measure = "whole"
@@ -293,7 +298,7 @@ In the spring, as warmer temperatures come, shoots will emerge through the groun
 This refers to one garlic bulb.
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="soil"
 		amount = 0.000025
 		measure = "acre"
@@ -301,10 +306,10 @@ This refers to one garlic bulb.
 
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-scales = true
-hours = 4382.0
+p_hours = 4382.0
+s_hours = 1.0
 directions = """
 1. Wash the apples and cut them into small pieces, keeping skin, core and stems.
 2. Make a mush of the apples and then strain it through a muslin bag.
@@ -313,12 +318,12 @@ directions = """
 5. Take the liquid, strain, bottle, and cork.
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="apples"
 		measure = "whole"
 		amount = 12.0
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="vinegar"
 		amount = 3.0
 		price = 0.765
@@ -327,9 +332,10 @@ directions = """
 [128 oz apple cider vinegar ~ $4.08](https://www.walmart.com/ip/Great-Value-Apple-Cider-Vinegar-128-oz/10451001)
 """
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 12.16667
+s_hours = 0.16667
+p_hours = 12.0
 directions = """
 1. Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
 2. Stir in 1/2 c. water and let rest at room temperature overnight.
@@ -337,7 +343,7 @@ directions = """
 4. Store in fridge.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="mustard"
 		measure = "cup"
 		amount = 1.0
@@ -346,41 +352,41 @@ directions = """
 [9 oz mustard $1.92](https://www.walmart.com/ip/Sam-s-Choice-Dill-Mustard-9-oz/422410225)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="dry mustard"
 		measure = "cup"
 		amount = 0.125
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="vinegar"
 		measure = "cup"
 		amount = 0.25
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="sugar"
 		measure = "cup"
 		amount = 0.0625
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="garlic"
 		measure = "whole"
 		amount = 2.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="water"
 		measure = "cup"
 		amount = 0.5
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 0.16666
+s_hours = 0.16666
 directions = """
 1. Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
 2. While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="mayonnaise"
 		amount = 1.0
 		measure = "cup"
@@ -389,42 +395,42 @@ directions = """
 [48 fl oz costs $4.48](https://www.walmart.com/ip/Kraft-Mayo-Mayonnaise-Real-48-fl-oz-Jar/10295669?athcpid=10295669&athpgid=athenaItemPage&athcgid=null&athznid=PWVUB&athieid=v0&athstid=CS002&athguid=466001f5-58d54026-405f6ac4c4fef50f&athena=true).
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="egg"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="mustard"
 		amount = 0.03125
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="salt"
 		amount = 0.0104167
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="lemon juice"
 		amount = 0.25
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="olive oil"
 		amount = 1.25
 		measure = "cup"
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-hours = 0.4
+s_hours = 0.4
 directions = """
 1. In a large bowl whisk together the dry ingredients. 
 2. Beat the wet ingredients together and then add to the dry ingredients.
 3. Use a large skillet to cook pancakes one by one.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="pancakes"
 		measure = "whole"
 		amount = 8.0
@@ -433,49 +439,50 @@ directions = """
 [3 pancakes are $5.19 at IHOP](https://foodservices.appstate.edu/dining-menus/price-comparisons-local-restaurants)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="flour"
 		amount = 1.25
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="baking soda"
 		amount = 0.0104167
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="baking powder"
 		amount = 0.0416667
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="salt"
 		amount = 0.0104167
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="sugar"
 		amount = 0.125
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="egg"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="buttermilk"
 		amount = 2.0
 		measure = "cup"
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="butter"
 		amount = 0.125
 		measure = "cup"
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-time = "15h10m"
+s_hours = 12.0
+p_hours = 3.1
 directions = """
 1. In a large sauce pan, warm milk until uits on the verge of boil. Stir it constantly.
 2. Remove the milk from heat, pour into a bowl and let it cool until its lukewarm.
@@ -483,7 +490,7 @@ directions = """
 4. Put a piece of cheesecloth in a sieve over a bowl and scoop the yogurt into it and let it drain for a few hours until the yogurt is as thick as you would like it. Store the drained yogurt in a jar to use as whey.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="yogurt"
 		measure = "cup"
 		amount = 4.0
@@ -492,20 +499,20 @@ directions = """
 [32 oz yogurt is $3.78](https://www.walmart.com/ip/Great-Value-Plain-Greek-Nonfat-Yogurt-32-oz/26559565)
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="whey"
 		measure = "cup"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="milk"
 		measure = "cup"
 		amount = 8.0
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-time = "15m"
+s_hours = 0.25
 directions = """
 1. Arrange a muffin in halves on a plate
 2. Fry bacon until it becomes dark and add bacon to each muffin
@@ -513,7 +520,7 @@ directions = """
 4. Pour hollaindaise sauce over each egg
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="eggs benedict"
 		measure = "whole"
 		amount = 1.0
@@ -522,27 +529,27 @@ directions = """
 [Eggs benedict is about 6.95](http://webcache.googleusercontent.com/search?q=cache:jHog285Xqb0J:www.iberkshires.com/restaurants/menus/1236349459.pdf+&cd=2&hl=en&ct=clnk&gl=us&client=ubuntu)
 """
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="hollandaise sauce"
 		measure = "cup"
 		amount = 0.25
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="english muffin"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="slice of bacon"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="poached egg"
 		measure = "whole"
 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "15m"
 # directions = """
 # Whisk egg yolks and lemon until very thick in a metal bowl.
@@ -550,37 +557,37 @@ directions = """
 # Add salt and pepper to taste.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="hollandaise sauce"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="egg yolk"
 # 		measure = "whole"
 # 		amount = 3
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="lemon juice"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="butter"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="pepper"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "24m"
 # directions = """
 # Boil water in a large pan on the stove.
@@ -590,30 +597,30 @@ directions = """
 # Turn off the heat and let the egg cook for about 4 minutes.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="poached egg"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="vinegar"
 # 		measure = "tablespoon"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 20
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="egg"
 # 		measure = "whole"
 # 		amount = 1.0
 
 
-[[recipe]]
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
-time = "3h30m"
+s_hours = 3.5
 directions = """
 Combine 1/4 c. warm water, 1 tbl yeast yeast, 2 tbl. sugar, 2 c. flour and 2 tsp. salt in a bowl. Add the egg, milk, butter and continue beating until creamy. Add the remaining flour if nessecary. Keep dough moist.
 Remove dough and oil the bowl. Return the dough to bowl and cover with dish towel until doubled, about 2 hours.
@@ -623,54 +630,54 @@ Put muffins in pan and immedietly turn down heat to medium. Cook muffins 10 to 1
 Remove muffins to a cooling rack.
 """
 
-	[[recipe.product]]
+	[[reaction.product]]
 		name="english muffin"
 		measure = "whole"
 		amount = 8.0
 		price = 2.50
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="water"
 		measure = "cup"
 		amount = 0.25
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="sugar"
 		measure = "cup"
 		amount = 0.125
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="flour"
 		measure = "cup"
 		amount = 4.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="salt"
 		measure = "cup"
 		amount = 0.0416667
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="egg"
 		measure = "whole"
 		amount = 1.0
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="milk"
 		measure = "cup"
 		amount = 1.25
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="butter"
 		measure = "tablespoon"
 		amount = 0.125
 
-	[[recipe.reactant]]
+	[[reaction.reactant]]
 		name="cornmeal"
 		measure = "tablespoon"
 		amount = 0.125
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "48h"
 # directions = """
 # Go out to your wheatfield and wait for stalks to turn from green to yellow or brown. The heads, heavy with grain, should tip toward the earth. This means it's time to test the grain. Choose a head, pick out a few grains, and pop them into your mouth. If they are soft and doughy, the grain is not yet ready. Keep testing. One day the grains will be firm and crunchy, and it will be time to harvest.
@@ -682,57 +689,57 @@ Remove muffins to a cooling rack.
 # Stack the wheat sheaves upright in a well-ventilated, dry location safe from grain-eating animals. Our ancestors stacked sheaves to make shocks in the field, but with small quantities, it's easy to bring the sheaves in out of the weather. The grain has been cured when it is hard, shatters easily, and cannot be dented with your thumbnail.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cured wheat"
 # 		measure = "whole"
 # 		amount = 24
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="field of wheat"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "2h"
 # directions = """
 # Take your cured wheat and thresh the grain to separate the straw and chaff from it. You can go about this in any number of ways. One method is flailing. A flail consists of one piece of wood about 3 feet long the handle attached with a leather thong to a shorter piece about 2 feet long. The shorter piece is flung at the heads of grain repeatedly, shattering a few heads each time. If you are using this method, you can expect to produce about 3 pounds of wheat in 20 to 25 minutes. That's slow work. Also, there's a trick to learning to swing the tail without rapping yourself on the head.
 # Now you can winnow. The usual method for winnowing is pouring the grain from one container to another, letting either the wind or the breeze from an electric fan push the lighter chaff out of the grain. Repeat the process a few times to get the grain as chaff-free as possible until you have as many wheat berries as you need.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="wheat berries"
 # 		measure = "cup"
 # 		amount = 40
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cured wheat"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "30m"
 # directions = """
 # Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
 # Store the whole wheat flour and wheat bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the wheat in the refrigerator or freezer for up to 2 months.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="whole wheat flour"
 # 		measure = "cup"
 # 		amount = 4
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="wheat bran"
 # 		measure = "cup"
 # 		amount = 4
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="wheat berries"
 # 		measure = "cup"
 # 		amount = 10
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "3h"
 # directions = """
 # Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
@@ -742,39 +749,39 @@ Remove muffins to a cooling rack.
 # Store the flour and germ/bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the germ/bran in the refrigerator or freezer for up to 2 months. Keep the wheat middlings that are not sifted for making semolina flour.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 8
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="wheat middlings"
 # 		measure = "cup"
 # 		amount = 8
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="wheat berries"
 # 		measure = "cup"
 # 		amount = 10
 
-# [[recipe]]
+# [[reaction]]
 # time = "30m"
 # directions = """
 # Grind the wheat middlings to a coarse consistency.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="semolina flour"
 # 		measure = "cup"
 # 		amount = 9
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="wheat middlings"
 # 		measure = "cup"
 # 		amount = 10
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "2920h"
 # directions = """
 # Plant winter wheat in fall to allow for six to eight weeks of growth before the soil freezes. This allows time for good root development. If the wheat is planted too early, it may smother itself the following spring and it could be vulnerable to some late-summer insects that won't be an issue in the cooler fall weather. If winter wheat is planted too late, it will not overwinter well.
@@ -782,28 +789,28 @@ Remove muffins to a cooling rack.
 # Cover the seed by rototilling or raking it in to a depth of 2 to 2 1/2 inches for winter wheat and 1 to 1 1/2 inches for spring wheat. For best results, roll or otherwise firm the bed to ensure good seed-soil contact.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="field of wheat"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water source"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="sun"
 # 		measure = "whole"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "50m"
 # directions = """
 # Mix together 1 tsp baking soda, 2 cup flour and 1/2 tsp salt.
@@ -813,44 +820,44 @@ Remove muffins to a cooling rack.
 # Flatten each dough section and cook on a hot pan for 1 minute on each side.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="tortilla"
 # 		measure = "whole"
 # 		amount = 8
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="baking soda"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="olive oil"
 # 		measure = "cup"
 # 		amount = 0.25
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="lard"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 0.75
 
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "50m"
 # directions = """
 # In a large bowl stir together 1-3/4 cups of the flour and the salt. Make a well in the center of the flour mixture.
@@ -861,37 +868,37 @@ Remove muffins to a cooling rack.
 # Cut the noodles into strips. Spread the noodles on a wire cooling rack.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="noodles"
 # 		measure = "whole"
 # 		amount = 24
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="semolina flour"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 0.333
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="olive oil"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="egg"
 # 		measure = "whole"
 # 		amount = 2
 
-# [[recipe]]
+# [[reaction]]
 # time = "30m"
 # directions = """
 # Cream together butter and brown sugar. 
@@ -902,63 +909,63 @@ Remove muffins to a cooling rack.
 # Bake at 375F for 10 to 14 minutes, until firm and brown.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cookies"
 # 		measure = "cup"
 # 		amount = 10
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="whole wheat flour"
 # 		measure = "cup"
 # 		amount = 1.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="baking powder"
 # 		measure = "teaspoon"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="baking soda"
 # 		measure = "teaspoon"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="butter"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="egg"
 # 		measure = "whole"
 # 		amount = 5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="oatmeal"
 # 		measure = "cup"
 # 		amount = 5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="chocolate chips"
 # 		measure = "cup"
 # 		amount = 3
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "20m"
 # directions = """
 # Heat 1 tablespoon salted butter in a cast-iron or nonstick skillet over medium-low heat. 
@@ -968,23 +975,23 @@ Remove muffins to a cooling rack.
 # Cook until the other side is golden and the cheese melts, 3 to 5 more minutes.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="grilled cheese sandwich"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cheese sandwich"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="butter"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "48h"
 # directions = """
 # Make sure chickens always have access to chicken feed (seed, egg shells) and water.
@@ -993,28 +1000,28 @@ Remove muffins to a cooling rack.
 # Chickens will lay an egg every few days, collect the eggs in the morning.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="egg"
 # 		measure = "whole"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="egg laying chicken"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="chicken feed"
 # 		measure = "cup"
 # 		amount = 10
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 10
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "48h"
 # directions = """
 # In a double boiler, or a widemouth glass jar in a pot of water, start the cocoa butter melting on medium heat.  Add sugar, cocoa powder, and vanilla once a little oil has liquified.  Stir the mixture frequently with a spatula.  Once the cocoa butter is nearly melted, turn off the heat, and continue stirring until completely melted.
@@ -1022,38 +1029,38 @@ Remove muffins to a cooling rack.
 # Spread the chocolate mixture evenly on a large plate using the spatula and put it in the fridge to set, about 30 minutes. The chocolate will be set but soft and easy to dislodge from the plate onto a cutting board. You can chop it fine or crumble it easily with your fingers.  
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="chocolate chips"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cocoa butter"
 # 		measure = "oz"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cocoa powder"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="vanilla"
 # 		measure = "teaspoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="milk"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "1080h"
 # directions = """
 # Seeds should be grown outdoors, sow the seeds of wild oats at a depth of 6mm at the beginning to middle of spring.
@@ -1066,22 +1073,22 @@ Remove muffins to a cooling rack.
 # Historical harvest methods involved cutting with a scythe or sickle, and threshing under the feet of cattle. Late 19th and early 20th century harvesting was performed using a binder. Oats were gathered into shocks and then collected and run through a stationary threshing machine.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="oatmeal"
 # 		measure = "cup"
 # 		amount = 5000
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="sun"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "76h10m"
 # directions = """
 # Strip the sugar cane of all of its leaves with a carving knife. Wash the sugar cane for several minutes with running water.
@@ -1092,23 +1099,23 @@ Remove muffins to a cooling rack.
 # Cleanliness is vital to the whole process. Once the juice has been heated, impurities will speed the 'inversion' of sugar and lead to reduced yields. All boiling pans and tools need to be thoroughly cleaned between uses.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="brown sugar"
 # 		measure = "cup"
 # 		amount = 4
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="stalks of sugar cane"
 # 		measure = "whole"
 # 		amount = 4
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 40
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "4380h"
 # directions = """
 # Create a coop for the chickens. Make sure it has plenty of shelter and possibly a place to roost.
@@ -1118,52 +1125,52 @@ Remove muffins to a cooling rack.
 # After 6 months the chickens will be big enough to lay eggs or eat.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="egg laying chicken"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="baby chicken"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="chicken feed"
 # 		measure = "cup"
 # 		amount = 1000
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 10000
 
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "3m"
 # directions = """
 # Take two slices of bread.
 # Put the slices of cheese between the bread.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cheese sandwich"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="slices of bread"
 # 		measure = "whole"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="slices of cheese"
 # 		measure = "whole"
 # 		amount = 2
 
 
-# [[recipe]]
+# [[reaction]]
 # url = "http://archive.is/WRZmB"
 # description = "Cheese is a ubiquitous food that adds flavor to almost every meal."
 # time = "1485h30m"
@@ -1187,34 +1194,34 @@ Remove muffins to a cooling rack.
 # Wax the cheese and age at 55° to 60°F for at least 60 days. 
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="block of cheese"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cow milk"
 # 		measure = "gallon"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="calcium chloride"
 # 		measure = "tsp"
 # 		amount = 0.125
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="mesophilic culture"
 # 		measure = "tsp"
 # 		amount = 0.125
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="rennet"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
 
 
-# [[recipe]]
+# [[reaction]]
 # description = "Cow milk is the precursor to many dairy products and its simple to get yourself."
 # time = "2h"
 # url = "http://archive.is/RJhCI"
@@ -1225,28 +1232,28 @@ Remove muffins to a cooling rack.
 # Wrap your thumb and forefinger around each teat and squeeze the teat so milk squirts out of it and into your clean bucket. Continue expressing milk from the teats until the entire udder is empty. Make sure you milk every teat on your cow's udder. Apply post-milking disinfectant to the teats after you have finished milking the cow. Apply bag balm to the teats afterward so they don't dry out.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cow milk"
 # 		measure = "cup"
 # 		amount = 12
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cow"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="bag balm"
 # 		measure = "tablespoon"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cow disinfectant"
 # 		measure = "tablespoon"
 # 		amount = 2
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "2h"
 # directions = """
 # The most important aspect of milking is the cleanliness of your operation. Raw milk can be safe and wholesome without the need for pasteurization, but you will need to be exacting about hygiene in the barn to achieve this result.
@@ -1256,23 +1263,23 @@ Remove muffins to a cooling rack.
 # Once you have cooled and possibly pasteurized your milk, you can skim the cream off for butter or other dairy creations. To do this, you can let your milk stand in the refrigerator for several hours and skim the cream layer off with a ladle, or you can purchase a cream separator. 
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="milk"
 # 		measure = "cup"
 # 		amount = 12
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cream"
 # 		measure = "cup"
 # 		amount = 12
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cow milk"
 # 		measure = "cup"
 # 		amount = 25
 
 
-# [[recipe]]
+# [[reaction]]
 # description = """
 # Bread is a food staple made from flour, water, yeast and salt. The process begins with leavening
 # and ends with baking at a high temperature.
@@ -1286,18 +1293,18 @@ Remove muffins to a cooling rack.
 # Take out the bread and let it rest for 20 minutes.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="loaf of bread"
 # 		measure = "whole"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="bread dough"
 # 		measure = "cup"
 # 		amount = 12
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "28h"
 # directions = """
 # Start by pouring one gallon of milk (fresh from the cow) into a clean container. Chill the milk quickly, and keep it in the refrigerator for at least 12 hours. 
@@ -1308,27 +1315,27 @@ Remove muffins to a cooling rack.
 # """
 # url = "http://archive.is/GVk7Q"
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="butter"
 # 		measure = "cup"
 # 		amount = 2
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="buttermilk"
 # 		measure = "cup"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cow milk"
 # 		measure = "gallon"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "35m"
 # directions = """
 # Mix warm water and flour together. Let it rest for 20 minutes.
@@ -1338,33 +1345,33 @@ Remove muffins to a cooling rack.
 # Wet hands and knead in a big bowl. Cut with fingers several times and then let rest.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="bread dough"
 # 		measure = "cup"
 # 		amount = 12
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="yeast"
 # 		measure = "tablespoon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 3.2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 7.35
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "tsp"
 # 		amount = 3.5
 
 
-# [[recipe]]
+# [[reaction]]
 # description = """
 # Sliced bread is a great to serve bread, nothing is better!
 # """
@@ -1373,18 +1380,18 @@ Remove muffins to a cooling rack.
 # Take the bread and cut it along its side with a sharp, serated, knife.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="slices of bread"
 # 		measure = "whole"
 # 		amount = 12
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="loaf of bread"
 # 		measure = "whole"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # description = """
 # Sliced cheese is useful for eating
 # """
@@ -1393,18 +1400,18 @@ Remove muffins to a cooling rack.
 # Take the cheese and cut it along its side with a sharp knife.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="slices of cheese"
 # 		measure = "whole"
 # 		amount = 12
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="block of cheese"
 # 		measure = "whole"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "346h"
 # directions = """
 # Let your seawater sit for a while to allow any sediment and particles to settle.
@@ -1423,17 +1430,17 @@ Remove muffins to a cooling rack.
 # """
 
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="salt"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="seawater"
 # 		measure = "gallon"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "9h10m"
 # directions = """
 # Preheat oven to 250F. Cut the pork belly into chunks. Place the chunks into a deep skillet or dutch oven with a cup of water. 
@@ -1443,18 +1450,18 @@ Remove muffins to a cooling rack.
 # Store the liquid lard
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="lard"
 # 		measure = "cup"
 # 		amount = 10
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="pork belly"
 # 		measure = "whole"
 # 		amount = 1.0
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "48h"
 # directions = """
 # Kill the pig humanely. Whether you're harvesting a farm-raised hog or hunting one in the wild, you need to make sure you start the process as clean as possible by using a quick kill, immediately draining the blood afterward to improve the flavor of the meat.
@@ -1474,32 +1481,32 @@ Remove muffins to a cooling rack.
 # Store the meat properly. As soon as you portioned out the pork, it's important that you wrap it neatly in clean butcher paper, label it with the cut and date using a marker. You can refrigerate the meat you plan on using right away and find freezer space for the rest of it. There's going to be a lot of meat to deal with, so it's usually more common to freeze most of it immediately.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="pork belly"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="pork ribs"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="pork chop"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="pork shoulder"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="pig"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "217h30m"
 # directions = """
 # Mix 1/4 c. salt, 1/2 c. brown sugar and 1/3 c. pepper in a bowl. Rub the mixture over the 2 pound slab of pork belly. Cover and set it in the refrigerator for 7 days, turning it every other day to ensure the pork is covered in the cure.
@@ -1509,32 +1516,32 @@ Remove muffins to a cooling rack.
 # Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="slices of bacon"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="pork belly"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="salt"
 # 		measure = "cup"
 # 		amount = 0.25
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="pepper"
 # 		measure = "cup"
 # 		amount = 0.25
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# [[recipe]]
+# [[reaction]]
 # time = "5h"
 # directions = """
 # Wash olives with water to remove dirt, and get rid of leaves and twigs attached to the fruits.
@@ -1545,18 +1552,18 @@ Remove muffins to a cooling rack.
 # Place a funnel over a green bottle and slowly decant the liquid in the container to obtain 'ready-to-use' olive oil. Clean the bottle using a towel, cork it, and store in a cool and dry place.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="olive oil"
 # 		measure = "gallon"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="fresh olives"
 # 		measure = "pounds"
 # 		amount = 40
 
 
-# [[recipe]]
+# [[reaction]]
 # time = "87600h"
 # directions = """
 # Spread the compost over an area roughly 9 feet (2.7 m) by 9 feet (2.7 m) to avoid over-concentration in one spot.
@@ -1570,27 +1577,27 @@ Remove muffins to a cooling rack.
 # Harvest ripe or unripe fruits by hitting the branches with a long stick. Spread a net on the ground before hitting so that olives fall directly on it.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="fresh olives"
 # 		measure = "pounds"
 # 		amount = 100
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water source"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="sun"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# [[recipe]]
+# [[reaction]]
 # time = "3h30m"
 # directions = """
 # Clean the cocoa beans with fresh, cold water to remove unwanted residue and air dry.
@@ -1602,32 +1609,32 @@ Remove muffins to a cooling rack.
 # Extract the cocoa butter from the cocoa liquor by passing it through an extrusion, expeller or screw press for a more commercial grade cocoa butter. Alternatively, strain the liquor through a cotton cloth to filter out the cocoa butter. Leave some of the powder for cocoa powder.
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cocoa butter"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="cocoa powder"
 # 		measure = "cup"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
 # 		amount = 1.0
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="cocoa beans"
 # 		measure = "whole"
 # 		amount = 50
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="water"
 # 		measure = "cup"
 # 		amount = 10
 
-# [[recipe]]
+# [[reaction]]
 # time = "20m"
 # directions = """
 # Heat about 2 cups of milk to medium hot and then add a 1/4 cup of butter.
@@ -1636,27 +1643,27 @@ Remove muffins to a cooling rack.
 # Add mint and enjoy!
 # """
 
-# 	[[recipe.product]]
+# 	[[reaction.product]]
 # 		name="white sauce"
 # 		measure = "cup"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="milk"
 # 		measure = "cup"
 # 		amount = 2
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="butter"
 # 		measure = "cup"
 # 		amount = 0.25
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="flour"
 # 		measure = "cup"
 # 		amount = 0.5
 
-# 	[[recipe.reactant]]
+# 	[[reaction.reactant]]
 # 		name="mint leaf"
 # 		measure = "whole"
 # 		amount = 1
