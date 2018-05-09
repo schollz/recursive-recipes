@@ -743,27 +743,6 @@ directions = """
 """
 
 
-# [[reaction]]
-# time = "48h"
-# directions = """
-# Go out to your wheatfield and wait for stalks to turn from green to yellow or brown. The heads, heavy with grain, should tip toward the earth. This means it's time to test the grain. Choose a head, pick out a few grains, and pop them into your mouth. If they are soft and doughy, the grain is not yet ready. Keep testing. One day the grains will be firm and crunchy, and it will be time to harvest.
-
-# When you are ready to harvest, if you have a small enough plot, you can just snip the heads of wheat off the stems. It goes quickly if your wheat field is no larger than about 6 feet wide by 25 feet long. If you like the old-time way of doing things and are going to harvest a larger amount of grain, you might use a scythe and cradle. 
-
-# The next step is to bind the grain into sheaves, each about 12 to 14 inches in circumference a bunch you can hold comfortably in your hands. Bind the same day you cut the wheat. It's nice to have two people taking turns cutting and binding. You can bind with cord or baler's twine or even with some of the wheat stems, twisting them in a way that holds the bundle firm.
-
-# Stack the wheat sheaves upright in a well-ventilated, dry location safe from grain-eating animals. Our ancestors stacked sheaves to make shocks in the field, but with small quantities, it's easy to bring the sheaves in out of the weather. The grain has been cured when it is hard, shatters easily, and cannot be dented with your thumbnail.
-# """
-
-# 	[[reaction.product]]
-# 		name="cured wheat"
-# 		measure = "whole"
-# 		amount = 24
-
-# 	[[reaction.reactant]]
-# 		name="field of wheat"
-# 		measure = "whole"
-# 		amount = 1.0
 
 # [[reaction]]
 # time = "2h"
@@ -977,71 +956,71 @@ This recipe makes about 3/4 pound of noodles.
 		measure = "whole"
 		amount = 2.0
 
-# [[reaction]]
-# time = "30m"
-# directions = """
-# Cream together butter and brown sugar. 
-# When blended together added vanilla and beaten eggs. 
-# Mix in dry ingredients.
-# Add chocolate chips and oatmeal and put in fridge.
-# Spoon balls of cookie dough onto a cookie sheet.
-# Bake at 375F for 10 to 14 minutes, until firm and brown.
-# """
+[[reaction]]
+s_hours = 0.5
+directions = """
+Cream together butter and brown sugar. 
+When blended together added vanilla and beaten eggs. 
+Mix in dry ingredients.
+Add chocolate chips and oatmeal and put in fridge.
+Spoon balls of cookie dough onto a cookie sheet.
+Bake at 375F for 10 to 14 minutes, until firm and brown.
+"""
 
-# 	[[reaction.product]]
-# 		name="cookies"
-# 		measure = "cup"
-# 		amount = 10
+	[[reaction.product]]
+		name="chocolate chip cookies"
+		measure = "whole"
+		amount = 40.0
 
-# 	[[reaction.reactant]]
-# 		name="whole wheat flour"
-# 		measure = "cup"
-# 		amount = 1.5
+	[[reaction.reactant]]
+		name="whole wheat flour"
+		measure = "cup"
+		amount = 1.5
 
-# 	[[reaction.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="flour"
+		measure = "cup"
+		amount = 0.5
 
-# 	[[reaction.reactant]]
-# 		name="baking powder"
-# 		measure = "teaspoon"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="baking powder"
+		measure = "cup"
+		amount = 0.0416667
 
-# 	[[reaction.reactant]]
-# 		name="baking soda"
-# 		measure = "teaspoon"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="baking soda"
+		measure = "cup"
+		amount = 0.0104167
 
-# 	[[reaction.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.0208333
 
-# 	[[reaction.reactant]]
-# 		name="butter"
-# 		measure = "cup"
-# 		amount = 0.5
+	[[reaction.reactant]]
+		name="butter"
+		measure = "cup"
+		amount = 0.5
 
-# 	[[reaction.reactant]]
-# 		name="brown sugar"
-# 		measure = "cup"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="brown sugar"
+		measure = "cup"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="egg"
-# 		measure = "whole"
-# 		amount = 5
+	[[reaction.reactant]]
+		name="egg"
+		measure = "whole"
+		amount = 5.0
 
-# 	[[reaction.reactant]]
-# 		name="oatmeal"
-# 		measure = "cup"
-# 		amount = 5
+	[[reaction.reactant]]
+		name="oatmeal"
+		measure = "cup"
+		amount = 5.0
 
-# 	[[reaction.reactant]]
-# 		name="chocolate chips"
-# 		measure = "cup"
-# 		amount = 3
+	[[reaction.reactant]]
+		name="chocolate chips"
+		measure = "cup"
+		amount = 3.0
 
 
 # [[reaction]]
