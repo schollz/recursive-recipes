@@ -809,50 +809,38 @@ directions = """
 # 		measure = "cup"
 # 		amount = 10
 
-# [[reaction]]
-# time = "30m"
-# directions = """
-# Grind the wheat middlings to a coarse consistency.
-# """
+[[reaction]]
+p_hours = 2920.0
+s_hours = 1.0
+directions = """
 
-# 	[[reaction.product]]
-# 		name="semolina flour"
-# 		measure = "cup"
-# 		amount = 9
+"""
 
-# 	[[reaction.reactant]]
-# 		name="wheat middlings"
-# 		measure = "cup"
-# 		amount = 10
+	[[reaction.product]]
+		name="semolina"
+		measure = "cup"
+		amount = 0.16
+		price = 0.0138
+		notes = """
+Semolina is very very similar to flour
+[1 acre produces 50 bushels and 1 bushel produces 42 pounds of flour](https://www.quora.com/How-many-people-does-an-acre-of-wheat-feed)
 
+[1 pound of flour is about 3.333 cups](http://www.myrecipes.com/how-to/cooking-questions/cups-in-pound-of-flour)
 
-# [[reaction]]
-# time = "2920h"
-# directions = """
-# Plant winter wheat in fall to allow for six to eight weeks of growth before the soil freezes. This allows time for good root development. If the wheat is planted too early, it may smother itself the following spring and it could be vulnerable to some late-summer insects that won't be an issue in the cooler fall weather. If winter wheat is planted too late, it will not overwinter well.
-# Spring wheat should be planted as early as the ground can be worked in spring. Do the initial plowing in the fall, then till and sow in the spring. To ensure an evenly distributed crop, figure out the amount of seed you'll need, divide it into two piles, and broadcast one part in one direction, such as from east to west. Then broadcast the remainder from north to south. A cyclone crank seeder will do an even job, but broadcasting by hand is fine for a small plot. You also can plant it in rows like other crops.
-# Cover the seed by rototilling or raking it in to a depth of 2 to 2 1/2 inches for winter wheat and 1 to 1 1/2 inches for spring wheat. For best results, roll or otherwise firm the bed to ensure good seed-soil contact.
-# """
+0.00002295684 acres / plant * 50 bushels / acre * 42 pounds / bushel * 3.33 cups / pound = 0.16 cups / plant
 
-# 	[[reaction.product]]
-# 		name="field of wheat"
-# 		measure = "whole"
-# 		amount = 1.0
+[25 lb flour is $7.18](https://www.walmart.com/ip/Great-Value-All-Purpose-Flour-25-lb/12444466)
 
-# 	[[reaction.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		amount = 1.0
+7.18 / 25 lb * 1 lb / 3.33 cup = 0.0862 / cup
+"""
 
-# 	[[reaction.reactant]]
-# 		name="water source"
-# 		measure = "whole"
-# 		amount = 1.0
-
-# 	[[reaction.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.00002295684
+		notes = """
+1 square foot of wheat
+"""
 
 
 [[reaction]]
@@ -1141,59 +1129,66 @@ Spread the chocolate mixture evenly on a large plate using the spatula and put i
 		amount = 0.0625
 
 
-# [[reaction]]
-# time = "1080h"
-# directions = """
-# Seeds should be grown outdoors, sow the seeds of wild oats at a depth of 6mm at the beginning to middle of spring.
-# Seedlings of wild oats can be purchased; annual varieties should be planted in the early spring, whereas perennial varieties can be planted either in the early spring or in autumn.
-# Depending on the variety wild oats seedlings should be planted 25 to 30cm apart (small) or 45 to 60cm apart (larger varieties of oat).
-# They should be planted in an area that receives full sunlight in a dry soil with a pH of 6 to 7.5.
-# Keep the ground moist to allow the seeds to germinate. Continue to do so as the plants begin to grow. The compost or manure should help the oats retain moisture, but it will be necessary to water them periodically whenever the soil begins to dry out. If the area you live in gets plenty of rain, however, you may not need to water your oats at all.
-# Harvest by swathing, cutting the plants at about 10 cm (4 inches) above ground, and putting the swathed plants into windrows with the grain all oriented the same way. They leave the windrows to dry in the sun for several days before combining them using a pickup header. Finally, bale the straw.
-# Oats can also be left standing until completely ripe and then combined with a grain head. This will lead to greater field losses as the grain falls from the heads and to harvesting losses as the grain is threshed out by the reel. Without a draper head, there will also be somewhat more age to the straw since it will not be properly oriented as it enters the throat of the combine. Overall yield loss is 10-15% compared to proper swathing.
-# Historical harvest methods involved cutting with a scythe or sickle, and threshing under the feet of cattle. Late 19th and early 20th century harvesting was performed using a binder. Oats were gathered into shocks and then collected and run through a stationary threshing machine.
-# """
+[[reaction]]
+p_hours = 1080.0
+s_hours = 1.0
+directions = """
+Seeds should be grown outdoors, sow the seeds of wild oats at a depth of 6mm at the beginning to middle of spring. Depending on the variety wild oats seedlings should be planted 25 to 30cm apart (small) or 45 to 60cm apart (larger varieties of oat). They should be planted in an area that receives full sunlight in a dry soil with a pH of 6 to 7.5.
+Harvest by swathing, cutting the plants at about 10 cm (4 inches) above ground, and putting the swathed plants into windrows with the grain all oriented the same way. They leave the windrows to dry in the sun for several days before combining them using a pickup header. Finally, bale the straw.
+Oats can also be left standing until completely ripe and then combined with a grain head. This will lead to greater field losses as the grain falls from the heads and to harvesting losses as the grain is threshed out by the reel. Without a draper head, there will also be somewhat more age to the straw since it will not be properly oriented as it enters the throat of the combine. Overall yield loss is 10-15% compared to proper swathing.
+Historical harvest methods involved cutting with a scythe or sickle, and threshing under the feet of cattle. Late 19th and early 20th century harvesting was performed using a binder. Oats were gathered into shocks and then collected and run through a stationary threshing machine.
+"""
 
-# 	[[reaction.product]]
-# 		name="oatmeal"
-# 		measure = "cup"
-# 		amount = 5000
+	[[reaction.product]]
+		name="oatmeal"
+		measure = "cup"
+		amount = 0.41
+		price = 0.31
+		notes = """
+[About 60 bushels per acre](https://webcache.googleusercontent.com/search?q=cache:95bjoMrKdEkJ:https://www.nass.usda.gov/nh/2006OatsAndBarley.pdf+&cd=13&hl=en&ct=clnk&gl=us&client=ubuntu)
 
-# 	[[reaction.reactant]]
-# 		name="plot of soil"
-# 		measure = "whole"
-# 		amount = 1.0
+[42 oz of old fashioned oats is $3.98](https://www.walmart.com/ip/Quaker-Old-Fashioned-Oats-42-oz-Canister/10312439)
+"""
 
-# 	[[reaction.reactant]]
-# 		name="sun"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.00004591368
+		notes = """
+2 square feet
+"""
 
-# [[reaction]]
-# time = "76h10m"
-# directions = """
-# Strip the sugar cane of all of its leaves with a carving knife. Wash the sugar cane for several minutes with running water.
-# Crush the sugar cane to extract a thick, melon-colored juice. Do this in a standard sized mortar and pestle.
-# Boil and cook the resulting liquid and allow the water to evaporate. Get rid of the dirty foam that accumulates on the top of the syrup.
-# Discard the fibrous product left over and pour the resulting syrup into a large pan to cook further. Continue boiling until crystals occur. The result is raw sugar that is brown in color.
-# Dry the sugar in a dryer that uses hot air. After it is dry, blow cool air over it for several days.
-# Cleanliness is vital to the whole process. Once the juice has been heated, impurities will speed the 'inversion' of sugar and lead to reduced yields. All boiling pans and tools need to be thoroughly cleaned between uses.
-# """
 
-# 	[[reaction.product]]
-# 		name="brown sugar"
-# 		measure = "cup"
-# 		amount = 4
+[[reaction]]
+p_hours = 76.0
+s_hours = 4.0
+directions = """
+Strip the sugar cane of all of its leaves with a carving knife. Wash the sugar cane for several minutes with running water.
+Crush the sugar cane to extract a thick, melon-colored juice. Do this in a standard sized mortar and pestle.
+Boil and cook the resulting liquid and allow the water to evaporate. Get rid of the dirty foam that accumulates on the top of the syrup.
+Discard the fibrous product left over and pour the resulting syrup into a large pan to cook further. Continue boiling until crystals occur. The result is raw sugar that is brown in color.
+Dry the sugar in a dryer that uses hot air. After it is dry, blow cool air over it for several days.
+Cleanliness is vital to the whole process. Once the juice has been heated, impurities will speed the 'inversion' of sugar and lead to reduced yields. All boiling pans and tools need to be thoroughly cleaned between uses.
+"""
 
-# 	[[reaction.reactant]]
-# 		name="stalks of sugar cane"
-# 		measure = "whole"
-# 		amount = 4
+	[[reaction.product]]
+		name="brown sugar"
+		measure = "cup"
+		amount = 4.0
+		price = 1.74
+		notes = """
+[32 oz of brown sugar is $1.74](https://www.walmart.com/ip/Great-Value-Lite-Brown-Sugar-32-Oz/10315012)
+"""
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 40
+	[[reaction.reactant]]
+		name="stalks of sugar cane"
+		measure = "whole"
+		amount = 4.0
+
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 40.0
 
 
 [[reaction]]

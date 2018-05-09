@@ -108,7 +108,7 @@ func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]s
 	if _, ok := rd.Node[node]; ok {
 		scaling = amount / rd.Node[node].Product[0].Amount
 		log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
-		timetaken := scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
+		timetaken = scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
 		elements[node] = Element{
 			Name:    rd.Node[node].Product[0].Name,
 			Amount:  scaling * rd.Node[node].Product[0].Amount,
