@@ -587,35 +587,35 @@ Add salt and pepper to taste.
 		measure = "teaspoon"
 		amount = 0.0208333
 
-# [[reaction]]
-# time = "24m"
-# directions = """
-# Boil water in a large pan on the stove.
-# Add 2 tablespoons of vinegar and stir the water carefully so it looks like a whirlpool.
-# Crack the egg into a cup and then carefully pour the egg into the boiling water.
-# If the egg whites separate, carefully use a spoon to gently push it back towards the yolk.
-# Turn off the heat and let the egg cook for about 4 minutes.
-# """
+[[reaction]]
+s_hours = 0.5
+directions = """
+Boil water in a large pan on the stove.
+Add 2 tablespoons of vinegar and stir the water carefully so it looks like a whirlpool.
+Crack the egg into a cup and then carefully pour the egg into the boiling water.
+If the egg whites separate, carefully use a spoon to gently push it back towards the yolk.
+Turn off the heat and let the egg cook for about 4 minutes.
+"""
 
-# 	[[reaction.product]]
-# 		name="poached egg"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.product]]
+		name="poached egg"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[reaction.reactant]]
-# 		name="vinegar"
-# 		measure = "tablespoon"
-# 		amount = 2
+	[[reaction.reactant]]
+		name="vinegar"
+		measure = "cup"
+		amount = 0.125
 
-# 	[[reaction.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		amount = 20
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 20
 
-# 	[[reaction.reactant]]
-# 		name="egg"
-# 		measure = "whole"
-# 		amount = 1.0
+	[[reaction.reactant]]
+		name="egg"
+		measure = "whole"
+		amount = 1.0
 
 
 [[reaction]]
@@ -634,7 +634,8 @@ Remove muffins to a cooling rack.
 		name="english muffin"
 		measure = "whole"
 		amount = 8.0
-		price = 2.50
+		price = 2.25
+		notes ="""I pay about 2.89 for 10"""
 
 	[[reaction.reactant]]
 		name="water"
