@@ -970,7 +970,11 @@ Bake at 375F for 10 to 14 minutes, until firm and brown.
 	[[reaction.product]]
 		name="chocolate chip cookies"
 		measure = "whole"
-		amount = 40.0
+		amount = 36.0
+		price = 3.46
+		notes = """
+[Fresh cookies are about $5 for 52](https://www.walmart.com/ip/Chocolate-Chip-Cookies-52-ct-36-oz/40170273)
+"""
 
 	[[reaction.reactant]]
 		name="whole wheat flour"
