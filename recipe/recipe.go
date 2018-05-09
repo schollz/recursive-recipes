@@ -1,19 +1,12 @@
 package recipe
 
 type Recipes struct {
-	Prices  []Price  `toml:"price"`
 	Recipes []Recipe `toml:"recipe"`
 }
 
-type Price struct {
-	Name         string  `tomlL"name"`
-	BeforeMarket bool    `toml:"beforemarket"`
-	Price        float64 `toml:"price"`
-	Measure      string  `toml:"measure"`
-	Year         int64   `toml:"year"`
-	Notes        string  `toml:"notes"`
-}
-
+// Recipe is the reaction that takes place, with reactants
+// and products in either their theoretical OR practical
+// lowest irreducible
 type Recipe struct {
 	// Hours it takes to create the products from reactants
 	Hours float64 `toml:"hours"`
@@ -26,15 +19,23 @@ type Recipe struct {
 }
 
 type Element struct {
+	// Name is the name of the product/reactant
 	Name string `toml:"name"`
 
-	// Cups if it can be converted to volume
-	Cups float64 `toml:"cups"`
-	// Whole is to be used otherwise
-	Whole float64 `toml:"whole"`
+	// Amount is the amount
+	Amount float64 `toml:"amount"`
 
-	// Acres if it is a farm product
-	Acres float64 `toml:"acres"`
+	// Measure is the type of measurement, either
+	// "grams" (weight), "cups" (volume), "acres" (sq ft),
+	// or "whole"
+	Measure string `toml:"measure"`
+
+	// Price is the cost per amount+measure
+	Price float64 `toml:"price"`
+
+	// LastUpdated is the year it was last updated
+	// (refers to the price)
+	Year int64 `toml:"year"`
 
 	// Notes are for references
 	Notes string `toml:"notes"`

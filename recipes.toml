@@ -2,12 +2,14 @@
 name = "apple"
 price = 0.50
 measure = "whole"
+amount = 1.0
 year = 2018
 
 [[price]]
 name = "corn"
 price = 0.25
 measure = "whole"
+amount = 1.0
 year = 2018
 
 
@@ -15,12 +17,14 @@ year = 2018
 name = "onion"
 price = 0.5
 measure = "whole"
+amount = 1.0
 year = 2018
 
 [[price]]
 name = "vanilla"
 price = 27.68
 year = 2018
+amount = 1.0
 measure = "cup"
 notes = """
 [2 fl oz is $6.92](https://www.walmart.com/ip/Great-Value-Pure-Vanilla-Extract-2-fl-oz/10314950)
@@ -29,6 +33,7 @@ notes = """
 [[price]]
 name = "black pepper"
 price = 9.28
+amount = 1.0
 measure = "cup"
 year = 2018
 notes = """
@@ -37,22 +42,25 @@ notes = """
 
 [[recipe]]
 hours = 730.5
-scales = true
 directions = """
-Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged. Cover the jar or bottle and give it a good shake. Store the jar or bottle of vanilla beans in a cool, dark place for at least one month, shaking it from time to time. Taste the extract and let it infuse longer if you want a stronger flavor. 
+1. Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged.
+2. Store the jar or bottle of vanilla beans in a cool, dark place for at least one month, shaking it from time to time. Taste the extract and let it infuse longer if you want a stronger flavor. 
 """
 
 	[[recipe.product]]
 		name="vanilla"
-		cups = 0.875
+		amount = 0.875
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="alcohol"
-		cups = 1.0
+		amount = 1.0
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="vanilla beans"
-		whole = 6.0
+		measure = "whole"
+		amount = 6.0
 
 [[recipe]]
 hours = 0.0833
@@ -228,7 +236,7 @@ Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast
 
 	[[recipe.product]]
 		name="corn"
-		whole = 3
+		whole = 3.0
 		notes = """
 [1 acre can hold about 30,000 plants](http://www.cornandsoybeandigest.com/seed/how-many-corn-plants-do-you-need)
 """
@@ -304,11 +312,11 @@ Take the liquid, strain, bottle, and cork.
 
 	[[recipe.reactant]]
 		name="apples"
-		whole = 12
+		whole = 12.0
 
 	[[recipe.product]]
 		name="vinegar"
-		cups = 3
+		cups = 3.0
 
 [[recipe]]
 hours = 12.16667
@@ -337,120 +345,84 @@ Store in fridge.
 
 	[[recipe.reactant]]
 		name="garlic"
-		whole = 2
+		whole = 2.0
 
 
-# [[recipe]]
-# time = "10m"
-# directions = """
-# Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
-# While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
-# """
+[[recipe]]
+hours = 0.16666
+directions = """
+Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
+While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
+"""
 
-# 	[[recipe.product]]
-# 		name="mayonnaise"
-# 		measure = "cup"
-# 		cups = 1
+	[[recipe.product]]
+		name="mayonnaise"
+		cups = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="egg yolk"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="egg"
+		whole = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="mustard"
-# 		measure = "teaspoon"
-# 		cups = 1.5
+	[[recipe.reactant]]
+		name="mustard"
+		cups = 0.03125
 
-# 	[[recipe.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		cups = 0.5
+	[[recipe.reactant]]
+		name="salt"
+		cups = 0.0104167
 
-# 	[[recipe.reactant]]
-# 		name="lemon juice"
-# 		measure = "cup"
-# 		cups = 0.25
+	[[recipe.reactant]]
+		name="lemon juice"
+		cups = 0.25
 
-# 	[[recipe.reactant]]
-# 		name="olive oil"
-# 		measure = "cup"
-# 		cups = 1.25
-
-# [[recipe]]
-# time = "1m"
-# directions = """
-# Break egg open a cup. Keep the yolk inside the egg shells. Move the yolk between the two egg shells, letting the egg white fall off.
-# """
-
-# 	[[recipe.product]]
-# 		name="egg yolk"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.product]]
-# 		name="egg white"
-# 		measure = "whole"
-# 		cups = 1
-
-# 	[[recipe.reactant]]
-# 		name="eggs"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="olive oil"
+		cups = 1.25
 
 
-# [[recipe]]
-# time = "24m"
-# directions = """
-# In a large bowl whisk together the dry ingredients. 
-# Beat the wet ingredients together and then add to the dry ingredients.
-# Use a large skillet to cook pancakes one by one.
-# """
+[[recipe]]
+hours = 0.4
+directions = """
+In a large bowl whisk together the dry ingredients. 
+Beat the wet ingredients together and then add to the dry ingredients.
+Use a large skillet to cook pancakes one by one.
+"""
 
-# 	[[recipe.product]]
-# 		name="pancakes"
-# 		measure = "whole"
-# 		cups = 8
+	[[recipe.product]]
+		name="pancakes"
+		whole = 8.0
 
-# 	[[recipe.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		cups = 1.25
+	[[recipe.reactant]]
+		name="flour"
+		cups = 1.25
 
-# 	[[recipe.reactant]]
-# 		name="baking soda"
-# 		measure = "teaspoon"
-# 		cups = 0.5
+	[[recipe.reactant]]
+		name="baking soda"
+		cups = 0.0104167
 
-# 	[[recipe.reactant]]
-# 		name="baking powder"
-# 		measure = "teaspoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="baking powder"
+		cups = 0.0416667
 
-# 	[[recipe.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		cups = 0.5
+	[[recipe.reactant]]
+		name="salt"
+		cups = 0.0104167
 
-# 	[[recipe.reactant]]
-# 		name="sugar"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="sugar"
+		cups = 0.125
 
-# 	[[recipe.reactant]]
-# 		name="eggs"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="egg"
+		whole = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="buttermilk"
-# 		measure = "cup"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="buttermilk"
+		cups = 2
 
-# 	[[recipe.reactant]]
-# 		name="butter"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="butter"
+		cups = 0.125
 
 # [[recipe]]
 # time = "15h10m"
@@ -575,7 +547,7 @@ Store in fridge.
 # 		cups = 20
 
 # 	[[recipe.reactant]]
-# 		name="eggs"
+# 		name="egg"
 # 		measure = "whole"
 # 		cups = 1
 
@@ -617,7 +589,7 @@ Store in fridge.
 # 		cups = 2
 
 # 	[[recipe.reactant]]
-# 		name="eggs"
+# 		name="egg"
 # 		measure = "whole"
 # 		cups = 1
 
@@ -854,7 +826,7 @@ Store in fridge.
 # 		cups = 1
 
 # 	[[recipe.reactant]]
-# 		name="eggs"
+# 		name="egg"
 # 		measure = "whole"
 # 		cups = 2
 
@@ -910,7 +882,7 @@ Store in fridge.
 # 		cups = 1
 
 # 	[[recipe.reactant]]
-# 		name="eggs"
+# 		name="egg"
 # 		measure = "whole"
 # 		cups = 5
 
@@ -961,7 +933,7 @@ Store in fridge.
 # """
 
 # 	[[recipe.product]]
-# 		name="eggs"
+# 		name="egg"
 # 		measure = "whole"
 # 		cups = 2
 
