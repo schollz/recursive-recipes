@@ -47,8 +47,10 @@ func TestOpen(t *testing.T) {
 		}
 	}
 
-	subset, timelimit := rd.getSubset(40, "chocolate chip cookies", make(map[string][]string), rd.Children, 40)
+	subset, elements, timelimit := rd.getSubset(8, "english muffin", make(map[string][]string), make(map[string]Element), 10000000)
 	fmt.Println(subset, timelimit)
+	bJson, _ = json.MarshalIndent(elements, "", " ")
+	fmt.Println(string(bJson))
 
 	// generate graphviz
 	s := "digraph G {\n"
@@ -60,36 +62,57 @@ func TestOpen(t *testing.T) {
 	s += "}\n"
 	fmt.Println(s)
 
-	fmt.Println(rd.subsetCost(subset))
-}
-
-func (rd RecipeDag) subsetCost(subset map[string][]string) float64 {
+	// get ingredients
 	for node := range subset {
-		for _, child := range subset[node] {
-			if _, ok := subset[child]; !ok {
-				// child is not a node, so it is a leaf
-				log.Println(child)
-			}
+		if len(subset[node]) != 0 {
+			// skip non-leafs
+			continue
 		}
+		fmt.Println(node)
 	}
-	return 0
+	// fmt.Println(rd.subsetCost(subset))
 }
 
-func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]string, all map[string][]string, timelimit float64) (map[string][]string, float64) {
-	if len(all[node]) == 0 {
-		return subset, timelimit
+// func (rd RecipeDag) subsetCost(subset map[string][]string) float64 {
+// 	for node := range subset {
+// 		for _, child := range subset[node] {
+// 			if _, ok := subset[child]; !ok {
+// 				// child is not a node, so it is a leaf
+// 				log.Println(child)
+// 			}
+// 		}
+// 	}
+// 	return 0
+// }
+
+func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]string, elements map[string]Element, timelimit float64) (map[string][]string, map[string]Element, float64) {
+	var scaling float64
+	subset[node] = []string{}
+	if len(rd.Children[node]) == 0 {
+		// define the scaled ingredient
+		return subset, elements, timelimit
 	}
-	scaling := amount / rd.Node[node].Product[0].Amount
-	log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
 	if _, ok := rd.Node[node]; ok {
+		scaling = amount / rd.Node[node].Product[0].Amount
+		log.Printf("%s amount needed: %2.3f, default: %2.3f, scaling = %2.3f", node, amount, rd.Node[node].Product[0].Amount, scaling)
+
 		timetaken := scaling*rd.Node[node].SerialHours + rd.Node[node].ParallelHours
 		if timelimit-timetaken < 0 {
-			return subset, timelimit
+			elements[node] = Element{
+				Name:    rd.Node[node].Product[0].Name,
+				Amount:  scaling * rd.Node[node].Product[0].Amount,
+				Measure: rd.Node[node].Product[0].Measure,
+				Price:   scaling * rd.Node[node].Product[0].Price,
+			}
+			return subset, elements, timelimit
 		}
 		timelimit -= timetaken
 	}
-	subset[node] = all[node]
-	for _, child := range all[node] {
+
+	// get the possible children of the current node
+	subset[node] = rd.Children[node]
+
+	for _, child := range rd.Children[node] {
 		amountneeded := 0.0
 		for _, reactant := range rd.Node[node].Reactant {
 			if reactant.Name == child {
@@ -98,7 +121,37 @@ func (rd RecipeDag) getSubset(amount float64, node string, subset map[string][]s
 			}
 		}
 		log.Printf("for %s scaled %2.3f, needs %s amount needed: %2.3f", node, scaling, child, scaling*amountneeded)
-		subset, timelimit = rd.getSubset(scaling*amountneeded, child, subset, all, timelimit)
+		previousTimeLimit := timelimit
+		subset, elements, timelimit = rd.getSubset(scaling*amountneeded, child, subset, elements, timelimit)
+		if timelimit == previousTimeLimit {
+			// did not add, this is a leaf
+			for _, reactant := range rd.Node[node].Reactant {
+				if reactant.Name != child {
+					continue
+				}
+				var price float64
+				if _, ok := rd.Node[reactant.Name]; ok {
+					price = rd.Node[reactant.Name].Product[0].Price / rd.Node[reactant.Name].Product[0].Amount * reactant.Amount
+				}
+				if _, ok := elements[reactant.Name]; !ok {
+					elements[reactant.Name] = Element{
+						Name:    reactant.Name,
+						Amount:  scaling * reactant.Amount,
+						Measure: reactant.Measure,
+						Price:   scaling * price,
+					}
+				} else {
+					elements[reactant.Name] = Element{
+						Name:    reactant.Name,
+						Amount:  scaling*reactant.Amount + elements[reactant.Name].Amount,
+						Measure: reactant.Measure,
+						Price:   scaling*price + elements[reactant.Name].Price,
+					}
+				}
+				break
+			}
+
+		}
 	}
-	return subset, timelimit
+	return subset, elements, timelimit
 }
