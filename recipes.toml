@@ -610,7 +610,7 @@ Turn off the heat and let the egg cook for about 4 minutes.
 	[[reaction.reactant]]
 		name="water"
 		measure = "cup"
-		amount = 20
+		amount = 20.0
 
 	[[reaction.reactant]]
 		name="egg"
