@@ -1,46 +1,5 @@
-[[price]]
-name = "apple"
-price = 0.50
-measure = "whole"
-amount = 1.0
-year = 2018
-
-[[price]]
-name = "corn"
-price = 0.25
-measure = "whole"
-amount = 1.0
-year = 2018
-
-
-[[price]]
-name = "onion"
-price = 0.5
-measure = "whole"
-amount = 1.0
-year = 2018
-
-[[price]]
-name = "vanilla"
-price = 27.68
-year = 2018
-amount = 1.0
-measure = "cup"
-notes = """
-[2 fl oz is $6.92](https://www.walmart.com/ip/Great-Value-Pure-Vanilla-Extract-2-fl-oz/10314950)
-"""
-
-[[price]]
-name = "black pepper"
-price = 9.28
-amount = 1.0
-measure = "cup"
-year = 2018
-notes = """
-[3 oz is $3.48](https://www.walmart.com/ip/McCormick-Ground-Black-Pepper-3-oz/44981960)
-"""
-
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 730.5
 directions = """
 1. Split vanilla beans in half lengthwise and place them in a clean jar or bottle. Cover them with alcohol, making sure they are completely submerged.
@@ -51,6 +10,10 @@ directions = """
 		name="vanilla"
 		amount = 0.875
 		measure = "cup"
+		price = 24.22
+		notes = """
+[2 fl oz is $6.92](https://www.walmart.com/ip/Great-Value-Pure-Vanilla-Extract-2-fl-oz/10314950)
+"""
 
 	[[recipe.reactant]]
 		name="alcohol"
@@ -63,47 +26,59 @@ directions = """
 		amount = 6.0
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 0.0833
 directions = """
-Grind peppercorn in a grinder.
+1. Grind peppercorn in a grinder.
 """
 
 	[[recipe.product]]
 		name="black pepper"
-		measure = "tablespoon"
-		cups = 0.125
+		measure = "cup"
+		amount = 0.125
+		price = 1.16
+		notes = """
+[3 oz is $3.48](https://www.walmart.com/ip/McCormick-Ground-Black-Pepper-3-oz/44981960)
+"""
 
 	[[recipe.reactant]]
 		name="peppercorn"
-		measure = "whole"
-		cups = 0.125
+		measure = "cup"
+		amount = 0.125
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 52560.0
 scales = true
 directions = """
-Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
-Wait about 6 years for the tree to grow, and then harvest the apples by picking them off the tree.
+1. Plant apples in the fall, in a sunny spot with well-drained soil that is not too wet. Remove all weeds and grass in 4-foot diameter circle. Dig a hole and place the seeds.
+2. Wait about 6 years for the tree to grow, and then harvest the apples by picking them off the tree.
 """
 
 	[[recipe.product]]
-		name="apples"
-		whole = 143.0
+		name="apple"
+		measure = "whole"
+		amount = 143.0
+		price = 71.5
 		notes = """
 [1 acre ~ 350 trees and provides ~400 bushels](http://fruit.cfans.umn.edu/apples/beforeyoustart)
 
 0.00285714285 acres / tree  * 400 bushels / acre * 126 apples / bushel = 143 apples / tree
+
+One apple is aobut $0.50
 """
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.00285714285
+		measure = "acre"
+		amount = 0.00285714285
 		notes = """
 [1 acre ~ 350 trees and provides ~400 bushels](http://fruit.cfans.umn.edu/apples/beforeyoustart) so 1 tree requires ~ 0.003 acres.
 """
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 2892.0
 scales = true
 directions = """
@@ -114,103 +89,115 @@ Dry beans will be ready for harvest 70 to 120 after sowing when plants have matu
 
 	[[recipe.product]]
 		name="dried beans"
-		cups = 1.72
+		amount = 1.72
+		measure = "cup"
+		price = 0.6407
 		notes = """
 [One acre gives about 56 bushels](http://www.cornandsoybeandigest.com/blog/usda-projects-record-corn-and-soybean-crop-2016)
+
+[One bag of 64 oz dried beans is $2.98](https://www.walmart.com/ip/Great-Value-Pinto-Beans-64-oz/10314948)
 """
+
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.0002066
+		measure = "acre"
+		amount = 0.0002066
 		notes = """
 One bean plant needs about 9 square feet.
 """
 
 
-
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 13.5
-scales = true
 directions = """
-Cover dried beans with water. Soak overnight.
-Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
+1. Cover dried beans with water. Soak overnight.
+2. Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
 Simmer the beans until they are tender, about 1 1/2 hours.
 """
 
 	[[recipe.product]]
 		name="beans"
-		cups = 1.5
+		measure = "cup"
+		amount = 1.5
+		price = 1.5
 
 	[[recipe.reactant]]
 		name="dried beans"
-		cups = 2.0
+		measure = "cup"
+		amount = 2.0
 
 	[[recipe.reactant]]
 		name="water"
 		measure = "cup"
-		cups = 20.0
+		amount = 20.0
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 0.75
 directions = """
-Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
-Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
-Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
+1. Add the onions and butter to a wide, sturdy frying pan on medium high heat. Cook onions until translucent. 
+2. Add the beans and about a 1/4 cup of water to the pan. Using a potato masher, mash the beans in the pan, while you are cooking them, until they are a rough purée.
+3. Add more water if necessary to keep the fried beans from getting too dried out. Add salt to taste.
 """
 
 	[[recipe.product]]
 		name="refried beans"
 		measure = "cup"
-		cups = 1.5
+		amount = 1.5
+		price = 1.5
 
 	[[recipe.reactant]]
 		name="beans"
 		measure = "cup"
-		cups = 2.5
+		amount = 2.5
 
 	[[recipe.reactant]]
 		name="butter"
-		cups = 0.125
+		measure = "cup"
+		amount = 0.125
 
 	[[recipe.reactant]]
 		name="onion"
-		cups = 1.0
+		measure = "whole"
+		amount = 1.0
 
 	[[recipe.reactant]]
 		name="water"
-		cups = 0.25
+		measure = "cup"
+		amount = 0.25
 
 	[[recipe.reactant]]
 		name="salt"
-		measure = "teaspoon"
-		cups = 0.0208
+		measure = "cup"
+		amount = 0.0208
 
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 35040.0 # 4 years
 scales = true
 directions = """
-Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
-Peppercorn seeds can take up to thirty days to germinate at temperatures between seventy-five and eighty-five degrees. At lower temperatures, they germinate slowly or not at all.
-Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
-In other parts of the country, plant peppercorns in large pots. Grow them outdoors during the summer and move them indoors during the winter, or grow them year-round in a conservatory or greenhouse. Houseplants need bright light and consistent moisture. Spray the foliage regularly with a bottle of water to increase humidity. Don't allow room temperatures to fall below sixty degrees.
-Pepper plants have long, vigorous vines and can reach twelve to fifteen feet high. The plants need a strong trellis or structure to scramble over. Indoors, you can install a trellis in a large pot or even grow them as a hanging plant instead.
-Peppers need moderately fertile soil to perform well. Fertilize them in the spring before new vigorous growth emerges with a balanced organic fertilizer.
-Growth will slow somewhat during the winter as temperatures cool. Continue to water the plants occasionally to keep the soil slightly moist.
-Peppers need a long, long growing season to produce peppercorns. Fortunately, the flowers are attractive in their own right and the foliage is glossy and evergreen. The cream, white, or yellow flowers appear from spring through summer, followed by the slow fruit production.
-Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
-White peppercorn is made by removing the red hull. The remaining peppercorns are then dried and ground into a mild-tasting form of pepper. Finally, green pepper is made by harvesting the peppercorns while they are still green and drying them.
+1. Peppercorn seeds are widely available through online nurseries. Prior to planting the seeds, soak them overnight to soften the seed coats. Plant the seeds ¼ inch deep in a rich, well-draining potting mix. Space the seeds three inches apart. Spray the seed tray frequently with a mister to keep the starting mix moist and cover the seed tray with plastic wrap. Store it in a warm location, such as the top of the refrigerator or on top of a radiator.
+2. Once the seeds germinate, seedlings can be replanted when they stand four to six inches tall. If you live in a very warm climate, plant them directly outdoors in a protected location with partial shade. The plants need rich, moist, well-draining soil and warm, humid conditions. Peppers can't tolerate temperatures below sixty degrees. Bring plants indoors or wrap them in a blanket if colder weather threatens.
+3. Pepper plants have long, vigorous vines and can reach twelve to fifteen feet high. The plants need a strong trellis or structure to scramble over. Indoors, you can install a trellis in a large pot or even grow them as a hanging plant instead.
+4. Peppercorns form in clusters of fruit that slowly ripen from green to red. They are usually harvested just as they reach the red stage. Once harvested, the red peppercorns are separated and dried, either in the sun or in a food dryer for about three days. The process is complete when the peppercorns are blackened and fully dry. At this point, they can be ground as black pepper.
 """
 
 	[[recipe.product]]
 		name="peppercorn"
-		cups = 0.94
+		amount = 0.94
+		measure = "cup"
+		price = 6.98
 		notes = """
 [1000 plants per acre](https://www.thehindubusinessline.com/economy/vietnam-model-of-pepper-cultivation-worth-emulating-says-planters-body/article20092402.ece1)
 [275 kg per hectare](http://www.agrifarming.in/black-pepper-farming).
 [Black pepper density ~ 0.5 kg/l](https://www.sciencedirect.com/science/article/pii/S0189724115300618)
 1 hectare = 107639 square feet 
+
+[7.5 oz whole peppercorn is $6.98](https://www.walmart.com/ip/Tone-s-Black-Peppercorns-Whole-9-0-OZ/10449028)
 
 # Calculation 
 
@@ -219,35 +206,42 @@ White peppercorn is made by removing the red hull. The remaining peppercorns are
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.001
+		amount = 0.001
+		measure = "acre"
 		notes = """
 One bean plant needs about 9 square feet.
 """
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 2400.0 # 100 days
 directions = """
-Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
-Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
-Planting and spacing. Sow corn 1 to 1½ inches deep. Plant seeds 2 to 4 inches apart in short, side-by-side rows to form a block, rather than one long row. You can also grow several plants on mounds or inverted hills. Planting in a block or clump will help ensure pollination. Thin plants from 12 to 18 inches apart for short varieties and 18 to 24 inches apart for tall varieties once plants are 4 to 6 inches tall. Corn planted too closely will require more water and fertilizer and may offer a smaller yield. For a continuous harvest, succession plant corn every two weeks or plant early, midseason, and late varieties at the same time.
-Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
+1. Plant corn in full sun. Corn grows best in loose, well-worked, well-drained soil with a pH of 5.8 to 6.8. Add aged compost to the planting area before planting. Add aged compost to the planting area the autumn before planting.
+2. Corn is a tender, warm-season annual that is best planted after the soil temperature reaches 60°F, usually 2 or 3 weeks after the last frost in spring. Corn requires 60 to 100 frost-free days to reach harvest depending upon variety and the amount of heat during the growing season. Corn grows best in air temperatures from 60° to 95°F. Corn planted in cold, wet soil is unlikely to germinate. Corn seed germinates in 10 to 14 days at 75°F, but the rate of germination may reach only 75 percent. Start corn indoors 2 to 3 weeks before the last frost in spring for transplanting 2 to 3 weeks after the last frost. If your season is long enough, plant successive crops every two to three weeks.
+3. Planting and spacing. Sow corn 1 to 1½ inches deep. Plant seeds 2 to 4 inches apart in short, side-by-side rows to form a block, rather than one long row. You can also grow several plants on mounds or inverted hills. Planting in a block or clump will help ensure pollination. Thin plants from 12 to 18 inches apart for short varieties and 18 to 24 inches apart for tall varieties once plants are 4 to 6 inches tall. Corn planted too closely will require more water and fertilizer and may offer a smaller yield. For a continuous harvest, succession plant corn every two weeks or plant early, midseason, and late varieties at the same time.
+4. Water and feeding. Keep corn evenly moist and regularly watered. Corn grows fast in hot weather and requires an even supply of moisture to avoid wilting. Avoid overhead watering particularly when tassels appear; water hitting the tassels at the time of pollination can reduce the number of kernels on a cob. Add aged compost and aged manure to planting areas the autumn before planting. Corn is a heavy nitrogen user. Side dress corn with aged compost or compost tea when stalks are 10 inches tall and again when they are 18 inches tall and a third time when they tassel.
 """
 
 	[[recipe.product]]
 		name="corn"
-		whole = 3.0
+		amount = 3.0
+		measure = "whole"
 		notes = """
 [1 acre can hold about 30,000 plants](http://www.cornandsoybeandigest.com/seed/how-many-corn-plants-do-you-need)
 """
+		price = 0.75
+
 
 	[[recipe.reactant]]
 		name="soil"
-		acres = 0.00003333333
+		amount = 0.00003333333
+		measure = "acre"
 		notes = "Acerage for one plant"
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 time = "3600h" # 100 days
 directions = """
 Get the onion plants off to a strong start by mixing an organic or timed-release fertilizer into the soil before your plant your onions. 
@@ -259,18 +253,22 @@ For full-sized bulbs, let onions grow and mature. They are ready to harvest when
 
 	[[recipe.product]]
 		name="onion"
-		whole = 1.0
+		measure = "whole"
+		amount = 1.0
+		price = 0.5
 		notes = """
 [~100,000 onions / acre](https://extension.psu.edu/onion-production)
 """
 
 	[[recipe.reactant]]
 		name="soil"
-		acre = 0.00001
+		amount = 0.00001
+		measure = "acre"
 		notes = "acerage for one plant"
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 6570.0 # 9 months
 directions = """
 Garlic can be planted in the spring as soon as the ground can be worked, but fall planting is recommended for most gardeners. Plant in the fall and youâll find that your bulbs are bigger and more flavorful when you harvest the next summer.
@@ -286,7 +284,9 @@ In the spring, as warmer temperatures come, shoots will emerge through the groun
 
 	[[recipe.product]]
 		name="garlic"
-		whole = 1.0
+		amount = 1.0
+		measure = "whole"
+		price = 0.25
 		notes = """
 [About 40,000 plants per acre](https://www.garlicfarm.ca/faq.htm)
 
@@ -295,193 +295,252 @@ This refers to one garlic bulb.
 
 	[[recipe.reactant]]
 		name="soil"
-		acre = 0.000025
+		amount = 0.000025
+		measure = "acre"
 		notes = "acerage for one plant"
 
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
+scales = true
 hours = 4382.0
 directions = """
-Wash the apples and cut them into small pieces, keeping skin, core and stems.
-Make a mush of the apples and then strain it through a muslin bag.
-Pour the juice into a clean, dark glass jug and cover the top with several layers of cheesecloth held in place with rubber bands.
-Leave the juice in a cool, dark place for about six months. 
-Take the liquid, strain, bottle, and cork.
+1. Wash the apples and cut them into small pieces, keeping skin, core and stems.
+2. Make a mush of the apples and then strain it through a muslin bag.
+3. Pour the juice into a clean, dark glass jug and cover the top with several layers of cheesecloth held in place with rubber bands.
+4. Leave the juice in a cool, dark place for about six months. 
+5. Take the liquid, strain, bottle, and cork.
 """
 
 	[[recipe.reactant]]
 		name="apples"
-		whole = 12.0
+		measure = "whole"
+		amount = 12.0
 
 	[[recipe.product]]
 		name="vinegar"
-		cups = 3.0
+		amount = 3.0
+		price = 0.765
+		measure = "cup"
+		notes = """
+[128 oz apple cider vinegar ~ $4.08](https://www.walmart.com/ip/Great-Value-Apple-Cider-Vinegar-128-oz/10451001)
+"""
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 12.16667
 directions = """
-Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
-Stir in 1/2 c. water and let rest at room temperature overnight.
-Move mixture to blender and add vinegar, sugar, salt, and garlic. Liquefy. Add more vinegar if nessecary.
-Store in fridge.
+1. Grind 1/2 c. mustard seeds with 2 tbl. dry mustard.
+2. Stir in 1/2 c. water and let rest at room temperature overnight.
+3. Move mixture to blender and add vinegar, sugar, salt, and garlic. Liquefy. Add more vinegar if nessecary.
+4. Store in fridge.
 """
 
 	[[recipe.product]]
 		name="mustard"
-		cups = 1
+		measure = "cup"
+		amount = 1.0
+		price = 1.71
+		notes = """
+[9 oz mustard $1.92](https://www.walmart.com/ip/Sam-s-Choice-Dill-Mustard-9-oz/422410225)
+"""
 
 	[[recipe.reactant]]
 		name="dry mustard"
-		cups = 0.125
+		measure = "cup"
+		amount = 0.125
 
 	[[recipe.reactant]]
 		name="vinegar"
-		cups = 0.25
+		measure = "cup"
+		amount = 0.25
 
 	[[recipe.reactant]]
 		name="sugar"
-		cups = 0.0625
+		measure = "cup"
+		amount = 0.0625
 
 	[[recipe.reactant]]
 		name="garlic"
-		whole = 2.0
+		measure = "whole"
+		amount = 2.0
+
+	[[recipe.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 0.5
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 0.16666
 directions = """
-Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
-While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
+1. Combine 1 egg yolk, 1 1/2 tsp mustard, salt to taste, and juice from half a lemon  into a bowl and start blending with a hand blender.
+2. While the blender is running, add 1 1/4 c. oil very slowly. Keep whipping until thick.
 """
 
 	[[recipe.product]]
 		name="mayonnaise"
-		cups = 1.0
+		amount = 1.0
+		measure = "cup"
+		price = 0.746
+		notes = """
+[48 fl oz costs $4.48](https://www.walmart.com/ip/Kraft-Mayo-Mayonnaise-Real-48-fl-oz-Jar/10295669?athcpid=10295669&athpgid=athenaItemPage&athcgid=null&athznid=PWVUB&athieid=v0&athstid=CS002&athguid=466001f5-58d54026-405f6ac4c4fef50f&athena=true).
+"""
 
 	[[recipe.reactant]]
 		name="egg"
-		whole = 1.0
+		measure = "whole"
+		amount = 1.0
 
 	[[recipe.reactant]]
 		name="mustard"
-		cups = 0.03125
+		amount = 0.03125
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="salt"
-		cups = 0.0104167
+		amount = 0.0104167
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="lemon juice"
-		cups = 0.25
+		amount = 0.25
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="olive oil"
-		cups = 1.25
+		amount = 1.25
+		measure = "cup"
 
 
 [[recipe]]
+updated = "2018-05-07T15:04:05Z"
 hours = 0.4
 directions = """
-In a large bowl whisk together the dry ingredients. 
-Beat the wet ingredients together and then add to the dry ingredients.
-Use a large skillet to cook pancakes one by one.
+1. In a large bowl whisk together the dry ingredients. 
+2. Beat the wet ingredients together and then add to the dry ingredients.
+3. Use a large skillet to cook pancakes one by one.
 """
 
 	[[recipe.product]]
 		name="pancakes"
-		whole = 8.0
+		measure = "whole"
+		amount = 8.0
+		price = 13.84
+		notes = """
+[3 pancakes are $5.19 at IHOP](https://foodservices.appstate.edu/dining-menus/price-comparisons-local-restaurants)
+"""
 
 	[[recipe.reactant]]
 		name="flour"
-		cups = 1.25
+		amount = 1.25
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="baking soda"
-		cups = 0.0104167
+		amount = 0.0104167
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="baking powder"
-		cups = 0.0416667
+		amount = 0.0416667
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="salt"
-		cups = 0.0104167
+		amount = 0.0104167
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="sugar"
-		cups = 0.125
+		amount = 0.125
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="egg"
-		whole = 1.0
+		measure = "whole"
+		amount = 1.0
 
 	[[recipe.reactant]]
 		name="buttermilk"
-		cups = 2
+		amount = 2.0
+		measure = "cup"
 
 	[[recipe.reactant]]
 		name="butter"
-		cups = 0.125
+		amount = 0.125
+		measure = "cup"
 
-# [[recipe]]
-# time = "15h10m"
-# directions = """
-# In a large sauce pan, warm milk until uits on the verge of boil. Stir it constantly.
-# Remove the milk from heat, pour into a bowl and let it cool until its lukewarm.
-# Stir in some yogurt (from the store or from a friend) and cover with a clean damp towel overnight.
-# Put a piece of cheesecloth in a sieve over a bowl and scoop the yogurt into it and let it drain for a few hours until the yogurt is as thick as you would like it. Store the drained yogurt in a jar to use as whey.
-# """
+[[recipe]]
+updated = "2018-05-07T15:04:05Z"
+time = "15h10m"
+directions = """
+1. In a large sauce pan, warm milk until uits on the verge of boil. Stir it constantly.
+2. Remove the milk from heat, pour into a bowl and let it cool until its lukewarm.
+3. Stir in some yogurt (from the store or from a friend) and cover with a clean damp towel overnight.
+4. Put a piece of cheesecloth in a sieve over a bowl and scoop the yogurt into it and let it drain for a few hours until the yogurt is as thick as you would like it. Store the drained yogurt in a jar to use as whey.
+"""
 
-# 	[[recipe.product]]
-# 		name="yogurt"
-# 		measure = "cup"
-# 		cups = 4
+	[[recipe.product]]
+		name="yogurt"
+		measure = "cup"
+		amount = 4.0
+		price = 3.78
+		notes = """
+[32 oz yogurt is $3.78](https://www.walmart.com/ip/Great-Value-Plain-Greek-Nonfat-Yogurt-32-oz/26559565)
+"""
 
-# 	[[recipe.product]]
-# 		name="whey"
-# 		measure = "cup"
-# 		cups = 1
+	[[recipe.product]]
+		name="whey"
+		measure = "cup"
+		amount = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="milk"
-# 		measure = "gallon"
-# 		cups = 0.5
+	[[recipe.reactant]]
+		name="milk"
+		measure = "cup"
+		amount = 8.0
 
 
-# [[recipe]]
-# time = "15m"
-# directions = """
-# Arrange a muffin in halves on a plate
-# Fry bacon until it becomes dark and add bacon to each muffin
-# Add poached egg to muffin
-# Pour hollaindaise sauce over each egg
-# """
+[[recipe]]
+updated = "2018-05-07T15:04:05Z"
+time = "15m"
+directions = """
+1. Arrange a muffin in halves on a plate
+2. Fry bacon until it becomes dark and add bacon to each muffin
+3. Add poached egg to muffin
+4. Pour hollaindaise sauce over each egg
+"""
 
-# 	[[recipe.product]]
-# 		name="eggs benedict"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.product]]
+		name="eggs benedict"
+		measure = "whole"
+		amount = 1.0
+		price = 6.95
+		notes = """
+[Eggs benedict is about 6.95](http://webcache.googleusercontent.com/search?q=cache:jHog285Xqb0J:www.iberkshires.com/restaurants/menus/1236349459.pdf+&cd=2&hl=en&ct=clnk&gl=us&client=ubuntu)
+"""
 
-# 	[[recipe.reactant]]
-# 		name="hollandaise sauce"
-# 		measure = "cup"
-# 		cups = 0.25
+	[[recipe.reactant]]
+		name="hollandaise sauce"
+		measure = "cup"
+		amount = 0.25
 
-# 	[[recipe.reactant]]
-# 		name="english muffin"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="english muffin"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="slices of bacon"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="slice of bacon"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="poached egg"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="poached egg"
+		measure = "whole"
+		amount = 1.0
 
 # [[recipe]]
 # time = "15m"
@@ -494,32 +553,32 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="hollandaise sauce"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="egg yolk"
 # 		measure = "whole"
-# 		cups = 3
+# 		amount = 3
 
 # 	[[recipe.reactant]]
 # 		name="lemon juice"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="butter"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="pepper"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "24m"
@@ -534,79 +593,81 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="poached egg"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="vinegar"
 # 		measure = "tablespoon"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 20
+# 		amount = 20
 
 # 	[[recipe.reactant]]
 # 		name="egg"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 
-# [[recipe]]
-# time = "3h30m"
-# directions = """
-# Combine 1/4 c. warm water, 1 tbl yeast yeast, 2 tbl. sugar, 2 c. flour and 2 tsp. salt in a bowl. Add the egg, milk, butter and continue beating until creamy. Add the remaining flour if nessecary. Keep dough moist.
-# Remove dough and oil the bowl. Return the dough to bowl and cover with dish towel until doubled, about 2 hours.
-# Coat a work surface with a little bit of cornmeal. Roll the dough out about 1/2 inch thick and cut out muffins.
-# Heat a cast-iron skillet until very hot.
-# Put muffins in pan and immedietly turn down heat to medium. Cook muffins 10 to 15 minutes per side.
-# Remove muffins to a cooling rack.
-# """
+[[recipe]]
+updated = "2018-05-07T15:04:05Z"
+time = "3h30m"
+directions = """
+Combine 1/4 c. warm water, 1 tbl yeast yeast, 2 tbl. sugar, 2 c. flour and 2 tsp. salt in a bowl. Add the egg, milk, butter and continue beating until creamy. Add the remaining flour if nessecary. Keep dough moist.
+Remove dough and oil the bowl. Return the dough to bowl and cover with dish towel until doubled, about 2 hours.
+Coat a work surface with a little bit of cornmeal. Roll the dough out about 1/2 inch thick and cut out muffins.
+Heat a cast-iron skillet until very hot.
+Put muffins in pan and immedietly turn down heat to medium. Cook muffins 10 to 15 minutes per side.
+Remove muffins to a cooling rack.
+"""
 
-# 	[[recipe.product]]
-# 		name="english muffin"
-# 		measure = "whole"
-# 		cups = 8
+	[[recipe.product]]
+		name="english muffin"
+		measure = "whole"
+		amount = 8.0
+		price = 2.50
 
-# 	[[recipe.reactant]]
-# 		name="water"
-# 		measure = "cup"
-# 		cups = 0.25
+	[[recipe.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 0.25
 
-# 	[[recipe.reactant]]
-# 		name="sugar"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="sugar"
+		measure = "cup"
+		amount = 0.125
 
-# 	[[recipe.reactant]]
-# 		name="flour"
-# 		measure = "cup"
-# 		cups = 4
+	[[recipe.reactant]]
+		name="flour"
+		measure = "cup"
+		amount = 4.0
 
-# 	[[recipe.reactant]]
-# 		name="salt"
-# 		measure = "teaspoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="salt"
+		measure = "cup"
+		amount = 0.0416667
 
-# 	[[recipe.reactant]]
-# 		name="egg"
-# 		measure = "whole"
-# 		cups = 1
+	[[recipe.reactant]]
+		name="egg"
+		measure = "whole"
+		amount = 1.0
 
-# 	[[recipe.reactant]]
-# 		name="milk"
-# 		measure = "cup"
-# 		cups = 1.25
+	[[recipe.reactant]]
+		name="milk"
+		measure = "cup"
+		amount = 1.25
 
-# 	[[recipe.reactant]]
-# 		name="butter"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="butter"
+		measure = "tablespoon"
+		amount = 0.125
 
-# 	[[recipe.reactant]]
-# 		name="cornmeal"
-# 		measure = "tablespoon"
-# 		cups = 2
+	[[recipe.reactant]]
+		name="cornmeal"
+		measure = "tablespoon"
+		amount = 0.125
 
 
 # [[recipe]]
@@ -624,12 +685,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="cured wheat"
 # 		measure = "whole"
-# 		cups = 24
+# 		amount = 24
 
 # 	[[recipe.reactant]]
 # 		name="field of wheat"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "2h"
@@ -641,12 +702,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="wheat berries"
 # 		measure = "cup"
-# 		cups = 40
+# 		amount = 40
 
 # 	[[recipe.reactant]]
 # 		name="cured wheat"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "30m"
@@ -658,17 +719,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="whole wheat flour"
 # 		measure = "cup"
-# 		cups = 4
+# 		amount = 4
 
 # 	[[recipe.product]]
 # 		name="wheat bran"
 # 		measure = "cup"
-# 		cups = 4
+# 		amount = 4
 
 # 	[[recipe.reactant]]
 # 		name="wheat berries"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 
 # [[recipe]]
@@ -684,17 +745,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 8
+# 		amount = 8
 
 # 	[[recipe.product]]
 # 		name="wheat middlings"
 # 		measure = "cup"
-# 		cups = 8
+# 		amount = 8
 
 # 	[[recipe.reactant]]
 # 		name="wheat berries"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 # [[recipe]]
 # time = "30m"
@@ -705,12 +766,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="semolina flour"
 # 		measure = "cup"
-# 		cups = 9
+# 		amount = 9
 
 # 	[[recipe.reactant]]
 # 		name="wheat middlings"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 
 # [[recipe]]
@@ -724,22 +785,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="field of wheat"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="water source"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="sun"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -755,37 +816,37 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="tortilla"
 # 		measure = "whole"
-# 		cups = 8
+# 		amount = 8
 
 # 	[[recipe.reactant]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="baking soda"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="olive oil"
 # 		measure = "cup"
-# 		cups = 0.25
+# 		amount = 0.25
 
 # 	[[recipe.reactant]]
 # 		name="lard"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 0.75
+# 		amount = 0.75
 
 
 
@@ -803,32 +864,32 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="noodles"
 # 		measure = "whole"
-# 		cups = 24
+# 		amount = 24
 
 # 	[[recipe.reactant]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="semolina flour"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 0.333
+# 		amount = 0.333
 
 # 	[[recipe.reactant]]
 # 		name="olive oil"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="egg"
 # 		measure = "whole"
-# 		cups = 2
+# 		amount = 2
 
 # [[recipe]]
 # time = "30m"
@@ -844,57 +905,57 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="cookies"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 # 	[[recipe.reactant]]
 # 		name="whole wheat flour"
 # 		measure = "cup"
-# 		cups = 1.5
+# 		amount = 1.5
 
 # 	[[recipe.reactant]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="baking powder"
 # 		measure = "teaspoon"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="baking soda"
 # 		measure = "teaspoon"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="butter"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="egg"
 # 		measure = "whole"
-# 		cups = 5
+# 		amount = 5
 
 # 	[[recipe.reactant]]
 # 		name="oatmeal"
 # 		measure = "cup"
-# 		cups = 5
+# 		amount = 5
 
 # 	[[recipe.reactant]]
 # 		name="chocolate chips"
 # 		measure = "cup"
-# 		cups = 3
+# 		amount = 3
 
 
 # [[recipe]]
@@ -910,17 +971,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="grilled cheese sandwich"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="cheese sandwich"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="butter"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -935,22 +996,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="egg"
 # 		measure = "whole"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="egg laying chicken"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="chicken feed"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 
 # [[recipe]]
@@ -964,32 +1025,32 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="chocolate chips"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="cocoa butter"
 # 		measure = "oz"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="cocoa powder"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="vanilla"
 # 		measure = "teaspoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="milk"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -1008,17 +1069,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="oatmeal"
 # 		measure = "cup"
-# 		cups = 5000
+# 		amount = 5000
 
 # 	[[recipe.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="sun"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "76h10m"
@@ -1034,17 +1095,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="brown sugar"
 # 		measure = "cup"
-# 		cups = 4
+# 		amount = 4
 
 # 	[[recipe.reactant]]
 # 		name="stalks of sugar cane"
 # 		measure = "whole"
-# 		cups = 4
+# 		amount = 4
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 40
+# 		amount = 40
 
 
 # [[recipe]]
@@ -1060,22 +1121,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="egg laying chicken"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="baby chicken"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="chicken feed"
 # 		measure = "cup"
-# 		cups = 1000
+# 		amount = 1000
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 10000
+# 		amount = 10000
 
 
 
@@ -1089,17 +1150,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="cheese sandwich"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="slices of bread"
 # 		measure = "whole"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="slices of cheese"
 # 		measure = "whole"
-# 		cups = 2
+# 		amount = 2
 
 
 # [[recipe]]
@@ -1129,27 +1190,27 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="block of cheese"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="cow milk"
 # 		measure = "gallon"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="calcium chloride"
 # 		measure = "tsp"
-# 		cups = 0.125
+# 		amount = 0.125
 
 # 	[[recipe.reactant]]
 # 		name="mesophilic culture"
 # 		measure = "tsp"
-# 		cups = 0.125
+# 		amount = 0.125
 
 # 	[[recipe.reactant]]
 # 		name="rennet"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 
 
@@ -1167,22 +1228,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="cow milk"
 # 		measure = "cup"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.reactant]]
 # 		name="cow"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="bag balm"
 # 		measure = "tablespoon"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="cow disinfectant"
 # 		measure = "tablespoon"
-# 		cups = 2
+# 		amount = 2
 
 
 # [[recipe]]
@@ -1198,17 +1259,17 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="milk"
 # 		measure = "cup"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.product]]
 # 		name="cream"
 # 		measure = "cup"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.reactant]]
 # 		name="cow milk"
 # 		measure = "cup"
-# 		cups = 25
+# 		amount = 25
 
 
 # [[recipe]]
@@ -1228,12 +1289,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="loaf of bread"
 # 		measure = "whole"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="bread dough"
 # 		measure = "cup"
-# 		cups = 12
+# 		amount = 12
 
 
 # [[recipe]]
@@ -1250,22 +1311,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="butter"
 # 		measure = "cup"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.product]]
 # 		name="buttermilk"
 # 		measure = "cup"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="cow milk"
 # 		measure = "gallon"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "35m"
@@ -1280,27 +1341,27 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="bread dough"
 # 		measure = "cup"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.reactant]]
 # 		name="yeast"
 # 		measure = "tablespoon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 3.2
+# 		amount = 3.2
 
 # 	[[recipe.reactant]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 7.35
+# 		amount = 7.35
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "tsp"
-# 		cups = 3.5
+# 		amount = 3.5
 
 
 # [[recipe]]
@@ -1315,12 +1376,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="slices of bread"
 # 		measure = "whole"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.reactant]]
 # 		name="loaf of bread"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -1335,12 +1396,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="slices of cheese"
 # 		measure = "whole"
-# 		cups = 12
+# 		amount = 12
 
 # 	[[recipe.reactant]]
 # 		name="block of cheese"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -1365,12 +1426,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="salt"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="seawater"
 # 		measure = "gallon"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "9h10m"
@@ -1385,12 +1446,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="lard"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 # 	[[recipe.reactant]]
 # 		name="pork belly"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 
 # [[recipe]]
@@ -1416,27 +1477,27 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="pork belly"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.product]]
 # 		name="pork ribs"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.product]]
 # 		name="pork chop"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.product]]
 # 		name="pork shoulder"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="pig"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "217h30m"
@@ -1451,27 +1512,27 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="slices of bacon"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="pork belly"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="salt"
 # 		measure = "cup"
-# 		cups = 0.25
+# 		amount = 0.25
 
 # 	[[recipe.reactant]]
 # 		name="pepper"
 # 		measure = "cup"
-# 		cups = 0.25
+# 		amount = 0.25
 
 # 	[[recipe.reactant]]
 # 		name="brown sugar"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # [[recipe]]
 # time = "5h"
@@ -1487,12 +1548,12 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="olive oil"
 # 		measure = "gallon"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="fresh olives"
 # 		measure = "pounds"
-# 		cups = 40
+# 		amount = 40
 
 
 # [[recipe]]
@@ -1512,22 +1573,22 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="fresh olives"
 # 		measure = "pounds"
-# 		cups = 100
+# 		amount = 100
 
 # 	[[recipe.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="water source"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="sun"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # [[recipe]]
 # time = "3h30m"
@@ -1544,27 +1605,27 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="cocoa butter"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.product]]
 # 		name="cocoa powder"
 # 		measure = "cup"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="plot of soil"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1.0
 
 # 	[[recipe.reactant]]
 # 		name="cocoa beans"
 # 		measure = "whole"
-# 		cups = 50
+# 		amount = 50
 
 # 	[[recipe.reactant]]
 # 		name="water"
 # 		measure = "cup"
-# 		cups = 10
+# 		amount = 10
 
 # [[recipe]]
 # time = "20m"
@@ -1578,24 +1639,24 @@ Use a large skillet to cook pancakes one by one.
 # 	[[recipe.product]]
 # 		name="white sauce"
 # 		measure = "cup"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="milk"
 # 		measure = "cup"
-# 		cups = 2
+# 		amount = 2
 
 # 	[[recipe.reactant]]
 # 		name="butter"
 # 		measure = "cup"
-# 		cups = 0.25
+# 		amount = 0.25
 
 # 	[[recipe.reactant]]
 # 		name="flour"
 # 		measure = "cup"
-# 		cups = 0.5
+# 		amount = 0.5
 
 # 	[[recipe.reactant]]
 # 		name="mint leaf"
 # 		measure = "whole"
-# 		cups = 1
+# 		amount = 1
