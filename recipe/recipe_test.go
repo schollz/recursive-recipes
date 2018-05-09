@@ -47,13 +47,48 @@ func TestOpen(t *testing.T) {
 		}
 	}
 
+	subset, timelimit := rd.getSubset("chocolate chip cookies", make(map[string][]string), rd.Children, 3)
+	fmt.Println(subset, timelimit)
+
 	// generate graphviz
 	s := "digraph G {\n"
-	for node := range rd.Children {
-		for _, child := range rd.Children[node] {
+	for node := range subset {
+		for _, child := range subset[node] {
 			s += fmt.Sprintf(`"%s" -> "%s"`+"\n", node, child)
 		}
 	}
 	s += "}\n"
 	fmt.Println(s)
+
+	fmt.Println(subsetCost(subset))
+}
+
+func (rd RecipeDag) subsetCost(subset map[string][]string) float64 {
+	for node := range subset {
+		for _, child := range subset[node] {
+			if _, ok := subset[child]; !ok {
+				// child is not a node, so it is a leaf
+				log.Println(child)
+			}
+		}
+	}
+	return 0
+}
+
+func (rd RecipeDag) getSubset(node string, subset map[string][]string, all map[string][]string, timelimit float64) (map[string][]string, float64) {
+	if len(all[node]) == 0 {
+		return subset, timelimit
+	}
+	if _, ok := rd.Node[node]; ok {
+		timetaken := rd.Node[node].SerialHours + rd.Node[node].ParallelHours
+		if timelimit-timetaken < 0 {
+			return subset, timelimit
+		}
+		timelimit -= timetaken
+	}
+	subset[node] = all[node]
+	for _, child := range all[node] {
+		subset, timelimit = rd.getSubset(child, subset, all, timelimit)
+	}
+	return subset, timelimit
 }
