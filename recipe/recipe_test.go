@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math"
 	"testing"
 
 	"github.com/BurntSushi/toml"
@@ -52,6 +53,28 @@ func TestOpen2(t *testing.T) {
 		fmt.Println("-", ing.Name, ing.Amount)
 	}
 
+	// consolodate reactions needed for the recipe
+	consolidatedReactions := make(map[string]Reaction)
+	roots := getDagRoots(d, []*Dag{})
+	for _, root := range roots {
+		if _, ok := reactions[root.Name]; !ok {
+			continue
+		}
+		fmt.Println(root.Name)
+		if _, ok := consolidatedReactions[root.Name]; !ok {
+			consolidatedReactions[root.Name] = root.Reaction
+		} else {
+			e := consolidatedReactions[root.Name]
+			e.SerialHours += root.SerialHours
+			for i := range e.Reactant {
+				e.Reactant[i].Amount += root.Reactant[i].Amount
+				e.Reactant[i].Price += root.Reactant[i].Price
+			}
+			consolidatedReactions[root.Name] = e
+		}
+	}
+	fmt.Printf("----\n%+v\n------", consolidatedReactions)
+
 	// find ingredients to build that don't depend on any ingredients to build
 	ingredientsToBuildMap := make(map[string]struct{})
 	thingsThatCanBeBuiltNow := make(map[string]struct{})
@@ -69,15 +92,12 @@ func TestOpen2(t *testing.T) {
 	log.Println(thingsThatCanBeBuiltNow)
 	// find the one that takes the longest
 
-	// roots := getDagRoots(d, []*Dag{})
-	// for _, root := range roots {
-	// 	fmt.Println(root.Name)
-	// }
-	// add its directions
+	// prepend the reaction for the one that takes the longest to the queue
 
 	// delete it from things to build, and iterate
+	//	delete(ingredientsToBuild,)
 
-	// printDag(d)
+	printDag(d)
 }
 
 func printDag(d *Dag) {
@@ -88,7 +108,7 @@ func printDagRecursively(d *Dag, in int) {
 	for i := 0; i < in; i++ {
 		fmt.Print("\t")
 	}
-	fmt.Println(d.Name)
+	fmt.Println(d.Name, d.Element.Amount, d.Element.Measure)
 	for _, child := range d.Children {
 		printDagRecursively(child, in+1)
 	}
@@ -155,6 +175,9 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 			// need to scale everything
 			child.Price *= scaling
 			child.Amount *= scaling
+			if child.Measure == "whole" {
+				child.Amount = math.Ceil(child.Amount)
+			}
 			d2 := new(Dag)
 			recursivelyAddRecipe(child, d2, reactions)
 			d.Children = append(d.Children, d2)
