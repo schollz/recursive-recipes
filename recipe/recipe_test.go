@@ -29,25 +29,91 @@ func TestOpen2(t *testing.T) {
 		}
 	}
 
+	// prune tree based on recipe + time
 	recipe := "chocolate chip cookies"
 	log.Println(reactions[recipe])
 	d := new(Dag)
 	recursivelyAddRecipe(reactions[recipe].Product[0], d, reactions)
 	log.Printf("%+v", d)
 	for _, child := range d.Children {
-		log.Println(child.Name, child.Measure, child.Amount)
+		for _, child2 := range child.Children {
+			log.Println(child.Name, child.Measure, child.Amount, child2.Name, child2.Measure, child2.Amount)
+		}
+	}
+
+	// parse tree
+	ingredientsToBuild := make(map[string]Element)
+	ingredientsToBuy := make(map[string]Element)
+	ingredientsToBuild, ingredientsToBuy = getIngredientsToBuild(d, ingredientsToBuild, ingredientsToBuy)
+	fmt.Println("\nIngredients to build:")
+	for ing := range ingredientsToBuild {
+		fmt.Println("-", ing)
+	}
+	fmt.Println("\nIngredients to buy:")
+	for ing := range ingredientsToBuy {
+		fmt.Println("-", ing)
+	}
+	printDag(d)
+}
+
+func printDag(d *Dag) {
+	printDagRecursively(d, 0)
+}
+
+func printDagRecursively(d *Dag, in int) {
+	for i := 0; i < in; i++ {
+		fmt.Print("\t")
+	}
+	fmt.Println(d.Name)
+	for _, child := range d.Children {
+		printDagRecursively(child, in+1)
 	}
 }
 
+func getIngredientsToBuild(d *Dag, ingredientsToBuild map[string]Element, ingredientsToBuy map[string]Element) (map[string]Element, map[string]Element) {
+	if len(d.Children) == 0 {
+		if _, ok := ingredientsToBuy[d.Name]; !ok {
+			ingredientsToBuy[d.Name] = d.Element
+		} else {
+			e := ingredientsToBuy[d.Name]
+			e.Amount += d.Element.Amount
+			e.Price += d.Element.Price
+			ingredientsToBuy[d.Name] = e
+		}
+		return ingredientsToBuild, ingredientsToBuy
+	}
+	log.Println(d.Name)
+	if _, ok := ingredientsToBuild[d.Name]; !ok {
+		ingredientsToBuild[d.Name] = d.Element
+	} else {
+		e := ingredientsToBuild[d.Name]
+		e.Amount += d.Element.Amount
+		e.Price += d.Element.Price
+		ingredientsToBuild[d.Name] = e
+	}
+	for _, child := range d.Children {
+		ingredientsToBuild, ingredientsToBuy = getIngredientsToBuild(child, ingredientsToBuild, ingredientsToBuy)
+
+	}
+	return ingredientsToBuild, ingredientsToBuy
+}
+
 func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction) {
-	log.Printf("%s", recipe.Name)
 	d.Reaction.Product = nil
 	d.Reaction.Reactant = nil
 	d.Children = []*Dag{}
 	d.Element = recipe
 	if _, ok := reactions[recipe.Name]; ok {
+		reactionRecipe := reactions[recipe.Name].Product[0]
+		scaling := recipe.Amount / reactionRecipe.Amount
+		log.Println(recipe.Name, scaling, recipe.Amount, reactionRecipe.Amount)
 		d.Reaction = reactions[recipe.Name]
+		// scale the time
+		d.Reaction.SerialHours *= scaling
 		for _, child := range reactions[recipe.Name].Reactant {
+			// need to scale everything
+			child.Price *= scaling
+			child.Amount *= scaling
 			d2 := new(Dag)
 			recursivelyAddRecipe(child, d2, reactions)
 			d.Children = append(d.Children, d2)
