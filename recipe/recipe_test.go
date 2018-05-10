@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/BurntSushi/toml"
-	"github.com/jinzhu/copier"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -56,8 +55,6 @@ func TestOpen2(t *testing.T) {
 		fmt.Println("-", ing.Name, ing.Amount)
 	}
 
-	// consolodate reaction amounts needed for the recipe
-
 	// find ingredients to build that don't depend on any ingredients to build
 	ingredientsToBuildMap := make(map[string]struct{})
 	thingsThatCanBeBuiltNow := make(map[string]struct{})
@@ -74,6 +71,8 @@ func TestOpen2(t *testing.T) {
 	}
 	log.Println(thingsThatCanBeBuiltNow)
 	// find the one that takes the longest
+
+	// scale up/down the reaction for the specified amount
 
 	// prepend the reaction for the one that takes the longest to the queue
 
@@ -148,27 +147,33 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 	d.Children = []*Dag{}
 	d.Element = recipe
 	if _, ok := reactions[recipe.Name]; ok {
-		var reaction Reaction
-		copier.Copy(reaction, reactions[recipe.Name])
 		// determine the scaling from the baseline reaction
-		scaling := recipe.Amount / reaction.Product[0].Amount
-		log.Println("A:", recipe.Name, scaling, recipe.Amount, reaction.Product[0].Amount)
-		copier.Copy(&d.Reaction, &reaction)
+		scaling := recipe.Amount / reactions[recipe.Name].Product[0].Amount
+		log.Println("A:", recipe.Name, scaling, recipe.Amount, reactions[recipe.Name].Product[0].Amount)
 
-		// scale the time
-		d.Reaction.SerialHours *= scaling
-		// scale the products
-		for i := range d.Product {
-			d.Product[i].Amount *= scaling
-			d.Product[i].Price *= scaling
+		d.Reaction.Directions = reactions[recipe.Name].Directions
+		d.Reaction.LastUpdated = reactions[recipe.Name].LastUpdated
+		d.Reaction.Notes = reactions[recipe.Name].Notes
+		d.Reaction.ParallelHours = reactions[recipe.Name].ParallelHours
+		d.Reaction.SerialHours *= scaling * reactions[recipe.Name].SerialHours // scale the time
+		d.Reaction.Product = make([]Element, len(reactions[recipe.Name].Product))
+		for i, r := range reactions[recipe.Name].Product {
+			d.Reaction.Product[i].Amount = r.Amount * scaling
+			d.Reaction.Product[i].Price = r.Price * scaling
+			d.Reaction.Product[i].Measure = r.Measure
+			d.Reaction.Product[i].Name = r.Name
+			d.Reaction.Product[i].Notes = r.Notes
 		}
-		// scale the reactants
-		for i := range d.Reactant {
-			d.Reactant[i].Amount *= scaling
-			d.Reactant[i].Price *= scaling
+		d.Reaction.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
+		for i, r := range reactions[recipe.Name].Reactant {
+			d.Reaction.Reactant[i].Amount = r.Amount * scaling
 			if d.Reactant[i].Measure == "whole" {
 				d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
 			}
+			d.Reaction.Reactant[i].Price = r.Price * scaling
+			d.Reaction.Reactant[i].Measure = r.Measure
+			d.Reaction.Reactant[i].Name = r.Name
+			d.Reaction.Reactant[i].Notes = r.Notes
 		}
 
 		// add the reactants as children to the tree
