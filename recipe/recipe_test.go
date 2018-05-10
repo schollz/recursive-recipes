@@ -41,19 +41,43 @@ func TestOpen2(t *testing.T) {
 		}
 	}
 
-	// parse tree
-	ingredientsToBuild := make(map[string]Element)
-	ingredientsToBuy := make(map[string]Element)
-	ingredientsToBuild, ingredientsToBuy = getIngredientsToBuild(d, ingredientsToBuild, ingredientsToBuy)
+	// parse tree for ingredients to build and the ingredients to buy
+	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
 	fmt.Println("\nIngredients to build:")
-	for ing := range ingredientsToBuild {
-		fmt.Println("-", ing)
+	for _, ing := range ingredientsToBuild {
+		fmt.Println("-", ing.Name, ing.Amount)
 	}
 	fmt.Println("\nIngredients to buy:")
-	for ing := range ingredientsToBuy {
-		fmt.Println("-", ing)
+	for _, ing := range ingredientsToBuy {
+		fmt.Println("-", ing.Name, ing.Amount)
 	}
-	printDag(d)
+
+	// find ingredients to build that don't depend on any ingredients to build
+	ingredientsToBuildMap := make(map[string]struct{})
+	thingsThatCanBeBuiltNow := make(map[string]struct{})
+	for _, ing := range ingredientsToBuild {
+		ingredientsToBuildMap[ing.Name] = struct{}{}
+	}
+	for _, ing := range ingredientsToBuild {
+		for _, reactant := range reactions[ing.Name].Reactant {
+			if _, ok := ingredientsToBuildMap[reactant.Name]; ok {
+				continue
+			}
+			thingsThatCanBeBuiltNow[ing.Name] = struct{}{}
+		}
+	}
+	log.Println(thingsThatCanBeBuiltNow)
+	// find the one that takes the longest
+
+	// roots := getDagRoots(d, []*Dag{})
+	// for _, root := range roots {
+	// 	fmt.Println(root.Name)
+	// }
+	// add its directions
+
+	// delete it from things to build, and iterate
+
+	// printDag(d)
 }
 
 func printDag(d *Dag) {
@@ -70,26 +94,43 @@ func printDagRecursively(d *Dag, in int) {
 	}
 }
 
-func getIngredientsToBuild(d *Dag, ingredientsToBuild map[string]Element, ingredientsToBuy map[string]Element) (map[string]Element, map[string]Element) {
+func getDagRoots(d *Dag, roots []*Dag) []*Dag {
+	roots = append(roots, d)
+	for _, child := range d.Children {
+		roots = getDagRoots(child, roots)
+	}
+	return roots
+}
+
+func getIngredientsToBuild(d *Dag, ingredientsToBuild []Element, ingredientsToBuy []Element) ([]Element, []Element) {
 	if len(d.Children) == 0 {
-		if _, ok := ingredientsToBuy[d.Name]; !ok {
-			ingredientsToBuy[d.Name] = d.Element
+		i := -1
+		for j, e := range ingredientsToBuy {
+			if e.Name == d.Name {
+				i = j
+				break
+			}
+		}
+		if i == -1 {
+			ingredientsToBuy = append(ingredientsToBuy, d.Element)
 		} else {
-			e := ingredientsToBuy[d.Name]
-			e.Amount += d.Element.Amount
-			e.Price += d.Element.Price
-			ingredientsToBuy[d.Name] = e
+			ingredientsToBuy[i].Amount += d.Element.Amount
+			ingredientsToBuy[i].Price += d.Element.Price
 		}
 		return ingredientsToBuild, ingredientsToBuy
 	}
-	log.Println(d.Name)
-	if _, ok := ingredientsToBuild[d.Name]; !ok {
-		ingredientsToBuild[d.Name] = d.Element
+	i := -1
+	for j, e := range ingredientsToBuild {
+		if e.Name == d.Name {
+			i = j
+			break
+		}
+	}
+	if i == -1 {
+		ingredientsToBuild = append(ingredientsToBuild, d.Element)
 	} else {
-		e := ingredientsToBuild[d.Name]
-		e.Amount += d.Element.Amount
-		e.Price += d.Element.Price
-		ingredientsToBuild[d.Name] = e
+		ingredientsToBuild[i].Amount += d.Element.Amount
+		ingredientsToBuild[i].Price += d.Element.Price
 	}
 	for _, child := range d.Children {
 		ingredientsToBuild, ingredientsToBuy = getIngredientsToBuild(child, ingredientsToBuild, ingredientsToBuy)
