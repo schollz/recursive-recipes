@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/BurntSushi/toml"
+	"github.com/jinzhu/copier"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -34,7 +35,9 @@ func TestOpen2(t *testing.T) {
 	recipe := "chocolate chip cookies"
 	log.Println(reactions[recipe])
 	d := new(Dag)
-	recursivelyAddRecipe(reactions[recipe].Product[0], d, reactions)
+	recipeToGet := reactions[recipe].Product[0]
+	recipeToGet.Amount *= 2
+	recursivelyAddRecipe(recipeToGet, d, reactions)
 	log.Printf("%+v", d)
 	for _, child := range d.Children {
 		for _, child2 := range child.Children {
@@ -53,27 +56,7 @@ func TestOpen2(t *testing.T) {
 		fmt.Println("-", ing.Name, ing.Amount)
 	}
 
-	// consolodate reactions needed for the recipe
-	consolidatedReactions := make(map[string]Reaction)
-	roots := getDagRoots(d, []*Dag{})
-	for _, root := range roots {
-		if _, ok := reactions[root.Name]; !ok {
-			continue
-		}
-		fmt.Println(root.Name)
-		if _, ok := consolidatedReactions[root.Name]; !ok {
-			consolidatedReactions[root.Name] = root.Reaction
-		} else {
-			e := consolidatedReactions[root.Name]
-			e.SerialHours += root.SerialHours
-			for i := range e.Reactant {
-				e.Reactant[i].Amount += root.Reactant[i].Amount
-				e.Reactant[i].Price += root.Reactant[i].Price
-			}
-			consolidatedReactions[root.Name] = e
-		}
-	}
-	fmt.Printf("----\n%+v\n------", consolidatedReactions)
+	// consolodate reaction amounts needed for the recipe
 
 	// find ingredients to build that don't depend on any ingredients to build
 	ingredientsToBuildMap := make(map[string]struct{})
@@ -165,12 +148,16 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 	d.Children = []*Dag{}
 	d.Element = recipe
 	if _, ok := reactions[recipe.Name]; ok {
-		reactionRecipe := reactions[recipe.Name].Product[0]
-		scaling := recipe.Amount / reactionRecipe.Amount
-		log.Println(recipe.Name, scaling, recipe.Amount, reactionRecipe.Amount)
-		d.Reaction = reactions[recipe.Name]
+		var reaction Reaction
+		copier.Copy(reaction, reactions[recipe.Name])
+		scaling := recipe.Amount / reaction.Product[0].Amount
+		log.Println("A:", recipe.Name, scaling, recipe.Amount, reaction.Product[0].Amount)
+		copier.Copy(&d.Reaction, &reaction)
+
 		// scale the time
 		d.Reaction.SerialHours *= scaling
+		d.Product[0].Amount *= scaling
+		d.Product[0].Price *= scaling
 		for _, child := range reactions[recipe.Name].Reactant {
 			// need to scale everything
 			child.Price *= scaling
