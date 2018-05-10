@@ -35,14 +35,13 @@ func TestOpen2(t *testing.T) {
 	log.Println(reactions[recipe])
 	d := new(Dag)
 	recipeToGet := reactions[recipe].Product[0]
-	recipeToGet.Amount *= 2
-	recursivelyAddRecipe(recipeToGet, d, reactions)
-	log.Printf("%+v", d)
-	for _, child := range d.Children {
-		for _, child2 := range child.Children {
-			log.Println(child.Name, child.Measure, child.Amount, child2.Name, child2.Measure, child2.Amount)
-		}
-	}
+	log.Println(reactions[recipe].Product[0])
+	recursivelyAddRecipe(Element{
+		Name:    recipeToGet.Name,
+		Amount:  recipeToGet.Amount * 2,
+		Measure: recipeToGet.Measure,
+		Price:   recipeToGet.Price,
+	}, d, reactions)
 
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
@@ -82,6 +81,16 @@ func TestOpen2(t *testing.T) {
 	printDag(d)
 }
 
+type Dag struct {
+	ParallelHours float64   `toml:"p_hours" json:"p_hours,omitempty"`
+	SerialHours   float64   `toml:"s_hours" json:"s_hours,omitempty"`
+	Directions    string    `toml:"directions" json:"directions,omitempty"`
+	Notes         string    `toml:"notes" json:"notes,omitempty"`
+	Product       Element   `toml:"product" json:"product,omitempty"`
+	Reactant      []Element `toml:"reactant" json:"reactant,omitempty"`
+	Children      []*Dag
+}
+
 func printDag(d *Dag) {
 	printDagRecursively(d, 0)
 }
@@ -90,7 +99,7 @@ func printDagRecursively(d *Dag, in int) {
 	for i := 0; i < in; i++ {
 		fmt.Print("\t")
 	}
-	fmt.Println(d.Name, d.Element.Amount, d.Element.Measure)
+	fmt.Println(d.Product.Name, d.Product.Amount, d.Product.Measure)
 	for _, child := range d.Children {
 		printDagRecursively(child, in+1)
 	}
@@ -108,31 +117,31 @@ func getIngredientsToBuild(d *Dag, ingredientsToBuild []Element, ingredientsToBu
 	if len(d.Children) == 0 {
 		i := -1
 		for j, e := range ingredientsToBuy {
-			if e.Name == d.Name {
+			if e.Name == d.Product.Name {
 				i = j
 				break
 			}
 		}
 		if i == -1 {
-			ingredientsToBuy = append(ingredientsToBuy, d.Element)
+			ingredientsToBuy = append(ingredientsToBuy, d.Product)
 		} else {
-			ingredientsToBuy[i].Amount += d.Element.Amount
-			ingredientsToBuy[i].Price += d.Element.Price
+			ingredientsToBuy[i].Amount += d.Product.Amount
+			ingredientsToBuy[i].Price += d.Product.Price
 		}
 		return ingredientsToBuild, ingredientsToBuy
 	}
 	i := -1
 	for j, e := range ingredientsToBuild {
-		if e.Name == d.Name {
+		if e.Name == d.Product.Name {
 			i = j
 			break
 		}
 	}
 	if i == -1 {
-		ingredientsToBuild = append(ingredientsToBuild, d.Element)
+		ingredientsToBuild = append(ingredientsToBuild, d.Product)
 	} else {
-		ingredientsToBuild[i].Amount += d.Element.Amount
-		ingredientsToBuild[i].Price += d.Element.Price
+		ingredientsToBuild[i].Amount += d.Product.Amount
+		ingredientsToBuild[i].Price += d.Product.Price
 	}
 	for _, child := range d.Children {
 		ingredientsToBuild, ingredientsToBuy = getIngredientsToBuild(child, ingredientsToBuild, ingredientsToBuy)
@@ -142,38 +151,36 @@ func getIngredientsToBuild(d *Dag, ingredientsToBuild []Element, ingredientsToBu
 }
 
 func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction) {
-	d.Reaction.Product = nil
-	d.Reaction.Reactant = nil
+	d.Product = Element{
+		Name:    recipe.Name,
+		Notes:   recipe.Notes,
+		Measure: recipe.Measure,
+		Amount:  recipe.Amount,
+		Price:   recipe.Price,
+	}
 	d.Children = []*Dag{}
-	d.Element = recipe
+	d.Product = recipe
 	if _, ok := reactions[recipe.Name]; ok {
 		// determine the scaling from the baseline reaction
 		scaling := recipe.Amount / reactions[recipe.Name].Product[0].Amount
 		log.Println("A:", recipe.Name, scaling, recipe.Amount, reactions[recipe.Name].Product[0].Amount)
 
-		d.Reaction.Directions = reactions[recipe.Name].Directions
-		d.Reaction.LastUpdated = reactions[recipe.Name].LastUpdated
-		d.Reaction.Notes = reactions[recipe.Name].Notes
-		d.Reaction.ParallelHours = reactions[recipe.Name].ParallelHours
-		d.Reaction.SerialHours *= scaling * reactions[recipe.Name].SerialHours // scale the time
-		d.Reaction.Product = make([]Element, len(reactions[recipe.Name].Product))
-		for i, r := range reactions[recipe.Name].Product {
-			d.Reaction.Product[i].Amount = r.Amount * scaling
-			d.Reaction.Product[i].Price = r.Price * scaling
-			d.Reaction.Product[i].Measure = r.Measure
-			d.Reaction.Product[i].Name = r.Name
-			d.Reaction.Product[i].Notes = r.Notes
-		}
-		d.Reaction.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
+		d.Directions = reactions[recipe.Name].Directions
+		d.Notes = reactions[recipe.Name].Notes
+		d.ParallelHours = reactions[recipe.Name].ParallelHours
+		d.SerialHours *= scaling * reactions[recipe.Name].SerialHours // scale the time
+		d.Product.Amount = scaling * reactions[recipe.Name].Product[0].Amount
+		d.Product.Price = scaling * reactions[recipe.Name].Product[0].Price
+		d.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
 		for i, r := range reactions[recipe.Name].Reactant {
-			d.Reaction.Reactant[i].Amount = r.Amount * scaling
+			d.Reactant[i].Amount = r.Amount * scaling
 			if d.Reactant[i].Measure == "whole" {
 				d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
 			}
-			d.Reaction.Reactant[i].Price = r.Price * scaling
-			d.Reaction.Reactant[i].Measure = r.Measure
-			d.Reaction.Reactant[i].Name = r.Name
-			d.Reaction.Reactant[i].Notes = r.Notes
+			d.Reactant[i].Price = r.Price * scaling
+			d.Reactant[i].Measure = r.Measure
+			d.Reactant[i].Name = r.Name
+			d.Reactant[i].Notes = r.Notes
 		}
 
 		// add the reactants as children to the tree
@@ -184,12 +191,6 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		}
 	}
 	return
-}
-
-type Dag struct {
-	Element
-	Reaction
-	Children []*Dag
 }
 
 func TestOpen(t *testing.T) {
