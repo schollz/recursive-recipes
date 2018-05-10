@@ -150,21 +150,29 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 	if _, ok := reactions[recipe.Name]; ok {
 		var reaction Reaction
 		copier.Copy(reaction, reactions[recipe.Name])
+		// determine the scaling from the baseline reaction
 		scaling := recipe.Amount / reaction.Product[0].Amount
 		log.Println("A:", recipe.Name, scaling, recipe.Amount, reaction.Product[0].Amount)
 		copier.Copy(&d.Reaction, &reaction)
 
 		// scale the time
 		d.Reaction.SerialHours *= scaling
-		d.Product[0].Amount *= scaling
-		d.Product[0].Price *= scaling
-		for _, child := range reactions[recipe.Name].Reactant {
-			// need to scale everything
-			child.Price *= scaling
-			child.Amount *= scaling
-			if child.Measure == "whole" {
-				child.Amount = math.Ceil(child.Amount)
+		// scale the products
+		for i := range d.Product {
+			d.Product[i].Amount *= scaling
+			d.Product[i].Price *= scaling
+		}
+		// scale the reactants
+		for i := range d.Reactant {
+			d.Reactant[i].Amount *= scaling
+			d.Reactant[i].Price *= scaling
+			if d.Reactant[i].Measure == "whole" {
+				d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
 			}
+		}
+
+		// add the reactants as children to the tree
+		for _, child := range d.Reactant {
 			d2 := new(Dag)
 			recursivelyAddRecipe(child, d2, reactions)
 			d.Children = append(d.Children, d2)
