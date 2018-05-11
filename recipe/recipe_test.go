@@ -8,15 +8,16 @@ import (
 	"testing"
 
 	"github.com/BurntSushi/toml"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestOpen2(t *testing.T) {
-	b, _ := ioutil.ReadFile("../recipes.toml")
+	// collect all the possible reactions
 	var r Reactions
+	b, _ := ioutil.ReadFile("../recipes.toml")
 	_, err := toml.Decode(string(b), &r)
-	assert.Nil(t, err)
-
+	if err != nil {
+		return
+	}
 	reactions := make(map[string]Reaction)
 	for _, reaction := range r.Reactions {
 		for _, product := range reaction.Product {
@@ -29,7 +30,7 @@ func TestOpen2(t *testing.T) {
 		}
 	}
 
-	// prune tree based on recipe + time
+	// get tree based on recipe and amount
 	recipe := "chocolate chip cookies"
 	log.Println(reactions[recipe])
 	d := new(Dag)
@@ -42,6 +43,8 @@ func TestOpen2(t *testing.T) {
 		Price:   recipeToGet.Price,
 	}, d, reactions)
 
+	// TODO: prune tree by time
+
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
 	fmt.Println("\nIngredients to build:")
@@ -51,12 +54,6 @@ func TestOpen2(t *testing.T) {
 	fmt.Println("\nIngredients to buy:")
 	for _, ing := range ingredientsToBuy {
 		fmt.Println("-", ing.Name, ing.Amount)
-	}
-
-	// find ingredients to build that don't depend on any ingredients to build
-	ingredientsToBuildMap := make(map[string]struct{})
-	for _, ing := range ingredientsToBuild {
-		ingredientsToBuildMap[ing.Name] = struct{}{}
 	}
 
 	// collect the roots
@@ -73,6 +70,12 @@ func TestOpen2(t *testing.T) {
 	log.Println(pathExists(rootMap["milk"], rootMap["cow milk"]))     // true
 	log.Println(pathExists(rootMap["cow milk"], rootMap["milk"]))     // false
 
+	// DETERMINE THE BEST ORDERING
+	// find ingredients to build that don't depend on any ingredients to build
+	ingredientsToBuildMap := make(map[string]struct{})
+	for _, ing := range ingredientsToBuild {
+		ingredientsToBuildMap[ing.Name] = struct{}{}
+	}
 	directionsOrder := []string{}
 	for {
 		log.Println("ingredientsToBuildMap", ingredientsToBuildMap)
@@ -209,6 +212,7 @@ func getIngredientsToBuild(d *Dag, ingredientsToBuild []Element, ingredientsToBu
 }
 
 func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction) {
+	// add basic element
 	d.Product = Element{
 		Name:    recipe.Name,
 		Notes:   recipe.Notes,
@@ -216,11 +220,13 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		Amount:  recipe.Amount,
 		Price:   recipe.Price,
 	}
-	d.Children = []*Dag{}
 	d.Product = recipe
 	if recipe.Measure == "whole" {
 		d.Product.Amount = math.Ceil(d.Product.Amount)
 	}
+
+	// add children, if any
+	d.Children = []*Dag{}
 	if _, ok := reactions[recipe.Name]; ok {
 		// determine the scaling from the baseline reaction
 		scaling := recipe.Amount / reactions[recipe.Name].Product[0].Amount
@@ -229,16 +235,16 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		d.Directions = reactions[recipe.Name].Directions
 		d.Notes = reactions[recipe.Name].Notes
 		d.ParallelHours = reactions[recipe.Name].ParallelHours
-		d.SerialHours = scaling * reactions[recipe.Name].SerialHours // scale the time
-		d.Product.Amount = scaling * reactions[recipe.Name].Product[0].Amount
-		d.Product.Price = scaling * reactions[recipe.Name].Product[0].Price
+		d.SerialHours = scaling * reactions[recipe.Name].SerialHours          // scale the time
+		d.Product.Amount = scaling * reactions[recipe.Name].Product[0].Amount // scale the amount
+		d.Product.Price = scaling * reactions[recipe.Name].Product[0].Price   // scale the price
 		d.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
 		for i, r := range reactions[recipe.Name].Reactant {
-			d.Reactant[i].Amount = r.Amount * scaling
+			d.Reactant[i].Amount = r.Amount * scaling // scale the amount
 			if d.Reactant[i].Measure == "whole" {
 				d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
 			}
-			d.Reactant[i].Price = r.Price * scaling
+			d.Reactant[i].Price = r.Price * scaling // scale the price (though there shouldn't be one)
 			d.Reactant[i].Measure = r.Measure
 			d.Reactant[i].Name = r.Name
 			d.Reactant[i].Notes = r.Notes
