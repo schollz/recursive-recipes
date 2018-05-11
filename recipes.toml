@@ -113,8 +113,8 @@ updated = "2018-05-07T15:04:05Z"
 p_hours = 12.0
 s_hours = 1.5
 directions = """
-1. Cover dried beans with water. Soak overnight.
-2. Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
+Cover dried beans with water. Soak overnight.
+Drain the soaking water. Throw beans in a pot (optionally add vegetables). Add water about 3 times the heigh of beans in the pot.
 Simmer the beans until they are tender, about 1 1/2 hours.
 """
 
@@ -992,6 +992,48 @@ A dozen eggs is about $2.50
 """
 
 
+[[reaction]]
+	[[reaction.product]]
+		name="baking powder"
+		measure = "cup"
+		amount = 1.0
+		price = 1.78
+		notes = """
+https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.extension.iastate.edu/sioux/sites/www.extension.iastate.edu/files/sioux/Baking%2520ingredients%2520price%2520list.pdf+&cd=1&hl=en&ct=clnk&gl=us&client=ubuntu
+"""
+
+# the following are just prices
+
+[[reaction]]
+	[[reaction.product]]
+		name="baking soda"
+		measure = "cup"
+		amount = 1.0
+		price = 0.31
+		notes = """
+https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.extension.iastate.edu/sioux/sites/www.extension.iastate.edu/files/sioux/Baking%2520ingredients%2520price%2520list.pdf+&cd=1&hl=en&ct=clnk&gl=us&client=ubuntu
+"""
+
+
+[[reaction]]
+	[[reaction.product]]
+		name="cocoa powder"
+		measure = "cup"
+		amount = 1.0
+		price = 1.54
+		notes = """
+https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.extension.iastate.edu/sioux/sites/www.extension.iastate.edu/files/sioux/Baking%2520ingredients%2520price%2520list.pdf+&cd=1&hl=en&ct=clnk&gl=us&client=ubuntu
+"""
+
+[[reaction]]
+	[[reaction.product]]
+		name="cocoa butter"
+		measure = "cup"
+		amount = 1.0
+		price = 3.75
+		notes = """
+https://www.amazon.com/Shea-Butter-Organic-Unrefined-resealable/dp/B009U9JUK8/ref=pd_lpo_vtph_bs_t_1?_encoding=UTF8&psc=1&refRID=PE4ZPYZPV3JVWMYH543C"""
+
 
 [[reaction]]
 p_hours = 0.5
@@ -1006,9 +1048,10 @@ Spread the chocolate mixture evenly on a large plate using the spatula and put i
 		name="chocolate chips"
 		measure = "cup"
 		amount = 1.0
-		price = 1.82
+		price = 1.42
 		notes = """
 [12 oz bag of chocolate chips is $2.74](https://www.walmart.com/ip/NESTLE-TOLL-HOUSE-Real-Semi-Sweet-Chocolate-Morsels-12-oz-Bag/10291379)
+[1 cup chocolate chips is 6.2 oz](http://www.cookitsimply.com/measurements/cups/chocolate-chips-0070-085q.html)
 """
 
 	[[reaction.reactant]]
@@ -1051,11 +1094,15 @@ Historical harvest methods involved cutting with a scythe or sickle, and threshi
 		name="oatmeal"
 		measure = "cup"
 		amount = 0.41
-		price = 0.31
+		price = 0.12
 		notes = """
 [About 60 bushels per acre](https://webcache.googleusercontent.com/search?q=cache:95bjoMrKdEkJ:https://www.nass.usda.gov/nh/2006OatsAndBarley.pdf+&cd=13&hl=en&ct=clnk&gl=us&client=ubuntu)
 
 [42 oz of old fashioned oats is $3.98](https://www.walmart.com/ip/Quaker-Old-Fashioned-Oats-42-oz-Canister/10312439)
+
+[1 cup of oats is 3.17oz](https://www.traditionaloven.com/conversions_of_measures/rolled_oats_measures_converter.html)
+
+
 """
 
 	[[reaction.reactant]]

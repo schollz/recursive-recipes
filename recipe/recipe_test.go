@@ -30,7 +30,7 @@ func TestOpen2(t *testing.T) {
 	}
 
 	// get tree based on recipe and amount
-	recipe := "chocolate chip cookies"
+	recipe := "refried beans"
 	log.Println(reactions[recipe])
 	d := new(Dag)
 	recipeToGet := reactions[recipe].Product[0]
@@ -43,7 +43,7 @@ func TestOpen2(t *testing.T) {
 	}, d, reactions)
 
 	// TODO: prune tree by time or price
-	pruneTreeByTime(d, 0, 0)
+	pruneTreeByTime(d, 0, 3000)
 	printDag(d)
 
 	// parse tree for ingredients to build and the ingredients to buy
@@ -53,9 +53,12 @@ func TestOpen2(t *testing.T) {
 		fmt.Println("-", ing.Name, ing.Amount)
 	}
 	fmt.Println("\nIngredients to buy:")
+	totalCost := 0.0
 	for _, ing := range ingredientsToBuy {
-		fmt.Println("-", ing.Name, ing.Amount)
+		fmt.Println("-", ing.Name, ing.Amount, ing.Price)
+		totalCost += ing.Price
 	}
+	fmt.Println("totalCost", totalCost)
 
 	// collect the roots
 	roots := getDagRoots(d, []*Dag{})

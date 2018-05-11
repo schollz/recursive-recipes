@@ -16,189 +16,189 @@
  * For horizontal version, set the
  * $vertical variable to false
  * ------------------------------------- */
-
-/* -------------------------------------
+    /* -------------------------------------
  * timeline
  * ------------------------------------- */
-#timeline {
-  list-style: none;
-  margin: 50px 0 30px 120px;
-  padding-left: 30px;
-  border-left: 8px solid #eee9dc;
-}
-#timeline li {
-  margin: 40px 0;
-  position: relative;
-}
-#timeline p {
-  margin: 0 0 15px;
-}
 
-.date {
-  margin-top: -10px;
-  top: 50%;
-  left: -158px;
-  font-size: 0.95em;
-  line-height: 20px;
-  position: absolute;
-}
+    #timeline {
+        list-style: none;
+        margin: 50px 0 30px 120px;
+        padding-left: 30px;
+        border-left: 8px solid #eee9dc;
+    }
 
-.circle {
-  margin-top: -10px;
-  top: 50%;
-  left: -44px;
-  width: 10px;
-  height: 10px;
-  background: #48b379;
-  border: 5px solid #eee9dc;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-}
+    #timeline li {
+        margin: 40px 0;
+        position: relative;
+    }
 
-.content {
-  max-height: 20px;
-  padding: 50px 20px 0;
-  border-color: transparent;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 0.5em;
-  position: relative;
-}
-.content:before, .content:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border: solid transparent;
-  position: absolute;
-  pointer-events: none;
-  right: 100%;
-}
-.content:before {
-  border-right-color: inherit;
-  border-width: 20px;
-  top: 50%;
-  margin-top: -20px;
-}
-/*.content:after {
+    #timeline p {
+        margin: 0 0 15px;
+    }
+
+    .date {
+        margin-top: -10px;
+        top: 50%;
+        left: -158px;
+        font-size: 0.95em;
+        line-height: 20px;
+        position: absolute;
+    }
+
+    .circle {
+        margin-top: -10px;
+        top: 50%;
+        left: -44px;
+        width: 10px;
+        height: 10px;
+        background: #48b379;
+        border: 5px solid #eee9dc;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+    }
+
+    .content {
+        max-height: 20px;
+        padding: 50px 20px 0;
+        border-color: transparent;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 0.5em;
+        position: relative;
+    }
+
+    .content:before,
+    .content:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: solid transparent;
+        position: absolute;
+        pointer-events: none;
+        right: 100%;
+    }
+
+    .content:before {
+        border-right-color: inherit;
+        border-width: 20px;
+        top: 50%;
+        margin-top: -20px;
+    }
+    /*.content:after {
   border-right-color: #48b379;
   border-width: 17px;
   top: 50%;
   margin-top: -17px;
 }
-*/.content p {
-  max-height: 0;
-  color: transparent;
-  text-align: justify;
-  word-break: break-word;
-  hyphens: auto;
-  overflow: hidden;
-}
+*/
 
-label {
-  font-size: 1.3em;
-  position: absolute;
-  z-index: 100;
-  cursor: pointer;
-  top: 20px;
-  transition: transform 0.2s linear;
-}
+    .content p {
+        max-height: 0;
+        color: transparent;
+        text-align: justify;
+        word-break: break-word;
+        hyphens: auto;
+        overflow: hidden;
+    }
 
-input.radio,.radio {
-  display: none;
-}
+    label {
+        font-size: 1.3em;
+        position: absolute;
+        z-index: 100;
+        cursor: pointer;
+        top: 20px;
+        transition: transform 0.2s linear;
+    }
 
-.radio:checked + .relative label {
-  cursor: auto;
-  transform: translateX(42px);
-}
-.radio:checked + .relative .circle {
-  background: #f98262;
-}
-.radio:checked ~ .content {
-  max-height: 180px;
-  border-color: #eee9dc;
-  margin-right: 20px;
-  transform: translateX(20px);
-  transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
-}
-.radio:checked ~ .content p {
-  max-height: 200px;
-  color: #eee9dc;
-  transition: color 0.3s linear 0.3s;
-}
+    input.radio,
+    .radio {
+        display: none;
+    }
 
-/* -------------------------------------
+    .radio:checked+.relative label {
+        cursor: auto;
+        transform: translateX(42px);
+    }
+
+    .radio:checked+.relative .circle {
+        background: #f98262;
+    }
+
+    .radio:checked~.content {
+        max-height: 180px;
+        border-color: #eee9dc;
+        margin-right: 20px;
+        transform: translateX(20px);
+        transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+    }
+
+    .radio:checked~.content p {
+        max-height: 200px;
+        color: #eee9dc;
+        transition: color 0.3s linear 0.3s;
+    }
+    /* -------------------------------------
  * mobile phones (vertical version only)
  * ------------------------------------- */
-@media screen and (max-width: 767px) {
-  #timeline {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-  }
-  #timeline li {
-    margin: 50px 0;
-  }
 
-  label {
-    width: 85%;
-    font-size: 1.1em;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    transform: translateX(18px);
-  }
+    @media screen and (max-width: 767px) {
+        #timeline {
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+        }
+        #timeline li {
+            margin: 50px 0;
+        }
 
-  .content {
-    padding-top: 45px;
-    border-color: #eee9dc;
-  }
-  .content:before, .content:after {
-    border: solid transparent;
-    bottom: 100%;
-  }
-  .content:before {
-    border-bottom-color: inherit;
-    border-width: 17px;
-    top: -16px;
-    left: 50px;
-    margin-left: -17px;
-  }
-  .content:after {
-    border-bottom-color: #48b379;
-    border-width: 20px;
-    top: -20px;
-    left: 50px;
-    margin-left: -20px;
-  }
-  .content p {
-    font-size: 0.9em;
-    line-height: 1.4;
-  }
+        label {
+            width: 85%;
+            font-size: 1.1em;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
+            transform: translateX(18px);
+        }
 
-  .circle, .date {
-    display: none;
-  }
-}
+        .content {
+            padding-top: 45px;
+            border-color: #eee9dc;
+        }
+        .content:before,
+        .content:after {
+            border: solid transparent;
+            bottom: 100%;
+        }
+        .content:before {
+            border-bottom-color: inherit;
+            border-width: 17px;
+            top: -16px;
+            left: 50px;
+            margin-left: -17px;
+        }
+        .content:after {
+            border-bottom-color: #48b379;
+            border-width: 20px;
+            top: -20px;
+            left: 50px;
+            margin-left: -20px;
+        }
+        .content p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
 
-</style>
+        .circle,
+        .date {
+            display: none;
+        }
+    }
+    </style>
 </head>
 
 <body>
-    <aside class="sidebar background-light-100">
-        <nav class="navigation">
-            <ul>
-              <li>
-                <a href="#">Recipes</a>
-              </li>
-                <li class="">
-                    <a href="/">Chocolate Chip Cookies</a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
     <header class="padding-top-xs text-center color-white background-primary">
         <div class="container">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open">
@@ -206,13 +206,13 @@ input.radio,.radio {
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
             </svg>
             <h1 class="display-title" style="margin: 0.25em 0;">Recursive Cookbook</h1>
-            <p class="no-margin"><strong>v0.1.0</strong></p>
+            <p class="no-margin"><strong>v0.0.0</strong></p>
         </div>
     </header>
-    <main class="main padding-vertical-xl color-white background-primary">
-        <header class="header background-primary">
-            <!--   <h1 class="header-title small-caps">turretcss</h1>
- -->
+    <main class="padding-vertical-xl color-white background-primary">
+        <!--  <header class="header background-primary">
+              <h1 class="header-title small-caps">turretcss</h1>
+ 
 
             <button id="toggle" class="hamburger button button-primary button-square">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -221,153 +221,148 @@ input.radio,.radio {
                     <rect x="0" y="12" width="16" height="2" />
                 </svg>
             </button>
-        </header>
+        </header> -->
         <div class="container">
             <h2 class="hero-text">
-    <span>Chocolate Chip</span>
-    <span>Cookies</span>
+    <span>Chocolate Chip Cookies</span>
+    <small>$2.30 | </small>
+    <small>3 days, 2 hours</small>
     </h2>
+            <div class="input-group">
+                <input class="input-xl" value="16" min="16" max="40" type="range" step="0.01" style="width:75%" oninput="showVal(this.value)" onchange="showVal(this.value)">
+                <span style="display: flex;
+    flex-flow: row-reverse; 
+    align-items: center;
+    justify-content: flex-end; width:25%; padding-left: 1em;">
+  <h3 id="timelimitString">Limit 1 hr</h3>
+</span>
+            </div>
             <!--       <p class="lead max-width-xs">How much time depends on what you are making and whether you want to also make your ingredients from scratch.</p>
     -->
-             <p class="margin-top-xs">
+            <!--              <p class="margin-top-xs">
       <a class="button button-white button-border home-button" href="/docs/getting-started/">Get Started</a>
       <a class="button button-white button-border home-button" href="/docs/demo/">View Demo</a>
       <a class="button button-white button-border home-button" href="https://github.com/turretcss/turretcss">GitHub</a>
-    </p>
-            <h2 class="display-title margin-top-xl">Ingredients</h2>
-            <p class="lead max-width-xs">These are the ingredients that you need to have before you start.</p>
+    </p> -->
+            <h2 class="display-title margin-top-xl">Before you begin</h2>
+            <p class="lead max-width-xs">These are the things to purchase before you start.</p>
             <div class="boxes margin-top-m">
                 <div class="box">
                     <h3>
         <span class="small-caps">1 1/2 cup</span>
         <span class="display-block">Flour</span>
         </h3>
-                    <p>+2 hours to make from scratch.</p>
+                    <p>
+                        <strong>Costs $1.00</strong>
+                        <br> +2 hours, -$1.00 to make flour from scratch.</p>
                 </div>
                 <div class="box">
                     <h3>
         <span class="small-caps">1 1/2 cup</span>
-        <span class="display-block">Chocolate chips</span>
+        <span class="display-block">Chocolate Chips</span>
         </h3>
-                    <p>+30 minutes to make from scratch.</p>
+                    <p>
+                        <strong>Costs $1.30</strong>
+                        <br> +30 minutes | -$2.00 to make from scratch.
+                    </p>
+                </div>
+                <div class="box">
+                    <h3>
+        <span class="small-caps">1 whole</span>
+        <span class="display-block">Egg Laying Chicken</span>
+        </h3>
+                </div>
+                <div class="box">
+                    <h3>
+        <span class="small-caps">1.3 acre</span>
+        <span class="display-block">Soil</span>
+        </h3>
                 </div>
             </div>
             <h2 class="display-title margin-top-xl">Directions</h2>
             <p class="lead max-width-xs">Make this recipe in only <strong>12 hours</strong>.</p>
-
-
-
-
-
-<ul id='timeline'>
-  <li class='work'>
-    <input class='radio' id='work5' name='works' type='radio' checked>
-    <div class="relative">
-      <label for='work5'>First get milk from a cow</label>
-<!--       <span class='date'>2 hours waiting + 1 hour labor</span>
- -->
-<!--      <span class='circle'></span>
- -->
-
-    </div>
-    <div class='content'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
-      </p>
-    </div>
-  </li>
-  <li class='work'>
-    <input class='radio' id='work4' name='works' type='radio'>
-    <div class="relative">
-      <label for='work4'>Churn butter from milk</label>
-<!--       <span class='circle'></span>
-    </div>
-    <div class='content'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
-      </p>
-    </div>
-  </li>
-  <li class='work'>
-    <input class='radio' id='work3' name='works' type='radio'>
-    <div class="relative">
-      <label for='work3'>Lorem ipsum dolor sit amet</label>
-<!--       <span class='date'>10 May 2013</span>
- --><!--       <span class='circle'></span>
- -->    </div>
-    <div class='content'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
-      </p>
-    </div>
-  </li>
-  <li class='work'>
-    <input class='radio' id='work2' name='works' type='radio'>
-    <div class="relative">
-      <label for='work2'>Melt down chocolate into chips</label>
-<!--       <span class='date'>09 May 2013</span>
- --><!--       <span class='circle'></span>
- -->    </div>
-    <div class='content'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
-      </p>
-    </div>
-  </li>
-  <li class='work'>
-    <input class='radio' id='work1' name='works' type='radio'>
-    <div class="relative">
-      <label for='work1'>Make chocolate chip cookies</label>
-<!--       <span class='date'>08 May 2013</span>
- --><!--       <span class='circle'></span>
- -->    </div>
-    <div class='content'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
-      </p>
-    </div>
-  </li>
-</ul>
-
-
-
+            <div style="padding: 2em;border-color: #eee9dc;border-radius: 0.5em;border-width: 2px;border-style: solid;">
+                <h2>Make the eggs</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.</p>
+            </div>
+            <div style="padding-top: 2em;">
+                <div style="padding: 2em;border-color: #eee9dc;border-radius: 0.5em;border-width: 2px;border-style: solid;">
+                    <h2>Make the chocolate chip cookies</h2>
+                    <ol>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea .</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea .</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+<div>
+            <footer class="footer padding-vertical-m border-top background-white color-black">
+                <div class="container">
+                    <p>
+                        Designed and built by <a href="https://twitter.com/yakczar">@yakczar</a> at <a href="https://schollz.github.io">schollz.github.io</a>.
+                        <br> <a href="https://github.com/schollz/recursive-recipes">Code</a> licensed under <a href="https://github.com/chollz/recursive-recipes/blob/master/LICENSE">MIT</a>.
+                    </p>
+                    <nav>
+                        v0.0.0 &middot;
+                        <a href="https://twitter.com/yakczar">Twitter</a> &middot;
+                        <a href="https://github.com/schollz">GitHub</a> &middot;
+                        <a href="https://github.com/schollz/recursive-recipes/issues">Issues</a>
+                    </nav>
+                </div>
+            </footer>
         </div>
 
-
-
-
-
-
-
-        <footer class="footer padding-vertical-m border-top background-white color-black">
-            <div class="container">
-                <p>
-                    Designed and built by <a href="https://twitter.com/scottdejonge">@scottdejonge</a> at <a href="http://bigfish.tv">bigfish.tv</a>.
-                    <br> Code licensed under <a href="https://github.com/turretcss/turretcss/blob/master/LICENSE">MIT</a>, documentation under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-                </p>
-                <nav>
-                    v4.1.3 &middot;
-                    <a href="https://twitter.com/turretcss">Twitter</a> &middot;
-                    <a href="https://github.com/turretcss/turretcss">GitHub</a> &middot;
-                    <a href="https://github.com/turretcss/turretcss/issues">Issues</a> &middot;
-                    <a href="https://github.com/turretcss/turretcss/releases">Releases</a>
-                </nav>
-            </div>
-        </footer>
-    </main>
     <script>
-    if (document.getElementById('toggle')) {
-        var toggle = document.getElementById('toggle');
-        var body = document.getElementsByTagName('body')[0];
-        toggle.addEventListener('click', function() {
+    var timeout;
 
-            if (body.classList.contains('open')) {
-                body.classList.remove('open');
-            } else {
-                body.classList.add('open');
-            }
-        });
+    function showVal(val) {
+        console.log(val);
+        document.getElementById("timelimitString").innerText = "Time limit: " + millisecondsToStr(Math.pow(2, val));
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            console.log("need to update");
+        }, 250);
     }
+
+
+
+    function millisecondsToStr(milliseconds) {
+        // TIP: to find current time in milliseconds, use:
+        // var  current_time_milliseconds = new Date().getTime();
+
+        function numberEnding(number) {
+            return (number > 1) ? 's' : '';
+        }
+
+        var temp = Math.floor(milliseconds / 1000);
+        var years = Math.floor(temp / 31536000);
+        if (years) {
+            return years + ' year' + numberEnding(years);
+        }
+        //TODO: Months! Maybe weeks? 
+        var days = Math.floor((temp %= 31536000) / 86400);
+        if (days) {
+            return days + ' day' + numberEnding(days);
+        }
+        var hours = Math.floor((temp %= 86400) / 3600);
+        if (hours) {
+            return hours + ' hour' + numberEnding(hours);
+        }
+        var minutes = Math.floor((temp %= 3600) / 60);
+        if (minutes) {
+            return minutes + ' minute' + numberEnding(minutes);
+        }
+        var seconds = temp % 60;
+        if (seconds) {
+            return seconds + ' second' + numberEnding(seconds);
+        }
+        return 'less than a second'; //'just now' //or other string you like;
+    }
+
+    showVal(16);
     </script>
 </body>
 
