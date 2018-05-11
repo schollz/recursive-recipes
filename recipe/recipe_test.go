@@ -56,27 +56,64 @@ func TestOpen2(t *testing.T) {
 
 	// find ingredients to build that don't depend on any ingredients to build
 	ingredientsToBuildMap := make(map[string]struct{})
-	thingsThatCanBeBuiltNow := make(map[string]struct{})
 	for _, ing := range ingredientsToBuild {
 		ingredientsToBuildMap[ing.Name] = struct{}{}
 	}
-	for _, ing := range ingredientsToBuild {
-		for _, reactant := range reactions[ing.Name].Reactant {
-			if _, ok := ingredientsToBuildMap[reactant.Name]; ok {
-				continue
+
+	for ii := 0; ii < 3; ii++ {
+
+		thingsThatCanBeBuiltNow := make(map[string]struct{})
+		for ing := range ingredientsToBuildMap {
+			for _, reactant := range reactions[ing].Reactant {
+				if _, ok := ingredientsToBuildMap[reactant.Name]; ok {
+					continue
+				}
+				thingsThatCanBeBuiltNow[ing] = struct{}{}
 			}
-			thingsThatCanBeBuiltNow[ing.Name] = struct{}{}
 		}
+		log.Println(thingsThatCanBeBuiltNow)
+
+		// find the one that takes the longest
+		roots := getDagRoots(d, []*Dag{})
+		rootMap := make(map[string]*Dag)
+		for _, root := range roots {
+			if _, ok := rootMap[root.Product.Name]; ok {
+				log.Println(root.Product.Name)
+			}
+			rootMap[root.Product.Name] = root
+		}
+		log.Println(rootMap)
+		longestTime := 0.0
+		currentThing := ""
+		for ing := range thingsThatCanBeBuiltNow {
+			timeTaken := rootMap[ing].SerialHours + rootMap[ing].ParallelHours
+			if timeTaken > longestTime {
+				longestTime = timeTaken
+				currentThing = ing
+				log.Println(longestTime, currentThing)
+			}
+		}
+		log.Println(currentThing, "takes the longest")
+
+		amountNeeded := 0.0
+		for _, ing := range ingredientsToBuild {
+			if ing.Name == currentThing {
+				amountNeeded = ing.Amount
+			}
+		}
+		log.Println("needs", amountNeeded)
+
+		// scale up/down the reaction for the specified amount
+		reactionAmount := reactions[currentThing].Product[0].Amount
+		log.Println("reaction produces", reactionAmount)
+		scaling := amountNeeded / reactionAmount
+		log.Println("multiply base reaction by", scaling)
+		// prepend the reaction for the one that takes the longest to the queue
+
+		// delete it from things to build, and iterate
+		delete(ingredientsToBuildMap, currentThing)
+
 	}
-	log.Println(thingsThatCanBeBuiltNow)
-	// find the one that takes the longest
-
-	// scale up/down the reaction for the specified amount
-
-	// prepend the reaction for the one that takes the longest to the queue
-
-	// delete it from things to build, and iterate
-	//	delete(ingredientsToBuild,)
 
 	printDag(d)
 }
