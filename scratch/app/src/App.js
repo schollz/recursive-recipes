@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Slider, { Range } from 'rc-slider';
-import Select from 'react-select';
+import Slider from 'rc-slider';
+import Sockette from 'sockette';
 // We can just import Slider or Range to reduce bundle size
 // import Slider from 'rc-slider/lib/Slider';
 // import Range from 'rc-slider/lib/Range';
@@ -10,19 +9,29 @@ import './index.css'
 
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
-const marks = {
-  0: '1 minute',
-  1: '10 minutes',
-  2: '20 minutes',
-  3: '30 minutes',
-  6: '1 hour',
-  12: '2 hours',
-}
+
+
 class App extends Component {
 
     constructor(props) {
       super(props);
+      this.ws = new Sockette('ws://localhost:8012/ws', {
+        timeout: 5e3,
+        maxAttempts: 10,
+        onopen: e => console.log('Connected!', e),
+        onmessage: e => this.handleData(e),
+        onreconnect: e => console.log('Reconnecting...', e),
+        onmaximum: e => console.log('Stop Attempting!', e),
+        onclose: e => console.log('Closed!', e),
+        onerror: e => console.log('Error:', e)
+      });
+      // this.ws.send('Hello, world!');
+      
+      // // Reconnect 10s later
+      // setTimeout(this.ws.reconnect, 10e3);
+      
       this.state = {
+        websocketURL: "ws://localhost:8080/ws",
         version: "v0.0.0",
         recipe: "Chocolate Chip Cookies",
         totalCost: "$2.30",
@@ -54,8 +63,20 @@ class App extends Component {
       };
     }
 
+
+  handleData(data) {
+    console.log(data);
+    let result = JSON.parse(data.data);
+    console.log(result);
+    this.setState({
+      limitfactor:10,
+    });
+  }
+
+
 handleOnChange(value) {
     console.log(value);
+    this.ws.send("hello there");
     this.setState({
       limitfactor: value,
       ingredients: [
@@ -71,7 +92,7 @@ handleOnChange(value) {
   render() {
     const listDirections = this.state.directions.map((direction) =>
     <div>
-      <div class="outsidebox">
+      <div className="outsidebox">
           <h2>Make the {direction.name}</h2>
            <ol>
              {direction.texts.map((text) => <li>{text}</li> )}
@@ -80,22 +101,19 @@ handleOnChange(value) {
     </div>
   );
     const listItems = this.state.ingredients.map((ing) =>
-    <div class="box">
+    <div className="box">
     <h3>
-    <span className="small-caps">{ing.amount}{ing.cost != '' &&
+    <span className="small-caps">{ing.amount}{ing.cost !== '' &&
     <span> / {ing.cost}</span> 
       }</span>
     <span className="display-block">{ing.name}</span>
     </h3>
     
-      {ing.scratchCost != '' &&
+      {ing.scratchCost !== '' &&
       <p>{ing.scratchCost}, {ing.scratchTime} to make {ing.name.toLowerCase()} from scratch.</p>
       }
     </div>
   );
-  const sliderStyle = {
-    color: 'white',
-  }
 return (
       <div className="App">
         <header className="padding-top-xs text-center color-white background-primary">
@@ -116,19 +134,14 @@ return (
     <small>{this.state.totalCost} | </small>
     <small>{this.state.totalTime}</small>
     </h2>
-    <div>
-<div>
 
-<h2>
+<span className="hero-text2">
 Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}
 <div className="slider">
-<Slider max="30" step="0.01" onChange={this.handleOnChange.bind(this)} />
+<Slider max="30" step="0.01" value={this.limitfactor} onChange={this.handleOnChange.bind(this)} />
 </div>
-</h2>
+</span>
 
-   </div>
-
-      </div>
 
 <h2 className="display-title margin-top-xl">Before you begin</h2>
             <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>{this.state.totalCost}</strong>.</p>
@@ -140,13 +153,14 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             </div>
 
 
-            <h2 class="display-title margin-top-xl">Directions</h2>
-            <p class="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
+            <h2 className="display-title margin-top-xl">Directions</h2>
+            <p className="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
             {listDirections}
 
 
           </div>
         </main>
+
       </div>
     );
   }

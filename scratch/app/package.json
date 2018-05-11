@@ -11,7 +11,9 @@
     "react-native-slider": "^0.11.0",
     "react-rangeslider": "^2.2.0",
     "react-scripts": "1.1.4",
-    "react-select": "^1.2.1"
+    "react-select": "^1.2.1",
+    "react-websocket": "^2.0.0",
+    "sockette": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

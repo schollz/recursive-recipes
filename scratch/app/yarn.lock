@@ -5763,6 +5763,10 @@ react-select@^1.2.1:
     prop-types "^15.5.8"
     react-input-autosize "^2.1.2"
 
+react-websocket@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-websocket/-/react-websocket-2.0.0.tgz#efc72f3e841ee1befe78efe634c9982fae16348a"
+
 react@^16.3.2:
   version "16.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
@@ -6327,6 +6331,10 @@ sntp@2.x.x:
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-2.1.0.tgz#2c6cec14fedc2222739caf9b5c3d85d1cc5a2cc8"
   dependencies:
     hoek "4.x.x"
+
+sockette@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sockette/-/sockette-2.0.0.tgz#3da2f3459288d55cedcb6de580aeae68ae4554fc"
 
 sockjs-client@1.1.4:
   version "1.1.4"
