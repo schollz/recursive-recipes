@@ -11,7 +11,16 @@
     <!-- turretcss CSS -->
     <link rel="stylesheet" type="text/css" href="turret.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="docs.css">
-    </head>
+    <style>
+    .outsidebox {
+        padding: 2em;
+        border-color: #eee9dc;
+        /*border-radius: 0.5em;*/
+        border-width: 1px;
+        border-style: solid;
+    }
+    </style>
+</head>
 
 <body>
     <header class="padding-top-xs text-center color-white background-primary">
@@ -60,7 +69,7 @@
       <a class="button button-white button-border home-button" href="https://github.com/turretcss/turretcss">GitHub</a>
     </p> -->
             <h2 class="display-title margin-top-xl">Before you begin</h2>
-            <p class="lead max-width-xs">These are the things to purchase before you start.</p>
+            <p class="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>$2.30</strong>.</p>
             <div class="boxes margin-top-m">
                 <div class="box">
                     <h3>
@@ -95,13 +104,13 @@
                 </div>
             </div>
             <h2 class="display-title margin-top-xl">Directions</h2>
-            <p class="lead max-width-xs">Make this recipe in only <strong>3 days, 2 hours</strong>.</p>
-            <div style="padding: 2em;border-color: #eee9dc;border-radius: 0.5em;border-width: 2px;border-style: solid;">
+            <p class="lead max-width-xs">Follow these steps to make thsi recipe, which will take about <strong>3 days, 2 hours</strong>.</p>
+            <div class="outsidebox">
                 <h2>Make the eggs</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.</p>
             </div>
             <div style="padding-top: 2em;">
-                <div style="padding: 2em;border-color: #eee9dc;border-radius: 0.5em;border-width: 2px;border-style: solid;">
+                <div class="outsidebox">
                     <h2>Make the chocolate chip cookies</h2>
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.</li>
@@ -111,25 +120,23 @@
                 </div>
             </div>
         </div>
-        
     </main>
-<div>
-            <footer class="footer padding-vertical-m border-top background-white color-black">
-                <div class="container">
-                    <p>
-                        Designed and built by <a href="https://twitter.com/yakczar">@yakczar</a> at <a href="https://schollz.github.io">schollz.github.io</a>.
-                        <br> <a href="https://github.com/schollz/recursive-recipes">Code</a> licensed under <a href="https://github.com/chollz/recursive-recipes/blob/master/LICENSE">MIT</a>.
-                    </p>
-                    <nav>
-                        v0.0.0 &middot;
-                        <a href="https://twitter.com/yakczar">Twitter</a> &middot;
-                        <a href="https://github.com/schollz">GitHub</a> &middot;
-                        <a href="https://github.com/schollz/recursive-recipes/issues">Issues</a>
-                    </nav>
-                </div>
-            </footer>
-        </div>
-
+    <div>
+        <footer class="footer padding-vertical-m border-top background-white color-black">
+            <div class="container">
+                <p>
+                    Designed and built by <a href="https://twitter.com/yakczar">@yakczar</a> at <a href="https://schollz.github.io">schollz.github.io</a>.
+                    <br> <a href="https://github.com/schollz/recursive-recipes">Code</a> licensed under <a href="https://github.com/chollz/recursive-recipes/blob/master/LICENSE">MIT</a>.
+                </p>
+                <nav>
+                    v0.0.0 &middot;
+                    <a href="https://twitter.com/yakczar">Twitter</a> &middot;
+                    <a href="https://github.com/schollz">GitHub</a> &middot;
+                    <a href="https://github.com/schollz/recursive-recipes/issues">Issues</a>
+                </nav>
+            </div>
+        </footer>
+    </div>
     <script>
     var timeout;
 

@@ -1,0 +1,8 @@
+.rc-slider-mark-text-active,.rc-slider-mark-text,.slider {
+  color: white;
+}
+
+.slider {
+  padding-left: 4em;
+  padding-right: 4em;
+}
