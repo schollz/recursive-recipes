@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Page Title -->
+    <title>Recursive Cookbook</title>
+    <!-- turretcss CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bigfishtv-turret/4.0.0/turret.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://turretcss.com/dist/docs.css">
+    <style>
+    /* -------------------------------------
+ * For horizontal version, set the
+ * $vertical variable to false
+ * ------------------------------------- */
+
+/* -------------------------------------
+ * timeline
+ * ------------------------------------- */
+#timeline {
+  list-style: none;
+  margin: 50px 0 30px 120px;
+  padding-left: 30px;
+  border-left: 8px solid #eee9dc;
+}
+#timeline li {
+  margin: 40px 0;
+  position: relative;
+}
+#timeline p {
+  margin: 0 0 15px;
+}
+
+.date {
+  margin-top: -10px;
+  top: 50%;
+  left: -158px;
+  font-size: 0.95em;
+  line-height: 20px;
+  position: absolute;
+}
+
+.circle {
+  margin-top: -10px;
+  top: 50%;
+  left: -44px;
+  width: 10px;
+  height: 10px;
+  background: #48b379;
+  border: 5px solid #eee9dc;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+}
+
+.content {
+  max-height: 20px;
+  padding: 50px 20px 0;
+  border-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.5em;
+  position: relative;
+}
+.content:before, .content:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  position: absolute;
+  pointer-events: none;
+  right: 100%;
+}
+.content:before {
+  border-right-color: inherit;
+  border-width: 20px;
+  top: 50%;
+  margin-top: -20px;
+}
+/*.content:after {
+  border-right-color: #48b379;
+  border-width: 17px;
+  top: 50%;
+  margin-top: -17px;
+}
+*/.content p {
+  max-height: 0;
+  color: transparent;
+  text-align: justify;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+}
+
+label {
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  top: 20px;
+  transition: transform 0.2s linear;
+}
+
+input.radio,.radio {
+  display: none;
+}
+
+.radio:checked + .relative label {
+  cursor: auto;
+  transform: translateX(42px);
+}
+.radio:checked + .relative .circle {
+  background: #f98262;
+}
+.radio:checked ~ .content {
+  max-height: 180px;
+  border-color: #eee9dc;
+  margin-right: 20px;
+  transform: translateX(20px);
+  transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+}
+.radio:checked ~ .content p {
+  max-height: 200px;
+  color: #eee9dc;
+  transition: color 0.3s linear 0.3s;
+}
+
+/* -------------------------------------
+ * mobile phones (vertical version only)
+ * ------------------------------------- */
+@media screen and (max-width: 767px) {
+  #timeline {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+  #timeline li {
+    margin: 50px 0;
+  }
+
+  label {
+    width: 85%;
+    font-size: 1.1em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    transform: translateX(18px);
+  }
+
+  .content {
+    padding-top: 45px;
+    border-color: #eee9dc;
+  }
+  .content:before, .content:after {
+    border: solid transparent;
+    bottom: 100%;
+  }
+  .content:before {
+    border-bottom-color: inherit;
+    border-width: 17px;
+    top: -16px;
+    left: 50px;
+    margin-left: -17px;
+  }
+  .content:after {
+    border-bottom-color: #48b379;
+    border-width: 20px;
+    top: -20px;
+    left: 50px;
+    margin-left: -20px;
+  }
+  .content p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .circle, .date {
+    display: none;
+  }
+}
+
+</style>
+</head>
+
+<body>
+    <aside class="sidebar background-light-100">
+        <nav class="navigation">
+            <ul>
+              <li>
+                <a href="#">Recipes</a>
+              </li>
+                <li class="">
+                    <a href="/">Chocolate Chip Cookies</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <header class="padding-top-xs text-center color-white background-primary">
+        <div class="container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <h1 class="display-title" style="margin: 0.25em 0;">Recursive Cookbook</h1>
+            <p class="no-margin"><strong>v0.1.0</strong></p>
+        </div>
+    </header>
+    <main class="main padding-vertical-xl color-white background-primary">
+        <header class="header background-primary">
+            <!--   <h1 class="header-title small-caps">turretcss</h1>
+ -->
+
+            <button id="toggle" class="hamburger button button-primary button-square">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <rect x="0" y="2" width="16" height="2" />
+                    <rect x="0" y="7" width="16" height="2" />
+                    <rect x="0" y="12" width="16" height="2" />
+                </svg>
+            </button>
+        </header>
+        <div class="container">
+            <h2 class="hero-text">
+    <span>Chocolate Chip</span>
+    <span>Cookies</span>
+    </h2>
+            <!--       <p class="lead max-width-xs">How much time depends on what you are making and whether you want to also make your ingredients from scratch.</p>
+    -->
+             <p class="margin-top-xs">
+      <a class="button button-white button-border home-button" href="/docs/getting-started/">Get Started</a>
+      <a class="button button-white button-border home-button" href="/docs/demo/">View Demo</a>
+      <a class="button button-white button-border home-button" href="https://github.com/turretcss/turretcss">GitHub</a>
+    </p>
+            <h2 class="display-title margin-top-xl">Ingredients</h2>
+            <p class="lead max-width-xs">These are the ingredients that you need to have before you start.</p>
+            <div class="boxes margin-top-m">
+                <div class="box">
+                    <h3>
+        <span class="small-caps">1 1/2 cup</span>
+        <span class="display-block">Flour</span>
+        </h3>
+                    <p>+2 hours to make from scratch.</p>
+                </div>
+                <div class="box">
+                    <h3>
+        <span class="small-caps">1 1/2 cup</span>
+        <span class="display-block">Chocolate chips</span>
+        </h3>
+                    <p>+30 minutes to make from scratch.</p>
+                </div>
+            </div>
+            <h2 class="display-title margin-top-xl">Directions</h2>
+            <p class="lead max-width-xs">Make this recipe in only <strong>12 hours</strong>.</p>
+
+
+
+
+
+<ul id='timeline'>
+  <li class='work'>
+    <input class='radio' id='work5' name='works' type='radio' checked>
+    <div class="relative">
+      <label for='work5'>First get milk from a cow</label>
+<!--       <span class='date'>2 hours waiting + 1 hour labor</span>
+ -->
+<!--      <span class='circle'></span>
+ -->
+
+    </div>
+    <div class='content'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work4' name='works' type='radio'>
+    <div class="relative">
+      <label for='work4'>Churn butter from milk</label>
+<!--       <span class='circle'></span>
+    </div>
+    <div class='content'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work3' name='works' type='radio'>
+    <div class="relative">
+      <label for='work3'>Lorem ipsum dolor sit amet</label>
+<!--       <span class='date'>10 May 2013</span>
+ --><!--       <span class='circle'></span>
+ -->    </div>
+    <div class='content'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work2' name='works' type='radio'>
+    <div class="relative">
+      <label for='work2'>Melt down chocolate into chips</label>
+<!--       <span class='date'>09 May 2013</span>
+ --><!--       <span class='circle'></span>
+ -->    </div>
+    <div class='content'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
+      </p>
+    </div>
+  </li>
+  <li class='work'>
+    <input class='radio' id='work1' name='works' type='radio'>
+    <div class="relative">
+      <label for='work1'>Make chocolate chip cookies</label>
+<!--       <span class='date'>08 May 2013</span>
+ --><!--       <span class='circle'></span>
+ -->    </div>
+    <div class='content'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ea necessitatibus quo velit natus cupiditate qui alias possimus ab praesentium nostrum quidem obcaecati nesciunt! Molestiae officiis voluptate excepturi rem veritatis eum aliquam qui laborum non ipsam ullam tempore reprehenderit illum eligendi cumque mollitia temporibus! Natus dicta qui est optio rerum.
+      </p>
+    </div>
+  </li>
+</ul>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <footer class="footer padding-vertical-m border-top background-white color-black">
+            <div class="container">
+                <p>
+                    Designed and built by <a href="https://twitter.com/scottdejonge">@scottdejonge</a> at <a href="http://bigfish.tv">bigfish.tv</a>.
+                    <br> Code licensed under <a href="https://github.com/turretcss/turretcss/blob/master/LICENSE">MIT</a>, documentation under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+                </p>
+                <nav>
+                    v4.1.3 &middot;
+                    <a href="https://twitter.com/turretcss">Twitter</a> &middot;
+                    <a href="https://github.com/turretcss/turretcss">GitHub</a> &middot;
+                    <a href="https://github.com/turretcss/turretcss/issues">Issues</a> &middot;
+                    <a href="https://github.com/turretcss/turretcss/releases">Releases</a>
+                </nav>
+            </div>
+        </footer>
+    </main>
+    <script>
+    if (document.getElementById('toggle')) {
+        var toggle = document.getElementById('toggle');
+        var body = document.getElementsByTagName('body')[0];
+        toggle.addEventListener('click', function() {
+
+            if (body.classList.contains('open')) {
+                body.classList.remove('open');
+            } else {
+                body.classList.add('open');
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>
