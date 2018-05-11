@@ -24,17 +24,47 @@ class App extends Component {
         recipe: "Chocolate Chip Cookies",
         totalCost: "$2.30",
         limitfactor: 0,
+        ingredients: [
+          {
+            amount: "1 1/2 cup",
+            name: "Flour",
+            cost: "$1.00",
+            scratchTime: "+2 hours",
+            scratchCost: "-$1.00",
+          }
+        ]
       };
     }
 
 handleOnChange(value) {
     console.log(value);
     this.setState({
-      volume: value
+      volume: value,
+      ingredients: [
+        {
+          name:"ice",
+          amount: "1 1/2 cup",
+          cost: "",
+        }
+      ]
     })
   }
 
   render() {
+    const listItems = this.state.ingredients.map((ing) =>
+    <div class="box">
+    <h3>
+    <span className="small-caps">{ing.amount}</span>
+    <span className="display-block">{ing.name} {ing.cost != '' &&
+    <small>({ing.cost})</small> 
+      }</span>
+    </h3>
+    
+      {ing.scratchCost != '' &&
+      <p>{ing.scratchCost}, {ing.scratchTime} to make {ing.name.toLowerCase()} from scratch.</p>
+      }
+    </div>
+  );
     return (
       <div className="App">
         <header className="padding-top-xs text-center color-white background-primary">
@@ -67,7 +97,11 @@ Time limit:
 
 <h2 className="display-title margin-top-xl">Before you begin</h2>
             <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>{this.state.totalCost}</strong>.</p>
+
+           
+
             <div className="boxes margin-top-m">
+                {listItems}
                 <div className="box">
                     <h3>
         <span className="small-caps">1 1/2 cup</span>
