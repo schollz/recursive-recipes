@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"math"
 	"testing"
 
 	"github.com/BurntSushi/toml"
@@ -43,7 +42,9 @@ func TestOpen2(t *testing.T) {
 		Price:   recipeToGet.Price,
 	}, d, reactions)
 
-	// TODO: prune tree by time
+	// TODO: prune tree by time or price
+	pruneTreeByTime(d, 0, 0)
+	printDag(d)
 
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
@@ -66,9 +67,9 @@ func TestOpen2(t *testing.T) {
 		rootMap[root.Product.Name] = root
 	}
 
-	log.Println(pathExists(rootMap["cow milk"], rootMap["cow milk"])) // true
-	log.Println(pathExists(rootMap["milk"], rootMap["cow milk"]))     // true
-	log.Println(pathExists(rootMap["cow milk"], rootMap["milk"]))     // false
+	// log.Println(pathExists(rootMap["cow milk"], rootMap["cow milk"])) // true
+	// log.Println(pathExists(rootMap["milk"], rootMap["cow milk"]))     // true
+	// log.Println(pathExists(rootMap["cow milk"], rootMap["milk"]))     // false
 
 	// DETERMINE THE BEST ORDERING
 	// find ingredients to build that don't depend on any ingredients to build
@@ -78,7 +79,6 @@ func TestOpen2(t *testing.T) {
 	}
 	directionsOrder := []string{}
 	for {
-		log.Println("ingredientsToBuildMap", ingredientsToBuildMap)
 		if len(ingredientsToBuildMap) == 0 {
 			break
 		}
@@ -90,7 +90,6 @@ func TestOpen2(t *testing.T) {
 					continue
 				}
 				// make sure ing1 doesn't depend on ing2
-				log.Println(ing1, ing2, pathExists(rootMap[ing1], rootMap[ing2]))
 				if pathExists(rootMap[ing1], rootMap[ing2]) {
 					ing1DependsOnIng2 = true
 					break
@@ -105,21 +104,17 @@ func TestOpen2(t *testing.T) {
 				thingsThatCanBeBuiltNow[ing1] = struct{}{}
 			}
 		}
-		log.Println("thingsThatCanBeBuiltNow", thingsThatCanBeBuiltNow)
 
 		// find the one that takes the longest
 		longestTime := 0.0
 		currentThing := ""
 		for ing := range thingsThatCanBeBuiltNow {
 			timeTaken := rootMap[ing].SerialHours + rootMap[ing].ParallelHours
-			log.Println("timeTaken", timeTaken, ing)
 			if timeTaken > longestTime {
 				longestTime = timeTaken
 				currentThing = ing
-				log.Println(longestTime, currentThing)
 			}
 		}
-		log.Println(currentThing, "takes the longest")
 
 		directionsOrder = append(directionsOrder, currentThing)
 		// delete it from things to build, and iterate
@@ -138,6 +133,17 @@ type Dag struct {
 	Product       Element   `toml:"product" json:"product,omitempty"`
 	Reactant      []Element `toml:"reactant" json:"reactant,omitempty"`
 	Children      []*Dag
+}
+
+func pruneTreeByTime(d *Dag, currentTime float64, maxTime float64) {
+	currentTime += d.SerialHours + d.ParallelHours
+	if currentTime > maxTime {
+		d.Children = []*Dag{}
+	} else {
+		for _, child := range d.Children {
+			pruneTreeByTime(child, currentTime, maxTime)
+		}
+	}
 }
 
 func printDag(d *Dag) {
@@ -221,9 +227,9 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		Price:   recipe.Price,
 	}
 	d.Product = recipe
-	if recipe.Measure == "whole" {
-		d.Product.Amount = math.Ceil(d.Product.Amount)
-	}
+	// if recipe.Measure == "whole" {
+	// 	d.Product.Amount = math.Ceil(d.Product.Amount)
+	// }
 
 	// add children, if any
 	d.Children = []*Dag{}
@@ -241,9 +247,9 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		d.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
 		for i, r := range reactions[recipe.Name].Reactant {
 			d.Reactant[i].Amount = r.Amount * scaling // scale the amount
-			if d.Reactant[i].Measure == "whole" {
-				d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
-			}
+			// if d.Reactant[i].Measure == "whole" {
+			// 	d.Reactant[i].Amount = math.Ceil(d.Reactant[i].Amount)
+			// }
 			d.Reactant[i].Price = r.Price * scaling // scale the price (though there shouldn't be one)
 			d.Reactant[i].Measure = r.Measure
 			d.Reactant[i].Name = r.Name
