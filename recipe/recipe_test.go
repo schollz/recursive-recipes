@@ -60,33 +60,57 @@ func TestOpen2(t *testing.T) {
 		ingredientsToBuildMap[ing.Name] = struct{}{}
 	}
 
-	for ii := 0; ii < 3; ii++ {
+	// collect the roots
+	roots := getDagRoots(d, []*Dag{})
+	rootMap := make(map[string]*Dag)
+	for _, root := range roots {
+		if _, ok := rootMap[root.Product.Name]; ok {
+			log.Println(root.Product.Name)
+		}
+		rootMap[root.Product.Name] = root
+	}
 
+	log.Println(pathExists(rootMap["cow milk"], rootMap["cow milk"])) // true
+	log.Println(pathExists(rootMap["milk"], rootMap["cow milk"]))     // true
+	log.Println(pathExists(rootMap["cow milk"], rootMap["milk"]))     // false
+
+	directionsOrder := []string{}
+	for {
+		log.Println("ingredientsToBuildMap", ingredientsToBuildMap)
+		if len(ingredientsToBuildMap) == 0 {
+			break
+		}
 		thingsThatCanBeBuiltNow := make(map[string]struct{})
-		for ing := range ingredientsToBuildMap {
-			for _, reactant := range reactions[ing].Reactant {
-				if _, ok := ingredientsToBuildMap[reactant.Name]; ok {
+		for ing1 := range ingredientsToBuildMap {
+			var ing1DependsOnIng2 bool
+			for ing2 := range ingredientsToBuildMap {
+				if ing1 == ing2 {
 					continue
 				}
-				thingsThatCanBeBuiltNow[ing] = struct{}{}
+				// make sure ing1 doesn't depend on ing2
+				log.Println(ing1, ing2, pathExists(rootMap[ing1], rootMap[ing2]))
+				if pathExists(rootMap[ing1], rootMap[ing2]) {
+					ing1DependsOnIng2 = true
+					break
+				}
+			}
+			if !ing1DependsOnIng2 {
+				thingsThatCanBeBuiltNow[ing1] = struct{}{}
 			}
 		}
-		log.Println(thingsThatCanBeBuiltNow)
+		if len(ingredientsToBuildMap) == 1 {
+			for ing1 := range ingredientsToBuildMap {
+				thingsThatCanBeBuiltNow[ing1] = struct{}{}
+			}
+		}
+		log.Println("thingsThatCanBeBuiltNow", thingsThatCanBeBuiltNow)
 
 		// find the one that takes the longest
-		roots := getDagRoots(d, []*Dag{})
-		rootMap := make(map[string]*Dag)
-		for _, root := range roots {
-			if _, ok := rootMap[root.Product.Name]; ok {
-				log.Println(root.Product.Name)
-			}
-			rootMap[root.Product.Name] = root
-		}
-		log.Println(rootMap)
 		longestTime := 0.0
 		currentThing := ""
 		for ing := range thingsThatCanBeBuiltNow {
 			timeTaken := rootMap[ing].SerialHours + rootMap[ing].ParallelHours
+			log.Println("timeTaken", timeTaken, ing)
 			if timeTaken > longestTime {
 				longestTime = timeTaken
 				currentThing = ing
@@ -95,27 +119,13 @@ func TestOpen2(t *testing.T) {
 		}
 		log.Println(currentThing, "takes the longest")
 
-		amountNeeded := 0.0
-		for _, ing := range ingredientsToBuild {
-			if ing.Name == currentThing {
-				amountNeeded = ing.Amount
-			}
-		}
-		log.Println("needs", amountNeeded)
-
-		// scale up/down the reaction for the specified amount
-		reactionAmount := reactions[currentThing].Product[0].Amount
-		log.Println("reaction produces", reactionAmount)
-		scaling := amountNeeded / reactionAmount
-		log.Println("multiply base reaction by", scaling)
-		// prepend the reaction for the one that takes the longest to the queue
-
+		directionsOrder = append(directionsOrder, currentThing)
 		// delete it from things to build, and iterate
 		delete(ingredientsToBuildMap, currentThing)
-
 	}
-
+	log.Println(directionsOrder)
 	printDag(d)
+
 }
 
 type Dag struct {
@@ -140,6 +150,18 @@ func printDagRecursively(d *Dag, in int) {
 	for _, child := range d.Children {
 		printDagRecursively(child, in+1)
 	}
+}
+
+func pathExists(fromNode *Dag, toNode *Dag) bool {
+	if fromNode.Product.Name == toNode.Product.Name {
+		return true
+	}
+	for _, child := range fromNode.Children {
+		if pathExists(child, toNode) {
+			return true
+		}
+	}
+	return false
 }
 
 func getDagRoots(d *Dag, roots []*Dag) []*Dag {
@@ -197,6 +219,9 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 	}
 	d.Children = []*Dag{}
 	d.Product = recipe
+	if recipe.Measure == "whole" {
+		d.Product.Amount = math.Ceil(d.Product.Amount)
+	}
 	if _, ok := reactions[recipe.Name]; ok {
 		// determine the scaling from the baseline reaction
 		scaling := recipe.Amount / reactions[recipe.Name].Product[0].Amount
@@ -205,7 +230,7 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 		d.Directions = reactions[recipe.Name].Directions
 		d.Notes = reactions[recipe.Name].Notes
 		d.ParallelHours = reactions[recipe.Name].ParallelHours
-		d.SerialHours *= scaling * reactions[recipe.Name].SerialHours // scale the time
+		d.SerialHours = scaling * reactions[recipe.Name].SerialHours // scale the time
 		d.Product.Amount = scaling * reactions[recipe.Name].Product[0].Amount
 		d.Product.Price = scaling * reactions[recipe.Name].Product[0].Price
 		d.Reactant = make([]Element, len(reactions[recipe.Name].Reactant))
