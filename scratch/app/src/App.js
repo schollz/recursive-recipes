@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Slider, { Range } from 'rc-slider';
+import Select from 'react-select';
 // We can just import Slider or Range to reduce bundle size
 // import Slider from 'rc-slider/lib/Slider';
 // import Range from 'rc-slider/lib/Range';
 import 'rc-slider/assets/index.css';
 import './index.css'
 
+var moment = require("moment");
+var momentDurationFormatSetup = require("moment-duration-format");
 const marks = {
   0: '1 minute',
   1: '10 minutes',
@@ -23,6 +26,7 @@ class App extends Component {
         version: "v0.0.0",
         recipe: "Chocolate Chip Cookies",
         totalCost: "$2.30",
+        totalTime: "3 days, 2 hours",
         limitfactor: 0,
         ingredients: [
           {
@@ -31,7 +35,21 @@ class App extends Component {
             cost: "$1.00",
             scratchTime: "+2 hours",
             scratchCost: "-$1.00",
+          },
+          {
+            amount: "1 cup",
+            name: "Chocolate Chips",
+            cost: "$1.34",
+            scratchTime: "+1 hours",
+            scratchCost: "-$0.30",
           }
+
+        ],
+        directions: [
+          {
+            name:'Milk',
+            texts: ['Milk the cow.','Make milk'],
+        },
         ]
       };
     }
@@ -39,7 +57,7 @@ class App extends Component {
 handleOnChange(value) {
     console.log(value);
     this.setState({
-      volume: value,
+      limitfactor: value,
       ingredients: [
         {
           name:"ice",
@@ -51,13 +69,23 @@ handleOnChange(value) {
   }
 
   render() {
+    const listDirections = this.state.directions.map((direction) =>
+    <div>
+      <div class="outsidebox">
+          <h2>Make the {direction.name}</h2>
+           <ol>
+             {direction.texts.map((text) => <li>{text}</li> )}
+          </ol>
+      </div>
+    </div>
+  );
     const listItems = this.state.ingredients.map((ing) =>
     <div class="box">
     <h3>
-    <span className="small-caps">{ing.amount}</span>
-    <span className="display-block">{ing.name} {ing.cost != '' &&
-    <small>({ing.cost})</small> 
+    <span className="small-caps">{ing.amount}{ing.cost != '' &&
+    <span> / {ing.cost}</span> 
       }</span>
+    <span className="display-block">{ing.name}</span>
     </h3>
     
       {ing.scratchCost != '' &&
@@ -65,7 +93,10 @@ handleOnChange(value) {
       }
     </div>
   );
-    return (
+  const sliderStyle = {
+    color: 'white',
+  }
+return (
       <div className="App">
         <header className="padding-top-xs text-center color-white background-primary">
             <div className="container">
@@ -83,14 +114,18 @@ handleOnChange(value) {
             <h2 className="hero-text">
     <span>{this.state.recipe}</span>
     <small>{this.state.totalCost} | </small>
-    <small>3 days, 2 hours</small>
+    <small>{this.state.totalTime}</small>
     </h2>
     <div>
 <div>
-Time limit:
+
+<h2>
+Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}
 <div className="slider">
- <Slider className="slider" min={0} max={12} marks={marks} step={null} onChange={this.handleOnChange.bind(this)} defaultValue={20} />
- </div>
+<Slider max="30" step="0.01" onChange={this.handleOnChange.bind(this)} />
+</div>
+</h2>
+
    </div>
 
       </div>
@@ -102,37 +137,12 @@ Time limit:
 
             <div className="boxes margin-top-m">
                 {listItems}
-                <div className="box">
-                    <h3>
-        <span className="small-caps">1 1/2 cup</span>
-        <span className="display-block">Flour</span>
-        </h3>
-                    <p>
-                      alskdjf
-                    </p>
-                </div>
-                <div className="box">
-                    <h3>
-        <span className="small-caps">1 1/2 cup</span>
-        <span className="display-block">Chocolate Chips</span>
-        </h3>
-                    <p>
-                    </p>
-                </div>
-                <div className="box">
-                    <h3>
-        <span className="small-caps">1 whole</span>
-        <span className="display-block">Egg Laying Chicken</span>
-        </h3>
-                </div>
-                <div className="box">
-                    <h3>
-        <span className="small-caps">1.3 acre</span>
-        <span className="display-block">Soil</span>
-        </h3>
-                </div>
             </div>
 
+
+            <h2 class="display-title margin-top-xl">Directions</h2>
+            <p class="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
+            {listDirections}
 
 
           </div>
