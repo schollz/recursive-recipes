@@ -39,11 +39,14 @@
 }
 
 .pr1 {
-	padding-right: 3em;
+	padding-right: 2em;
 }
 
 @media (max-width: 400px) {
     .flex-grid {
         display: block;
+    }
+    .pr1 {
+    	padding-right: 0em;
     }
 }
