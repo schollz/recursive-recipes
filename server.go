@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/schollz/recursive-recipes/recipe"
 )
 
 func main() {
@@ -37,9 +38,17 @@ func wshandler(cg *gin.Context) {
 	}
 	defer c.Close()
 
-	a := "hi"
-	bPayload, _ := json.Marshal(a)
-	err = c.WriteMessage(1, bPayload)
+	// TODO: send a recipe
+	// a := "chocolate"
+	// bPayload, _ := json.Marshal(a)
+	// err = c.WriteMessage(1, bPayload)
+	serverPayload, err := recipe.GetRecipe("chocolate chip cookies", 1, make(map[string]struct{}))
+	if err != nil {
+		log.Println(err)
+	}
+	serverPayloadBytes, _ := json.Marshal(serverPayload)
+	log.Println(string(serverPayloadBytes))
+	err = c.WriteMessage(1, serverPayloadBytes)
 	for {
 		mt, message, err := c.ReadMessage()
 		if err != nil {
@@ -47,9 +56,21 @@ func wshandler(cg *gin.Context) {
 			break
 		}
 		log.Printf("recv: %s", message)
-		bPayload, _ := json.Marshal(string(message))
-
-		err = c.WriteMessage(mt, bPayload)
+		var clientPayload recipe.RequestFromApp
+		err = json.Unmarshal(message, &clientPayload)
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		log.Println("clientPayload", clientPayload)
+		serverPayload, err := recipe.GetRecipe(clientPayload.Recipe, clientPayload.MinutesToBuild/60, clientPayload.IngredientsToBuild)
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		serverPayloadBytes, _ := json.Marshal(serverPayload)
+		log.Println(string(serverPayloadBytes))
+		err = c.WriteMessage(mt, serverPayloadBytes)
 		if err != nil {
 			log.Println("write:", err)
 			break

@@ -37,7 +37,7 @@ class App extends Component {
         recipe: "Chocolate Chip Cookies",
         totalCost: "$2.30",
         totalTime: "3 days, 2 hours",
-        limitfactor: 0,
+        limitfactor: 6,
         ingredientsToBuild: {},
         ingredients: [
           {
@@ -60,6 +60,7 @@ class App extends Component {
           {
             name:'Milk',
             texts: ['Milk the cow.','Make milk'],
+            totalTime: "1 day",
         },
         ]
       };
@@ -69,7 +70,14 @@ class App extends Component {
   handleData(data) {
     console.log(data);
     let result = JSON.parse(data.data);
-    console.log(result);
+    console.log(result.ingredients);
+    this.setState({
+      version: result.version,
+      ingredients: result.ingredients,
+      directions: result.directions,
+      totalCost: result.totalCost,
+      totalTime: result.totalTime,
+    })
     // this.setState({
     //   limitfactor:10,
     // });
@@ -78,20 +86,28 @@ class App extends Component {
   handleClick = (data,e) => {
     e.preventDefault();
     console.log(data);
-    this.state.ingredientsToBuild[data] = {};
+    this.state.ingredientsToBuild[(""+data).toLowerCase()] = {};
     console.log(this.state.ingredientsToBuild);
     this.setState({
       ingredientsToBuild: this.state.ingredientsToBuild,
-      limitfactor:0,
-    })
+    });
+    this.requestFromServer();
 }
 
+  requestFromServer() {
+    let payload = JSON.stringify({
+      recipe: this.state.recipe.toLowerCase(),
+      ingredientsToBuild: this.state.ingredientsToBuild,
+      minutes: Math.pow(1.8,this.state.limitfactor),
+    });
+    console.log("sending"+payload);
+    this.ws.send(payload);
+  }
 
   handleOnChange(value) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout((function(){
-      this.ws.send("hello there");
-      this.ws.send(value);
+      this.requestFromServer();
     }).bind(this),250);
   
     this.setState({
@@ -105,9 +121,9 @@ class App extends Component {
       textDecoration:'none',
     }
     const listDirections = this.state.directions.map((direction) =>
-    <div>
+    <div className="boxwrapper">
       <div className="outsidebox">
-          <h2>Make the {direction.name}</h2>
+          <h2>Make the {direction.name} ({direction.totalTime})</h2>
            <ol>
              {direction.texts.map((text) => <li>{text}</li> )}
           </ol>
@@ -173,7 +189,11 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <h2 className="display-title margin-top-xl">Directions</h2>
             <p className="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
             {listDirections}
-
+            <div>
+              <div className="outsidebox">
+                  <h2>Enjoy!</h2>
+              </div>
+            </div>
 
           </div>
         </main>

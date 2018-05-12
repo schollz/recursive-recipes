@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"strings"
 	"time"
 
 	"github.com/BurntSushi/toml"
@@ -90,19 +91,27 @@ type UpdateAppIngredients struct {
 }
 
 type UpdateAppDirections struct {
-	Name  string   `json:"name"`
-	Texts []string `json:"texts"`
+	Name      string   `json:"name"`
+	TotalTime string   `json:"totalTime"`
+	Texts     []string `json:"texts"`
 }
 
 type RequestFromApp struct {
+	Recipe             string              `json:"recipe"`
 	IngredientsToBuild map[string]struct{} `json:"ingredientsToBuild"`
 	MinutesToBuild     float64             `json:"minutes"`
 }
 
-func GetRecipe(recipe string, hours float64) (err error) {
+func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]struct{}) (payload UpdateApp, err error) {
+	payload.Version = "v0.0.0"
+	payload.Recipe = recipe
+
 	// collect all the possible reactions
 	var r Reactions
-	b, _ := ioutil.ReadFile("../recipes.toml")
+	b, err := ioutil.ReadFile("recipes.toml")
+	if err != nil {
+		return
+	}
 	_, err = toml.Decode(string(b), &r)
 	if err != nil {
 		return
@@ -126,13 +135,13 @@ func GetRecipe(recipe string, hours float64) (err error) {
 	log.Debug(reactions[recipe].Product[0])
 	recursivelyAddRecipe(Element{
 		Name:    recipeToGet.Name,
-		Amount:  recipeToGet.Amount * 2,
+		Amount:  recipeToGet.Amount * 1,
 		Measure: recipeToGet.Measure,
 		Price:   recipeToGet.Price,
 	}, d, reactions)
 
-	// TODO: prune tree by time or price
-	pruneTreeByTime(d, 0, hours)
+	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
+	payload.TotalTime = fmt.Sprintf("%2.1f hours", totalTime)
 
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
@@ -141,12 +150,27 @@ func GetRecipe(recipe string, hours float64) (err error) {
 		log.Debug("-", ing.Name, ing.Amount)
 	}
 	log.Debug("\nIngredients to buy:")
+	payload.Ingredients = make([]UpdateAppIngredients, len(ingredientsToBuy))
 	totalCost := 0.0
-	for _, ing := range ingredientsToBuy {
+	for i, ing := range ingredientsToBuy {
 		log.Debug("-", ing.Name, ing.Amount, ing.Price)
 		totalCost += ing.Price
+		payload.Ingredients[i].Name = ing.Name
+		payload.Ingredients[i].Amount = fmt.Sprintf("%2.1f %s", ing.Amount, ing.Measure)
+		payload.Ingredients[i].Cost = fmt.Sprintf("$%2.2f", ing.Price)
+		log.Info(scratchReplacement(reactions, "milk", 1))
+		priceDifference, timeDifference, errScratch := scratchReplacement(reactions, ing.Name, ing.Amount)
+		if errScratch != nil {
+			log.Warn(errScratch)
+			continue
+		}
+		log.Info(ing.Name, priceDifference, timeDifference)
+		payload.Ingredients[i].ScratchCost = fmt.Sprintf("$%2.2f", priceDifference)
+		payload.Ingredients[i].ScratchTime = fmt.Sprintf("%2.1f hours", timeDifference)
+
 	}
 	log.Debug("totalCost", totalCost)
+	payload.TotalCost = fmt.Sprintf("$%2.2f", totalCost)
 
 	// collect the roots
 	roots := getDagRoots(d, []*Dag{})
@@ -213,6 +237,19 @@ func GetRecipe(recipe string, hours float64) (err error) {
 	}
 	log.Debug(directionsOrder)
 	log.Debug(printDag(d))
+	payload.Directions = make([]UpdateAppDirections, len(directionsOrder))
+	for i, direction := range directionsOrder {
+		payload.Directions[i].Name = direction
+		payload.Directions[i].TotalTime = fmt.Sprintf("%2.0f hours", rootMap[direction].SerialHours+rootMap[direction].ParallelHours)
+		payload.Directions[i].Texts = []string{}
+		for _, text := range strings.Split(rootMap[direction].Directions, "\n") {
+			text = strings.TrimSpace(text)
+			if len(text) == 0 {
+				continue
+			}
+			payload.Directions[i].Texts = append(payload.Directions[i].Texts, text)
+		}
+	}
 
 	log.Info(scratchReplacement(reactions, "milk", 1))
 	return
@@ -220,6 +257,10 @@ func GetRecipe(recipe string, hours float64) (err error) {
 
 func scratchReplacement(reactions map[string]Reaction, ing string, amount float64) (priceDifference float64, timeDifference float64, err error) {
 	if _, ok := reactions[ing]; !ok {
+		err = errors.New("no such reaction for " + ing)
+		return
+	}
+	if len(reactions[ing].Reactant) == 0 {
 		err = errors.New("no such reaction for " + ing)
 		return
 	}
@@ -257,6 +298,20 @@ func scratchReplacement(reactions map[string]Reaction, ing string, amount float6
 // 	timeDifference = timeToBuild - 0.0
 // 	return
 // }
+
+func pruneTreeByTimeAndIngredients(d *Dag, currentTime float64, maxTime float64, ingredientsToMake map[string]struct{}) float64 {
+	_, ingredientToMake := ingredientsToMake[d.Product.Name]
+	if currentTime+d.SerialHours+d.ParallelHours > maxTime && !ingredientToMake {
+		d.Children = []*Dag{}
+	} else {
+		currentTime += d.SerialHours + d.ParallelHours
+		for _, child := range d.Children {
+			currentTime = pruneTreeByTimeAndIngredients(child, currentTime, maxTime, ingredientsToMake)
+		}
+	}
+	return currentTime
+}
+
 func pruneTreeByIngredients(d *Dag, ingredientsToMake map[string]struct{}) {
 	if _, ok := ingredientsToMake[d.Product.Name]; !ok {
 		d.Children = []*Dag{}
