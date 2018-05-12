@@ -8,12 +8,7 @@
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-native-hyperlink": "^0.0.14",
-    "react-native-slider": "^0.11.0",
-    "react-rangeslider": "^2.2.0",
     "react-scripts": "1.1.4",
-    "react-select": "^1.2.1",
-    "react-websocket": "^2.0.0",
     "sockette": "^2.0.0"
   },
   "scripts": {
