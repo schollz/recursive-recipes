@@ -252,6 +252,15 @@ func scratchReplacement(reactions map[string]Reaction, ing string, amount float6
 // 	timeDifference = timeToBuild - 0.0
 // 	return
 // }
+func pruneTreeByIngredients(d *Dag, ingredientsToMake map[string]struct{}) {
+	if _, ok := ingredientsToMake[d.Product.Name]; !ok {
+		d.Children = []*Dag{}
+	} else {
+		for _, child := range d.Children {
+			pruneTreeByIngredients(child, ingredientsToMake)
+		}
+	}
+}
 
 func pruneTreeByTime(d *Dag, currentTime float64, maxTime float64) {
 	currentTime += d.SerialHours + d.ParallelHours
@@ -271,9 +280,9 @@ func printDag(d *Dag) string {
 func printDagRecursively(d *Dag, in int) string {
 	s := ""
 	for i := 0; i < in; i++ {
-		s += "\n"
+		s += "---"
 	}
-	s += fmt.Sprintf("%s %2.3f %s", d.Product.Name, d.Product.Amount, d.Product.Measure)
+	s += fmt.Sprintf("%s %2.3f %s\n", d.Product.Name, d.Product.Amount, d.Product.Measure)
 	for _, child := range d.Children {
 		s += printDagRecursively(child, in+1)
 	}
