@@ -141,7 +141,11 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 	}, d, reactions)
 
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
-	payload.TotalTime = fmt.Sprintf("%2.1f hours", totalTime)
+	log.Info("totalTime", totalTime, FormatDuration(totalTime))
+	payload.TotalTime = FormatDuration(totalTime)
+	if payload.TotalTime == "" {
+		payload.TotalTime = "No time"
+	}
 
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
@@ -156,7 +160,7 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 		log.Debug("-", ing.Name, ing.Amount, ing.Price)
 		totalCost += ing.Price
 		payload.Ingredients[i].Name = ing.Name
-		payload.Ingredients[i].Amount = fmt.Sprintf("%2.1f %s", ing.Amount, ing.Measure)
+		payload.Ingredients[i].Amount = FormatMeasure(ing.Amount, ing.Measure)
 		payload.Ingredients[i].Cost = fmt.Sprintf("$%2.2f", ing.Price)
 		log.Info(scratchReplacement(reactions, "milk", 1))
 		priceDifference, timeDifference, errScratch := scratchReplacement(reactions, ing.Name, ing.Amount)
@@ -165,12 +169,12 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 			continue
 		}
 		log.Info(ing.Name, priceDifference, timeDifference)
-		payload.Ingredients[i].ScratchCost = fmt.Sprintf("$%2.2f", priceDifference)
-		payload.Ingredients[i].ScratchTime = fmt.Sprintf("%2.1f hours", timeDifference)
+		payload.Ingredients[i].ScratchCost = FormatCost(priceDifference)
+		payload.Ingredients[i].ScratchTime = FormatDuration(timeDifference)
 
 	}
 	log.Debug("totalCost", totalCost)
-	payload.TotalCost = fmt.Sprintf("$%2.2f", totalCost)
+	payload.TotalCost = FormatCost(totalCost)[1:]
 
 	// collect the roots
 	roots := getDagRoots(d, []*Dag{})
@@ -240,7 +244,7 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 	payload.Directions = make([]UpdateAppDirections, len(directionsOrder))
 	for i, direction := range directionsOrder {
 		payload.Directions[i].Name = direction
-		payload.Directions[i].TotalTime = fmt.Sprintf("%2.0f hours", rootMap[direction].SerialHours+rootMap[direction].ParallelHours)
+		payload.Directions[i].TotalTime = FormatDuration(rootMap[direction].SerialHours + rootMap[direction].ParallelHours)
 		payload.Directions[i].Texts = []string{}
 		for _, text := range strings.Split(rootMap[direction].Directions, "\n") {
 			text = strings.TrimSpace(text)
