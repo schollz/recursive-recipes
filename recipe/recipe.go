@@ -1,6 +1,7 @@
 package recipe
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"time"
@@ -207,22 +208,51 @@ func GetRecipe(recipe string, hours float64) (err error) {
 	}
 	log.Debug(directionsOrder)
 	log.Debug(printDag(d))
-	log.Info(scratchReplacement(rootMap["chocolate chip cookies"]))
+
+	log.Info(scratchReplacement(reactions, "milk", 1))
 	return
 }
 
-func scratchReplacement(d *Dag) (priceDifference float64, timeDifference float64) {
-	priceToBuy := d.Product.Price
-	priceToBuild := 0.0
-	timeToBuild := d.SerialHours + d.ParallelHours
-	log.Info(d.Product.Name, d.Product.Price)
-	for _, child := range d.Children {
-		priceToBuild += child.Product.Price
+func scratchReplacement(reactions map[string]Reaction, ing string, amount float64) (priceDifference float64, timeDifference float64, err error) {
+	if _, ok := reactions[ing]; !ok {
+		err = errors.New("no such reaction for " + ing)
+		return
 	}
+	scaling := amount / reactions[ing].Product[0].Amount
+	priceToBuy := reactions[ing].Product[0].Price * scaling
+	timeToBuild := reactions[ing].SerialHours*scaling + reactions[ing].ParallelHours
+
+	priceToBuild := 0.0
+	for _, child := range reactions[ing].Reactant {
+		log.Info(child.Name)
+		if _, ok := reactions[child.Name]; !ok {
+			continue
+		}
+		priceToBuild += reactions[child.Name].Product[0].Price * scaling
+	}
+	log.Info(ing, amount, priceToBuy, timeToBuild, priceToBuild)
 	priceDifference = priceToBuild - priceToBuy
-	timeDifference = timeToBuild - 0.0
+	timeDifference = timeToBuild - 0
 	return
 }
+
+// func scratchReplacement(d *Dag) (priceDifference float64, timeDifference float64) {
+// 	priceToBuy := d.Product.Price
+// 	priceToBuild := 0.0
+// 	timeToBuild := d.SerialHours + d.ParallelHours
+// 	log.Info(d.Product.Name, d.Product.Price)
+// 	for _, child := range d.Children {
+// 		log.Info(child.Product.Name)
+// 		if len(child.Children) > 0 {
+// 			log.Info(child.Product.Name, child.Product.Price)
+// 		}
+// 		priceToBuild += child.Product.Price
+// 	}
+// 	priceDifference = priceToBuild - priceToBuy
+// 	timeDifference = timeToBuild - 0.0
+// 	return
+// }
+
 func pruneTreeByTime(d *Dag, currentTime float64, maxTime float64) {
 	currentTime += d.SerialHours + d.ParallelHours
 	if currentTime > maxTime {
