@@ -38,6 +38,7 @@ class App extends Component {
         totalCost: "$2.30",
         totalTime: "3 days, 2 hours",
         limitfactor: 0,
+        ingredientsToBuild: {},
         ingredients: [
           {
             amount: "1 1/2 cup",
@@ -74,6 +75,17 @@ class App extends Component {
     // });
   }
 
+  handleClick = (data,e) => {
+    e.preventDefault();
+    console.log(data);
+    this.state.ingredientsToBuild[data] = {};
+    console.log(this.state.ingredientsToBuild);
+    this.setState({
+      ingredientsToBuild: this.state.ingredientsToBuild,
+      limitfactor:0,
+    })
+}
+
 
   handleOnChange(value) {
     clearTimeout(this.timeout);
@@ -87,7 +99,11 @@ class App extends Component {
     })
   }
 
+
   render() {
+    const linkStyle = {
+      textDecoration:'none',
+    }
     const listDirections = this.state.directions.map((direction) =>
     <div>
       <div className="outsidebox">
@@ -104,7 +120,8 @@ class App extends Component {
     <span className="small-caps">{ing.amount}{ing.cost !== '' &&
     <span> / {ing.cost}</span> 
       }</span>
-    <span className="display-block">{ing.name}</span>
+    <span className="display-block"><a href="#" onClick={this.handleClick.bind(this,ing.name)} style={linkStyle}>{ing.name}</a>
+    </span>
     </h3>
     
       {ing.scratchCost !== '' &&
@@ -114,7 +131,7 @@ class App extends Component {
   );
 return (
       <div className="App">
-
+      
         <header className="padding-top-xs text-center color-white background-primary">
             <div className="container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-book-open">
@@ -123,6 +140,7 @@ return (
                 </svg>
                 <h1 className="display-title">Recursive Cookbook</h1>
                 <p className="no-margin"><strong>{this.state.version}</strong></p>
+                
             </div>
         </header>
         <main className="padding-vertical-xl color-white background-primary">

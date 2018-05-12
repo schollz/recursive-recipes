@@ -95,8 +95,8 @@ type UpdateAppDirections struct {
 }
 
 type RequestFromApp struct {
-	IngredientsToBuild []string `json:"ingredientsToBuild"`
-	MinutesToBuild     float64  `json:"minutes"`
+	IngredientsToBuild map[string]struct{} `json:"ingredientsToBuild"`
+	MinutesToBuild     float64             `json:"minutes"`
 }
 
 func GetRecipe(recipe string, hours float64) (err error) {
