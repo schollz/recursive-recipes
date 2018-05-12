@@ -54,7 +54,7 @@ func FormatMeasure(amount float64, measure string) (s string) {
 		amount, measure = convertCups(amount)
 	}
 	s = fmt.Sprintf("%s %s", FormatCookingRational(amount), measure)
-	if amount > 1 {
+	if amount > 1 && measure != "whole" {
 		s += "s"
 	}
 	s = strings.TrimSpace(s)

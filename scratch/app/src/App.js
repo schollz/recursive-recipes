@@ -16,7 +16,7 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.timeout = null;
-      this.ws = new Sockette('ws://localhost:8012/ws', {
+      this.ws = new Sockette('ws://'+window.origin.split('//')[1]+'/ws', {
         timeout: 5e3,
         maxAttempts: 10,
         onopen: e => console.log('Connected!', e),
