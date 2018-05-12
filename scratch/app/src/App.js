@@ -15,6 +15,7 @@ class App extends Component {
 
     constructor(props) {
       super(props);
+      this.timeout = null;
       this.ws = new Sockette('ws://localhost:8012/ws', {
         timeout: 5e3,
         maxAttempts: 10,
@@ -75,17 +76,14 @@ class App extends Component {
 
 
 handleOnChange(value) {
-    console.log(value);
-    this.ws.send("hello there");
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout((function(){
+      this.ws.send("hello there");
+      this.ws.send(value);
+    }).bind(this),250);
+  
     this.setState({
       limitfactor: value,
-      ingredients: [
-        {
-          name:"ice",
-          amount: "1 1/2 cup",
-          cost: "",
-        }
-      ]
     })
   }
 
@@ -138,7 +136,7 @@ return (
 <span className="hero-text2">
 Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}
 <div className="slider">
-<Slider max="30" step="0.01" value={this.limitfactor} onChange={this.handleOnChange.bind(this)} />
+<Slider max="30" step="0.01"  onChange={this.handleOnChange.bind(this)} />
 </div>
 </span>
 
