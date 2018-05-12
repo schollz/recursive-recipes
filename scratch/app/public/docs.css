@@ -6548,7 +6548,7 @@ button.hamburger {
     margin-bottom: 1.5rem;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 450px) {
     @supports (display: -ms-grid) or (display: grid) {
         .boxes {
             display: -ms-grid;
