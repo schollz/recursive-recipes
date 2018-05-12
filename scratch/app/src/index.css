@@ -1,28 +1,49 @@
 .slider {
-  padding: 1em;
+    padding: 1em;
 }
 
 .hero-text2 {
-  font-family: inherit;
-font-weight: inherit;
-font-size: 2em;
-color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 2em;
+    color: inherit;
 }
 
 .boxwrapper {
-  padding-bottom: 2em;
+    padding-bottom: 1.5em;
 }
+
 .outsidebox {
-  padding: 2em;
-  border-color: #eee9dc;
-  /*border-radius: 0.5em;*/
-  border-width: 1px;
-  border-style: solid;
+    padding: 2em;
+    border-color: #eee9dc;
+    border-radius: 0.5em;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .timelimit {
-display: flex;
-flex-flow: row-reverse; 
-align-items: center;
-justify-content: flex-end; width:25%; padding-left: 1em;
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
+    padding-left: 1em;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+}
+
+.pr1 {
+	padding-right: 3em;
+}
+
+@media (max-width: 400px) {
+    .flex-grid {
+        display: block;
+    }
 }

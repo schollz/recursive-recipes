@@ -193,16 +193,19 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 </div>
 </span>
 
+<div className="flex-grid">
+            <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Before you begin</h2>
             <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>{this.state.totalCost}</strong>.</p>
 
            
 
-            <div className="boxes margin-top-m">
+            <div className="boxes">
                 {listItems}
             </div>
-
+</div>
+<div className="col margin-top-m">
 
             <h2 className="display-title margin-top-xl">Directions</h2>
             <p className="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
@@ -211,6 +214,9 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
               <div className="outsidebox">
                   <h2>Enjoy!</h2>
               </div>
+            </div>
+
+            </div>
             </div>
 
           </div>

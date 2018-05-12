@@ -19,6 +19,17 @@
         border-width: 1px;
         border-style: solid;
     }
+    .flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
+}
     </style>
 </head>
 
@@ -68,9 +79,12 @@
       <a class="button button-white button-border home-button" href="/docs/demo/">View Demo</a>
       <a class="button button-white button-border home-button" href="https://github.com/turretcss/turretcss">GitHub</a>
     </p> -->
+            	<div class="flex-grid">
+        		<div class="col" style="padding-right:1em;">
+
             <h2 class="display-title margin-top-xl">Before you begin</h2>
             <p class="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>$2.30</strong>.</p>
-            <div class="boxes margin-top-m">
+            <div class="boxes">
                 <div class="box">
                     <h3>
         <span class="small-caps">1 1/2 cup</span>
@@ -103,6 +117,8 @@
         </h3>
                 </div>
             </div>
+        </div>
+        <div class="col">
             <h2 class="display-title margin-top-xl">Directions</h2>
             <p class="lead max-width-xs">Follow these steps to make thsi recipe, which will take about <strong>3 days, 2 hours</strong>.</p>
             <div class="outsidebox">
@@ -122,6 +138,8 @@
         </div>
     </main>
     <div>
+    </div>
+</div>
         <footer class="footer padding-vertical-m border-top background-white color-black">
             <div class="container">
                 <p>
