@@ -69,13 +69,13 @@ class App extends Component {
     console.log(data);
     let result = JSON.parse(data.data);
     console.log(result);
-    this.setState({
-      limitfactor:10,
-    });
+    // this.setState({
+    //   limitfactor:10,
+    // });
   }
 
 
-handleOnChange(value) {
+  handleOnChange(value) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout((function(){
       this.ws.send("hello there");
@@ -136,7 +136,7 @@ return (
 <span className="hero-text2">
 Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}
 <div className="slider">
-<Slider max="30" step="0.01"  onChange={this.handleOnChange.bind(this)} />
+<Slider max="30" step="0.01" value={this.state.limitfactor} onChange={this.handleOnChange.bind(this)} />
 </div>
 </span>
 
