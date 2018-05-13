@@ -50,3 +50,8 @@
     	padding-right: 0em;
     }
 }
+
+.ingredient-box {
+	border-radius: 1em;
+	background-color: white;
+}
