@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import Sockette from 'sockette';
-import { RingLoader } from 'react-spinners';
 import 'rc-slider/assets/index.css';
 import './index.css'
 
