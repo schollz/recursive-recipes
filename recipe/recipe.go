@@ -174,7 +174,12 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 
 	}
 	log.Debug("totalCost", totalCost)
-	payload.TotalCost = FormatCost(totalCost)[1:]
+	payload.TotalCost = FormatCost(totalCost)
+	if len(payload.TotalCost) > 1 {
+		payload.TotalCost = payload.TotalCost[1:]
+	} else {
+		payload.TotalCost = "$0.00"
+	}
 
 	// collect the roots
 	roots := getDagRoots(d, []*Dag{})

@@ -16,7 +16,8 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.timeout = null;
-      this.ws = new Sockette('ws://'+window.origin.split('//')[1]+'/ws', {
+      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
         onopen: e => console.log('Connected!', e),
@@ -30,10 +31,12 @@ class App extends Component {
       
       // // Reconnect 10s later
       // setTimeout(this.ws.reconnect, 10e3);
+      let recipe = window.location.pathname.replace("/recipe/","").replace(/-/g,' ').replace(/\//g,' ').trim();
+      console.log("websocketURL:"+websocketURL);
       this.state = {
-        websocketURL: "ws"+window.origin.substring(4,window.origin.length)+"/ws",
+        websocketURL: websocketURL,
         version: "v0.0.0",
-        recipe: window.location.href.split(window.origin)[1].replace(/-/g,' ').replace(/\//g,' ').trim(),
+        recipe: recipe,
         totalCost: "$2.30",
         totalTime: "3 days, 2 hours",
         limitfactor: 6,

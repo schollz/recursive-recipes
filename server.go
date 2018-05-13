@@ -15,22 +15,21 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(middleWareHandler(), gin.Recovery())
-	router.GET("/*path", func(c *gin.Context) {
-		if c.Request.RequestURI == "/" {
-			c.String(200, "main page")
-		} else if c.Request.RequestURI == "/ws" {
-			wshandler(c)
-		} else {
-			if strings.Contains(c.Request.RequestURI, ".") {
-				c.File("./scratch/app/build" + c.Request.RequestURI)
-			} else {
-				c.File("./scratch/app/build/index.html")
-			}
+	router.GET("/ws/:recipe", wshandler)
+	router.GET("/recipe/:recipe", func(c *gin.Context) {
+		recipeName := c.Param("recipe")
+		log.Println("got recipe", recipeName)
+		if recipeName == "" {
+			// TODO: handle if no recipe, do redirect
 		}
-		log.Print(c.Request.RequestURI)
+		// check if recipe exists
+		c.File("./scratch/app/build/index.html")
+
 	})
+	router.Static("/asset-manifest.json", "./scratch/app/build/asset-manifest.json")
+	router.Static("/service-worker.js", "./scratch/app/build/service-worker.js")
 	// router.Static("/a", "./scratch/app/build/")
-	// router.Static("/static", "./scratch/app/build/static")
+	router.Static("/static", "./scratch/app/build/static")
 	log.Println("running on ", ":8012")
 	router.Run(":" + "8012")
 }
@@ -42,6 +41,13 @@ var upgrader = websocket.Upgrader{
 } // use default options
 
 func wshandler(cg *gin.Context) {
+	recipeToGet := strings.Replace(cg.Param("recipe"), "-", " ", -1)
+	if recipeToGet == "" {
+		cg.String(404, "")
+		return
+	}
+	log.Println(recipeToGet)
+
 	var w http.ResponseWriter = cg.Writer
 	var r *http.Request = cg.Request
 
@@ -56,9 +62,10 @@ func wshandler(cg *gin.Context) {
 	// a := "chocolate"
 	// bPayload, _ := json.Marshal(a)
 	// err = c.WriteMessage(1, bPayload)
-	serverPayload, err := recipe.GetRecipe("chocolate chip cookies", 1, make(map[string]struct{}))
+	serverPayload, err := recipe.GetRecipe(recipeToGet, 1, make(map[string]struct{}))
 	if err != nil {
 		log.Println(err)
+		return
 	}
 	serverPayloadBytes, _ := json.Marshal(serverPayload)
 	log.Println(string(serverPayloadBytes))
