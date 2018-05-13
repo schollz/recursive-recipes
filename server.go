@@ -16,6 +16,9 @@ func main() {
 	router := gin.Default()
 	router.Use(middleWareHandler(), gin.Recovery())
 	router.GET("/ws/:recipe", wshandler)
+	router.GET("/", func(c *gin.Context) {
+		c.File("./scratch/main.html")
+	})
 	router.GET("/recipe/:recipe", func(c *gin.Context) {
 		recipeName := c.Param("recipe")
 		log.Println("got recipe", recipeName)

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import Sockette from 'sockette';
-// We can just import Slider or Range to reduce bundle size
-// import Slider from 'rc-slider/lib/Slider';
-// import Range from 'rc-slider/lib/Range';
 import 'rc-slider/assets/index.css';
 import './index.css'
 
@@ -168,7 +165,7 @@ class App extends Component {
 return (
       <div className="App">
       
-        <header className="padding-top-xs text-center color-white background-primary">
+        <header className="padding-top-xs text-center color-white backgroundblue">
             <div className="container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-book-open">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
@@ -179,7 +176,7 @@ return (
                 
             </div>
         </header>
-        <main className="padding-vertical-xl color-white background-primary">
+        <main className="padding-vertical-xl color-white backgroundblue">
 
         <div className="container">
             <h2 className="hero-text">
