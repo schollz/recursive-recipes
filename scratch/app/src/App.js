@@ -30,11 +30,10 @@ class App extends Component {
       
       // // Reconnect 10s later
       // setTimeout(this.ws.reconnect, 10e3);
-      
       this.state = {
-        websocketURL: "ws://localhost:8080/ws",
+        websocketURL: "ws"+window.origin.substring(4,window.origin.length)+"/ws",
         version: "v0.0.0",
-        recipe: "Chocolate Chip Cookies",
+        recipe: window.location.href.split(window.origin)[1].replace(/-/g,' ').replace(/\//g,' ').trim(),
         totalCost: "$2.30",
         totalTime: "3 days, 2 hours",
         limitfactor: 6,

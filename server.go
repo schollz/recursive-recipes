@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
@@ -14,9 +15,22 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(middleWareHandler(), gin.Recovery())
-	router.GET("/ws", wshandler)
-	router.Static("/a", "./scratch/app/build/")
-	router.Static("/static", "./scratch/app/build/static")
+	router.GET("/*path", func(c *gin.Context) {
+		if c.Request.RequestURI == "/" {
+			c.String(200, "main page")
+		} else if c.Request.RequestURI == "/ws" {
+			wshandler(c)
+		} else {
+			if strings.Contains(c.Request.RequestURI, ".") {
+				c.File("./scratch/app/build" + c.Request.RequestURI)
+			} else {
+				c.File("./scratch/app/build/index.html")
+			}
+		}
+		log.Print(c.Request.RequestURI)
+	})
+	// router.Static("/a", "./scratch/app/build/")
+	// router.Static("/static", "./scratch/app/build/static")
 	log.Println("running on ", ":8012")
 	router.Run(":" + "8012")
 }
