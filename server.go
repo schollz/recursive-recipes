@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"html/template"
 	"log"
 	"net/http"
 	"strings"
@@ -11,23 +12,57 @@ import (
 	"github.com/schollz/recursive-recipes/recipe"
 )
 
+const version = "v0.1.0"
+
+var finishedRecipes = []string{
+	"refried beans",
+	"chocolate chip cookies",
+	"pancakes",
+	"yogurt",
+	"eggs benedict",
+	"english muffin",
+	"tortilla",
+	"noodles",
+	"cheese",
+}
+
+var finishedRecipesMap map[string]struct{}
+
+func init() {
+	finishedRecipesMap = make(map[string]struct{})
+	for _, r := range finishedRecipes {
+		finishedRecipesMap[r] = struct{}{}
+	}
+}
+
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(middleWareHandler(), gin.Recovery())
+	router.SetFuncMap(template.FuncMap{
+		"slugify": slugify,
+		"totitle": totitle,
+	})
+	router.LoadHTMLGlob("templates/*")
 	router.GET("/ws/:recipe", wshandler)
 	router.GET("/", func(c *gin.Context) {
-		c.File("./scratch/main.html")
+		c.HTML(http.StatusOK, "main.html", gin.H{
+			"Version": version,
+			"Recipes": finishedRecipes,
+		})
 	})
 	router.GET("/recipe/:recipe", func(c *gin.Context) {
-		recipeName := c.Param("recipe")
+		recipeName := unslugify(c.Param("recipe"))
 		log.Println("got recipe", recipeName)
-		if recipeName == "" {
-			// TODO: handle if no recipe, do redirect
+		_, ok := finishedRecipesMap[recipeName]
+		if recipeName == "" || !ok {
+			c.HTML(http.StatusOK, "main.html", gin.H{
+				"Version": version,
+				"Recipes": finishedRecipes,
+			})
+			return
 		}
-		// check if recipe exists
 		c.File("./scratch/app/build/index.html")
-
 	})
 	router.Static("/asset-manifest.json", "./scratch/app/build/asset-manifest.json")
 	router.Static("/service-worker.js", "./scratch/app/build/service-worker.js")
@@ -35,6 +70,18 @@ func main() {
 	router.Static("/static", "./scratch/app/build/static")
 	log.Println("running on ", ":8012")
 	router.Run(":" + "8012")
+}
+
+func slugify(s string) string {
+	return strings.ToLower(strings.Join(strings.Split(strings.TrimSpace(s), " "), "-"))
+}
+
+func totitle(s string) string {
+	return strings.Title(s)
+}
+
+func unslugify(s string) string {
+	return strings.TrimSpace(strings.ToLower(strings.Join(strings.Split(s, "-"), " ")))
 }
 
 var upgrader = websocket.Upgrader{
@@ -70,6 +117,7 @@ func wshandler(cg *gin.Context) {
 		log.Println(err)
 		return
 	}
+	serverPayload.Version = version
 	serverPayloadBytes, _ := json.Marshal(serverPayload)
 	log.Println(string(serverPayloadBytes))
 	err = c.WriteMessage(1, serverPayloadBytes)
@@ -92,6 +140,7 @@ func wshandler(cg *gin.Context) {
 			log.Println(err)
 			continue
 		}
+		serverPayload.Version = version
 		serverPayloadBytes, _ := json.Marshal(serverPayload)
 		log.Println(string(serverPayloadBytes))
 		err = c.WriteMessage(mt, serverPayloadBytes)

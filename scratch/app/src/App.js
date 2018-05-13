@@ -171,7 +171,7 @@ return (
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                 </svg>
-                <h1 className="display-title">Recursive Cookbook</h1>
+                <h1 className="display-title"><a href="/" className="nounderline">Recursive Cookbook</a></h1>
                 <p className="no-margin"><strong>{this.state.version}</strong></p>
                 
             </div>
@@ -220,7 +220,19 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 
           </div>
         </main>
-
+    <footer className="footer padding-vertical-m border-top backgroundblue color-white">
+        <div className="container">
+            <p>
+                Designed and built by <a href="https://twitter.com/yakczar">yakczar</a> at <a href="https://schollz.github.io">schollz.github.io</a>.
+            </p>
+            <nav>
+                {this.state.version} &middot;
+                <a href="https://twitter.com/yakczar">Twitter</a> &middot;
+                <a href="https://github.com/schollz">GitHub</a> &middot;
+                <a href="https://github.com/schollz/recursive-recipes/issues">Issues</a>
+            </nav>
+        </div>
+    </footer>
       </div>
     );
   }
