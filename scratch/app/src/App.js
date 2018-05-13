@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import Sockette from 'sockette';
+import { RingLoader } from 'react-spinners';
 import 'rc-slider/assets/index.css';
 import './index.css'
 
@@ -31,36 +32,40 @@ class App extends Component {
       let recipe = window.location.pathname.replace("/recipe/","").replace(/-/g,' ').replace(/\//g,' ').trim();
       console.log("websocketURL:"+websocketURL);
       this.state = {
+        loading: true,
         websocketURL: websocketURL,
-        version: "v0.0.0",
+        // version: "v0.0.0",
+        // totalCost: "$2.30",
+        // totalTime: "3 days, 2 hours",
+        version: "",
+        totalCost: "",
+        totalTime: "",
         recipe: recipe,
-        totalCost: "$2.30",
-        totalTime: "3 days, 2 hours",
-        limitfactor: 6,
+        limitfactor: 0,
         ingredientsToBuild: {},
         ingredients: [
-          {
-            amount: "1 1/2 cup",
-            name: "Flour",
-            cost: "$1.00",
-            scratchTime: "+2 hours",
-            scratchCost: "-$1.00",
-          },
-          {
-            amount: "1 cup",
-            name: "Chocolate Chips",
-            cost: "$1.34",
-            scratchTime: "+1 hours",
-            scratchCost: "-$0.30",
-          }
+        //   {
+        //     amount: "1 1/2 cup",
+        //     name: "Flour",
+        //     cost: "$1.00",
+        //     scratchTime: "+2 hours",
+        //     scratchCost: "-$1.00",
+        //   },
+        //   {
+        //     amount: "1 cup",
+        //     name: "Chocolate Chips",
+        //     cost: "$1.34",
+        //     scratchTime: "+1 hours",
+        //     scratchCost: "-$0.30",
+        //   }
 
         ],
         directions: [
-          {
-            name:'Milk',
-            texts: ['Milk the cow.','Make milk'],
-            totalTime: "1 day",
-        },
+        //   {
+        //     name:'Milk',
+        //     texts: ['Milk the cow.','Make milk'],
+        //     totalTime: "1 day",
+        // },
         ]
       };
     }
@@ -71,6 +76,7 @@ class App extends Component {
     let result = JSON.parse(data.data);
     console.log(result.ingredients);
     this.setState({
+      loading:false,
       version: result.version,
       ingredients: result.ingredients,
       directions: result.directions,
@@ -177,7 +183,7 @@ return (
             </div>
         </header>
         <main className="padding-vertical-xl color-white backgroundblue">
-
+{this.state.version != '' ? (
         <div className="container">
             <h2 className="hero-text">
     <span>{this.state.recipe}</span>
@@ -219,6 +225,12 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             </div>
 
           </div>
+) : (
+<div style={{height:'60vh',margin:'auto',textAlign:'center'}}>
+<img src="/static/loader.svg" />
+</div>
+
+)}
         </main>
     <footer className="footer padding-vertical-m border-top backgroundblue color-white">
         <div className="container">

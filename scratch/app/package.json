@@ -9,6 +9,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
+    "react-spinners": "^0.3.2",
     "sockette": "^2.0.0"
   },
   "scripts": {

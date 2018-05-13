@@ -811,11 +811,6 @@ Flatten each dough section and cook on a hot pan for 1 minute on each side.
 		amount = 0.25
 
 	[[reaction.reactant]]
-		name="lard"
-		measure = "cup"
-		amount = 0.0625
-
-	[[reaction.reactant]]
 		name="salt"
 		measure = "cup"
 		amount = 0.0104167
@@ -938,7 +933,7 @@ Bake at 375F for 10 to 14 minutes, until firm and brown.
 		amount = 5.0
 
 	[[reaction.reactant]]
-		name="oatmeal"
+		name="oats"
 		measure = "cup"
 		amount = 5.0
 
@@ -1091,7 +1086,7 @@ Historical harvest methods involved cutting with a scythe or sickle, and threshi
 """
 
 	[[reaction.product]]
-		name="oatmeal"
+		name="oats"
 		measure = "cup"
 		amount = 0.41
 		price = 0.12
@@ -1535,6 +1530,7 @@ Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
 
 [[reaction]]
 s_hours = 5.0
+p_hours = 2.0
 directions = """
 Wash olives with water to remove dirt, and get rid of leaves and twigs attached to the fruits.
 Obtain a paste of olives using a millstone (generally used for large-scale manufacturing) or any mechanical means of pressing. There is no need to remove the pits from the fruits before pressing.

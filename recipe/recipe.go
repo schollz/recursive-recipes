@@ -157,12 +157,11 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 	payload.Ingredients = make([]UpdateAppIngredients, len(ingredientsToBuy))
 	totalCost := 0.0
 	for i, ing := range ingredientsToBuy {
-		log.Debug("-", ing.Name, ing.Amount, ing.Price)
+		log.Debug("ingredientsToBuy", ing.Name, ing.Amount, ing.Price)
 		totalCost += ing.Price
 		payload.Ingredients[i].Name = ing.Name
 		payload.Ingredients[i].Amount = FormatMeasure(ing.Amount, ing.Measure)
 		payload.Ingredients[i].Cost = fmt.Sprintf("$%2.2f", ing.Price)
-		log.Info(scratchReplacement(reactions, "milk", 1))
 		priceDifference, timeDifference, errScratch := scratchReplacement(reactions, ing.Name, ing.Amount)
 		if errScratch != nil {
 			log.Warn(errScratch)
@@ -171,14 +170,13 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 		log.Info(ing.Name, priceDifference, timeDifference)
 		payload.Ingredients[i].ScratchCost = FormatCost(priceDifference)
 		payload.Ingredients[i].ScratchTime = FormatDuration(timeDifference)
-
 	}
 	log.Debug("totalCost", totalCost)
 	payload.TotalCost = FormatCost(totalCost)
 	if len(payload.TotalCost) > 1 {
 		payload.TotalCost = payload.TotalCost[1:]
 	} else {
-		payload.TotalCost = "$0.00"
+		payload.TotalCost = "$0"
 	}
 
 	// collect the roots
@@ -279,11 +277,12 @@ func scratchReplacement(reactions map[string]Reaction, ing string, amount float6
 
 	priceToBuild := 0.0
 	for _, child := range reactions[ing].Reactant {
-		log.Info(child.Name)
 		if _, ok := reactions[child.Name]; !ok {
 			continue
 		}
-		priceToBuild += reactions[child.Name].Product[0].Price * scaling
+		childScaling := child.Amount / reactions[child.Name].Product[0].Amount
+		priceToBuild += reactions[child.Name].Product[0].Price * scaling * childScaling
+		log.Info("scratchReplacement", child.Name, reactions[child.Name].Product[0].Price*scaling)
 	}
 	log.Info(ing, amount, priceToBuy, timeToBuild, priceToBuild)
 	priceDifference = priceToBuild - priceToBuy

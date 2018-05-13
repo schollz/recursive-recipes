@@ -66,6 +66,8 @@ func FormatCost(cost float64) (s string) {
 		s = fmt.Sprintf("-$%2.2f", math.Abs(cost))
 	} else if cost > 0 {
 		s = fmt.Sprintf("+$%2.2f", math.Abs(cost))
+	} else {
+		s = "$0"
 	}
 	return
 }
