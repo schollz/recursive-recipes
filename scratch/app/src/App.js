@@ -13,8 +13,11 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.timeout = null;
-      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
-      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      // PRODUCTION
+      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+
+      // DEBUG
+      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
