@@ -76,6 +76,8 @@ type Dag struct {
 type UpdateApp struct {
 	Version     string                 `json:"version"`
 	Recipe      string                 `json:"recipe"`
+	Amount      float64                `json:"amount"`
+	Measure     string                 `json:"measure"`
 	TotalCost   string                 `json:"totalCost"`
 	TotalTime   string                 `json:"totalTime"`
 	Ingredients []UpdateAppIngredients `json:"ingredients"`
@@ -97,12 +99,14 @@ type UpdateAppDirections struct {
 }
 
 type RequestFromApp struct {
+	Amount             float64             `json:"amount"`
+	Measure            string              `json:"measure"`
 	Recipe             string              `json:"recipe"`
 	IngredientsToBuild map[string]struct{} `json:"ingredientsToBuild"`
 	MinutesToBuild     float64             `json:"minutes"`
 }
 
-func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]struct{}) (payload UpdateApp, err error) {
+func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredientsToInclude map[string]struct{}) (payload UpdateApp, err error) {
 	payload.Version = "v0.0.0"
 	payload.Recipe = recipe
 
@@ -133,12 +137,18 @@ func GetRecipe(recipe string, hours float64, ingredientsToInclude map[string]str
 	d := new(Dag)
 	recipeToGet := reactions[recipe].Product[0]
 	log.Debug(reactions[recipe].Product[0])
-	recursivelyAddRecipe(Element{
+	recipeToBuildFrom := Element{
 		Name:    recipeToGet.Name,
-		Amount:  recipeToGet.Amount * 1,
+		Amount:  amountSpecified,
 		Measure: recipeToGet.Measure,
 		Price:   recipeToGet.Price,
-	}, d, reactions)
+	}
+	if recipeToBuildFrom.Amount == 0 {
+		recipeToBuildFrom.Amount = recipeToGet.Amount
+	}
+	recursivelyAddRecipe(recipeToBuildFrom, d, reactions)
+	payload.Amount = recipeToBuildFrom.Amount
+	payload.Measure = recipeToBuildFrom.Measure
 
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
 	log.Info("totalTime", totalTime, FormatDuration(totalTime))

@@ -13,7 +13,8 @@ class App extends Component {
     constructor(props) {
       super(props);
       this.timeout = null;
-      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -39,6 +40,8 @@ class App extends Component {
         version: "",
         totalCost: "",
         totalTime: "",
+        amount: 0.0,
+        measure: "",
         recipe: recipe,
         limitfactor: 0,
         ingredientsToBuild: {},
@@ -76,11 +79,14 @@ class App extends Component {
     console.log(result.ingredients);
     this.setState({
       loading:false,
+      recipe: result.recipe,
       version: result.version,
       ingredients: result.ingredients,
       directions: result.directions,
       totalCost: result.totalCost,
       totalTime: result.totalTime,
+      amount: result.amount,
+      measure: result.measure,
     })
     // this.setState({
     //   limitfactor:10,
@@ -103,6 +109,7 @@ class App extends Component {
       recipe: this.state.recipe.toLowerCase(),
       ingredientsToBuild: this.state.ingredientsToBuild,
       minutes: Math.pow(1.8,this.state.limitfactor),
+      amount: this.state.amount,
     });
     console.log("sending"+payload);
     this.ws.send(payload);
@@ -116,6 +123,17 @@ class App extends Component {
   
     this.setState({
       limitfactor: value,
+    })
+  }
+
+  handleOnChange2(value) {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout((function(){
+      this.requestFromServer();
+    }).bind(this),250);
+  
+    this.setState({
+      amount: value,
     })
   }
 
@@ -189,6 +207,14 @@ return (
     <small>{this.state.totalCost} | </small>
     <small>{this.state.totalTime}</small>
     </h2>
+
+<span className="hero-text2">
+Amount: {this.state.amount} {this.state.measure}
+<div className="slider">
+<Slider max="100" step="1" value={this.state.amount} onChange={this.handleOnChange2.bind(this)} />
+</div>
+</span>
+
 
 <span className="hero-text2">
 Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}

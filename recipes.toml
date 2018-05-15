@@ -76,7 +76,6 @@ One apple is aobut $0.50
 [1 acre ~ 350 trees and provides ~400 bushels](http://fruit.cfans.umn.edu/apples/beforeyoustart) so 1 tree requires ~ 0.003 acres.
 """
 
-
 [[reaction]]
 updated = "2018-05-07T15:04:05Z"
 p_hours = 2892.0
@@ -107,6 +106,40 @@ Dry beans will be ready for harvest 70 to 120 after sowing when plants have matu
 One bean plant needs about 9 square feet.
 """
 
+[[reaction]]
+p_hours=35040.0
+s_hours=1.0
+directions="""
+Vanilla grows best in warm temperatures, preferably in the 70’s to 90’s. Cooler temperatures will slow down the growth. Keep temperatures above 60˙F for the most part. Vanilla orchids benefit from regular applications of fertilizer.  
+Vanilla bean plants are climbing plants that need support. Gently push your support stake into the pot, near the base of the vine. Be careful not to nick the vine or get too close to the main roots. If your vine is large, you can use multiple stakes or a lattice frame made for climbing plants.
+Vanilla bean plants do best in environments with regular warm temperatures, bright indirect sunlight, and high humidity. While a greenhouse is the perfect place to grow a vanilla bean plant, you can also create that type of environment at home.
+Vanilla bean plants need to be pollinated in order to produce vanilla bean pods. You can hand pollinate vanilla plant flowers, however, it can be extremely difficult and may take several tries.
+
+To pollinate a vanilla bean plant you'll need to remove some pollen (with a toothpick) from the anther of a flower and place it on the stigma. This process is best completed mid-morning. The stigma of a vanilla bean plant is covered by a shield. You'll need to gently peel this shield back, place the pollen along the column, and then push the shield back in place.
+After harvesting, you'll need to sweat and then sun dry/cure the vanilla bean pods for about a month until they are dark brown and leathery. Sweating involves wrapping the vanilla beans in a blanket for 36-48 hours. The beans will start to develop a light brown color. After the sweating process, sun dry the vanilla beans for up to a month. When the vanilla beans turn dark brown and leathery, you are ready to store and use.
+
+"""
+notes = """
+https://www.doityourself.com/stry/how-to-plant-and-grow-vanilla-beans
+"""
+
+	[[reaction.product]]
+		name="vanilla beans"
+		measure="whole"
+		amount=75.0
+		notes = """
+[1 vine has about 50-100 vanilla beans](https://en.wikipedia.org/wiki/Vanilla)
+
+[One acre should produce about 2400-2500 vines](http://www.agrifarming.in/vanilla-cultivation/)
+"""
+
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 0.00040816326
+		notes = """
+One bean plant needs about 1/2450 acre
+"""
 
 [[reaction]]
 updated = "2018-05-07T15:04:05Z"
@@ -678,10 +711,13 @@ Remove muffins to a cooling rack.
 		amount = 0.125
 
 [[reaction]]
-p_hours = 2920.0
 s_hours = 1.0
 directions = """
-
+Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
+Set the sieve over a large bowl and sift the flour. After a couple minutes, you will see the germ and bran remaining in the sieve and the endosperm in the bowl. Place the germ/bran into a separate small bowl.
+Repeat with the remaining freshly ground flour until it has all been sifted.
+Repeat the sifting process again, but this time use the flour that has already been sifted. You will again see the germ/bran separate in the sieve. Place the germ/bran into a separate small bowl and repeat the sifting process until all the freshly ground flour has been sifted twice.
+Store the flour and germ/bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the germ/bran in the refrigerator or freezer for up to 2 months. Keep the wheat middlings that are not sifted for making semolina flour.
 """
 
 	[[reaction.product]]
@@ -702,6 +738,39 @@ directions = """
 """
 
 	[[reaction.reactant]]
+		name="wheat berries"
+		measure = "cup"
+		amount = 0.16
+
+
+[[reaction]]
+p_hours = 2920.0
+s_hours = 4.0
+directions ="""
+Plant winter wheat in fall to allow for six to eight weeks of growth before the soil freezes. This allows time for good root development. If the wheat is planted too early, it may smother itself the following spring and it could be vulnerable to some late-summer insects that won't be an issue in the cooler fall weather. If winter wheat is planted too late, it will not overwinter well.
+Spring wheat should be planted as early as the ground can be worked in spring. Do the initial plowing in the fall, then till and sow in the spring. To ensure an evenly distributed crop, figure out the amount of seed you'll need, divide it into two piles, and broadcast one part in one direction, such as from east to west. Then broadcast the remainder from north to south. A cyclone crank seeder will do an even job, but broadcasting by hand is fine for a small plot. You also can plant it in rows like other crops.
+Cover the seed by rototilling or raking it in to a depth of 2 to 2 1/2 inches for winter wheat and 1 to 1 1/2 inches for spring wheat. For best results, roll or otherwise firm the bed to ensure good seed-soil contact.
+
+Go out to your wheatfield and wait for stalks to turn from green to yellow or brown. The heads, heavy with grain, should tip toward the earth. This means it's time to test the grain. Choose a head, pick out a few grains, and pop them into your mouth. If they are soft and doughy, the grain is not yet ready. Keep testing. One day the grains will be firm and crunchy, and it will be time to harvest.
+When you are ready to harvest, if you have a small enough plot, you can just snip the heads of wheat off the stems. It goes quickly if your wheat field is no larger than about 6 feet wide by 25 feet long. If you like the old-time way of doing things and are going to harvest a larger amount of grain, you might use a scythe and cradle. 
+The next step is to bind the grain into sheaves, each about 12 to 14 inches in circumference a bunch you can hold comfortably in your hands. Bind the same day you cut the wheat. It's nice to have two people taking turns cutting and binding. You can bind with cord or baler's twine or even with some of the wheat stems, twisting them in a way that holds the bundle firm.
+Stack the wheat sheaves upright in a well-ventilated, dry location safe from grain-eating animals. Our ancestors stacked sheaves to make shocks in the field, but with small quantities, it's easy to bring the sheaves in out of the weather. The grain has been cured when it is hard, shatters easily, and cannot be dented with your thumbnail.
+
+Take your cured wheat and thresh the grain to separate the straw and chaff from it. You can go about this in any number of ways. One method is flailing. A flail consists of one piece of wood about 3 feet long the handle attached with a leather thong to a shorter piece about 2 feet long. The shorter piece is flung at the heads of grain repeatedly, shattering a few heads each time. If you are using this method, you can expect to produce about 3 pounds of wheat in 20 to 25 minutes. That's slow work. Also, there's a trick to learning to swing the tail without rapping yourself on the head.
+Now you can winnow. The usual method for winnowing is pouring the grain from one container to another, letting either the wind or the breeze from an electric fan push the lighter chaff out of the grain. Repeat the process a few times to get the grain as chaff-free as possible until you have as many wheat berries as you need.
+"""
+
+	[[reaction.product]]
+		name="wheat berries"
+		measure = "cup"
+		amount = 0.2293
+		price = 0.321
+		notes = """
+~0.01$ / gram https://www.amazon.com/Bobs-Red-Mill-Organic-Berries/dp/B0052OMMWI/ref=pd_lpo_vtph_325_lp_t_3?_encoding=UTF8&psc=1&refRID=T2W4JA8NKTB4X3TBGC3Z&dpID=51F7-TT5HgL&preST=_SY300_QL70_&dpSrc=detail
+~140 gram in a cup
+"""
+
+	[[reaction.reactant]]
 		name="soil"
 		measure = "acre"
 		amount = 0.00002295684
@@ -710,10 +779,10 @@ directions = """
 """
 
 [[reaction]]
-p_hours = 2920.0
 s_hours = 1.0
 directions = """
-
+Grind 1 cup of whole grain berries on the finest setting of your grain mill. If you don't have a grain mill, you can grind your own flour using an inexpensive coffee grinder and food processor.
+Store the whole wheat flour and wheat bran in separate containers. The flour will stay fresh in the pantry for up to one week, or you can refrigerate/freeze for up to 2 months. Store the wheat in the refrigerator or freezer for up to 2 months.
 """
 
 	[[reaction.product]]
@@ -735,12 +804,9 @@ directions = """
 """
 
 	[[reaction.reactant]]
-		name="soil"
-		measure = "acre"
-		amount = 0.00002295684
-		notes = """
-1 square foot of wheat
-"""
+		name="wheat berries"
+		measure = "cup"
+		amount = 0.2293
 
 [[reaction]]
 p_hours = 2920.0
@@ -942,7 +1008,10 @@ Bake at 375F for 10 to 14 minutes, until firm and brown.
 		measure = "cup"
 		amount = 3.0
 
-
+	[[reaction.reactant]]
+		name="vanilla"
+		measure = "cup"
+		amount = 0.0104167
 
 [[reaction]]
 p_hours = 48.0
