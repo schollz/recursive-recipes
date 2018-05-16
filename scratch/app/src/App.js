@@ -14,10 +14,10 @@ class App extends Component {
       super(props);
       this.timeout = null;
       // PRODUCTION
-      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
 
       // DEBUG
-      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -186,8 +186,22 @@ class App extends Component {
       {ing.scratchCost !== '' &&
       <p>{ing.scratchCost}, {ing.scratchTime} to make {ing.name.toLowerCase()} from scratch.</p>
       }
-    </div>
-  );
+	    </div>
+	  );
+
+  	function ListIngredientsToBuild(props) {
+		const numIngredientsToBuild = Object.keys(props.ingredientsToBuild).length;
+		if (numIngredientsToBuild == 0) {
+			return <div></div>
+		}
+		const ingredientList = Object.keys(props.ingredientsToBuild).map((ing) => 
+			<div>{ing}</div>
+		);
+		return <div>
+		Ingredients: {ingredientList}
+		</div>
+  	}
+
 return (
       <div className="App">
       
@@ -211,6 +225,9 @@ return (
     <small>{this.state.totalTime}</small>
     </h2>
 
+<div className="flex-grid">
+<div className="col">
+
 <span className="hero-text2">
 Amount: {this.state.amount} {this.state.measure}
 <div className="slider">
@@ -218,13 +235,19 @@ Amount: {this.state.amount} {this.state.measure}
 </div>
 </span>
 
+</div>
 
+<div className="col">
 <span className="hero-text2">
 Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").format("Y [years], M [months], w [weeks], d [days], h [hrs], m [min]")}
 <div className="slider">
 <Slider max="30" step="0.01" value={this.state.limitfactor} onChange={this.handleOnChange.bind(this)} />
 </div>
 </span>
+</div>
+</div>
+
+<ListIngredientsToBuild ingredientsToBuild={this.state.ingredientsToBuild}/>
 
 <div className="flex-grid">
             <div className="col pr1 margin-top-m">
