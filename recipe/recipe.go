@@ -126,8 +126,22 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 			if _, ok := reactions[product.Name]; ok {
 				log.Debugf("uh oh, already have %s", product.Name)
 			} else {
-				reactions[product.Name] = reaction
-				reactions[product.Name].Product[0] = product
+				reactions[product.Name] = Reaction{
+					Directions:    reaction.Directions,
+					LastUpdated:   reaction.LastUpdated,
+					Notes:         reaction.Notes,
+					ParallelHours: reaction.ParallelHours,
+					SerialHours:   reaction.SerialHours,
+					Reactant:      reaction.Reactant,
+					Product: []Element{{
+						Name:    product.Name,
+						Amount:  product.Amount,
+						Measure: product.Measure,
+						Notes:   product.Notes,
+						Price:   product.Price,
+					}},
+				}
+
 			}
 		}
 	}
@@ -190,6 +204,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	}
 
 	// collect the roots
+	log.Debug("collect the roots")
 	roots := getDagRoots(d, []*Dag{})
 	rootMap := make(map[string]*Dag)
 	for _, root := range roots {
@@ -205,6 +220,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 
 	// DETERMINE THE BEST ORDERING
 	// find ingredients to build that don't depend on any ingredients to build
+	log.Debug("determine the best ordering")
 	ingredientsToBuildMap := make(map[string]struct{})
 	for _, ing := range ingredientsToBuild {
 		ingredientsToBuildMap[ing.Name] = struct{}{}
@@ -238,7 +254,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 		}
 
 		// find the one that takes the longest
-		longestTime := 0.0
+		longestTime := -1.0
 		currentThing := ""
 		for ing := range thingsThatCanBeBuiltNow {
 			timeTaken := rootMap[ing].SerialHours + rootMap[ing].ParallelHours
@@ -248,6 +264,9 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 			}
 		}
 
+		// log.Debug("thingsThatCanBeBuiltNow", thingsThatCanBeBuiltNow)
+		// log.Debug("ingredientsToBuildMap", ingredientsToBuildMap)
+		// log.Debug("currentThing", currentThing)
 		directionsOrder = append(directionsOrder, currentThing)
 		// delete it from things to build, and iterate
 		delete(ingredientsToBuildMap, currentThing)

@@ -889,7 +889,8 @@ Flatten each dough section and cook on a hot pan for 1 minute on each side.
 
 
 [[reaction]]
-time = "50m"
+s_hours = 1.0
+p_hours = 0.25
 directions = """
 In a large bowl stir together 1-3/4 cups of the flour and the salt. Make a well in the center of the flour mixture.
 In a small bowl combine egg yolks and whole egg, the water, and oil. Add the egg mixture to the flour mixture, stirring to combine.

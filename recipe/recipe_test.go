@@ -22,10 +22,25 @@ func TestFormatString(t *testing.T) {
 }
 
 func TestGetRecipe1(t *testing.T) {
-	payload, err := GetRecipe("chocolate chip cookies", 1, make(map[string]struct{}))
+	payload, err := GetRecipe("chocolate chip cookies", 0, 1, make(map[string]struct{}))
 	assert.Nil(t, err)
 	fmt.Printf("%+v\n", payload)
 }
+
+func TestGetRecipe2(t *testing.T) {
+	defer log.Flush()
+	payload, err := GetRecipe("yogurt", 0, 1, make(map[string]struct{}))
+	assert.Nil(t, err)
+	fmt.Printf("%+v\n", payload)
+}
+
+func TestGetRecipe3(t *testing.T) {
+	defer log.Flush()
+	payload, err := GetRecipe("noodles", 0, 1, make(map[string]struct{}))
+	assert.Nil(t, err)
+	fmt.Printf("%+v\n", payload)
+}
+
 func TestPruneByIngredient(t *testing.T) {
 	defer log.Flush()
 	err := SetLogLevel("info")

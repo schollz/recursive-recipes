@@ -14,10 +14,10 @@ class App extends Component {
       super(props);
       this.timeout = null;
       // PRODUCTION
-      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
 
       // DEBUG
-      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -35,6 +35,18 @@ class App extends Component {
       let recipe = window.location.pathname.replace("/recipe/","").replace(/-/g,' ').replace(/\//g,' ').trim();
       console.log("websocketURL:"+websocketURL);
       this.state = {
+      	stepsEnabled: true,
+      initialStep: 0,
+      steps: [
+        {
+          element: '.firstStep',
+          intro: 'Change the amount to make.',
+        },
+        {
+          element: '.second-step',
+          intro: 'Hello step',
+        },
+      ],
         loading: true,
         websocketURL: websocketURL,
         // version: "v0.0.0",
@@ -153,6 +165,18 @@ handleClick2 = (data,e) => {
     })
   }
 
+  componentDidMount() {
+    this.setState({ isTourActive: true });
+  }
+
+
+  joyrideCallback(data) {
+  	console.log(data);
+  }
+
+  onExit = () => {
+    this.setState(() => ({ stepsEnabled: false }));
+  };
 
   render() {
     String.prototype.toTitleCase = function(){
@@ -216,14 +240,14 @@ handleClick2 = (data,e) => {
 
     return (
       <div className="App">
-      
+
         <header className="padding-top-xs text-center color-white backgroundblue">
             <div className="container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-book-open">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                 </svg>
-                <h1 className="display-title"><a href="/" className="nounderline">Recursive Cookbook</a></h1>
+                <h1 className="display-title"><a href="/" className="nounderline">Recursive Recipes</a></h1>
                 <p className="no-margin"><strong>{this.state.version}</strong></p>
                 
             </div>
@@ -241,7 +265,7 @@ handleClick2 = (data,e) => {
 <div className="col">
 
 <span className="hero-text2">
-Amount: {this.state.amount} {this.state.measure}
+<span className="firstStep">Amount:</span> {this.state.amount} {this.state.measure}
 <div className="slider">
 <Slider max="100" step="1" value={this.state.amount} onChange={this.handleOnChange2.bind(this)} />
 </div>
@@ -266,7 +290,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Before you begin</h2>
-            <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong>{this.state.totalCost}</strong>.</p>
+            <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>.</p>
 
            
 

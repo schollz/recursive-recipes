@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "intro.js": "^2.9.3",
+    "intro.js-react": "^0.2.0",
     "moment": "^2.22.1",
     "moment-duration-format": "^2.2.2",
     "rc-slider": "^8.6.1",
