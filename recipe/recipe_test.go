@@ -82,4 +82,7 @@ func TestPruneByIngredient(t *testing.T) {
 	// ingredientsToMake["oatmeal"] = struct{}{}
 	log.Info(pruneTreeByTimeAndIngredients(d, 0, 100, ingredientsToMake))
 	log.Info(printDag(d))
+
+	getGraphviz(d)
+
 }

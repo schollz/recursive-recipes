@@ -1,9 +1,15 @@
 package recipe
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"os"
+	"os/exec"
+	"path"
+	"sort"
 	"strings"
 	"time"
 
@@ -74,6 +80,7 @@ type Dag struct {
 }
 
 type UpdateApp struct {
+	Graph       string                 `json:"graph"`
 	Version     string                 `json:"version"`
 	Recipe      string                 `json:"recipe"`
 	Amount      float64                `json:"amount"`
@@ -163,6 +170,13 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	recursivelyAddRecipe(recipeToBuildFrom, d, reactions)
 	payload.Amount = recipeToBuildFrom.Amount
 	payload.Measure = recipeToBuildFrom.Measure
+
+	// get graphviz for full graph
+	payload.Graph, err = getGraphviz(d)
+	if err != nil {
+		log.Error(err)
+		return
+	}
 
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
 	log.Info("totalTime", totalTime, FormatDuration(totalTime))
@@ -288,6 +302,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	}
 
 	log.Info(scratchReplacement(reactions, "milk", 1))
+
 	return
 }
 
@@ -384,6 +399,15 @@ func printDagRecursively(d *Dag, in int) string {
 		s += printDagRecursively(child, in+1)
 	}
 	return s
+}
+
+func generateDagGraphviz(d *Dag, dots map[string]struct{}) map[string]struct{} {
+	dots[fmt.Sprintf(`"%s" [color="white", fontcolor="white"];`, d.Product.Name)] = struct{}{}
+	for _, child := range d.Children {
+		dots[fmt.Sprintf(`"%s" -> "%s" [style="filled", color="white"];`, child.Product.Name, d.Product.Name)] = struct{}{}
+		dots = generateDagGraphviz(child, dots)
+	}
+	return dots
 }
 
 func pathExists(fromNode *Dag, toNode *Dag) bool {
@@ -528,4 +552,53 @@ func SetLogLevel(level string) (err error) {
 	}
 	log.ReplaceLogger(logger)
 	return
+}
+
+func getGraphviz(d *Dag) (graphvizFileName string, err error) {
+	dotsMap := generateDagGraphviz(d, make(map[string]struct{}))
+	dots := make([]string, len(dotsMap))
+	i := 0
+	for key := range dotsMap {
+		dots[i] = key
+		i++
+	}
+	sort.Strings(dots)
+	log.Info(dots)
+	graphvizData := fmt.Sprintf(`digraph G {
+color="#FFFFFF"
+bgcolor="#357EDD00" # RGBA (with alpha)
+
+%s
+}`, strings.Join(dots, "\n"))
+	os.MkdirAll("graphviz", 0644)
+	graphvizFileName = path.Join("graphviz", GetMD5Hash(graphvizData)+".png")
+	if _, err = os.Stat(graphvizFileName); err == nil {
+		log.Infof("already generated %s", graphvizFileName)
+		return
+	}
+	log.Info(graphvizData, graphvizFileName)
+
+	content := []byte(graphvizData)
+	tmpfile, err := ioutil.TempFile("", "example")
+	if err != nil {
+		return
+	}
+
+	defer os.Remove(tmpfile.Name()) // clean up
+
+	if _, err = tmpfile.Write(content); err != nil {
+		return
+	}
+	if err = tmpfile.Close(); err != nil {
+		return
+	}
+	cmd := exec.Command("dot", "-Tpng", tmpfile.Name(), "-o"+graphvizFileName)
+	_, err = cmd.CombinedOutput()
+	return
+}
+
+func GetMD5Hash(text string) string {
+	hasher := md5.New()
+	hasher.Write([]byte(text))
+	return hex.EncodeToString(hasher.Sum(nil))
 }

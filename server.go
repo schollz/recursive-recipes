@@ -68,6 +68,7 @@ func main() {
 	router.Static("/service-worker.js", "./scratch/app/build/service-worker.js")
 	// router.Static("/a", "./scratch/app/build/")
 	router.Static("/static", "./scratch/app/build/static")
+	router.Static("/graphviz", "./graphviz")
 	log.Println("running on ", ":8012")
 	router.Run(":" + "8012")
 }

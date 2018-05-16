@@ -14,10 +14,10 @@ class App extends Component {
       super(props);
       this.timeout = null;
       // PRODUCTION
-      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
 
       // DEBUG
-      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -59,6 +59,7 @@ class App extends Component {
         measure: "",
         recipe: recipe,
         limitfactor: 0,
+        graph: "",
         ingredientsToBuild: {},
         ingredients: [
         //   {
@@ -94,6 +95,7 @@ class App extends Component {
     console.log(result.ingredients);
     this.setState({
       loading:false,
+      graph: "/"+result.graph,
       recipe: result.recipe,
       version: result.version,
       ingredients: result.ingredients,
@@ -297,6 +299,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <div className="boxes">
                 {listItems}
             </div>
+
 </div>
 <div className="col margin-top-m">
 
@@ -312,7 +315,11 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             </div>
             </div>
 
+            <h2 className="display-title margin-top-xl">Network diagram</h2>
+            <img src={this.state.graph} style={{paddingTop:'1em'}} />
+
           </div>
+
 ) : (
 <div style={{height:'60vh',margin:'auto',textAlign:'center'}}>
 <img src="/static/loader.svg" />
