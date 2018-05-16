@@ -290,7 +290,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Before you begin</h2>
-            <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>.</p>
+            <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
 
            
 
@@ -329,7 +329,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
                 {this.state.version} &middot;
                 <a href="https://twitter.com/yakczar">Twitter</a> &middot;
                 <a href="https://github.com/schollz">GitHub</a> &middot;
-                <a href="https://github.com/schollz/recursive-recipes/issues">Issues</a>
+                <a href="https://github.com/schollz/recursive-recipes/issues">Comments</a>
             </nav>
         </div>
     </footer>
