@@ -107,6 +107,19 @@ class App extends Component {
     this.requestFromServer();
 }
 
+
+
+handleClick2 = (data,e) => {
+  e.preventDefault();
+  console.log(data);
+  delete(this.state.ingredientsToBuild[(""+data).toLowerCase()]);
+  console.log(this.state.ingredientsToBuild);
+  this.setState({
+    ingredientsToBuild: this.state.ingredientsToBuild,
+  });
+  this.requestFromServer();
+}
+
   requestFromServer() {
     let payload = JSON.stringify({
       recipe: this.state.recipe.toLowerCase(),
@@ -189,20 +202,19 @@ class App extends Component {
 	    </div>
 	  );
 
-  	function ListIngredientsToBuild(props) {
-		const numIngredientsToBuild = Object.keys(props.ingredientsToBuild).length;
-		if (numIngredientsToBuild == 0) {
-			return <div></div>
-		}
-		const ingredientList = Object.keys(props.ingredientsToBuild).map((ing) => 
-			<div>{ing}</div>
-		);
-		return <div>
-		Ingredients: {ingredientList}
-		</div>
-  	}
+    const numIngredientsToBuild = Object.keys(this.state.ingredientsToBuild).length;
+    let ListIngredientsToBuildSpan = <span></span>
+    if (numIngredientsToBuild > 0) {
+      const ingredientList = Object.keys(this.state.ingredientsToBuild).map((ing,i) => 
+        <span>{i !== 0 && <span>,</span> } <a href="#"  onClick={this.handleClick2.bind(this,ing)} className="pr0 nounderline"><em>{ing}</em></a></span>
+      );
+      ListIngredientsToBuildSpan = <div className="hero-text2">
+      Ingredients to make from scratch <small>(click to remove)</small>: {ingredientList}
+      </div>
+    }
 
-return (
+
+    return (
       <div className="App">
       
         <header className="padding-top-xs text-center color-white backgroundblue">
@@ -217,7 +229,7 @@ return (
             </div>
         </header>
         <main className="padding-vertical-xl color-white backgroundblue">
-{this.state.version != '' ? (
+{this.state.version !== '' ? (
         <div className="container">
             <h2 className="hero-text">
     <span>{this.state.recipe}</span>
@@ -247,7 +259,8 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 </div>
 </div>
 
-<ListIngredientsToBuild ingredientsToBuild={this.state.ingredientsToBuild}/>
+{/* <ListIngredientsToBuild ingredientsToBuild={this.state.ingredientsToBuild}/> */}
+{ListIngredientsToBuildSpan}
 
 <div className="flex-grid">
             <div className="col pr1 margin-top-m">
