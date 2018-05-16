@@ -218,7 +218,10 @@ handleClick2 = (data,e) => {
     <span className="small-caps">{ing.amount}{ing.cost !== '' &&
     <span> / {ing.cost}</span> 
       }</span>
-    <span className="display-block"><a href="#" onClick={this.handleClick.bind(this,ing.name)} style={linkStyle}>{ing.name.toTitleCase()}</a>
+    <span className="display-block">
+    {ing.scratchCost == '' ? (ing.name.toTitleCase()) :(
+      <a href="#" onClick={this.handleClick.bind(this,ing.name)} style={linkStyle}>{ing.name.toTitleCase()}</a>
+    )} 
     </span>
     </h3>
     
@@ -291,8 +294,8 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 <div className="flex-grid">
             <div className="col pr1 margin-top-m">
 
-<h2 className="display-title margin-top-xl">Before you begin</h2>
-            <p className="lead max-width-xs">These are the things to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
+<h2 className="display-title margin-top-xl">Ingredients</h2>
+            <p className="lead max-width-xs">These are the ingredients to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
 
            
 
