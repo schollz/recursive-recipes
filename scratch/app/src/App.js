@@ -10,6 +10,13 @@ import './index.css'
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const history = createHistory()
+// Listen for changes to the current location.
+history.listen((location, action) => {
+  console.log(
+    `The current URL is ${location.pathname}${location.search}${location.hash}`
+  )
+  console.log(`The last navigation action was ${action}`)
+})
 
 class App extends Component {
 
@@ -319,9 +326,9 @@ handleClick2 = (data,e) => {
 
             <h2 className="display-title margin-top-xl" style={{paddingTop:"1em"}}>Recipe dependency graph</h2><img src={this.state.graph} style={{paddingTop:'1em'}} />
 
-<h2 className="display-title margin-top-xl" style={{paddingTop:"1em"}}>Settings</h2>
+<h2 className="display-title margin-top-xl">Settings</h2>
 
-<div className="flex-grid" style={{paddingTop:"1em"}}>
+<div className="flex-grid">
 <div className="col">
 
 <span className="hero-text2">
@@ -347,7 +354,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 {/* <ListIngredientsToBuild ingredientsToBuild={this.state.ingredientsToBuild}/> */}
 {ListIngredientsToBuildSpan}
 
-<div className="flex-grid">
+<div className="flex-grid  margin-top-m">
             <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Ingredients</h2>
