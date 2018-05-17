@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Slider from 'rc-slider';
 import Sockette from 'sockette';
+import createHistory from "history/createBrowserHistory"
 // import HoverableBox from './HoverableBox'
 import 'rc-slider/assets/index.css';
 import './index.css'
 
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
-
+const history = createHistory()
+const queryString = require('query-string');
 
 class App extends Component {
 
@@ -22,7 +25,7 @@ class App extends Component {
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
-        onopen: e => console.log('Connected!', e),
+        onopen: e =>  this.requestFromServer(),
         onmessage: e => this.handleData(e),
         onreconnect: e => console.log('Reconnecting...', e),
         onmaximum: e => console.log('Stop Attempting!', e),
@@ -75,7 +78,21 @@ class App extends Component {
         // },
         ]
       };
+      let queries = queryString.parseUrl(window.location.href);
+      if ('amount' in queries.query) {
+        this.state.amount = Number(queries.query.amount);
+      }
+      if ('timelimit' in queries.query) {
+        this.state.limitfactor = Math.round(Math.log10(queries.query.timelimit)/Math.log10(1.8));
+      }
+      console.log(queries);
+      if ('ingredientsToBuild' in queries.query) {
+        queries.query.ingredientsToBuild.split(",").forEach(function(e) {
+          this.state.ingredientsToBuild[e] = {};
+        }.bind(this));
+      }
     }
+
 
 
   handleData(data) {
@@ -263,12 +280,9 @@ handleClick2 = (data,e) => {
     }
 
 
+    history.push(window.location.pathname + "?amount="+this.state.amount + "&timelimit=" + Math.round(Math.pow(1.8,this.state.limitfactor)) + "&ingredientsToBuild="+Object.keys(this.state.ingredientsToBuild).join(","));
     return (
       <div className="App">
-
-        <p>
-        aslkdfjasldf
-        </p>
 
         <header className="padding-top-xs text-center color-white backgroundblue">
             <div className="container">

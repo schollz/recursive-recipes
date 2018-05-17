@@ -113,15 +113,15 @@ func wshandler(cg *gin.Context) {
 	// a := "chocolate"
 	// bPayload, _ := json.Marshal(a)
 	// err = c.WriteMessage(1, bPayload)
-	serverPayload, err := recipe.GetRecipe(recipeToGet, 0, 1, make(map[string]struct{}))
-	if err != nil {
-		log.Println(err)
-		return
-	}
-	serverPayload.Version = version
-	serverPayloadBytes, _ := json.Marshal(serverPayload)
-	log.Println(string(serverPayloadBytes))
-	err = c.WriteMessage(1, serverPayloadBytes)
+	// serverPayload, err := recipe.GetRecipe(recipeToGet, 0, 1, make(map[string]struct{}))
+	// if err != nil {
+	// 	log.Println(err)
+	// 	return
+	// }
+	// serverPayload.Version = version
+	// serverPayloadBytes, _ := json.Marshal(serverPayload)
+	// log.Println(string(serverPayloadBytes))
+	// err = c.WriteMessage(1, serverPayloadBytes)
 	for {
 		mt, message, err := c.ReadMessage()
 		if err != nil {
