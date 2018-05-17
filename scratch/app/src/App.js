@@ -10,12 +10,12 @@ import './index.css'
 var moment = require("moment");
 var momentDurationFormatSetup = require("moment-duration-format");
 const history = createHistory()
-const queryString = require('query-string');
 
 class App extends Component {
 
     constructor(props) {
       super(props);
+
       this.timeout = null;
       // PRODUCTION
       let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
@@ -78,16 +78,16 @@ class App extends Component {
         // },
         ]
       };
-      let queries = queryString.parseUrl(window.location.href);
-      if ('amount' in queries.query) {
-        this.state.amount = Number(queries.query.amount);
+      let urlParams = new URLSearchParams(window.location.search);
+      
+      if (urlParams.get('amount') != null) {
+        this.state.amount = Number(urlParams.get('amount'));
       }
-      if ('timelimit' in queries.query) {
-        this.state.limitfactor = Math.round(Math.log10(queries.query.timelimit)/Math.log10(1.8));
+      if (urlParams.get('timelimit') != null) {
+        this.state.limitfactor = Math.round(Math.log10(urlParams.get('timelimit'))/Math.log10(1.8));
       }
-      console.log(queries);
-      if ('ingredientsToBuild' in queries.query) {
-        queries.query.ingredientsToBuild.split(",").forEach(function(e) {
+      if (urlParams.get('ingredientsToBuild') != null) {
+        urlParams.get('ingredientsToBuild').split(",").forEach(function(e) {
           this.state.ingredientsToBuild[e] = {};
         }.bind(this));
       }

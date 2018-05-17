@@ -8,7 +8,6 @@
     "intro.js-react": "^0.2.0",
     "moment": "^2.22.1",
     "moment-duration-format": "^2.2.2",
-    "query-string": "^6.1.0",
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -20,5 +19,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {}
 }
