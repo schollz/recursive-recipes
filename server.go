@@ -69,8 +69,8 @@ func main() {
 	// router.Static("/a", "./scratch/app/build/")
 	router.Static("/static", "./scratch/app/build/static")
 	router.Static("/graphviz", "./graphviz")
-	log.Println("running on ", ":8012")
-	router.Run(":" + "8012")
+	log.Println("running on ", ":8031")
+	router.Run(":" + "8031")
 }
 
 func slugify(s string) string {
