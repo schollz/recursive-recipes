@@ -1485,7 +1485,7 @@ Makes about 1/2 cup of salt.
 """
 
 	[[reaction.reactant]]
-		name="water"
+		name="seawater"
 		measure = "cup"
 		amount = 16.0
 

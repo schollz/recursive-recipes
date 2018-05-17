@@ -85,6 +85,9 @@ func FormatDuration(hours float64) (s string) {
 	if len(s) > 0 {
 		s = s[:len(s)-1]
 	}
+	if len(s) == 0 {
+		s = "no time"
+	}
 	return
 }
 
