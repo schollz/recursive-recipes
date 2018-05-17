@@ -80,15 +80,16 @@ type Dag struct {
 }
 
 type UpdateApp struct {
-	Graph       string                 `json:"graph"`
-	Version     string                 `json:"version"`
-	Recipe      string                 `json:"recipe"`
-	Amount      float64                `json:"amount"`
-	Measure     string                 `json:"measure"`
-	TotalCost   string                 `json:"totalCost"`
-	TotalTime   string                 `json:"totalTime"`
-	Ingredients []UpdateAppIngredients `json:"ingredients"`
-	Directions  []UpdateAppDirections  `json:"directions"`
+	MinutesToBuild float64                `json:"minutes"`
+	Graph          string                 `json:"graph"`
+	Version        string                 `json:"version"`
+	Recipe         string                 `json:"recipe"`
+	Amount         float64                `json:"amount"`
+	Measure        string                 `json:"measure"`
+	TotalCost      string                 `json:"totalCost"`
+	TotalTime      string                 `json:"totalTime"`
+	Ingredients    []UpdateAppIngredients `json:"ingredients"`
+	Directions     []UpdateAppDirections  `json:"directions"`
 }
 
 type UpdateAppIngredients struct {
@@ -181,6 +182,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
 	log.Info("totalTime", totalTime, FormatDuration(totalTime))
 	payload.TotalTime = FormatDuration(totalTime)
+	payload.MinutesToBuild = totalTime * 60
 	if payload.TotalTime == "" {
 		payload.TotalTime = "No time"
 	}

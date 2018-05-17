@@ -63,9 +63,9 @@ func FormatMeasure(amount float64, measure string) (s string) {
 
 func FormatCost(cost float64) (s string) {
 	if cost < 0 {
-		s = fmt.Sprintf("-$%2.2f", math.Abs(cost))
+		s = fmt.Sprintf("Save $%2.2f", math.Abs(cost))
 	} else if cost > 0 {
-		s = fmt.Sprintf("+$%2.2f", math.Abs(cost))
+		s = fmt.Sprintf("Lose $%2.2f", math.Abs(cost))
 	} else {
 		s = "$0"
 	}

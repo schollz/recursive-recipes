@@ -14,10 +14,10 @@ class App extends Component {
       super(props);
       this.timeout = null;
       // PRODUCTION
-      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
 
       // DEBUG
-      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -35,18 +35,6 @@ class App extends Component {
       let recipe = window.location.pathname.replace("/recipe/","").replace(/-/g,' ').replace(/\//g,' ').trim();
       console.log("websocketURL:"+websocketURL);
       this.state = {
-      	stepsEnabled: true,
-      initialStep: 0,
-      steps: [
-        {
-          element: '.firstStep',
-          intro: 'Change the amount to make.',
-        },
-        {
-          element: '.second-step',
-          intro: 'Hello step',
-        },
-      ],
         loading: true,
         websocketURL: websocketURL,
         // version: "v0.0.0",
@@ -93,8 +81,12 @@ class App extends Component {
     console.log(data);
     let result = JSON.parse(data.data);
     console.log(result.ingredients);
+    console.log(result.minutes);
+    let limitfactor =Math.log10(result.minutes)/Math.log10(1.8);
+    console.log(limitfactor);
     this.setState({
       loading:false,
+      limitfactor: limitfactor,
       graph: "/"+result.graph,
       recipe: result.recipe,
       version: result.version,
@@ -167,18 +159,6 @@ handleClick2 = (data,e) => {
     })
   }
 
-  componentDidMount() {
-    this.setState({ isTourActive: true });
-  }
-
-
-  joyrideCallback(data) {
-  	console.log(data);
-  }
-
-  onExit = () => {
-    this.setState(() => ({ stepsEnabled: false }));
-  };
 
   render() {
     String.prototype.toTitleCase = function(){
@@ -202,31 +182,42 @@ handleClick2 = (data,e) => {
     const linkStyle = {
       textDecoration:'none',
     }
-    const listDirections = this.state.directions.map((direction) =>
-    <div className="boxwrapper">
-      <div className="outsidebox">
-          <h2>Make the {direction.name} ({direction.totalTime})</h2>
-           <ol>
-             {direction.texts.map((text) => <li>{text}</li> )}
-          </ol>
+  var listDirections;
+    if (this.state.directions.length == 0) {
+      listDirections =  <div className="outsidebox">
+      <h2>Make the {this.state.recipe}</h2>
+      <ol>
+        <li>Go and buy it.</li>
+        </ol>
+  </div>
+
+    } else {
+      listDirections = this.state.directions.map((direction) =>
+      <div className="boxwrapper">
+        <div className="outsidebox">
+            <h2>Make the {direction.name} ({direction.totalTime})</h2>
+             <ol>
+               {direction.texts.map((text) => <li>{text}</li> )}
+            </ol>
+        </div>
       </div>
-    </div>
-  );
+      );
+    }
     const listItems = this.state.ingredients.map((ing) =>
-    <div className="box">
+    <div className={"box " + (ing.scratchCost !== '' ? 'clickable' : '')} onClick={this.handleClick.bind(this,ing.name)}>
     <h3>
     <span className="small-caps">{ing.amount}{ing.cost !== '' &&
     <span> / {ing.cost}</span> 
       }</span>
     <span className="display-block">
     {ing.scratchCost == '' ? (ing.name.toTitleCase()) :(
-      <a href="#" onClick={this.handleClick.bind(this,ing.name)} style={linkStyle}>{ing.name.toTitleCase()}</a>
+      <span>{ing.name.toTitleCase()}</span>
     )} 
     </span>
     </h3>
     
       {ing.scratchCost !== '' &&
-      <p>{ing.scratchCost}, {ing.scratchTime} to make {ing.name.toLowerCase()} from scratch.</p>
+      <p>{ing.scratchCost} by making {ing.name.toLowerCase()} from scratch in {ing.scratchTime}.</p>
       }
 	    </div>
 	  );
@@ -262,7 +253,7 @@ handleClick2 = (data,e) => {
         <div className="container">
             <h2 className="hero-text">
     <span>{this.state.recipe}</span>
-    <small>{this.state.totalCost} | </small>
+    <small>{this.state.totalCost.split(" ")[1]} | </small>
     <small>{this.state.totalTime}</small>
     </h2>
 
@@ -309,16 +300,11 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <h2 className="display-title margin-top-xl">Directions</h2>
             <p className="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
             {listDirections}
-            <div>
-              <div className="outsidebox">
-                  <h2>Enjoy!</h2>
-              </div>
-            </div>
 
             </div>
             </div>
 
-            <h2 className="display-title margin-top-xl">Network diagram</h2>
+            <h2 className="display-title margin-top-xl">Recipe dependency graph</h2>
             <img src={this.state.graph} style={{paddingTop:'1em'}} />
 
           </div>

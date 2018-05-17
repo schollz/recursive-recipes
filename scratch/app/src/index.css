@@ -2,6 +2,11 @@
     padding: 1em;
 }
 
+.clickable:hover{
+    background:#195de6; /* make this whatever you want */
+    cursor: pointer;
+}
+
 .hero-text2 {
     font-family: inherit;
     font-weight: inherit;
