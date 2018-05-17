@@ -88,7 +88,9 @@ class App extends Component {
       }
       if (urlParams.get('ingredientsToBuild') != null) {
         urlParams.get('ingredientsToBuild').split(",").forEach(function(e) {
-          this.state.ingredientsToBuild[e] = {};
+          if (e.trim().length != 0) {
+            this.state.ingredientsToBuild[e] = {};
+          }
         }.bind(this));
       }
     }
@@ -104,7 +106,7 @@ class App extends Component {
     console.log(limitfactor);
     this.setState({
       loading:false,
-      limitfactor: limitfactor,
+      // limitfactor: limitfactor,
       graph: "/"+result.graph,
       recipe: result.recipe,
       version: result.version,
@@ -122,6 +124,12 @@ class App extends Component {
 
   handleClick = (data,e) => {
     e.preventDefault();
+        clearTimeout(this.timeout);
+    this.timeout = setTimeout((function(){
+      this.requestFromServer();
+    }).bind(this),250);
+
+
     console.log(data);
     this.state.ingredientsToBuild[(""+data).toLowerCase()] = {};
     console.log(this.state.ingredientsToBuild);
@@ -135,6 +143,11 @@ class App extends Component {
 
 handleClick2 = (data,e) => {
   e.preventDefault();
+      clearTimeout(this.timeout);
+    this.timeout = setTimeout((function(){
+      this.requestFromServer();
+    }).bind(this),250);
+
   console.log(data);
   delete(this.state.ingredientsToBuild[(""+data).toLowerCase()]);
   console.log(this.state.ingredientsToBuild);
@@ -304,7 +317,11 @@ handleClick2 = (data,e) => {
     <small>{this.state.totalTime}</small>
     </h2>
 
-<div className="flex-grid">
+            <h2 className="display-title margin-top-xl" style={{paddingTop:"1em"}}>Recipe dependency graph</h2><img src={this.state.graph} style={{paddingTop:'1em'}} />
+
+<h2 className="display-title margin-top-xl" style={{paddingTop:"1em"}}>Settings</h2>
+
+<div className="flex-grid" style={{paddingTop:"1em"}}>
 <div className="col">
 
 <span className="hero-text2">
@@ -326,6 +343,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
 </div>
 </div>
 
+
 {/* <ListIngredientsToBuild ingredientsToBuild={this.state.ingredientsToBuild}/> */}
 {ListIngredientsToBuildSpan}
 
@@ -341,18 +359,20 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
                 {listItems}
             </div>
 
+
 </div>
 <div className="col margin-top-m">
 
             <h2 className="display-title margin-top-xl">Directions</h2>
             <p className="lead max-width-xs">Follow these steps to make this recipe, which will take about <strong>{this.state.totalTime}</strong>.</p>
+
+                        
+
             {listDirections}
 
             </div>
             </div>
 
-            <h2 className="display-title margin-top-xl">Recipe dependency graph</h2>
-            <img src={this.state.graph} style={{paddingTop:'1em'}} />
 
           </div>
 

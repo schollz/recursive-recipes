@@ -172,19 +172,19 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	payload.Amount = recipeToBuildFrom.Amount
 	payload.Measure = recipeToBuildFrom.Measure
 
-	// get graphviz for full graph
-	payload.Graph, err = getGraphviz(d)
-	if err != nil {
-		log.Error(err)
-		return
-	}
-
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
 	log.Info("totalTime", totalTime, FormatDuration(totalTime))
 	payload.TotalTime = FormatDuration(totalTime)
 	payload.MinutesToBuild = totalTime * 60
 	if payload.TotalTime == "" {
 		payload.TotalTime = "No time"
+	}
+
+	// get graphviz for full graph
+	payload.Graph, err = getGraphviz(d)
+	if err != nil {
+		log.Error(err)
+		return
 	}
 
 	// parse tree for ingredients to build and the ingredients to buy
