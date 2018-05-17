@@ -358,7 +358,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Ingredients</h2>
-            <p className="lead max-width-xs">These are the ingredients to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
+            <p className="lead max-width-xs">These are the ingredients to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost.trim().split(' ')[1]}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
 
            
 

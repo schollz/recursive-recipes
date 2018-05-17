@@ -1390,9 +1390,9 @@ Put the butter in a bowl and work it and let the buttermilk drain off. Add some 
 		name="butter"
 		measure = "cup"
 		amount = 2.0
-		price = 13.12
+		price = 3.99
 		notes = """
-[7 oz of butter is 5.74](https://www.walmart.com/ip/President-Imported-SALTED-Butter-7oz-199g/140960274)
+[4 sticks of butter ~ 2 cups is $3.99](https://www.amazon.com/Tillamook-Salted-Butter-Quarters-Sticks/dp/B000R47USO/ref=sr_1_1_s_f_it?s=grocery&ie=UTF8&qid=1526582214&sr=1-1&ppw=fresh&keywords=4+sticks+butter&dpID=41lAyYWdBiL&preST=_SX300_QL70_&dpSrc=srch)
 """
 
 	[[reaction.product]]

@@ -110,7 +110,8 @@
                 <span>Recipes are</span>
                 <span>ingredients.</span>
             </h2>
-            <p class="lead max-width-xs">A recursive recipe is one where ingredients in the recipe can be replaced by another recipe. The more ingredients you replace, the more that the recipe is made truly <em>from scratch</em>.</p><p class="lead max-width-xs"><strong>Select a recipe below to get started.</strong> Don't see your favorite recipe? <a href="https://github.com/schollz/recursive-recipes/issues/new?template=recipe-missing.md">Request it</a> and it can be added!</p>
+            <p class="lead max-width-s">A recursive recipe is one where ingredients in the recipe can be replaced by another recipe. The more ingredients you replace, the more that the recipe is made truly <em>from scratch</em>.</p>
+            <p class="lead max-width-s"><strong>Select a recipe below to get started.</strong> Don't see your favorite recipe? <a href="https://github.com/schollz/recursive-recipes/issues/new?template=recipe-missing.md">Request it</a> and it can be added!</p>
             <div class="boxes">
                 {{ range .Recipes }}
                 <div class="box ingredient-box clickable nounderline" onclick="location.href='/recipe/{{ slugify .}}';">
