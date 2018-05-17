@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import Sockette from 'sockette';
+// import HoverableBox from './HoverableBox'
 import 'rc-slider/assets/index.css';
 import './index.css'
 
@@ -14,10 +15,10 @@ class App extends Component {
       super(props);
       this.timeout = null;
       // PRODUCTION
-      let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
+      // let websocketURL ="ws"+window.origin.substring(4,window.origin.length)+window.location.pathname.replace("/recipe/","/ws/");
 
       // DEBUG
-      // let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
+      let websocketURL = "ws://127.0.0.1:8012/ws/chocolate-chip-cookies";
       this.ws = new Sockette(websocketURL, {
         timeout: 5e3,
         maxAttempts: 10,
@@ -159,6 +160,36 @@ handleClick2 = (data,e) => {
     })
   }
 
+  onBoxMouseover(ing,e) {
+    console.log(ing);
+    var i;
+    for (i=0; i < this.state.ingredients.length; i++) {
+      if (ing.name === this.state.ingredients[i].name) {
+        break;
+      }
+    }
+    console.log(i);
+    this.state.ingredients[i].show = true;
+    this.setState({
+      ingredients: this.state.ingredients,
+    })
+  }
+
+  onBoxMouseOut(ing,e) {
+    console.log(ing);
+    var i;
+    for (i=0; i < this.state.ingredients.length; i++) {
+      if (ing.name === this.state.ingredients[i].name) {
+        break;
+      }
+    }
+    console.log(i);
+    this.state.ingredients[i].show = false;
+    this.setState({
+      ingredients: this.state.ingredients,
+    })
+  }
+
 
   render() {
     String.prototype.toTitleCase = function(){
@@ -179,11 +210,9 @@ handleClick2 = (data,e) => {
         return match.charAt(0).toUpperCase() + match.substr(1);
       });
     };
-    const linkStyle = {
-      textDecoration:'none',
-    }
+
   var listDirections;
-    if (this.state.directions.length == 0) {
+    if (this.state.directions.length === 0) {
       listDirections =  <div className="outsidebox">
       <h2>Make the {this.state.recipe}</h2>
       <ol>
@@ -204,19 +233,19 @@ handleClick2 = (data,e) => {
       );
     }
     const listItems = this.state.ingredients.map((ing) =>
-    <div className={"box " + (ing.scratchCost !== '' ? 'clickable' : '')} onClick={this.handleClick.bind(this,ing.name)}>
+    <div onMouseEnter={this.onBoxMouseover.bind(this,ing)} onMouseLeave={this.onBoxMouseOut.bind(this,ing)} className={"box " + (ing.scratchCost !== '' ? 'clickable' : '')} onClick={this.handleClick.bind(this,ing.name)}>
     <h3>
     <span className="small-caps">{ing.amount}{ing.cost !== '' &&
     <span> / {ing.cost}</span> 
       }</span>
     <span className="display-block">
-    {ing.scratchCost == '' ? (ing.name.toTitleCase()) :(
+    {ing.scratchCost === '' ? (ing.name.toTitleCase()) :(
       <span>{ing.name.toTitleCase()}</span>
     )} 
     </span>
     </h3>
     
-      {ing.scratchCost !== '' &&
+      {ing.scratchCost !== '' && ing.show &&
       <p>{ing.scratchCost} by making {ing.name.toLowerCase()} from scratch in {ing.scratchTime}.</p>
       }
 	    </div>
@@ -236,6 +265,10 @@ handleClick2 = (data,e) => {
 
     return (
       <div className="App">
+
+        <p>
+        aslkdfjasldf
+        </p>
 
         <header className="padding-top-xs text-center color-white backgroundblue">
             <div className="container">

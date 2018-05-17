@@ -18,6 +18,13 @@
     padding-bottom: 1.5em;
 }
 
+.box {
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
 .outsidebox {
     padding: 2em;
     border-color: #eee9dc;
