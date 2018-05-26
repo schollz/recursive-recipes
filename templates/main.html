@@ -156,6 +156,7 @@
                         <!--                 <span class="small-caps">1 hour / $2.40</span>
  -->
                         <span class="display-block">
+                            <a href='/recipe/{{ slugify .}}'></a>
                             {{ totitle .}}
                         </span>
                     </h3>
@@ -171,9 +172,9 @@
                 <a href="https://schollz.github.io">schollz.github.io</a>.
             </p>
             <nav>
-                {{ .Version }} &middot;
-                <a href="https://twitter.com/yakczar">Twitter</a> &middot;
-                <a href="https://github.com/schollz">GitHub</a> &middot;
+                {{ .Version }} &middot;&nbsp;
+                <a href="https://twitter.com/yakczar">Twitter</a> &middot;&nbsp;
+                <a href="https://github.com/schollz/recursive-recipes">GitHub</a> &middot;&nbsp;
                 <a href="https://github.com/schollz/recursive-recipes/issues">Comments</a>
             </nav>
         </div>

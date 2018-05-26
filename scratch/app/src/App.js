@@ -396,9 +396,9 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
                 Designed and built by <a href="https://twitter.com/yakczar">yakczar</a> at <a href="https://schollz.github.io">schollz.github.io</a>.
             </p>
             <nav>
-                {this.state.version} &middot;
-                <a href="https://twitter.com/yakczar">Twitter</a> &middot;
-                <a href="https://github.com/schollz">GitHub</a> &middot;
+                {this.state.version} &middot;&nbsp;
+                <a href="https://twitter.com/yakczar">Twitter</a> &middot;&nbsp;
+                <a href="https://github.com/schollz/recursive-recipes">GitHub</a> &middot;&nbsp;
                 <a href="https://github.com/schollz/recursive-recipes/issues">Comments</a>
             </nav>
         </div>
