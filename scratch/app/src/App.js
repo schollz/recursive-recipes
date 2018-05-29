@@ -178,6 +178,7 @@ handleClick2 = (data,e) => {
   handleOnChange(value) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout((function(){
+      history.push(window.location.pathname + "?amount="+this.state.amount + "&timelimit=" + Math.round(Math.pow(1.8,this.state.limitfactor)) + "&ingredientsToBuild="+Object.keys(this.state.ingredientsToBuild).join(","));
       this.requestFromServer();
     }).bind(this),250);
   
@@ -189,6 +190,7 @@ handleClick2 = (data,e) => {
   handleOnChange2(value) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout((function(){
+      history.push(window.location.pathname + "?amount="+this.state.amount + "&timelimit=" + Math.round(Math.pow(1.8,this.state.limitfactor)) + "&ingredientsToBuild="+Object.keys(this.state.ingredientsToBuild).join(","));
       this.requestFromServer();
     }).bind(this),250);
   
@@ -300,7 +302,6 @@ handleClick2 = (data,e) => {
     }
 
 
-    history.push(window.location.pathname + "?amount="+this.state.amount + "&timelimit=" + Math.round(Math.pow(1.8,this.state.limitfactor)) + "&ingredientsToBuild="+Object.keys(this.state.ingredientsToBuild).join(","));
     return (
       <div className="App">
 
