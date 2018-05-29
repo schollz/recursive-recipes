@@ -1,3 +1,4 @@
-*dag* linguist-vendored
-*scratch* linguist-vendored
-*templates* linguist-vendored
+dag/ linguist-vendored
+scratch/* linguist-vendored
+scratch/app/* linguist-vendored
+templates/ linguist-vendored
