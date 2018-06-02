@@ -1573,7 +1573,7 @@ Cool to room temperature and then wrap and chill until it is firm. Slice to eat.
 """
 
 	[[reaction.product]]
-		name="slices of bacon"
+		name="slice of bacon"
 		measure = "whole"
 		amount = 50.0
 		price = 30.00
