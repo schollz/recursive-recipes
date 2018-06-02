@@ -12,7 +12,7 @@ import (
 	"github.com/schollz/recursive-recipes/recipe"
 )
 
-const version = "v0.1.0"
+const version = "v0.2.0"
 
 var finishedRecipes = []string{
 	"refried beans",
@@ -55,7 +55,7 @@ func main() {
 	})
 	router.GET("/recipe/:recipe", func(c *gin.Context) {
 		recipeName := unslugify(c.Param("recipe"))
-		log.Println("got recipe", recipeName)
+		// log.Println("got recipe", recipeName)
 		_, ok := finishedRecipesMap[recipeName]
 		if recipeName == "" || !ok {
 			c.HTML(http.StatusOK, "main.html", gin.H{
@@ -99,7 +99,7 @@ func wshandler(cg *gin.Context) {
 		cg.String(404, "")
 		return
 	}
-	log.Println(recipeToGet)
+	// log.Println(recipeToGet)
 
 	var w http.ResponseWriter = cg.Writer
 	var r *http.Request = cg.Request
@@ -130,14 +130,14 @@ func wshandler(cg *gin.Context) {
 			log.Println("read:", err)
 			break
 		}
-		log.Printf("recv: %s", message)
+		// log.Printf("recv: %s", message)
 		var clientPayload recipe.RequestFromApp
 		err = json.Unmarshal(message, &clientPayload)
 		if err != nil {
 			log.Println(err)
 			continue
 		}
-		log.Println("clientPayload", clientPayload)
+		// log.Println("clientPayload", clientPayload)
 		if len(clientPayload.IngredientsToBuild) > 0 {
 			clientPayload.IngredientsToBuild[clientPayload.Recipe] = struct{}{}
 		}
@@ -148,7 +148,7 @@ func wshandler(cg *gin.Context) {
 		}
 		serverPayload.Version = version
 		serverPayloadBytes, _ := json.Marshal(serverPayload)
-		log.Println(string(serverPayloadBytes))
+		// log.Println(string(serverPayloadBytes))
 		err = c.WriteMessage(mt, serverPayloadBytes)
 		if err != nil {
 			log.Println("write:", err)
