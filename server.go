@@ -24,6 +24,7 @@ var finishedRecipes = []string{
 	"tortilla",
 	"noodles",
 	"cheese",
+	"vanilla ice cream",
 }
 
 var finishedRecipesMap map[string]struct{}

@@ -1,4 +1,45 @@
 [[reaction]]
+updated = "2018-06-02T15:04:05Z"
+s_hours = 0.75
+p_hours = 3.0
+directions = """
+Freeze an empty freezer-safe shallow bowl or pan. We’re going to use a 13×9-inch pan, but anything stainless steel works well here. Avoid any material that might shatter.
+In a large bowl, stir all the ingredients until the sugar is dissolved.
+Transfer your mixture into the cold pan and stick it back in the freezer for about 20-30 minutes. Around that time, check the ice cream. Once the edges start to freeze, take out the mixture and beat it using a hand mixer. By breaking up the ice cream, you’ll help make it smooth and creamy. You cannot beat the mixture too much.
+Return the pan to the freezer. Every 30 minutes or so, take it back out and beat the ice cream again. Repeat until it is firmly frozen, usually around four or five mixing sessions. Once it’s frozen, the mixture should be smooth and creamy.
+"""
+
+	[[reaction.product]]
+		name="vanilla ice cream"
+		amount = 4.0
+		measure = "cup"
+		price = 4.76
+		notes = """
+[1/2 gallon (8 cups) is about $4.76](https://www.statista.com/statistics/236868/retail-price-of-ice-cream-in-the-united-states/)
+"""
+
+	[[reaction.reactant]]
+		name="cream"
+		amount = 3.0
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="milk"
+		amount = 1.0
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="vanilla"
+		amount = 0.0416667
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="brown sugar"
+		amount = 1.0
+		measure = "cup"
+
+
+[[reaction]]
 updated = "2018-05-07T15:04:05Z"
 p_hours = 730.5
 directions = """
