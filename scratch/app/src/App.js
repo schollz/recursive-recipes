@@ -105,12 +105,12 @@ class App extends Component {
 
 
   handleData(data) {
-    console.log(data);
+    // console.log(data);
     let result = JSON.parse(data.data);
-    console.log(result.ingredients);
-    console.log(result.minutes);
+    // console.log(result.ingredients);
+    // console.log(result.minutes);
     let limitfactor =Math.log10(result.minutes)/Math.log10(1.8);
-    console.log(limitfactor);
+    // console.log(limitfactor);
     this.setState({
       loading:false,
       // limitfactor: limitfactor,
@@ -230,6 +230,10 @@ handleClick2 = (data,e) => {
 
 
   render() {
+    let costName = this.state.totalCost.split(" ")[1]
+    if (this.state.totalCost == 0) {
+      costName = "$0";
+    }
     String.prototype.toTitleCase = function(){
       var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
     
@@ -320,7 +324,7 @@ handleClick2 = (data,e) => {
         <div className="container">
             <h2 className="hero-text">
     <span>{this.state.recipe}</span>
-    <small>{this.state.totalCost.split(" ")[1]} | </small>
+    <small>{costName} | </small>
     <small>{this.state.totalTime}</small>
     </h2>
 
@@ -358,7 +362,7 @@ Time limit:  {moment.duration(Math.pow(1.8,this.state.limitfactor), "minutes").f
             <div className="col pr1 margin-top-m">
 
 <h2 className="display-title margin-top-xl">Ingredients</h2>
-            <p className="lead max-width-xs">These are the ingredients to purchase before you start, which will cost <strong className="second-step">{this.state.totalCost.trim().split(' ')[1]}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
+            <p className="lead max-width-xs">These are the ingredients to purchase before you start, which will cost <strong className="second-step">{costName}</strong>. <em>Click on an ingredient to make it from scratch.</em></p>
 
            
 

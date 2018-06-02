@@ -6595,7 +6595,7 @@ button.hamburger {
 .hero-text {
     margin: .25em 0;
     font-weight: 800;
-    font-size: calc(1rem + 7.5vw);
+    font-size: calc(1rem + 4.5vw);
     line-height: 1;
     text-transform: uppercase;
 }
