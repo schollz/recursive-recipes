@@ -155,10 +155,10 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	}
 
 	// get tree based on recipe and amount
-	log.Debug(reactions[recipe])
+	// log.Debug(reactions[recipe])
 	d := new(Dag)
 	recipeToGet := reactions[recipe].Product[0]
-	log.Debug(reactions[recipe].Product[0])
+	// log.Debug(reactions[recipe].Product[0])
 	recipeToBuildFrom := Element{
 		Name:    recipeToGet.Name,
 		Amount:  amountSpecified,
@@ -173,7 +173,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	payload.Measure = recipeToBuildFrom.Measure
 
 	totalTime := pruneTreeByTimeAndIngredients(d, 0, hours, ingredientsToInclude)
-	log.Info("totalTime", totalTime, FormatDuration(totalTime))
+	// log.Info("totalTime", totalTime, FormatDuration(totalTime))
 	payload.TotalTime = FormatDuration(totalTime)
 	payload.MinutesToBuild = totalTime * 60
 	if payload.TotalTime == "" {
@@ -189,15 +189,15 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 
 	// parse tree for ingredients to build and the ingredients to buy
 	ingredientsToBuild, ingredientsToBuy := getIngredientsToBuild(d, []Element{}, []Element{})
-	log.Debug("\nIngredients to build:")
-	for _, ing := range ingredientsToBuild {
-		log.Debug("-", ing.Name, ing.Amount)
-	}
-	log.Debug("\nIngredients to buy:")
+	// log.Debug("\nIngredients to build:")
+	// for _, ing := range ingredientsToBuild {
+	// 	log.Debug("-", ing.Name, ing.Amount)
+	// }
+	// log.Debug("\nIngredients to buy:")
 	payload.Ingredients = make([]UpdateAppIngredients, len(ingredientsToBuy))
 	totalCost := 0.0
 	for i, ing := range ingredientsToBuy {
-		log.Debug("ingredientsToBuy", ing.Name, ing.Amount, ing.Price)
+		// log.Debug("ingredientsToBuy", ing.Name, ing.Amount, ing.Price)
 		totalCost += ing.Price
 		payload.Ingredients[i].Name = ing.Name
 		payload.Ingredients[i].Amount = FormatMeasure(ing.Amount, ing.Measure)
@@ -211,7 +211,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 		payload.Ingredients[i].ScratchCost = FormatCost(priceDifference)
 		payload.Ingredients[i].ScratchTime = FormatDuration(timeDifference)
 	}
-	log.Debug("totalCost", totalCost)
+	// log.Debug("totalCost", totalCost)
 	payload.TotalCost = FormatCost(totalCost)
 	if len(payload.TotalCost) > 1 {
 		payload.TotalCost = payload.TotalCost[1:]
@@ -220,13 +220,13 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 	}
 
 	// collect the roots
-	log.Debug("collect the roots")
+	// log.Debug("collect the roots")
 	roots := getDagRoots(d, []*Dag{})
 	rootMap := make(map[string]*Dag)
 	for _, root := range roots {
-		if _, ok := rootMap[root.Product.Name]; ok {
-			log.Debug(root.Product.Name)
-		}
+		// if _, ok := rootMap[root.Product.Name]; ok {
+		// 	log.Debug(root.Product.Name)
+		// }
 		rootMap[root.Product.Name] = root
 	}
 
@@ -236,7 +236,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 
 	// DETERMINE THE BEST ORDERING
 	// find ingredients to build that don't depend on any ingredients to build
-	log.Debug("determine the best ordering")
+	// log.Debug("determine the best ordering")
 	ingredientsToBuildMap := make(map[string]struct{})
 	for _, ing := range ingredientsToBuild {
 		ingredientsToBuildMap[ing.Name] = struct{}{}
@@ -287,8 +287,8 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 		// delete it from things to build, and iterate
 		delete(ingredientsToBuildMap, currentThing)
 	}
-	log.Debug(directionsOrder)
-	log.Debug(printDag(d))
+	// log.Debug(directionsOrder)
+	// log.Debug(printDag(d))
 	payload.Directions = make([]UpdateAppDirections, len(directionsOrder))
 	for i, direction := range directionsOrder {
 		payload.Directions[i].Name = direction
@@ -303,7 +303,7 @@ func GetRecipe(recipe string, amountSpecified float64, hours float64, ingredient
 		}
 	}
 
-	log.Info(scratchReplacement(reactions, "milk", 1))
+	// log.Info(scratchReplacement(reactions, "milk", 1))
 
 	return
 }
@@ -328,9 +328,9 @@ func scratchReplacement(reactions map[string]Reaction, ing string, amount float6
 		}
 		childScaling := child.Amount / reactions[child.Name].Product[0].Amount
 		priceToBuild += reactions[child.Name].Product[0].Price * scaling * childScaling
-		log.Info("scratchReplacement", child.Name, reactions[child.Name].Product[0].Price*scaling)
+		// log.Info("scratchReplacement", child.Name, reactions[child.Name].Product[0].Price*scaling)
 	}
-	log.Info(ing, amount, priceToBuy, timeToBuild, priceToBuild)
+	// log.Info(ing, amount, priceToBuy, timeToBuild, priceToBuild)
 	priceDifference = priceToBuild - priceToBuy
 	timeDifference = timeToBuild - 0
 	return
@@ -488,7 +488,7 @@ func recursivelyAddRecipe(recipe Element, d *Dag, reactions map[string]Reaction)
 	if _, ok := reactions[recipe.Name]; ok {
 		// determine the scaling from the baseline reaction
 		scaling := recipe.Amount / reactions[recipe.Name].Product[0].Amount
-		log.Debug("A:", recipe.Name, scaling, recipe.Amount, reactions[recipe.Name].Product[0].Amount)
+		// log.Debug("A:", recipe.Name, scaling, recipe.Amount, reactions[recipe.Name].Product[0].Amount)
 
 		d.Directions = reactions[recipe.Name].Directions
 		d.Notes = reactions[recipe.Name].Notes
@@ -565,7 +565,7 @@ func getGraphviz(d *Dag) (graphvizFileName string, err error) {
 		i++
 	}
 	sort.Strings(dots)
-	log.Info(dots)
+	// log.Info(dots)
 	graphvizData := fmt.Sprintf(`digraph G {
 color="#FFFFFF"
 bgcolor="#357EDD00" # RGBA (with alpha)
@@ -575,10 +575,10 @@ bgcolor="#357EDD00" # RGBA (with alpha)
 	os.MkdirAll("graphviz", 0644)
 	graphvizFileName = path.Join("graphviz", GetMD5Hash(graphvizData)+".png")
 	if _, err = os.Stat(graphvizFileName); err == nil {
-		log.Infof("already generated %s", graphvizFileName)
+		// log.Infof("already generated %s", graphvizFileName)
 		return
 	}
-	log.Info(graphvizData, graphvizFileName)
+	// log.Info(graphvizData, graphvizFileName)
 
 	content := []byte(graphvizData)
 	tmpfile, err := ioutil.TempFile("", "example")
