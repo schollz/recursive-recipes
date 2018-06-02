@@ -1,5 +1,95 @@
 [[reaction]]
 updated = "2018-06-02T15:04:05Z"
+s_hours = 0.5
+p_hours = 1.1
+directions = """
+Preheat oven to 425 degrees F (220 degrees C).
+Melt butter in saucepan over medium heat. Stir in white sugar, brown sugar, salt, cinnamon, and water. Bring the syrup to a boil, stirring constantly to dissolve sugar, then remove from heat.
+Place the apples into the crust. Use extra crust to weave into a lattice crust on the top. Crimp the bottom crust over the lattice strips with your fingers. Spoon caramel sauce over pie, covering lattice portion of top crust; let remaining sauce drizzle through the crust.
+Bake in preheated oven for 15 minutes. Reduce heat to 350 degrees F (175 degrees C), and bake until the crust is golden brown, the caramel on the top crust is set, and the apple filling is bubbling, 35 to 40 more minutes. Allow to cool completely before slicing.
+"""
+
+	[[reaction.product]]
+		name="apple pie"
+		amount = 1.0
+		measure = "whole"
+		price = 3.98
+		notes = """
+[$3.98 for a whole apple pie](https://www.walmart.com/ip/The-Bakery-Apple-Pie-with-Cinnamon-24-oz/25876334)
+"""
+
+	[[reaction.reactant]]
+		name="brown sugar"
+		amount = 0.5
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="salt"
+		amount = 0.02
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="cinnamon"
+		amount = 0.02
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="water"
+		amount = 0.25
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="pie crust"
+		amount = 1.0
+		measure = "whole"
+
+	[[reaction.reactant]]
+		name="apple"
+		amount = 4.0
+		measure = "whole"
+
+[[reaction]]
+updated = "2018-06-02T15:04:05Z"
+s_hours = 0.2
+p_hours = 0.0
+directions = """
+Put flour into a mixing bowl with the butter.
+Using a pastry cutter, cut the butter into the flour and add salt and water.
+Mix until dough is formed.
+"""
+
+	[[reaction.product]]
+		name="pie crust"
+		amount = 1.0
+		measure = "whole"
+		price = 1.24
+		notes = """
+[$2.48 for two pie crusts](https://www.walmart.com/ip/Pillsbury-Pet-Ritz-Deep-Dish-Pie-Crusts-2-Ct-12-oz/10813695)
+"""
+
+	[[reaction.reactant]]
+		name="flour"
+		amount = 2.0
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="salt"
+		amount = 0.02
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="butter"
+		amount = 0.66
+		measure = "cup"
+
+	[[reaction.reactant]]
+		name="water"
+		amount = 0.4375
+		measure = "cup"
+
+
+[[reaction]]
+updated = "2018-06-02T15:04:05Z"
 s_hours = 0.75
 p_hours = 3.0
 directions = """
@@ -1242,7 +1332,7 @@ Cleanliness is vital to the whole process. Once the juice has been heated, impur
 """
 
 	[[reaction.reactant]]
-		name="stalks of sugar cane"
+		name="sugar cane"
 		measure = "whole"
 		amount = 4.0
 
@@ -1698,6 +1788,37 @@ $1.25 / lb * 1 lb / 453.592 g * 142 g / 1 cup = $0.39/cup
 		name="soil"
 		measure = "acre"
 		amount = 0.004
+		notes = """
+[Olive trees planted at about 250 per acre](https://www.oliveoilsource.com/page/olive-tree-spacing)
+"""
+
+[[reaction]]
+p_hours = 10220.0
+directions = """
+Prepare a planting bed, then dig 4-6" deep trenches along it a foot or two apart. Lay your cane segments on their sides and cover them up with soil. In the spring, shoots will appear. 
+Sugar cane is a grass so it likes nitrogen. I've fed mine with chicken manure and that's made them quite happy. Anything you'd use to feed your lawn will also work on cane. Give them lots of water.
+By late fall, if all has gone well, your bed of cane will be tall and thick, like a stand of bamboo. At this point, you'll want to grab a cigar, a Panama hat and a machete. 
+Cut your canes as close to the ground as possible, just don't hack into the dirt too much. The roots beneath are important: they're going to give you next year's harvest. I throw the cut canes into a pile, then when I've cut everything down, I start stripping off the leaves and throwing them over the stumps still in my bed. A bit of extra mulch or straw is a good idea, too - you want to keep the roots safe from the ravages of cold weather.
+"""
+
+	[[reaction.product]]
+		name="sugar cane"
+		measure = "whole"
+		amount = 8000.0
+		price = 760.0
+		notes = """
+
+[1 acre is about 38 tons of cane](https://myfarmlife.com/crop-care/sugar-cane-hard-work-sweet-result/)
+[70 stalks per 10 feet](https://myfarmlife.com/crop-care/sugar-cane-hard-work-sweet-result/)
+[12-25k stems per 2.5 acres](https://www.naija.ng/1124740-how-stems-sugarcane-grown-acre-land.html#1124740)
+[price per ton is about $20 / ton](https://www.statista.com/statistics/191995/price-per-ton-of-sugarcane-in-the-us-by-state/)
+
+"""
+
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 1.0
 		notes = """
 [Olive trees planted at about 250 per acre](https://www.oliveoilsource.com/page/olive-tree-spacing)
 """
