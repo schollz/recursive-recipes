@@ -2,7 +2,7 @@
 
 This is an attempt to visualize the recursive nature of recipes. You can view the time it takes and the cost needed to make different recipes, even when you subtitute the ingredients by recipes themselves.
 
-Try it out at https://recursive.recipes, or run it yourself.
+Try it out at https://recursiverecipes.schollz.com, or run it yourself.
 
 ## Run yourself 
 
