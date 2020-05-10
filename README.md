@@ -8,9 +8,10 @@ Try it out at https://recursiverecipes.schollz.com, or run it yourself.
 
 **Requirements:**
 
-- [ ] Node + Yarn
-- [ ] Go
-- [ ] Graphviz
+```
+$ sudo apt install graphviz 
+$ npm i yarn
+```
 
 **Build:**
 
