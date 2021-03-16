@@ -128,6 +128,112 @@ Return the pan to the freezer. Every 30 minutes or so, take it back out and beat
 		amount = 1.0
 		measure = "cup"
 
+[[reaction]]
+updated = "2021-03-16T15:04:05Z"
+s_hours = 2.0
+p_hours = 192.0
+directions = """
+Scrub 10 pounds of beets to get dirt and debris off of them.
+Thinly slice, dice, or shred the beets and place them in a pot.
+Add enough water to cover the beets, about 2 gallons.
+Heat to a boil and then simmer until they become soft.
+Remove from heat and strain the beet pulp using a cheesecloth.
+Return the syrup to the pot.
+Hold the cheesecloth full of pulp over the pot and squeeze as much water as possible out.
+Simmer until it becomes thick and honey-like, stirring frequently. Then remove from heat.
+Place in a storage container and allow to cool for 24 hours.
+As it cools, sugars will crystalize. Smash the crystals into a powder so that it looks like table sugar.
+"""
+
+	[[reaction.product]]
+		name="sugar"
+		amount = 3.825
+		measure = "tablespoon"
+		price = 0.6426
+		notes = """
+https://sensetosave.com/2007/10/07/the-cost-per-unit-of-baking-items/
+"""
+
+	[[reaction.reactant]]
+		name="sugar beet"
+		measure="whole"
+		amount=40.0
+
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 32.0
+
+
+[[reaction]]
+updated = "2021-03-16T15:04:05Z"
+s_hours = 2.0
+p_hours = 192.0
+directions = """
+Clean jar and rinse with hot water. 
+Put fresh piece of apple into the jar with 1 tsp. of sugar and 2 cups of water.
+Close the jar but don't fasten all the way, so that gas can escape.
+Put jar in a warm place away from sunlight.
+Leave jar for 8 days. Every day you should open the lid for a few minutes to exchange air. Then tighten and shake. Then untighten the lid again.
+Makes the equivalent of 4 tablespoons of yeast.
+"""
+
+
+	[[reaction.product]]
+		name="yeast"
+		amount = 4.0
+		measure = "tablespoon"
+		price = 2.40
+		notes = """
+prices range
+"""
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 2.0
+
+	[[reaction.reactant]]
+		name="sugar"
+		measure = "cup"
+		amount = 0.021
+
+[[reaction]]
+updated = "2021-03-16T15:04:05Z"
+s_hours = 6.0
+p_hours = 240.0
+directions = """
+Get a 6 gallon vessel and put a hole in the lid. Sanitize.
+In a large saucepan add 6 pounds of sugar to 3 gallons of water and bring to a boil. Then let cool to room temperature.
+Add 5 tablespoons of baking yeast and stir to combine.
+Pour into the jug and add an air lock. Store in a dark warm room for 10 days.
+Strain the alcohol through a thin tube into a saucepan. Heat until 122 degrees Fahrenheit to kill remaining yeast.
+Transfer mixture back to jug and using 0.5 grams of isinglass to clarify for 3 days.
+Siphon off the alcohol (approx 40%) into a sterile container.
+"""
+
+	[[reaction.product]]
+		name="alcohol"
+		amount = 16.0
+		measure = "cup"
+		price = 40.0
+		notes = """
+prices range
+"""
+
+	[[reaction.reactant]]
+		name="yeast"
+		measure = "tablespoon"
+		amount = 5.0
+
+	[[reaction.reactant]]
+		name="water"
+		measure = "cup"
+		amount = 48.0
+
+	[[reaction.reactant]]
+		name="sugar"
+		measure = "cup"
+		amount = 12.0
 
 [[reaction]]
 updated = "2018-05-07T15:04:05Z"
