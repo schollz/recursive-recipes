@@ -22,6 +22,7 @@ Bake in preheated oven for 15 minutes. Reduce heat to 350 degrees F (175 degrees
 		name="brown sugar"
 		amount = 0.5
 		measure = "cup"
+		cost = 40.00
 
 	[[reaction.reactant]]
 		name="salt"
@@ -282,6 +283,33 @@ Grind peppercorn in a grinder.
 		name="peppercorn"
 		measure = "cup"
 		amount = 0.125
+
+[[reaction]]
+updated = "2021-05-07T15:04:05Z"
+p_hours = 2280.0
+s_hours = 0.5
+directions = """
+To plant, prepare your seed beds in a sunny location with firmly packed soil. Sow the seed in slightly moist soil at a depth of three-quarters to 1.5 inches. Sugar beets adapt well to a variety of soil types, but you'll want to make sure the soil is well-drained and free of roots and large stones that can inhibit the roots' growth. Sugar beets prefer a soil pH of 6.0 to 6.5. Get your soil tested at a local Extension office and add lime as recommended to bring soil pH up if needed. It's best to apply lime early—at least 30 days before planting. 
+Virginia Tech Extension experts recommend planting seeds 1 inch apart in rows and then thinning the plants when they grow 4 to 6 leaves, spacing the plants 10 to 12 inches apart. Space rows 18 to 24 inches apart.
+Sugar beets usually reach maturity in 90 to 95 days and grow best when daytime temperatures are between 60 and 80 degrees F and nighttime temperatures are between 40 and 50 degrees. Remember that sugar beets stop growing when they run up against a hard freeze, so plan to plant in late spring in northern climates, although you can plant in early spring or even late winter in more southern locales. 
+"""
+
+	[[reaction.product]]
+		name="sugar beet"
+		measure = "whole"
+		amount = 30000.0
+		price = 2710.50
+		notes = """
+One pound of beets is $0.36
+"""
+
+	[[reaction.reactant]]
+		name="soil"
+		measure = "acre"
+		amount = 1.0
+		notes = """
+https://hort.purdue.edu/newcrop/afcm/sugarbeet.html
+"""
 
 [[reaction]]
 updated = "2018-05-07T15:04:05Z"
@@ -1317,6 +1345,18 @@ https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.e
 """
 
 
+
+[[reaction]]
+	[[reaction.product]]
+		name="soil"
+		measure = "acre"
+		amount = 1.0
+		price = 4442.0
+		notes = """
+https://www.acretrader.com/resources/farmland-values/farmland-prices
+"""
+
+
 [[reaction]]
 	[[reaction.product]]
 		name="cocoa powder"
@@ -1326,7 +1366,6 @@ https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.e
 		notes = """
 https://webcache.googleusercontent.com/search?q=cache:ek-xG9vprkUJ:https://www.extension.iastate.edu/sioux/sites/www.extension.iastate.edu/files/sioux/Baking%2520ingredients%2520price%2520list.pdf+&cd=1&hl=en&ct=clnk&gl=us&client=ubuntu
 """
-
 [[reaction]]
 	[[reaction.product]]
 		name="cocoa butter"
