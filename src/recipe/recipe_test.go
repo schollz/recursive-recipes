@@ -1,6 +1,7 @@
 package recipe
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"testing"
@@ -22,23 +23,35 @@ func TestFormatString(t *testing.T) {
 }
 
 func TestGetRecipe1(t *testing.T) {
-	payload, err := GetRecipe("chocolate chip cookies", 0, 1, make(map[string]struct{}))
+	m := make(map[string]struct{})
+	m["sugar"] = struct{}{}
+	m["chocolate chip cookies"] = struct{}{}
+	m["salt"] = struct{}{}
+	m["vanilla"] = struct{}{}
+	m["alcohol"] = struct{}{}
+	payload, err := GetRecipe("chocolate chip cookies", 0, 1, m)
 	assert.Nil(t, err)
-	fmt.Printf("%+v\n", payload)
+	p, _ := json.MarshalIndent(payload, "", " ")
+	fmt.Println(string(p))
 }
 
 func TestGetRecipe2(t *testing.T) {
 	defer log.Flush()
-	payload, err := GetRecipe("yogurt", 0, 1, make(map[string]struct{}))
+	m := make(map[string]struct{})
+	m["apple pie"] = struct{}{}
+
+	payload, err := GetRecipe("apple pie", 0, 1, m)
 	assert.Nil(t, err)
-	fmt.Printf("%+v\n", payload)
+	p, _ := json.MarshalIndent(payload, "", " ")
+	fmt.Println(string(p))
 }
 
 func TestGetRecipe3(t *testing.T) {
 	defer log.Flush()
 	payload, err := GetRecipe("noodles", 0, 1, make(map[string]struct{}))
 	assert.Nil(t, err)
-	fmt.Printf("%+v\n", payload)
+	p, _ := json.MarshalIndent(payload, "", " ")
+	fmt.Println(string(p))
 }
 
 func TestPruneByIngredient(t *testing.T) {

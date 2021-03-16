@@ -578,7 +578,7 @@ bgcolor="#357EDD00" # RGBA (with alpha)
 		// log.Infof("already generated %s", graphvizFileName)
 		return
 	}
-	// log.Info(graphvizData, graphvizFileName)
+	log.Info(graphvizData, graphvizFileName)
 
 	content := []byte(graphvizData)
 	tmpfile, err := ioutil.TempFile("", "example")
@@ -595,7 +595,8 @@ bgcolor="#357EDD00" # RGBA (with alpha)
 		return
 	}
 	cmd := exec.Command("dot", "-Tpng", tmpfile.Name(), "-o"+graphvizFileName)
-	_, err = cmd.CombinedOutput()
+	s, err := cmd.CombinedOutput()
+	fmt.Println(string(s))
 	return
 }
 
